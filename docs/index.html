@@ -145,6 +145,9 @@ pre{margin:8px 0 0;max-height:190px;overflow:auto;background:#0b0d22;border:1px 
 .miss{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:10px}
 .miss>div{border:2px solid var(--edge);border-radius:8px;background:#0e1026;padding:6px 10px;min-width:0}
 .miss h4{margin:0 0 4px;padding-bottom:4px;border-bottom:1px solid var(--gold);letter-spacing:.12em;font-size:.95rem;display:flex}.miss h4 span{margin-left:auto;color:var(--gold)}
+.miss li{display:flex;gap:6px;align-items:flex-start}.miss li span{flex:1;min-width:0}
+.get{flex:none;background:var(--blue);border:0;border-radius:5px;color:#fff;font-weight:800;padding:0 7px;line-height:1.4}.get:hover{background:#fff;color:#16183a}
+.getall{display:block;width:100%;margin:0 0 5px;background:#0b0d22;border:1px solid var(--blue);border-radius:6px;color:var(--sky);padding:2px 6px;letter-spacing:.06em}.getall:hover{background:var(--blue);color:#fff}
 .miss ul{list-style:none;margin:0;padding:0;max-height:220px;overflow-y:auto;scrollbar-color:var(--edge) transparent}.miss li{padding:1px 0;color:#c8ccf0}
 footer{max-width:980px;margin:14px auto 0;color:var(--dim);font-size:.85rem;text-align:center}
 footer a{color:var(--yellow)}
@@ -226,8 +229,9 @@ en:{title:"USB / SD SETUP",
  r_sure_d:"The disc content matches the official list: certain.",r_guess_d:"Only the title matches: check before ticking.",
  r_nothing:"Nothing to rename.",r_done:(a,b)=>`${a} renamed, ${b} with error`,r_exists:"a file with that name already exists",
  r_slow:"Reading whole discs can take a few minutes on a slow card.",
- k_check:"Check the card",s_check:"CHECK THE CARD",c_note:"What is on your card right now. Nothing is changed.",c_sum:"Summary",c_games:"Games",c_boot:"Menu (boot.iso)",c_cfg:"Menu options",c_fw:"Firmware update file",
+ k_check:"Check the card",s_check:"CHECK THE CARD",c_note:"What is on your card right now. Nothing changes unless you click to copy.",c_sum:"Summary",c_games:"Games",c_boot:"Menu (boot.iso)",c_cfg:"Menu options",c_fw:"Firmware update file",
  c_txt:"Games with texts",c_miss:"Missing on the card",c_extra:"Media without a game (left over)",c_ok:"Nothing missing and nothing left over.",c_dl:"Download the report",c_of:(a,b)=>`${a} of ${b}`,
+ c_have:"We have it: copy",c_all:n=>`Copy all (${n})`,c_copying:"Copying",c_legend:"The arrow marks what our library has: click to copy it now.",
  w_note:"Keep this tab open until it finishes.",reading:"Reading the list of available files…",
  l_boot:"Menu",l_cov:"Covers",l_shot:"Screenshots",l_vid:"Videos",l_txt:"Game texts",l_fw:"Firmware",l_cfg:"Menu options",
  copied:(a,b)=>`${a} copied, ${b} already there`,nomatch:n=>`${n} game${n==1?"":"s"} without files`,
@@ -268,8 +272,9 @@ pt:{title:"PREPARAR O USB / SD",
  r_sure_d:"O conteúdo do disco bate com a lista oficial: é certeza.",r_guess_d:"Só o título bate: confira antes de marcar.",
  r_nothing:"Nada para renomear.",r_done:(a,b)=>`${a} renomeados, ${b} com erro`,r_exists:"já existe um arquivo com esse nome",
  r_slow:"Ler os discos inteiros pode levar alguns minutos num cartão lento.",
- k_check:"Verificar o cartão",s_check:"VERIFICAR O CARTÃO",c_note:"O que há no seu cartão agora. Nada é alterado.",c_sum:"Resumo",c_games:"Jogos",c_boot:"Menu (boot.iso)",c_cfg:"Opções do menu",c_fw:"Arquivo de atualização do firmware",
+ k_check:"Verificar o cartão",s_check:"VERIFICAR O CARTÃO",c_note:"O que há no seu cartão agora. Nada muda, a não ser que você clique para copiar.",c_sum:"Resumo",c_games:"Jogos",c_boot:"Menu (boot.iso)",c_cfg:"Opções do menu",c_fw:"Arquivo de atualização do firmware",
  c_txt:"Jogos com textos",c_miss:"Faltando no cartão",c_extra:"Mídias sem jogo (sobrando)",c_ok:"Não falta nem sobra nada.",c_dl:"Baixar o relatório",c_of:(a,b)=>`${a} de ${b}`,
+ c_have:"Temos: copiar",c_all:n=>`Copiar todos (${n})`,c_copying:"Copiando",c_legend:"A seta marca o que a nossa biblioteca tem: clique para copiar agora.",
  w_note:"Deixe esta aba aberta até terminar.",reading:"Lendo a lista de arquivos disponíveis…",
  l_boot:"Menu",l_cov:"Capas",l_shot:"Telas",l_vid:"Vídeos",l_txt:"Textos dos jogos",l_fw:"Firmware",l_cfg:"Opções do menu",
  copied:(a,b)=>`${a} copiados, ${b} já estavam lá`,nomatch:n=>`${n} jogo${n==1?"":"s"} sem arquivo`,
@@ -310,8 +315,9 @@ es:{title:"PREPARAR EL USB / SD",
  r_sure_d:"El contenido del disco coincide con la lista oficial: es seguro.",r_guess_d:"Solo coincide el título: compruébalo antes de marcar.",
  r_nothing:"Nada que renombrar.",r_done:(a,b)=>`${a} renombrados, ${b} con error`,r_exists:"ya existe un archivo con ese nombre",
  r_slow:"Leer los discos enteros puede tardar unos minutos en una tarjeta lenta.",
- k_check:"Comprobar la tarjeta",s_check:"COMPROBAR LA TARJETA",c_note:"Lo que hay en tu tarjeta ahora. No se cambia nada.",c_sum:"Resumen",c_games:"Juegos",c_boot:"Menú (boot.iso)",c_cfg:"Opciones del menú",c_fw:"Archivo de actualización del firmware",
+ k_check:"Comprobar la tarjeta",s_check:"COMPROBAR LA TARJETA",c_note:"Lo que hay en tu tarjeta ahora. Nada cambia, salvo que hagas clic para copiar.",c_sum:"Resumen",c_games:"Juegos",c_boot:"Menú (boot.iso)",c_cfg:"Opciones del menú",c_fw:"Archivo de actualización del firmware",
  c_txt:"Juegos con textos",c_miss:"Falta en la tarjeta",c_extra:"Medios sin juego (sobran)",c_ok:"No falta ni sobra nada.",c_dl:"Descargar el informe",c_of:(a,b)=>`${a} de ${b}`,
+ c_have:"Lo tenemos: copiar",c_all:n=>`Copiar todos (${n})`,c_copying:"Copiando",c_legend:"La flecha marca lo que tiene nuestra biblioteca: haz clic para copiarlo ahora.",
  w_note:"Deja esta pestaña abierta hasta que termine.",reading:"Leyendo la lista de archivos disponibles…",
  l_boot:"Menú",l_cov:"Portadas",l_shot:"Capturas",l_vid:"Vídeos",l_txt:"Textos de los juegos",l_fw:"Firmware",l_cfg:"Opciones del menú",
  copied:(a,b)=>`${a} copiados, ${b} ya estaban`,nomatch:n=>`${n} juego${n==1?"":"s"} sin archivo`,
@@ -986,8 +992,39 @@ function drawRename(){
   keys([["games","B",t("k_back")]]);
 }
 
+/* Copia, a partir do relatório, o que falta e a biblioteca (ou a pessoa) tem: um jogo, ou a coluna inteira. */
+async function checkCopy(ki, gi){
+  const keys = Object.keys(checkMeta.miss), k = keys[ki], m = checkMeta.meta[k];
+  const list = (gi === undefined ? checkMeta.miss[k] : [checkMeta.miss[k][gi]]).filter(g => checkMeta.can(k, g));
+  S.busy = true;
+  try {
+    if (m.txt) await writeTexts();
+    else {
+      const K = KINDS[m.kind], [cfgKey, to, box] = K.places[m.i];
+      let n = 0;
+      for (const g of list){
+        const now = $("cnow"); if (now) now.textContent = t("c_copying") + " " + (++n) + "/" + list.length + ": " + g;
+        try {
+          const own = S.own[m.kind].get(norm(g));
+          let data = null;
+          if (!S.demo){
+            if (own){ const f = own.getFile ? await own.getFile() : own; data = box ? await imageToCel(f, box[0], box[1], K.fill) : await f.arrayBuffer(); }
+            else data = await (await get(CFG[cfgKey] + S.lib[m.kind].get(norm(g)) + K.ext)).arrayBuffer();
+          }
+          await put(to, g + K.ext, data);
+          if (S.demo) S.card[m.kind][m.i].add(g.toLowerCase());
+        } catch(e){}
+      }
+      if (!S.demo) S.card = await readCard();
+      coverCache.clear();
+    }
+  } finally { S.busy = false; }
+  if (m.txt && S.demo) return;
+  await drawCheck();
+}
+
 /* ---------------- Verificar o cartão: um relatório do que há nele agora (não muda nada) ---------------- */
-let checkText = "";
+let checkText = "", checkMeta = null;
 async function drawCheck(){
   $("title").textContent = t("s_check");
   keys([["back","B",t("k_back")]]);
@@ -1000,21 +1037,27 @@ async function drawCheck(){
     try { const f = await (await (await dirAt([".config"], false)).getFileHandle("3dogamesdetails.ode")).getFile();
           for (const l of (await f.text()).split("\n")){ const i = l.indexOf("\t"); if (i > 0 && l[0] !== "#") txt.add(l.slice(0, i).toLowerCase()); } } catch(e){}
   }
+  const meta = {};                       // coluna -> de onde copiar: {kind, i} ou {txt:true}
   for (const kind in KINDS) KINDS[kind].places.forEach((p, i) => {
     const key = t(KINDS[kind].log) + (KINDS[kind].places.length > 1 ? " (" + t("sz_" + p[1][p[1].length - 1]) + ")" : ""), set = S.card[kind][i];
-    const m = S.games.filter(g => !set.has(g.toLowerCase())); if (m.length) miss[key] = m;
+    const m = S.games.filter(g => !set.has(g.toLowerCase())); if (m.length){ miss[key] = m; meta[key] = {kind, i}; }
     const x = [...set].filter(n => !gamesLow.has(n)); if (x.length) extra[p[1].join("/")] = x;
   });
-  const mt = S.games.filter(g => !txt.has(g.toLowerCase())); if (mt.length) miss[t("l_txt")] = mt;
+  const mt = S.games.filter(g => !txt.has(g.toLowerCase())); if (mt.length){ miss[t("l_txt")] = mt; meta[t("l_txt")] = {txt:true}; }
+  const can = (k, g) => meta[k] && (meta[k].txt ? hasText(g) : S.lib[meta[k].kind].has(norm(g)) || S.own[meta[k].kind].has(norm(g)));
+  checkMeta = {miss, meta, can};
   const yn = v => t(v ? "yes" : "no"), withTxt = S.games.length - mt.length;
   const sum = [[t("l_card"), S.rootName], [t("c_games"), S.games.length], [t("c_boot"), yn(boot)], [t("c_cfg"), yn(cfg)], [t("c_fw"), yn(fw)], [t("c_txt"), t("c_of")(withTxt, S.games.length)]];
   const cols = o => `<div class="miss">${Object.keys(o).map(k => `<div><h4>${esc(k)} <span>${o[k].length}</span></h4><ul>${o[k].map(g => `<li>${esc(g)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  const colsMiss = o => `<div class="miss">${Object.keys(o).map((k, ki) => { const av = o[k].filter(g => can(k, g));
+    return `<div><h4>${esc(k)} <span>${o[k].length}</span></h4>${av.length ? `<button class="getall" data-getall="${ki}">⬇ ${esc(t("c_all")(av.length))}</button>` : ""}
+      <ul>${o[k].map((g, gi) => `<li><span>${esc(g)}</span>${can(k, g) && !meta[k].txt ? `<button class="get" data-get="${ki}|${gi}" title="${esc(t("c_have"))}">⬇</button>` : ""}</li>`).join("")}</ul></div>`; }).join("")}</div>`;
   const sec = o => Object.keys(o).map(k => k.toUpperCase() + " (" + o[k].length + ")\r\n" + o[k].join("\r\n")).join("\r\n\r\n");
   checkText = "3DO ODE - " + t("s_check") + "\r\n\r\n" + sum.map(x => x[0] + ": " + x[1]).join("\r\n") +
     (Object.keys(miss).length ? "\r\n\r\n== " + t("c_miss").toUpperCase() + " ==\r\n\r\n" + sec(miss) : "") + (Object.keys(extra).length ? "\r\n\r\n== " + t("c_extra").toUpperCase() + " ==\r\n\r\n" + sec(extra) : "") + "\r\n";
   $("view").innerHTML = `<p class="note">${esc(t("c_note"))}</p>
     <div class="panel"><h2>${esc(t("c_sum"))}</h2>${sum.map(x => `<div class="opt top" style="cursor:default"><span>${esc(x[0])}</span><b>${esc(x[1])}</b></div>`).join("")}</div>
-    ${Object.keys(miss).length ? `<div class="misshead"><b>${esc(t("c_miss"))}</b></div>` + cols(miss) : ""}
+    ${Object.keys(miss).length ? `<div class="misshead"><b>${esc(t("c_miss"))}</b></div><p class="note"><i class="get" style="font-style:normal;display:inline-block">⬇</i> ${esc(t("c_legend"))}</p><div class="now" id="cnow"></div>` + colsMiss(miss) : ""}
     ${Object.keys(extra).length ? `<div class="misshead"><b>${esc(t("c_extra"))}</b></div>` + cols(extra) : ""}
     ${!Object.keys(miss).length && !Object.keys(extra).length ? `<p class="note" style="margin-top:12px"><b style="color:var(--fg)">${esc(t("c_ok"))}</b></p>` : ""}
     <p style="margin:14px 0 0"><button class="big stop" id="cdl">${esc(t("c_dl"))}</button></p>`;
@@ -1079,6 +1122,8 @@ $("view").addEventListener("click", async e => {
     }
     if (el.id === "rscan" || el.id === "rapply"){ S.busy = true; try { await (el.id === "rscan" ? renameScan() : renameApply()); } finally { S.busy = false; } return; }
     if (el.id === "rall" || el.id === "rnone"){ R.items.forEach(it => it.on = el.id === "rall"); return drawRename(); }
+    if (d.getall !== undefined) return checkCopy(Number(d.getall));
+    if (d.get){ const [a, b] = d.get.split("|").map(Number); return checkCopy(a, b); }
     if (el.id === "cdl"){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["\ufeff" + checkText], {type:"text/plain"})); a.download = "3do-ode-cartao.txt"; return a.click(); }
     if (el.id === "start") return run();
     if (el.id === "stop") S.stop = true;
@@ -1105,6 +1150,15 @@ function human(ms){
   return (m ? t("min")(m) : "") + (m && r ? t("and") : "") + (r || !m ? t("sec")(r) : "");
 }
 const kb = n => Math.round(n / 1024).toLocaleString(lang === "en" ? "en-US" : "pt-BR") + " KB";
+/* Grava o 3dogamesdetails.ode com os textos dos jogos do cartão. Devolve {linhas, bytes, sem: jogos sem texto}. */
+async function writeTexts(){
+  const lines = [], sem = [];
+  for (const g of S.games){ const f = S.gl.get(norm(g)); if (f) lines.push(detailLine(g, f)); else sem.push(g); }
+  lines.sort((a,b) => a.split("\t")[0].toLowerCase() < b.split("\t")[0].toLowerCase() ? -1 : 1);
+  const body = new TextEncoder().encode("#3DOGAMES2\ttotal=" + lines.length + "\n" + lines.join("\n") + "\n# fim\n");
+  await put([".config"], "3dogamesdetails.ode", body);
+  return {n:lines.length, bytes:body.byteLength, sem};
+}
 /* O que faltou, depois de gravar: uma coluna por tipo escolhido (capas, telas, vídeos, textos), cada uma com rolagem. */
 function missHtml(lack){
   const ks = ["l_cov","l_shot","l_vid","l_txt"].filter(k => lack[k] && lack[k].length);
@@ -1178,12 +1232,9 @@ async function run(){
     /* Textos dos jogos. */
     if (o.o_txt && !S.stop){
       tick("l_txt", true);
-      const lines = [];
-      for (const g of S.games){ const f = S.gl.get(norm(g)); if (f) lines.push(detailLine(g, f)); else (lack.l_txt = lack.l_txt || []).push(g); }
-      lines.sort((a,b) => a.split("\t")[0].toLowerCase() < b.split("\t")[0].toLowerCase() ? -1 : 1);
-      const body = new TextEncoder().encode("#3DOGAMES2\ttotal=" + lines.length + "\n" + lines.join("\n") + "\n# fim\n");
-      await put([".config"], "3dogamesdetails.ode", body); bytes += body.byteLength; files++;
-      log(t("l_txt") + ": " + t("texts")(lines.length, S.games.length) + " (" + CFG_LANG[S.txtLang] + ")");
+      const r = await writeTexts(); bytes += r.bytes; files++;
+      if (r.sem.length) lack.l_txt = r.sem;
+      log(t("l_txt") + ": " + t("texts")(r.n, S.games.length) + " (" + CFG_LANG[S.txtLang] + ")");
       tick("l_txt");
     }
     progress(++done, total, t("l_txt"));
