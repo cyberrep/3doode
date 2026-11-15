@@ -118,6 +118,11 @@ button{cursor:pointer}
 pre{margin:8px 0 0;max-height:190px;overflow:auto;background:#0b0d22;border:1px solid #2c3160;border-radius:8px;padding:8px 12px;font:13px/1.45 inherit;color:#c8ccf0;white-space:pre-wrap}
 .done{margin-top:12px;border:2px solid var(--green);border-radius:10px;padding:10px 14px;background:#10301c}
 .done h3{margin:0 0 4px;color:#8ff0a8;letter-spacing:.14em;text-transform:uppercase;font-size:1rem}
+.misshead{display:flex;align-items:center;gap:12px;margin:14px 0 6px;letter-spacing:.14em;text-transform:uppercase}.misshead b{flex:1;color:var(--yellow)}
+.miss{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:10px}
+.miss>div{border:2px solid var(--edge);border-radius:8px;background:#0e1026;padding:6px 10px;min-width:0}
+.miss h4{margin:0 0 4px;padding-bottom:4px;border-bottom:1px solid var(--gold);letter-spacing:.12em;font-size:.95rem;display:flex}.miss h4 span{margin-left:auto;color:var(--gold)}
+.miss ul{list-style:none;margin:0;padding:0;max-height:220px;overflow-y:auto;scrollbar-color:var(--edge) transparent}.miss li{padding:1px 0;color:#c8ccf0}
 footer{max-width:980px;margin:14px auto 0;color:var(--dim);font-size:.85rem;text-align:center}
 footer a{color:var(--yellow)}
 @media (max-width:760px){
@@ -184,6 +189,7 @@ en:{title:"USB / SD SETUP",
  pv:"Preview",pv_note:"Approximate preview of the console menu with these options.",
  o_note:"These are the menu's own options. They go to the card with the rest; the console shows them already set.",
  o_tadeu:"My ODE has the TADEU firmware",o_rtc:"My ODE has the clock (RTC)",o_keep:"Options on the card: not changed",o_set:"Options on the card: will be written",
+ miss_t:"What was missing",miss_none:"Nothing was missing.",miss_dl:"Download the list",
  w_note:"Keep this tab open until it finishes.",reading:"Reading the list of available files…",
  l_boot:"Menu",l_cov:"Covers",l_shot:"Screenshots",l_vid:"Videos",l_txt:"Game texts",l_fw:"Firmware",l_cfg:"Menu options",
  copied:(a,b)=>`${a} copied, ${b} already there`,nomatch:n=>`${n} game${n==1?"":"s"} without files`,
@@ -213,6 +219,7 @@ pt:{title:"PREPARAR O USB / SD",
  pv:"Prévia",pv_note:"Prévia aproximada do menu do console com estas opções.",
  o_note:"Estas são as opções do próprio menu. Elas vão para o cartão junto com o resto; o console já liga com elas ajustadas.",
  o_tadeu:"Meu ODE tem o firmware TADEU",o_rtc:"Meu ODE tem o relógio (RTC)",o_keep:"Opções do cartão: não serão alteradas",o_set:"Opções do cartão: serão gravadas",
+ miss_t:"O que faltou",miss_none:"Não faltou nada.",miss_dl:"Baixar a lista",
  w_note:"Deixe esta aba aberta até terminar.",reading:"Lendo a lista de arquivos disponíveis…",
  l_boot:"Menu",l_cov:"Capas",l_shot:"Telas",l_vid:"Vídeos",l_txt:"Textos dos jogos",l_fw:"Firmware",l_cfg:"Opções do menu",
  copied:(a,b)=>`${a} copiados, ${b} já estavam lá`,nomatch:n=>`${n} jogo${n==1?"":"s"} sem arquivo`,
@@ -242,6 +249,7 @@ es:{title:"PREPARAR EL USB / SD",
  pv:"Vista previa",pv_note:"Vista previa aproximada del menú de la consola con estas opciones.",
  o_note:"Estas son las opciones del propio menú. Van a la tarjeta con lo demás; la consola arranca con ellas ya ajustadas.",
  o_tadeu:"Mi ODE tiene el firmware TADEU",o_rtc:"Mi ODE tiene el reloj (RTC)",o_keep:"Opciones de la tarjeta: no se cambiarán",o_set:"Opciones de la tarjeta: se grabarán",
+ miss_t:"Lo que faltó",miss_none:"No faltó nada.",miss_dl:"Descargar la lista",
  w_note:"Deja esta pestaña abierta hasta que termine.",reading:"Leyendo la lista de archivos disponibles…",
  l_boot:"Menú",l_cov:"Portadas",l_shot:"Capturas",l_vid:"Vídeos",l_txt:"Textos de los juegos",l_fw:"Firmware",l_cfg:"Opciones del menú",
  copied:(a,b)=>`${a} copiados, ${b} ya estaban`,nomatch:n=>`${n} juego${n==1?"":"s"} sin archivo`,
@@ -746,7 +754,7 @@ function drawWrite(){
   $("title").textContent = t("s_write");
   $("view").innerHTML = `<p class="note">${esc(S.demo ? t("l_demo") : t("w_note"))}</p>
     <button class="big" id="start">${esc(t("k_start"))}</button> <button class="big stop" id="stop" disabled>${esc(t("k_stop"))}</button>
-    <div class="prog"><i id="bar"></i><b id="pct">0%</b></div><div class="now" id="now"></div><pre id="log"></pre><div id="done"></div>`;
+    <div class="prog"><i id="bar"></i><b id="pct">0%</b></div><div class="now" id="now"></div><pre id="log" hidden></pre><div id="done"></div>`;
   keys([["back","B",t("k_back")]]);
 }
 
@@ -819,22 +827,29 @@ function human(ms){
   return (m ? t("min")(m) : "") + (m && r ? t("and") : "") + (r || !m ? t("sec")(r) : "");
 }
 const kb = n => Math.round(n / 1024).toLocaleString(lang === "en" ? "en-US" : "pt-BR") + " KB";
+/* O que faltou, depois de gravar: uma coluna por tipo escolhido (capas, telas, vídeos, textos), cada uma com rolagem. */
+function missHtml(lack){
+  const ks = ["l_cov","l_shot","l_vid","l_txt"].filter(k => lack[k] && lack[k].length);
+  if (!ks.length) return `<p class="note" style="margin-top:12px">${esc(t("miss_none"))}</p>`;
+  return `<div class="misshead"><b>${esc(t("miss_t"))}</b><button class="key" id="dl"><i>X</i>${esc(t("miss_dl"))}</button></div>
+    <div class="miss">${ks.map(k => `<div><h4>${esc(t(k))} <span>${lack[k].length}</span></h4><ul>${lack[k].map(g => `<li>${esc(g)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+}
 async function run(){
   const o = S.o, t0 = Date.now();
   let bytes = 0, files = 0;
-  S.busy = true; S.stop = false; $("start").disabled = true; $("stop").disabled = false; $("done").innerHTML = ""; $("log").textContent = "";
+  S.busy = true; S.stop = false; $("start").disabled = true; $("stop").disabled = false; $("done").innerHTML = ""; $("log").textContent = ""; $("log").hidden = false;
   document.querySelectorAll("#keys button").forEach(b => b.disabled = true);
   try {
     progress(0, 1, t("reading"));
     /* A lista do que fazer: {label, pasta e nome no cartão, de onde vem (GitHub ou arquivo da pessoa)}. */
-    const jobs = [], miss = {}, count = {}, done1 = {};
+    const jobs = [], miss = {}, count = {}, done1 = {}, lack = {};
     if (o.o_boot) jobs.push({label:"l_boot", to:[], name:"boot.iso", from:CFG.boot});
     for (const kind in KINDS){
       const K = KINDS[kind]; if (!o[K.opt]) continue;
       miss[K.log] = 0; count[K.log] = [0, 0];
       for (const g of S.games){
         const st = status(g, kind), k = norm(g);
-        if (st === "none" || st === "part") { miss[K.log]++; continue; }
+        if (st === "none" || st === "part") { miss[K.log]++; (lack[K.log] = lack[K.log] || []).push(g); continue; }
         if (st === "card") { count[K.log][1]++; continue; }
         for (const [i, [cfgKey, to, box]] of K.places.entries()){
           if (st === "lib" && S.o.keep && S.card[kind][i].has(g.toLowerCase())) continue;      // este tamanho já está no cartão
@@ -869,7 +884,7 @@ async function run(){
     /* Textos dos jogos. */
     if (o.o_txt && !S.stop){
       const lines = [];
-      for (const g of S.games){ const f = S.gl.get(norm(g)); if (f) lines.push(detailLine(g, f)); }
+      for (const g of S.games){ const f = S.gl.get(norm(g)); if (f) lines.push(detailLine(g, f)); else (lack.l_txt = lack.l_txt || []).push(g); }
       lines.sort((a,b) => a.split("\t")[0].toLowerCase() < b.split("\t")[0].toLowerCase() ? -1 : 1);
       const body = new TextEncoder().encode("#3DOGAMES2\ttotal=" + lines.length + "\n" + lines.join("\n") + "\n");
       await put([".config"], "3dogamesdetails.ode", body); bytes += body.byteLength; files++;
@@ -886,7 +901,11 @@ async function run(){
     if (S.stop) log(t("stopped"));
     else {
       progress(1, 1, "");
-      $("done").innerHTML = `<div class="done"><h3>${esc(t("done_t"))}</h3>${esc(t("files"))}: <b>${files}</b><br>${esc(t("size"))}: <b>${kb(bytes)}</b><br>${esc(t("time"))}: <b>${human(Date.now() - t0)}</b><p style="margin:.5rem 0 0">${esc(t("done_p"))}</p></div>`;
+      $("done").innerHTML = `<div class="done"><h3>${esc(t("done_t"))}</h3>${esc(t("files"))}: <b>${files}</b><br>${esc(t("size"))}: <b>${kb(bytes)}</b><br>${esc(t("time"))}: <b>${human(Date.now() - t0)}</b><p style="margin:.5rem 0 0">${esc(t("done_p"))}</p></div>` + missHtml(lack);
+      const dl = $("dl"); if (dl) dl.onclick = () => {
+        const txt = Object.keys(lack).map(k => t(k).toUpperCase() + " (" + lack[k].length + ")\r\n" + lack[k].join("\r\n")).join("\r\n\r\n") + "\r\n";
+        const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["\ufeff" + txt], {type:"text/plain"})); a.download = "3do-ode-faltando.txt"; a.click();
+      };
       if (!S.demo) S.card = await readCard();
     }
   } catch(e){ log(t("err") + ": " + e.message); }
