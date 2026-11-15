@@ -40,8 +40,9 @@ button{cursor:pointer}
 .tile,.pv .tl{overflow:hidden}
 .tile::after,.pv .tl.sel::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:26%;transform:translateX(-160%) skewX(-28deg);pointer-events:none;
  background:linear-gradient(90deg,transparent,#fff9 45%,#fff 50%,#fff9 55%,transparent)}
-.tile.sel::after,.tile:not([disabled]):hover::after,.tile:not([disabled]):focus-visible::after{animation:shine .45s .33s 1 linear}
+.tile.sel::after{animation:shine0 .45s .33s 1 linear}.tile:not([disabled]):hover::after,.tile:not([disabled]):focus-visible::after{animation:shine .45s .33s 1 linear}
 .pv .tl.sel::after{animation:shine 2.6s 0.33s infinite linear}
+@keyframes shine0{0%{transform:translateX(-160%) skewX(-28deg)}100%{transform:translateX(560%) skewX(-28deg)}}
 @keyframes shine{0%{transform:translateX(-160%) skewX(-28deg)}100%{transform:translateX(560%) skewX(-28deg)}}
 .pv .tl.sel{outline:1px solid #fff}
 @keyframes shinepv{0%,82%{transform:translateX(-160%) skewX(-28deg)}100%{transform:translateX(560%) skewX(-28deg)}}
@@ -117,6 +118,14 @@ button{cursor:pointer}
 .pv .dim{color:var(--dim)}.pv .sky{color:var(--sky)}.pv .gd{color:var(--gold)}
 @media (max-width:900px){.optgrid{grid-template-columns:1fr}.pvwrap{position:static}.pv{zoom:1}}
 
+/* ---- renomear ---- */
+.ren{max-height:330px;overflow-y:auto;border:2px solid var(--edge);border-radius:8px;background:#0e1026;padding:4px 8px;margin:8px 0;scrollbar-color:var(--edge) transparent}
+.ren label{display:flex;gap:9px;align-items:flex-start;padding:4px 2px;border-bottom:1px solid #1c2048;cursor:pointer}
+.ren input{margin-top:4px;width:16px;height:16px;accent-color:var(--yellow);flex:none}
+.ren span{flex:1;min-width:0}.ren small{color:var(--dim);display:block}.ren b{color:var(--fg);font-weight:400}
+.tagc{flex:none;border-radius:5px;padding:0 7px;font-size:.78rem;font-weight:700;letter-spacing:.06em;margin-top:2px}
+.tagc.sure{background:var(--green);color:#0b0d22}.tagc.guess{background:var(--yellow);color:#0b0d22}.tagc.err{background:var(--red);color:#fff}
+
 /* ---- gravar ---- */
 .big{display:inline-block;background:linear-gradient(180deg,#34b56b,#176a3a);border:3px solid #0006;border-radius:12px;padding:12px 26px;color:#fff;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 2px 0 #0008}
 .big:hover{border-color:#fff}.big[hidden]{display:none}.big[disabled]{filter:grayscale(.8) brightness(.6);cursor:not-allowed}
@@ -165,6 +174,7 @@ footer a{color:var(--yellow)}
 const CFG = {
   repo: "cyberrep/3doode", branch: "main",
   boot: "boot/boot.iso",
+  dat: "media/gamelist/gamelist.dat",              // nomes oficiais dos discos (Redump), para renomear
   index: "media/index.json",                     // lista do que existe (gerada pelo sobe_3doode.py)
   gamelist: "media/gamelist/gamelist.{lang}.txt",
   coverS: "media/covers/small/", coverL: "media/covers/large/",
@@ -208,6 +218,16 @@ en:{title:"USB / SD SETUP",
  miss_t:"What was missing",miss_none:"Nothing was missing.",miss_dl:"Download the list",
  mu_play:"Listen to the music",mu_stop:"Stop",
  sp_wait:"Waiting",sp_done:"Copied",sp_none:"Nothing to copy",
+ k_rename:"Rename",s_rename:"RENAME THE GAMES",
+ r_note:"Gives your game files the official disc names (the ones in our list), so covers, videos and texts match. The .cue is fixed too. Nothing is converted and nothing is deleted.",
+ r_scan:"Check the names",r_apply:"Rename the ticked ones",r_all:"Tick all",r_none:"Untick all",
+ r_dat:"Could not read the list of official names on GitHub.",r_nomove:"This browser cannot rename files on the card. Use an up-to-date Chrome or Edge on a computer.",
+ r_reading:"Reading",r_ok:n=>`${n} already have the official name`,r_sure:"by content",r_guess:"by name",r_unknown:"Not identified",
+ r_sure_d:"The disc content matches the official list: certain.",r_guess_d:"Only the title matches: check before ticking.",
+ r_nothing:"Nothing to rename.",r_done:(a,b)=>`${a} renamed, ${b} with error`,r_exists:"a file with that name already exists",
+ r_slow:"Reading whole discs can take a few minutes on a slow card.",
+ k_check:"Check the card",s_check:"CHECK THE CARD",c_note:"What is on your card right now. Nothing is changed.",c_sum:"Summary",c_games:"Games",c_boot:"Menu (boot.iso)",c_cfg:"Menu options",c_fw:"Firmware update file",
+ c_txt:"Games with texts",c_miss:"Missing on the card",c_extra:"Media without a game (left over)",c_ok:"Nothing missing and nothing left over.",c_dl:"Download the report",c_of:(a,b)=>`${a} of ${b}`,
  w_note:"Keep this tab open until it finishes.",reading:"Reading the list of available files…",
  l_boot:"Menu",l_cov:"Covers",l_shot:"Screenshots",l_vid:"Videos",l_txt:"Game texts",l_fw:"Firmware",l_cfg:"Menu options",
  copied:(a,b)=>`${a} copied, ${b} already there`,nomatch:n=>`${n} game${n==1?"":"s"} without files`,
@@ -240,6 +260,16 @@ pt:{title:"PREPARAR O USB / SD",
  miss_t:"O que faltou",miss_none:"Não faltou nada.",miss_dl:"Baixar a lista",
  mu_play:"Ouvir a música",mu_stop:"Parar",
  sp_wait:"A copiar",sp_done:"Copiado",sp_none:"Nada a copiar",
+ k_rename:"Renomear",s_rename:"RENOMEAR OS JOGOS",
+ r_note:"Dá aos arquivos dos seus jogos o nome oficial dos discos (o da nossa lista), para as capas, os vídeos e os textos casarem. O .cue é acertado junto. Nada é convertido e nada é apagado.",
+ r_scan:"Conferir os nomes",r_apply:"Renomear os marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
+ r_dat:"Não consegui ler a lista de nomes oficiais no GitHub.",r_nomove:"Este navegador não consegue renomear arquivos no cartão. Use um Chrome ou Edge atualizado num computador.",
+ r_reading:"Lendo",r_ok:n=>`${n} já estão com o nome oficial`,r_sure:"pelo conteúdo",r_guess:"pelo nome",r_unknown:"Não identificados",
+ r_sure_d:"O conteúdo do disco bate com a lista oficial: é certeza.",r_guess_d:"Só o título bate: confira antes de marcar.",
+ r_nothing:"Nada para renomear.",r_done:(a,b)=>`${a} renomeados, ${b} com erro`,r_exists:"já existe um arquivo com esse nome",
+ r_slow:"Ler os discos inteiros pode levar alguns minutos num cartão lento.",
+ k_check:"Verificar o cartão",s_check:"VERIFICAR O CARTÃO",c_note:"O que há no seu cartão agora. Nada é alterado.",c_sum:"Resumo",c_games:"Jogos",c_boot:"Menu (boot.iso)",c_cfg:"Opções do menu",c_fw:"Arquivo de atualização do firmware",
+ c_txt:"Jogos com textos",c_miss:"Faltando no cartão",c_extra:"Mídias sem jogo (sobrando)",c_ok:"Não falta nem sobra nada.",c_dl:"Baixar o relatório",c_of:(a,b)=>`${a} de ${b}`,
  w_note:"Deixe esta aba aberta até terminar.",reading:"Lendo a lista de arquivos disponíveis…",
  l_boot:"Menu",l_cov:"Capas",l_shot:"Telas",l_vid:"Vídeos",l_txt:"Textos dos jogos",l_fw:"Firmware",l_cfg:"Opções do menu",
  copied:(a,b)=>`${a} copiados, ${b} já estavam lá`,nomatch:n=>`${n} jogo${n==1?"":"s"} sem arquivo`,
@@ -272,6 +302,16 @@ es:{title:"PREPARAR EL USB / SD",
  miss_t:"Lo que faltó",miss_none:"No faltó nada.",miss_dl:"Descargar la lista",
  mu_play:"Escuchar la música",mu_stop:"Parar",
  sp_wait:"Por copiar",sp_done:"Copiado",sp_none:"Nada que copiar",
+ k_rename:"Renombrar",s_rename:"RENOMBRAR LOS JUEGOS",
+ r_note:"Da a los archivos de tus juegos el nombre oficial de los discos (el de nuestra lista), para que coincidan las portadas, los vídeos y los textos. El .cue se corrige también. No se convierte ni se borra nada.",
+ r_scan:"Comprobar los nombres",r_apply:"Renombrar los marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
+ r_dat:"No pude leer la lista de nombres oficiales en GitHub.",r_nomove:"Este navegador no puede renombrar archivos en la tarjeta. Usa un Chrome o Edge actualizado en un ordenador.",
+ r_reading:"Leyendo",r_ok:n=>`${n} ya tienen el nombre oficial`,r_sure:"por el contenido",r_guess:"por el nombre",r_unknown:"No identificados",
+ r_sure_d:"El contenido del disco coincide con la lista oficial: es seguro.",r_guess_d:"Solo coincide el título: compruébalo antes de marcar.",
+ r_nothing:"Nada que renombrar.",r_done:(a,b)=>`${a} renombrados, ${b} con error`,r_exists:"ya existe un archivo con ese nombre",
+ r_slow:"Leer los discos enteros puede tardar unos minutos en una tarjeta lenta.",
+ k_check:"Comprobar la tarjeta",s_check:"COMPROBAR LA TARJETA",c_note:"Lo que hay en tu tarjeta ahora. No se cambia nada.",c_sum:"Resumen",c_games:"Juegos",c_boot:"Menú (boot.iso)",c_cfg:"Opciones del menú",c_fw:"Archivo de actualización del firmware",
+ c_txt:"Juegos con textos",c_miss:"Falta en la tarjeta",c_extra:"Medios sin juego (sobran)",c_ok:"No falta ni sobra nada.",c_dl:"Descargar el informe",c_of:(a,b)=>`${a} de ${b}`,
  w_note:"Deja esta pestaña abierta hasta que termine.",reading:"Leyendo la lista de archivos disponibles…",
  l_boot:"Menú",l_cov:"Portadas",l_shot:"Capturas",l_vid:"Vídeos",l_txt:"Textos de los juegos",l_fw:"Firmware",l_cfg:"Opciones del menú",
  copied:(a,b)=>`${a} copiados, ${b} ya estaban`,nomatch:n=>`${n} juego${n==1?"":"s"} sin archivo`,
@@ -566,7 +606,7 @@ function draw(){
   document.querySelectorAll("#langs button").forEach(b => b.classList.toggle("on", b.dataset.l === lang));
   $("foot").textContent = t("foot");
   document.title = "3DO ODE — " + t("title");
-  ({home:drawHome, games:drawGames, media:drawMedia, options:drawOptions, write:drawWrite})[S.screen]();
+  ({home:drawHome, games:drawGames, media:drawMedia, options:drawOptions, write:drawWrite, rename:drawRename, check:drawCheck})[S.screen]();
 }
 const ready = () => S.games.length > 0;
 const noFS = !window.showDirectoryPicker;
@@ -591,7 +631,7 @@ function drawHome(){
       <button class="tile t-gray" data-go="options" ${dis}>${ICON.gear}<span>${esc(t("t_opts"))}</span><small>${esc(t("t_opts_s"))}</small></button>
     </div>
     <div class="last">${last}</div>`;
-  keys([["pick","A",t("k_pick"),noFS],["demo","X",t("k_demo")],"gap",["write","P",t("t_write"),!ready()]]);
+  keys([["pick","A",t("k_pick"),noFS],["demo","X",t("k_demo")],["check","C",t("k_check"),!ready()],"gap",["write","P",t("t_write"),!ready()]]);
 }
 
 function filtered(){
@@ -616,7 +656,7 @@ function drawGames(){
     <div class="info" id="info"></div>
     <div class="legend"><span><i class="mk card">C</i>${esc(t("lg_card"))}</span><span><i class="mk lib">C</i>${esc(t("lg_lib"))}</span><span><i class="mk own">C</i>${esc(t("lg_own"))}</span><span><i class="mk part">C</i>${esc(t("lg_part"))}</span><span><i class="mk none">C</i>${esc(t("lg_none"))}</span>
       <span>C = ${esc(t("cov"))} · T = ${esc(t("shot"))} · V = ${esc(t("vid"))} · i = ${esc(t("txt"))}</span></div>`;
-  keys([["back","B",t("k_back")],"gap",["media","X",t("t_media")],["write","P",t("t_write")]]);
+  keys([["back","B",t("k_back")],["rename","C",t("k_rename")],"gap",["media","X",t("t_media")],["write","P",t("t_write")]]);
   drawSide();
   const on = $("list").querySelector(".on"); if (on) on.scrollIntoView({block:"nearest"});
 }
@@ -795,6 +835,191 @@ function musicPlay(){
   player.play().catch(() => { playing = ""; if (S.screen === "options") drawOptions(); });
 }
 
+/* ---------------- Renomear os jogos pelo nome oficial dos discos (gamelist.dat, Redump) ---------------- */
+/* Identifica pelo conteúdo quando dá (CRC do .bin / da imagem crua igual ao da lista) e, senão, pelo título.
+ * Só troca nomes: nada é convertido nem apagado. Acerta o .cue, as capas/telas/vídeos já gravados e os favoritos. */
+const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++){ let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+async function crcOf(file, onBytes){
+  let c = 0xFFFFFFFF; const rd = file.stream().getReader();
+  for (;;){ const {done, value} = await rd.read(); if (done) break; for (let i = 0; i < value.length; i++) c = CRC_T[(c ^ value[i]) & 255] ^ (c >>> 8); if (onBytes) onBytes(value.length); }
+  return ((c ^ 0xFFFFFFFF) >>> 0).toString(16).padStart(8, "0");
+}
+function parseDat(xml){
+  const doc = new DOMParser().parseFromString(xml, "text/xml"), D = {crc:new Map(), sizes:new Set(), names:new Set(), title:new Map()};
+  for (const g of doc.querySelectorAll("game")){
+    const name = g.getAttribute("name"); if (!name) continue;
+    D.names.add(name.toLowerCase());
+    const k = norm(name); if (!D.title.has(k)) D.title.set(k, []); D.title.get(k).push(name);
+    for (const r of g.querySelectorAll("rom")){
+      const crc = (r.getAttribute("crc") || "").toLowerCase(), rn = r.getAttribute("name") || "";
+      if (crc && !/\.cue$/i.test(rn)){ D.crc.set(crc, {game:name, rom:rn}); D.sizes.add(Number(r.getAttribute("size"))); }
+    }
+  }
+  return D;
+}
+const R = {state:"idle", items:[], ok:0, unknown:[], msg:"", pct:0, now:""};
+const DISC_EXT = /\.(cue|iso|img|nrg|chd)$/i;
+async function collect(dir, depth, out){
+  const here = new Map();
+  for await (const [n, h] of dir.entries()) here.set(n, h);
+  for (const [n, h] of here){
+    if (n.startsWith(".") || n.startsWith("_")) continue;
+    if (h.kind === "directory"){ if (depth < 3 && !SKIP_DIRS.has(n.toLowerCase())) await collect(h, depth + 1, out); continue; }
+    if (!DISC_EXT.test(n) || /^boot.*\.iso$/i.test(n)) continue;
+    const ext = n.slice(n.lastIndexOf(".")), stem = n.slice(0, -ext.length);
+    if (/\.img$/i.test(n) && here.has(stem + ".cue")) continue;                 // a imagem de um .cue entra junto com ele
+    out.push({dir, here, name:n, stem, ext, h});
+  }
+  return out;
+}
+function byTitle(stem, D){
+  const c = D.title.get(norm(stem)); if (!c) return null;
+  const tags = (stem.match(/\(([^)]*)\)/g) || []).join(" ").toLowerCase();
+  const reg = ["usa","europe","japan","korea"].find(r => tags.includes(r) || (r === "usa" && /\((u|us)\)/.test(tags)) || (r === "europe" && /\((e|eu)\)/.test(tags)) || (r === "japan" && /\((j|jp)\)/.test(tags)));
+  const pick = (reg && c.find(n => n.toLowerCase().includes("(" + reg))) || (c.length === 1 ? c[0] : c.find(n => n.includes("(USA")));
+  return pick ? {name:pick, single:c.length === 1 || !!reg} : null;
+}
+async function renameScan(){
+  R.state = "scan"; R.items = []; R.ok = 0; R.unknown = []; R.msg = ""; R.pct = 0; R.now = ""; drawRename();
+  let D;
+  if (S.demo) D = parseDat('<d><game name="Alone in the Dark (USA)"><rom name="a.bin" size="1" crc="00000001"/></game><game name="Doom (USA)"/><game name="Gex (USA)"/><game name="Road Rash (USA)"/></d>');
+  else try { D = parseDat(await (await get(CFG.dat)).text()); } catch(e){ R.state = "idle"; R.msg = t("r_dat"); return drawRename(); }
+  const files = S.demo ? [{stem:"alone in the dark", ext:".cue", demo:"sure", to:"Alone in the Dark (USA)"}, {stem:"DOOM", ext:".iso", demo:"guess", to:"Doom (USA)", single:true}, {stem:"Gex (USA)", ext:".iso"}, {stem:"jogo desconhecido", ext:".chd"}]
+                       : await collect(S.root, 0, []);
+  /* O que vai ser lido por inteiro: só o que tem o tamanho de algum disco da lista. */
+  const todo = [];
+  for (const f of files){
+    if (D.names.has(f.stem.toLowerCase())) { R.ok++; f.skip = true; continue; }
+    if (S.demo) continue;
+    f.parts = [];
+    if (/\.cue$/i.test(f.name)){
+      f.cueText = await (await f.h.getFile()).text();
+      for (const m of f.cueText.matchAll(/^\s*FILE\s+"?([^"\r\n]+?)"?\s+\w+\s*$/gim)){ const bh = f.here.get(m[1]); if (bh) f.parts.push({name:m[1], h:bh}); }
+    } else if (!/\.(nrg|chd)$/i.test(f.name)) f.parts.push({name:f.name, h:f.h, self:true});
+    for (const p of f.parts){ p.file = await p.h.getFile(); if (D.sizes.has(p.file.size)) todo.push(p); }
+  }
+  const total = todo.reduce((a, p) => a + p.file.size, 0) || 1; let read = 0, last = -1;
+  for (const p of todo){
+    R.now = t("r_reading") + ": " + p.name;
+    p.hit = D.crc.get(await crcOf(p.file, n => { read += n; const pc = Math.floor(read * 100 / total); if (pc !== last){ last = pc; R.pct = pc; const b = $("rbar"); if (b){ b.style.width = pc + "%"; $("rpct").textContent = pc + "%"; $("rnow").textContent = R.now; } } }));
+  }
+  for (const f of files){
+    if (f.skip) continue;
+    let to = f.to, how = f.demo;
+    if (!S.demo){
+      const hit = (f.parts.find(p => p.hit) || {}).hit;
+      if (hit){ to = hit.game; how = "sure"; } else { const g = byTitle(f.stem, D); if (g){ to = g.name; how = "guess"; f.single = g.single; } }
+    }
+    if (!to || to === f.stem){ if (to) R.ok++; else R.unknown.push(f.stem + f.ext); continue; }
+    R.items.push({f, to, how, on: how === "sure" || !!f.single, err:""});
+  }
+  R.items.sort((a, b) => (a.how === b.how ? a.f.stem.localeCompare(b.f.stem) : a.how === "sure" ? -1 : 1));
+  R.state = "list"; drawRename();
+}
+/* Troca o nome de um arquivo dentro da pasta dele (sem copiar). */
+async function mv(dirMap, h, to){
+  const clash = [...dirMap.keys()].find(k => k.toLowerCase() === to.toLowerCase());
+  if (clash && dirMap.get(clash) !== h) throw new Error(t("r_exists"));
+  await h.move(to);
+}
+async function renameApply(){
+  R.state = "apply"; R.pct = 0; R.now = ""; drawRename();
+  let done = 0, bad = 0;
+  const ren = [], sel = R.items.filter(x => x.on);
+  for (const [n, it] of sel.entries()){
+    const f = it.f;
+    try {
+      if (!S.demo){
+        if (/\.cue$/i.test(f.name)){
+          /* Cada .bin leva o nome que tem na lista (ou o do jogo); o .cue é reescrito com os nomes novos e renomeado. */
+          let cue = f.cueText;
+          for (const p of f.parts){
+            const nn = p.hit ? p.hit.rom : (f.parts.length === 1 ? it.to + p.name.slice(p.name.lastIndexOf(".")) : p.name);
+            if (nn !== p.name){ await mv(f.here, p.h, nn); cue = cue.split('"' + p.name + '"').join('"' + nn + '"').split(" " + p.name + " ").join(' "' + nn + '" '); }
+          }
+          const w = await f.h.createWritable(); await w.write(cue); await w.close();
+          await mv(f.here, f.h, it.to + ".cue");
+        } else {
+          await mv(f.here, f.h, it.to + f.ext);
+          for (const side of [".ccd", ".sub", ".CCD", ".SUB"]){ const sh = f.here.get(f.stem + side); if (sh) await mv(f.here, sh, it.to + side.toLowerCase()); }
+        }
+        /* As capas, telas e vídeos que já estavam no cartão com o nome antigo acompanham. */
+        for (const kind in KINDS) for (const p of KINDS[kind].places){
+          try { const d = await dirAt(p[1], false), oh = await d.getFileHandle(f.stem + KINDS[kind].ext); try { await d.getFileHandle(it.to + KINDS[kind].ext); } catch(e){ await oh.move(it.to + KINDS[kind].ext); } } catch(e){}
+        }
+      }
+      ren.push([f.stem, it.to]); done++; it.err = ""; it.done = true;
+    } catch(e){ bad++; it.err = e.message; }
+    R.pct = Math.floor((n + 1) * 100 / sel.length); const b = $("rbar"); if (b){ b.style.width = R.pct + "%"; $("rpct").textContent = R.pct + "%"; $("rnow").textContent = it.to; }
+  }
+  /* Favoritos, recentes e estatísticas guardam o nome do arquivo no começo de cada linha. */
+  if (!S.demo && ren.length){
+    const map = new Map(ren);
+    for (const n of ["3dofavorites.ode", "3dorecent.ode", "3dostats.ode", "3dogamesdetails.ode"]){
+      try {
+        const fh = await (await dirAt([".config"], false)).getFileHandle(n), txt = await (await fh.getFile()).text();
+        const out = txt.split("\n").map(l => { const i = l.indexOf("\t"); return i > 0 && map.has(l.slice(0, i)) ? map.get(l.slice(0, i)) + l.slice(i) : l; }).join("\n");
+        if (out !== txt){ const w = await fh.createWritable(); await w.write(out); await w.close(); }
+      } catch(e){}
+    }
+    S.games = (await scan(S.root, 0, [])).sort((a,b) => a.localeCompare(b, undefined, {sensitivity:"base"})); S.card = await readCard(); coverCache.clear();
+  }
+  R.items = R.items.filter(x => !x.done);
+  R.msg = t("r_done")(done, bad); R.state = "list"; drawRename();
+}
+function drawRename(){
+  $("title").textContent = t("s_rename");
+  const canMove = S.demo || (window.FileSystemFileHandle && "move" in FileSystemFileHandle.prototype);
+  let h = `<p class="note">${esc(t("r_note"))}</p>`;
+  if (!canMove) h += `<div class="warn"><b>${esc(t("r_nomove"))}</b></div>`;
+  if (R.msg) h += `<p class="note" style="color:var(--yellow)">${esc(R.msg)}</p>`;
+  if (R.state === "idle") h += `<button class="big" id="rscan" ${canMove ? "" : "disabled"}>${esc(t("r_scan"))}</button><p class="note" style="margin-top:10px">${esc(t("r_slow"))}</p>`;
+  if (R.state === "scan" || R.state === "apply") h += `<div class="prog"><i id="rbar" style="width:${R.pct}%"></i><b id="rpct">${R.pct}%</b></div><div class="now" id="rnow">${esc(R.now)}</div>`;
+  if (R.state === "list"){
+    h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))}</p>`;
+    if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""}><span><small>${esc(it.f.stem + it.f.ext)}</small><b>${esc(it.to + it.f.ext)}</b>${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err ? "err" : it.how}" style="font-style:normal">${esc(t(it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
+      <button class="big" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button>`;
+    else h += `<p class="note"><b style="color:var(--fg)">${esc(t("r_nothing"))}</b></p>`;
+    if (R.unknown.length) h += `<div class="misshead"><b>${esc(t("r_unknown"))} (${R.unknown.length})</b></div><div class="ren" style="max-height:150px">${R.unknown.map(u => `<label style="cursor:default"><span>${esc(u)}</span></label>`).join("")}</div>`;
+  }
+  $("view").innerHTML = h;
+  keys([["games","B",t("k_back")]]);
+}
+
+/* ---------------- Verificar o cartão: um relatório do que há nele agora (não muda nada) ---------------- */
+let checkText = "";
+async function drawCheck(){
+  $("title").textContent = t("s_check");
+  keys([["back","B",t("k_back")]]);
+  const gamesLow = new Set(S.games.map(g => g.toLowerCase())), miss = {}, extra = {};
+  let boot = false, cfg = S.cfgOnCard, fw = false, txt = new Set();
+  if (S.demo){ boot = true; txt = new Set(S.games.slice(0, 12).map(g => g.toLowerCase())); }
+  else {
+    boot = await exists([], "boot.iso");
+    for (const n of ["update.ode", "update.uf2", "update.3do"]) fw = fw || await exists(["firmware"], n);
+    try { const f = await (await (await dirAt([".config"], false)).getFileHandle("3dogamesdetails.ode")).getFile();
+          for (const l of (await f.text()).split("\n")){ const i = l.indexOf("\t"); if (i > 0 && l[0] !== "#") txt.add(l.slice(0, i).toLowerCase()); } } catch(e){}
+  }
+  for (const kind in KINDS) KINDS[kind].places.forEach((p, i) => {
+    const key = t(KINDS[kind].log) + (KINDS[kind].places.length > 1 ? " (" + t("sz_" + p[1][p[1].length - 1]) + ")" : ""), set = S.card[kind][i];
+    const m = S.games.filter(g => !set.has(g.toLowerCase())); if (m.length) miss[key] = m;
+    const x = [...set].filter(n => !gamesLow.has(n)); if (x.length) extra[p[1].join("/")] = x;
+  });
+  const mt = S.games.filter(g => !txt.has(g.toLowerCase())); if (mt.length) miss[t("l_txt")] = mt;
+  const yn = v => t(v ? "yes" : "no"), withTxt = S.games.length - mt.length;
+  const sum = [[t("l_card"), S.rootName], [t("c_games"), S.games.length], [t("c_boot"), yn(boot)], [t("c_cfg"), yn(cfg)], [t("c_fw"), yn(fw)], [t("c_txt"), t("c_of")(withTxt, S.games.length)]];
+  const cols = o => `<div class="miss">${Object.keys(o).map(k => `<div><h4>${esc(k)} <span>${o[k].length}</span></h4><ul>${o[k].map(g => `<li>${esc(g)}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  const sec = o => Object.keys(o).map(k => k.toUpperCase() + " (" + o[k].length + ")\r\n" + o[k].join("\r\n")).join("\r\n\r\n");
+  checkText = "3DO ODE - " + t("s_check") + "\r\n\r\n" + sum.map(x => x[0] + ": " + x[1]).join("\r\n") +
+    (Object.keys(miss).length ? "\r\n\r\n== " + t("c_miss").toUpperCase() + " ==\r\n\r\n" + sec(miss) : "") + (Object.keys(extra).length ? "\r\n\r\n== " + t("c_extra").toUpperCase() + " ==\r\n\r\n" + sec(extra) : "") + "\r\n";
+  $("view").innerHTML = `<p class="note">${esc(t("c_note"))}</p>
+    <div class="panel"><h2>${esc(t("c_sum"))}</h2>${sum.map(x => `<div class="opt top" style="cursor:default"><span>${esc(x[0])}</span><b>${esc(x[1])}</b></div>`).join("")}</div>
+    ${Object.keys(miss).length ? `<div class="misshead"><b>${esc(t("c_miss"))}</b></div>` + cols(miss) : ""}
+    ${Object.keys(extra).length ? `<div class="misshead"><b>${esc(t("c_extra"))}</b></div>` + cols(extra) : ""}
+    ${!Object.keys(miss).length && !Object.keys(extra).length ? `<p class="note" style="margin-top:12px"><b style="color:var(--fg)">${esc(t("c_ok"))}</b></p>` : ""}
+    <p style="margin:14px 0 0"><button class="big stop" id="cdl">${esc(t("c_dl"))}</button></p>`;
+}
+
 function drawWrite(){
   $("title").textContent = t("s_write");
   $("view").innerHTML = `<p class="note">${esc(S.demo ? t("l_demo") : t("w_note"))}</p>
@@ -815,7 +1040,8 @@ async function act(k){
     if (k === "pick"){ await openCard(false); go("home"); }
     else if (k === "demo"){ await openCard(true); go("home"); }
     else if (k === "back") go("home");
-    else if (["games","media","options","write"].includes(k) && ready()) go(k);
+    else if (k === "rename" && ready()){ R.state = "idle"; R.msg = ""; go("rename"); }
+    else if (["games","media","options","write","check"].includes(k) && ready()) go(k);
   } catch(e){ if (e.name !== "AbortError") alert(t("err") + ": " + e.message); }
 }
 $("keys").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) act(b.dataset.k); });
@@ -851,10 +1077,14 @@ $("view").addEventListener("click", async e => {
       else S.o[o] = !S.o[o];
       return drawMedia();
     }
+    if (el.id === "rscan" || el.id === "rapply"){ S.busy = true; try { await (el.id === "rscan" ? renameScan() : renameApply()); } finally { S.busy = false; } return; }
+    if (el.id === "rall" || el.id === "rnone"){ R.items.forEach(it => it.on = el.id === "rall"); return drawRename(); }
+    if (el.id === "cdl"){ const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["\ufeff" + checkText], {type:"text/plain"})); a.download = "3do-ode-cartao.txt"; return a.click(); }
     if (el.id === "start") return run();
     if (el.id === "stop") S.stop = true;
   } catch(err){ if (err.name !== "AbortError") alert(t("err") + ": " + err.message); }
 });
+$("view").addEventListener("change", e => { const r = e.target.dataset.r; if (r !== undefined) R.items[Number(r)].on = e.target.checked; });
 document.addEventListener("keydown", e => {
   if (e.key === "Escape" && S.screen !== "home") return act("back");
   if (S.screen !== "games" || !["ArrowDown","ArrowUp"].includes(e.key)) return;
@@ -951,7 +1181,7 @@ async function run(){
       const lines = [];
       for (const g of S.games){ const f = S.gl.get(norm(g)); if (f) lines.push(detailLine(g, f)); else (lack.l_txt = lack.l_txt || []).push(g); }
       lines.sort((a,b) => a.split("\t")[0].toLowerCase() < b.split("\t")[0].toLowerCase() ? -1 : 1);
-      const body = new TextEncoder().encode("#3DOGAMES2\ttotal=" + lines.length + "\n" + lines.join("\n") + "\n");
+      const body = new TextEncoder().encode("#3DOGAMES2\ttotal=" + lines.length + "\n" + lines.join("\n") + "\n# fim\n");
       await put([".config"], "3dogamesdetails.ode", body); bytes += body.byteLength; files++;
       log(t("l_txt") + ": " + t("texts")(lines.length, S.games.length) + " (" + CFG_LANG[S.txtLang] + ")");
       tick("l_txt");
@@ -985,7 +1215,7 @@ async function run(){
 draw();
 if (Q.get("demo")) act("demo");
 /* Para os testes automáticos. */
-window.ODE = {norm, laterDisc, parseGamelist, detailLine, shortDesc, celEncode, celDecode, imageToCel, parseCfg, cfgText, cfgDefaults, S, act, go};
+window.ODE = {crcOf, parseDat, byTitle, R, norm, laterDisc, parseGamelist, detailLine, shortDesc, celEncode, celDecode, imageToCel, parseCfg, cfgText, cfgDefaults, S, act, go};
 </script>
 </body>
 </html>
