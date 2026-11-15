@@ -532,6 +532,8 @@ Built on the work of two people, whom I thank:
 - **[Fixel](https://github.com/fixelsan/3do-ode-firmware)** — the ODE board and the ODE driver.
 - **[FCare / SataTo3DO](https://github.com/FCare/SataTo3DO)** — the base firmware, from which TADEU was born.
 
+🏆 **A special thank you to MNEMO**, who created the **first ODE for the 3DO** and opened the way for all the others.
+
 We also use:
 
 - **[libretro-thumbnails](https://github.com/libretro-thumbnails/The_3DO_Company_-_3DO)** — part of the covers and screenshots the generator downloads.
@@ -572,4 +574,6 @@ The full history of the menu, the firmware and the generator is in **[CHANGELOG.
 
 ## ⚖️ License
 
-Freeware — personal use. The media (covers, screenshots, videos) comes from public collections and is for personal use.
+**Free for personal use.** You may not modify, decompile, reverse engineer, sell (or ship with a product that is sold) or use this project to train artificial intelligence. The full text is in **[LICENSE.md](LICENSE.md)**; the parts made by other people and their licenses are in **[THIRD-PARTY.md](THIRD-PARTY.md)**.
+
+The media (covers, screenshots, videos) comes from public collections and is for personal use.

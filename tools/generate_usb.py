@@ -2669,8 +2669,8 @@ def wizard():
         if video and ffok:
             vtam = _pick('   ' + T['q_vsize'], [('mini', T['v_mini']), ('box', T['v_box']), ('small', T['v_small']), ('medium', T['v_med']), ('large', T['v_large'])],
                          ini.get('vtam', 'small') if ini.get('vtam', 'small') in ('mini', 'box', 'small', 'medium', 'large') else 'small')
-            vfps = _pick('   ' + T['q_vfps'], [(10, '10'), (12, '12'), (15, '15'), (20, '20')], int(ini.get('vfps', '12')))
-            vseg = _pick('   ' + T['q_vseg'], [(5, '5 s'), (10, '10 s'), (15, '15 s'), (20, '20 s'), (30, '30 s')], int(ini.get('vseg', '10')))
+            vfps = _pick('   ' + T['q_vfps'], [(10, '10'), (12, '12'), (15, '15'), (20, '20')], int(ini.get('vfps', '15')))
+            vseg = _pick('   ' + T['q_vseg'], [(5, '5 s'), (10, '10 s'), (15, '15 s'), (20, '20 s'), (30, '30 s')], int(ini.get('vseg', '20')))
             vmissing = _yn('   ' + T['q_vmissing'], ini.get('vmissing', '1') == '1')
     # Lista de jogos (3dogamesdetails.ode) depois das imagens e dos videos.
     gen_list  = _yn('   ' + T['q_genlist'], ini.get('genlist', '1') == '1')
