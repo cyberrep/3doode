@@ -222,7 +222,7 @@ en:{title:"USB / SD SETUP",
  m_gen:"To convert games (.chd, .iso), rename, organize or convert your own videos, use generate_usb.py.",
  pv:"Preview",pv_note:"Approximate preview of the console menu with these options.",
  o_note:"These are the menu's own options. They go to the card with the rest; the console shows them already set.",
- o_tadeu:"My ODE has the TADEU firmware",o_rtc:"My ODE has the clock (RTC)",o_keep:"Options on the card: not changed",o_set:"Options on the card: will be written",
+ o_xport:"My ODE is the Xport (expansion board)",o_tadeu:"My ODE has the TADEU firmware",o_rtc:"My ODE has the clock (RTC)",o_keep:"Options on the card: not changed",o_set:"Options on the card: will be written",
  miss_t:"What was missing",miss_none:"Nothing was missing.",miss_dl:"Download the list",
  mu_play:"Listen to the music",mu_stop:"Stop",
  sp_wait:"Waiting",sp_done:"Copied",sp_none:"Nothing to copy",
@@ -266,7 +266,7 @@ pt:{title:"PREPARAR O USB / SD",
  m_gen:"Para converter jogos (.chd, .iso), renomear, organizar ou converter os seus próprios vídeos, use o generate_usb.py.",
  pv:"Prévia",pv_note:"Prévia aproximada do menu do console com estas opções.",
  o_note:"Estas são as opções do próprio menu. Elas vão para o cartão junto com o resto; o console já liga com elas ajustadas.",
- o_tadeu:"Meu ODE tem o firmware TADEU",o_rtc:"Meu ODE tem o relógio (RTC)",o_keep:"Opções do cartão: não serão alteradas",o_set:"Opções do cartão: serão gravadas",
+ o_xport:"Meu ODE é o Xport (placa de expansão)",o_tadeu:"Meu ODE tem o firmware TADEU",o_rtc:"Meu ODE tem o relógio (RTC)",o_keep:"Opções do cartão: não serão alteradas",o_set:"Opções do cartão: serão gravadas",
  miss_t:"O que faltou",miss_none:"Não faltou nada.",miss_dl:"Baixar a lista",
  mu_play:"Ouvir a música",mu_stop:"Parar",
  sp_wait:"A copiar",sp_done:"Copiado",sp_none:"Nada a copiar",
@@ -310,7 +310,7 @@ es:{title:"PREPARAR EL USB / SD",
  m_gen:"Para convertir juegos (.chd, .iso), renombrar, organizar o convertir tus propios vídeos, usa generate_usb.py.",
  pv:"Vista previa",pv_note:"Vista previa aproximada del menú de la consola con estas opciones.",
  o_note:"Estas son las opciones del propio menú. Van a la tarjeta con lo demás; la consola arranca con ellas ya ajustadas.",
- o_tadeu:"Mi ODE tiene el firmware TADEU",o_rtc:"Mi ODE tiene el reloj (RTC)",o_keep:"Opciones de la tarjeta: no se cambiarán",o_set:"Opciones de la tarjeta: se grabarán",
+ o_xport:"Mi ODE es el Xport (placa de expansión)",o_tadeu:"Mi ODE tiene el firmware TADEU",o_rtc:"Mi ODE tiene el reloj (RTC)",o_keep:"Opciones de la tarjeta: no se cambiarán",o_set:"Opciones de la tarjeta: se grabarán",
  miss_t:"Lo que faltó",miss_none:"No faltó nada.",miss_dl:"Descargar la lista",
  mu_play:"Escuchar la música",mu_stop:"Parar",
  sp_wait:"Por copiar",sp_done:"Copiado",sp_none:"Nada que copiar",
@@ -500,7 +500,7 @@ const S = {
   own:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   gl:new Map(), glLang:"",
   o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true},
-  cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, tadeu:false, rtc:false,
+  cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, tadeu:false, rtc:false, xport:false,
   screen:"home", sel:0, filter:"all", sec:0, grp:0, busy:false, stop:false
 };
 const IMG = /\.(png|jpe?g|webp|bmp|gif)$/i;
@@ -703,7 +703,7 @@ function drawMedia(){
     ${row("o_boot", t("m_boot"), yn(o.o_boot), "top")}${row("o_cov", t("m_cov"), yn(o.o_cov), "top")}${row("o_shot", t("m_shot"), yn(o.o_shot), "top")}
     ${row("o_vid", t("m_vid"), yn(o.o_vid), "top")}${row("o_txt", t("m_txt"), yn(o.o_txt), "top")}
     ${row("lang", t("m_lang"), esc(CFG_LANG[S.txtLang]), "top")}
-    ${row("fw", t("m_fw") + "  [TADEU]", esc(t(o.fw === "USB-ONLY" ? "fw_clone" : o.fw === "USB-CDROM" ? "fw_orig" : "fw_no")), "top")}
+    ${S.xport ? "" : row("fw", t("m_fw") + "  [TADEU]", esc(t(o.fw === "USB-ONLY" ? "fw_clone" : o.fw === "USB-CDROM" ? "fw_orig" : "fw_no")), "top")}
     ${row("keep", t("m_keep"), esc(t(o.keep ? "keep" : "replace")), "top")}
     ${row("own", t("m_own"), esc(t("m_own_n")(n.covers.size, n.screenshots.size, n.videos.size)), "top act")}
     </div><p class="note" style="margin-top:10px">${esc(t("m_own_d"))}</p><p class="note">${esc(t("m_gen"))}</p>`;
@@ -729,7 +729,7 @@ function drawOptions(){
     <div class="chips">${SECS.map((s, i) => `<button data-s="${i}" class="${i === S.sec ? "on" : ""}">${esc(tr(s.name))}</button>`).join("")}</div>
     <div class="optgrid"><div>
     <div class="panel"><h2>${esc(tr(sec.name))}</h2>${body}</div>
-    <div class="panel" style="margin-top:10px">${row("tadeu", t("o_tadeu"), esc(t(S.tadeu ? "yes" : "no")), "top")}${row("rtc", t("o_rtc"), esc(t(S.rtc ? "yes" : "no")), "top")}</div>
+    <div class="panel" style="margin-top:10px">${row("xport", t("o_xport"), esc(t(S.xport ? "yes" : "no")), "top")}${S.xport ? "" : row("tadeu", t("o_tadeu"), esc(t(S.tadeu ? "yes" : "no")), "top") + row("rtc", t("o_rtc"), esc(t(S.rtc ? "yes" : "no")), "top")}</div>
     <p class="note" style="margin-top:10px">${esc(t(S.cfgTouched || !S.cfgOnCard ? "o_set" : "o_keep"))}</p>
     </div>${preview()}</div>`;
   keys([["back","B",t("k_back")],"gap",["write","P",t("t_write")]]);
@@ -1146,6 +1146,7 @@ $("view").addEventListener("click", async e => {
         if (it[2] === "audio_music") musicPlay();                       // trocou a faixa: já toca
         if (it[2] === "audio_music_vol") player.volume = Number(S.cfg.audio_music_vol) / 10;
         if (it[2] === "idioma") await setTxtLang(Object.keys(CFG_LANG).find(k => CFG_LANG[k] === S.cfg.idioma), true); return drawOptions(); }
+      if (o === "xport"){ S.xport = !S.xport; if (S.xport){ S.tadeu = false; S.rtc = false; S.o.fw = ""; } return drawOptions(); }
       if (o === "tadeu"){ S.tadeu = !S.tadeu; if (!S.tadeu) S.rtc = false; return drawOptions(); }
       if (o === "rtc"){ S.rtc = !S.rtc; if (S.rtc) S.tadeu = true; return drawOptions(); }
       if (o === "lang"){ await setTxtLang(cycle(Object.keys(CFG_LANG), S.txtLang), true); S.cfgTouched = true; }
