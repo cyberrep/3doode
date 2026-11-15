@@ -16,9 +16,8 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 Primera versión pública. Reúne todo lo hecho en las versiones de desarrollo (0.x), descritas más abajo, y añade:
 
 - 💿🔥 **CD DE VERDAD EN EL XPORT, SIN QUITAR LA PLACA (exclusivo).** Con la placa de expansión conectada, la pantalla principal gana la caja **CD** (gris oscura sin disco, azul clara con disco). **A** saca el Xport del puerto, pide abrir y cerrar la tapa (FZ-10) o abre y cierra la bandeja (otros modelos), y la consola se reinicia sola en el disco. **B** cancela. El menú de fábrica del Xport no tiene esa función. Confirmado en consola real en la FZ-10; la bandeja automática de los otros modelos está en pruebas. La rutina va en un archivo aparte del disco (`XportCD`), cargado solo en ese momento.
-- **Pantalla de descripción nueva**: ficha del juego ordenada (género, año, país, productora, **editora**, discos con iconos, veces jugado y última vez). Con una imagen, la ficha queda a su lado; con dos, las imágenes van a la izquierda y la ficha y el texto a la derecha; con tres, las imágenes quedan arriba. Productora y editora largas se desplazan.
+- **Pantalla de descripción nueva**: el nombre del juego pasó a la barra de arriba y la ficha quedó ordenada ("Jugado: 2x - Última fecha", **desarrolladora**, **productora**, género, año, país, discos con iconos). Con una imagen, la ficha queda a su lado; con dos, las imágenes van a la izquierda y la ficha y el texto a la derecha; con tres, las imágenes quedan arriba. Nombre, desarrolladora y productora largos se desplazan despacio; desplazar el texto ya no detiene el vídeo; el efecto de favorito aparece sobre la carátula.
 - **Tú eliges lo que muestra la ficha**: *Opciones > Apariencia > Descripción* muestra u oculta cada dato.
-- En inglés, el campo "Productora" pasa a llamarse **Developer** (antes aparecía como "Publisher", que ahora es la editora).
 - **Editor de cada juego**, mostrado en la Vitrina y en la Tira (los textos de los juegos ganaron el campo `Publisher`).
 - **Vídeos de 20 segundos a 15 fotogramas por segundo** como valor predeterminado.
 

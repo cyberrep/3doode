@@ -249,7 +249,7 @@ How it works:
 
 ### Game description: you choose what is shown
 
-The description screen shows the **game sheet**: genre, year, country, developer, **publisher**, discs (one icon per disc), how many times it was played and the last time. In *Options > Appearance > Description* each of these can be **shown or hidden**. A developer or publisher name longer than the space **scrolls by itself**.
+The **game name sits on the top bar** (it scrolls slowly when longer than the bar). Below comes the **game sheet**: "Played: 2x - Last 10/11/2026", **developer**, **publisher**, genre, year, country and discs (one icon per disc). In *Options > Appearance > Description* each of these can be **shown or hidden**. Text longer than the space **scrolls by itself**, and scrolling the description does not stop the video.
 
 The layout follows the images chosen in *Media > Description*: with **one image**, it sits on the left and the sheet on the right; with **two**, both go to the left and the sheet and text to the right; with **three** (cover, screenshot and video), the images go on top.
 

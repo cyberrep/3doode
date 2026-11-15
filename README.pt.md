@@ -247,7 +247,7 @@ Como funciona:
 
 ### Descrição do jogo: você escolhe o que aparece
 
-A tela de descrição mostra a **ficha do jogo**: gênero, ano, país, produtora, **publicadora**, discos (um ícone por disco), quantas vezes foi jogado e a última vez. Em *Opções > Aparência > Descrição* cada um desses dados pode ser **mostrado ou escondido**. Nome de produtora ou publicadora maior que o espaço **rola sozinho**.
+O **nome do jogo fica na faixa de cima** (se for maior que a faixa, rola devagar). Embaixo vem a **ficha do jogo**: "Jogado: 2x - Última 10/11/2026", **desenvolvedora**, **produtora**, gênero, ano, país e discos (um ícone por disco). Em *Opções > Aparência > Descrição* cada um desses dados pode ser **mostrado ou escondido**. Texto maior que o espaço **rola sozinho**, e rolar a descrição não para o vídeo.
 
 A arrumação da tela acompanha as imagens escolhidas em *Mídias > Descrição*: com **uma imagem**, ela fica à esquerda e a ficha à direita; com **duas**, as duas ficam à esquerda e a ficha e o texto à direita; com **três** (capa, tela e vídeo), as imagens ficam em cima.
 

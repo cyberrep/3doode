@@ -16,9 +16,8 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 First public version. It gathers everything done in the development versions (0.x), described below, and adds:
 
 - 💿🔥 **REAL CDs ON THE XPORT, WITHOUT REMOVING THE BOARD (exclusive).** With the expansion board plugged in, the main screen gains the **CD** tile (dark gray with no disc, light blue with a disc). **A** takes the Xport off the port, asks you to open and close the lid (FZ-10) or opens and closes the tray (other models), and the console restarts by itself into the disc. **B** cancels. The Xport factory menu has no such function. Confirmed on real hardware on the FZ-10; automatic tray on the other models is being tested. The routine lives in a separate file on the disc (`XportCD`), loaded only at that moment.
-- **New description screen**: organised game sheet (genre, year, country, developer, **publisher**, discs with icons, times played and last time). With one image, the sheet sits beside it; with two, the images go to the left and the sheet and text to the right; with three, the images stay on top. Long developer and publisher names scroll.
+- **New description screen**: the game name moved to the top bar and the sheet was organised ("Played: 2x - Last date", **developer**, **publisher**, genre, year, country, discs with icons). With one image, the sheet sits beside it; with two, the images go to the left and the sheet and text to the right; with three, the images stay on top. Long names, developers and publishers scroll slowly; scrolling the text no longer stops the video; the favorite effect shows over the cover.
 - **You choose what the sheet shows**: *Options > Appearance > Description* shows or hides each item.
-- In English, the maker field is now called **Developer** (it used to read "Publisher", which is now the publisher field).
 - **Publisher of each game**, shown in Showcase and Strip (the game texts gained the `Publisher` field).
 - **Videos of 20 seconds at 15 frames per second** as the default.
 

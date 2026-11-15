@@ -16,9 +16,8 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 Primeira versão pública. Reúne tudo o que foi feito nas versões de desenvolvimento (0.x), descritas abaixo, e acrescenta:
 
 - 💿🔥 **CD DE VERDADE NO XPORT, SEM TIRAR A PLACA (exclusivo).** Com a placa de expansão ligada, a tela principal ganha a caixa **CD** (cinza escura sem disco, azul clara com disco). **A** tira o Xport da porta, pede para abrir e fechar a tampa (FZ-10) ou abre e fecha a bandeja (outros modelos), e o console reinicia sozinho no disco. **B** cancela. O menu de fábrica do Xport não tem essa função. Confirmado em console real no FZ-10; a bandeja automática dos outros modelos está em teste. A rotina fica num arquivo à parte do disco (`XportCD`), carregado só nessa hora.
-- **Tela de descrição nova**: ficha do jogo organizada (gênero, ano, país, produtora, **publicadora**, discos com ícones, vezes jogado e última vez). Com uma imagem, a ficha fica ao lado dela; com duas, as imagens vão para a esquerda e a ficha e o texto para a direita; com três, as imagens ficam em cima. Produtora e publicadora longas rolam.
+- **Tela de descrição nova**: o nome do jogo foi para a faixa de cima e a ficha ficou organizada ("Jogado: 2x - Última data", **desenvolvedora**, **produtora**, gênero, ano, país, discos com ícones). Com uma imagem, a ficha fica ao lado dela; com duas, as imagens vão para a esquerda e a ficha e o texto para a direita; com três, as imagens ficam em cima. Nome, desenvolvedora e produtora longos rolam devagar; rolar o texto não para mais o vídeo; o efeito do favorito aparece em cima da capa.
 - **Você escolhe o que a ficha mostra**: *Opções > Aparência > Descrição* liga ou esconde cada dado.
-- Em inglês, o campo "Produtora" passa a se chamar **Developer** (antes aparecia como "Publisher", que agora é a publicadora).
 - **Publicadora de cada jogo**, mostrada na Vitrine e na Faixa (os textos dos jogos ganharam o campo `Publisher`).
 - **Vídeos em 20 segundos e 15 quadros por segundo** como padrão.
 
