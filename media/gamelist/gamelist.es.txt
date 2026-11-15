@@ -1,0 +1,2844 @@
+# gamelist.txt - 3DO game texts for CyberRep 3DO ODE
+# Formato: [Título] (puede tener varias líneas [Alias]), luego Clave=Valor.
+# Year / Developer / Publisher / Genre / Description
+
+[20th Century Video Almanac]
+Year=1994
+Developer=The Software Toolworks
+Publisher=
+Genre=Multimedia
+Description=Almanaque multimedia sobre el siglo XX que reúne fragmentos de vídeo, fotos y textos sobre los principales acontecimientos históricos, políticos, culturales y deportivos, navegables por tema y por fecha.
+
+[3D Atlas]
+Year=1994
+Developer=Electronic Arts
+Publisher=
+Genre=Educativo
+Description=Atlas interactivo con un globo terráqueo en 3D que se puede girar y ampliar, con mapas, datos de países, clima, población y medio ambiente, además de vídeos y fotos de diversas regiones del planeta.
+
+[3DO de Shiru Miru Asobu - Nakajima Miyuki]
+Year=
+Developer=Pony Canyon
+Publisher=
+Genre=Multimedia
+Description=Rarísimo disco promocional japonés de Pony Canyon, usado en demostraciones en tiendas: música, minijuegos y contenido promocional en torno a la cantante pop-folk Miyuki Nakajima.
+
+[3DO Game Guru]
+Year=1995
+Developer=The 3DO Company
+Publisher=
+Genre=Utilidad
+Description=Disco utilitario para el 3DO que permite gestionar los datos guardados en la memoria de la consola y acceder a trucos y códigos de varios juegos de la plataforma.
+
+[3DO Interactive Sampler CD 2, The]
+Year=1994
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Segundo disco de demostración oficial del 3DO, con versiones jugables y vídeos de juegos y títulos multimedia lanzados o anunciados para la consola.
+
+[3DO Interactive Sampler CD 3, The]
+Year=1995
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Tercer disco de demostración oficial del 3DO, que reúne demos jugables y vídeos promocionales de juegos lanzados o previstos para la consola.
+
+[3DO Interactive Sampler CD 4, The]
+Year=1995
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Cuarto disco de demostración oficial del 3DO, con demos jugables y tráileres de juegos de la biblioteca de la consola.
+
+[3DO Interactive Sampler CD, The]
+Year=1994
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Primer disco de demostración oficial del 3DO, incluido con la consola, con avances jugables y vídeos de los primeros juegos y títulos multimedia de la plataforma.
+
+[3DO Interactive Sampler, The]
+Year=1993
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Disco de demostración europeo del 3DO, con avances jugables y vídeos de juegos y títulos multimedia disponibles para la consola.
+
+[3DO Multi Game Sampler Number 3, The]
+Year=1995
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Disco de demostración europeo del 3DO que reúne demos de varios juegos de la consola.
+
+[Adventures Of Captain J, The]
+Year=2025
+Developer=World of Games / Almondtree Games
+Publisher=
+Genre=Disparos
+Description=Juego homebrew independiente lanzado en 2025 por World of Games / Almondtree Games, uno de los nuevos títulos creados por la comunidad para el 3DO.
+
+[Agi Gongnyong Goldie]
+Year=1994
+Developer=LG Electronics
+Publisher=
+Genre=Educativo
+Description=Título infantil con el bebé dinosaurio Goldie, lanzado solo en Corea del Sur para el 3DO.
+
+[AI Shougi]
+Year=1995
+Developer=Taito
+Publisher=Taito
+Genre=Mesa
+Description=Juego de shogi, el ajedrez japonés, en el que el jugador se enfrenta a un rival controlado por la inteligencia artificial. Lanzado solo en Japón para el 3DO.
+
+[Alone in the Dark]
+Year=1994
+Developer=Infogrames
+Publisher=Interplay Productions
+Genre=Aventura
+Description=Aventura de terror en la que el jugador explora la mansión Derceto, enfrentándose a criaturas sobrenaturales y resolviendo enigmas. Usa personajes poligonales en 3D sobre escenarios prerrenderizados con cámaras fijas, y es un precursor del survival horror.
+
+[Alone in the Dark 2]
+Year=1995
+Developer=Infogrames
+Publisher=Interplay Productions
+Genre=Aventura
+Description=Continuación de Alone in the Dark en la que el detective Edward Carnby investiga el secuestro de una niña en una mansión dominada por piratas fantasma, combinando tiroteos, exploración y enigmas con cámaras fijas.
+
+[Anno Mitsumasa Pepperon-mura no Shiki]
+Year=1995
+Developer=Marubeni / Mitsumasa Anno / NHK
+Publisher=
+Genre=Multimedia
+Description=Título basado en la obra del ilustrador japonés Mitsumasa Anno, que retrata las cuatro estaciones de la aldea de Pepperon. Lanzado solo en Japón para el 3DO.
+
+[Another World]
+[Out of This World]
+Year=1994
+Developer=Interplay
+Publisher=Interplay Productions
+Genre=Acción
+Description=Aventura cinematográfica creada por Eric Chahi en la que el científico Lester es transportado a un planeta alienígena y debe sobrevivir, resolviendo enigmas y enfrentándose a enemigos con gráficos poligonales. La versión de 3DO trae escenarios rediseñados.
+
+[Aqua World - Umi Monogatari]
+Year=1995
+Developer=Mizuki
+Publisher=Mizuki
+Genre=Simulación
+Description=Título con temática de acuario y vida marina, en el que el jugador observa y cuida peces en un entorno submarino. Lanzado solo en Japón para el 3DO.
+
+[Armageddon]
+Year=1996
+Developer=LG Software
+Publisher=GoldStar
+Genre=Disparos
+Description=Juego de disparos coreano lanzado por LG Software en 1996. En el año 2157 la organización alienígena Eed invade la Tierra; Elka, descendiente de la Atlántida, usa el superordenador Delta 8988 para encontrar al último héroe capaz de salvar el mundo: Oh Haesung, que vive en el siglo XX. La agente Marie viaja a 1996 para buscarlo, pero Eed envía a un asesino tras él.
+
+[AutoBahn Tokio]
+Year=1995
+Developer=Sanai
+Publisher=Panasonic
+Genre=Carreras
+Description=Juego de carreras lanzado solo en Japón para el 3DO, con competiciones en las autopistas de Tokio.
+
+[Bakushou!! All Yoshimoto Quiz-ou Ketteisen]
+Year=1995
+Developer=TOSE
+Publisher=Yoshimoto Kogyo
+Genre=Concurso
+Description=Juego de preguntas y respuestas protagonizado por cómicos de la agencia japonesa Yoshimoto Kogyo, presentado en vídeo. Lanzado solo en Japón para el 3DO.
+
+[Ballz - The Director's Cut]
+Year=1995
+Developer=PF Magic
+Publisher=Panasonic
+Genre=Lucha
+Description=Versión ampliada del juego de lucha Ballz, en el que los luchadores están formados por esferas, creando una ilusión de 3D. Los combates ocurren en arenas giratorias, con golpes especiales, provocaciones y personajes que se transforman.
+
+[Battle Blues]
+Year=1996
+Developer=Shin's Entertainment
+Publisher=GoldStar
+Genre=Estrategia
+Description=Estrategia/RPG por turnos desarrollado por el equipo coreano Shin's y lanzado por LG como uno de los exclusivos del 3DO en Corea del Sur, lo que lo convierte en uno de los juegos más raros de la época.
+
+[Battle Chess]
+Year=1994
+Developer=Interplay
+Publisher=Interplay Productions
+Genre=Mesa
+Description=Juego de ajedrez en el que las piezas son personajes animados que luchan entre sí en cada captura, en escenas cómicas y violentas. Ofrece partidas contra el ordenador o contra otro jugador, con tablero en 2D o 3D.
+
+[Battle Pinball]
+Year=1994
+Developer=Japan DataWorks
+Publisher=Panasonic
+Genre=Pinball
+Description=Juego de pinball lanzado solo en Japón para el 3DO.
+
+[BattleSport]
+Year=1996
+Developer=Cyclone Studios
+Publisher=The 3DO Company
+Genre=Deportes
+Description=Deporte futurista en el que el jugador pilota un vehículo blindado en arenas 3D, intentando coger una pelota y marcar goles al adversario mientras usa armas para destruirlo. Permite partidas a pantalla dividida para dos jugadores.
+
+[BC Racers]
+Year=1995
+Developer=Core Design
+Publisher=GoldStar
+Genre=Carreras
+Description=Carrera ambientada en la prehistoria en la que parejas de hombres de las cavernas pilotan motos de piedra con sidecar, dando golpes de garrote a los rivales en pistas llenas de obstáculos. Estilo visual caricaturesco y modo para dos jugadores.
+
+[Belzerion]
+Year=1994
+Developer=Human
+Publisher=Human Entertainment
+Genre=Aventura
+Description=Aventura de acción japonesa de Human. En el siglo XXI una guerra nuclear obligó a la humanidad a vivir bajo tierra y fuerzas robóticas amenazan Shangrila, la última ciudad superviviente. Como investigador especial exploras la ciudad resolviendo acertijos y, fuera de ella, recorres laberintos con un traje mecha, luchando contra robots con ataques cuerpo a cuerpo y a distancia.
+
+[BFS - Blue Forest Story]
+Year=1996
+Developer=Riverhill Soft
+Publisher=Panasonic
+Genre=RPG
+Description=RPG japonés lanzado solo en Japón para el 3DO, ambientado en un mundo de fantasía en el que el jugador acompaña a un grupo de héroes en su viaje, con exploración y batallas.
+
+[BioFury]
+Year=2024
+Developer=Retro Love Letter
+Publisher=
+Genre=FPS
+Description=Shooter en primera persona lanzado en 2024 por Retro Love Letter, un homenaje a clásicos como Wolfenstein y Doom, con 12 niveles de acción sin pausa.
+
+[Blade Force]
+Year=1995
+Developer=Studio 3DO
+Publisher=The 3DO Company
+Genre=Acción
+Description=Juego de acción en 3D en el que el jugador vuela con un helicóptero personal acoplado a la espalda por una ciudad futurista, combatiendo a bandas y vehículos enemigos con total libertad de movimiento en misiones variadas.
+
+[Blonde Justice]
+Year=1994
+Developer=Vivid Interactive
+Publisher=
+Genre=Adulto
+Description=Película interactiva para adultos de Vivid Interactive. Entre bastidores de un club de striptease, una bailarina recibe amenazas de muerte: ¿una rival o un fan obsesionado? Una mezcla de sexo, intriga y obsesión.
+
+[Blood Angels]
+Year=1995
+Developer=Key Game
+Publisher=Electronic Arts Victor
+Genre=FPS
+Description=Versión japonesa de Space Hulk: Vengeance of the Blood Angels. Acción táctica en primera persona en el universo Warhammer 40.000: el jugador comanda un escuadrón de Exterminadores de los Blood Angels contra Genestealers en una nave abandonada.
+
+[Bodyconscious Digital Rave! Part 1 - Shinjuku & Takasaki]
+Year=1994
+Developer=Trans-Pegasus Limited
+Publisher=
+Genre=Multimedia
+Description=Título multimedia en vídeo con temática de fiestas y baile en Shinjuku y Takasaki. Lanzado solo en Japón para el 3DO.
+
+[Bonogurashi]
+Year=1995
+Developer=Amuse Productions / Bandai Visual
+Publisher=Amuse Productions
+Genre=Aventura
+Description=Título basado en el manga Bonobono, con la pequeña nutria marina y sus amigos del bosque. Lanzado solo en Japón para el 3DO.
+
+[BrainDead 13]
+Year=1996
+Developer=ReadySoft
+Publisher=ReadySoft
+Genre=FMV
+Description=Juego de animación interactiva al estilo de Dragon's Lair en el que el técnico Lance entra en el castillo del chiflado Dr. Nero Neurosis y debe escapar del villano Fritz, pulsando los comandos correctos en el momento exacto para evitar muertes cómicas.
+
+[Burning Soldier]
+Year=1994
+Developer=Genki
+Publisher=Panasonic
+Genre=Disparos
+Description=Juego de disparos sobre raíles en el que el jugador pilota un robot de combate contra una invasión alienígena, apuntando a enemigos poligonales superpuestos a escenarios en vídeo prerrenderizado con escenas en FMV.
+
+[Bust-A-Move]
+Year=1995
+Developer=Taito
+Publisher=Panasonic
+Genre=Puzle
+Description=Puzle en el que el jugador dispara burbujas de colores hacia arriba, formando grupos de tres o más del mismo color para estallarlas y limpiar la pantalla antes de que las burbujas desciendan hasta el final.
+
+[Cannon Fodder]
+Year=1994
+Developer=Sensible Software
+Publisher=Virgin Interactive
+Genre=Acción
+Description=Juego de acción y estrategia con vista cenital en el que el jugador comanda un pequeño escuadrón de soldados, haciendo clic para moverlos y disparar, en misiones por selvas, nieve y desiertos con humor satírico sobre la guerra.
+
+[Captain Quazar]
+Year=1996
+Developer=Cyclone Studios
+Publisher=The 3DO Company
+Genre=Acción
+Description=Juego de disparos con vista isométrica y tono cómico en el que el musculoso héroe espacial Captain Quazar invade planetas para derrotar a criminales, explorando fases llenas de enemigos, armas e ítems.
+
+[Carrier - Fortress at Sea]
+Year=1995
+Developer=RMG Dentsu USA
+Publisher=Panasonic
+Genre=Simulación
+Description=Título de temática naval centrado en las operaciones de un portaaviones en el mar. Lanzado en los Estados Unidos para el 3DO.
+
+[Casper]
+Year=1996
+Developer=Logicware
+Publisher=Interplay Productions
+Genre=Aventura
+Description=Aventura basada en la película de 1995 en la que el jugador controla al fantasmita simpático Casper, explorando la mansión Whipstaff con vista isométrica, resolviendo enigmas y usando poderes para enfrentarse a los tíos fantasmas.
+
+[Chiki Chiki Machine Mou Race - Kenken to Black Maou no Ijiwaru Daisakusen]
+Year=1994
+Developer=Future Pirates
+Publisher=Future Pirates
+Genre=Carreras
+Description=Juego de carreras basado en el dibujo Los autos locos (Wacky Races), conocido en Japón como Chiki Chiki Machine Mou Race, con Pierre Nodoyuna y Patán. Lanzado solo en Japón para el 3DO.
+
+[Chiki Chiki Machine Mou Race 2 - In Space]
+Year=1995
+Developer=Future Pirates
+Publisher=Future Pirates
+Genre=Carreras
+Description=Continuación japonesa basada en el dibujo Los autos locos (Wacky Races), esta vez con las competiciones llevadas al espacio. Lanzado solo en Japón para el 3DO.
+
+[Club 3DO - Station Invasion]
+Year=1994
+Developer=Studio 3DO
+Publisher=The 3DO Company
+Genre=Demo
+Description=Disco promocional del 3DO que presenta avances y vídeos de juegos de la consola dentro de una interfaz temática, con pequeñas actividades interactivas.
+
+[Corpse Killer]
+Year=1994
+Developer=Digital Pictures
+Publisher=Acclaim
+Genre=Disparos
+Description=Juego de disparos con vídeo en FMV en el que el jugador, un soldado en una isla caribeña, se enfrenta a zombis creados por un científico loco, apuntando a los enemigos que aparecen en las escenas filmadas con actores reales.
+
+[Coven, The]
+Year=1994
+Developer=Vivid Interactive
+Publisher=
+Genre=Adulto
+Description=Película interactiva para adultos de Vivid Interactive sobre un espíritu bendecido por la luna y los amantes que la merecen, contada en torno al personaje de Janine.
+
+[Cowboy Casino]
+Year=1995
+Developer=Computer Studio / Intellimedia Sports
+Publisher=IntelliPlay
+Genre=Mesa
+Description=Juego de póquer con temática del oeste en el que el jugador disputa partidas de cartas contra personajes excéntricos de un salón.
+
+[Crash 'n Burn]
+Year=1993
+Developer=Crystal Dynamics
+Publisher=Crystal Dynamics
+Genre=Carreras
+Description=Carrera futurista de combate, lanzada junto con el 3DO, en la que el jugador pilota coches armados en pistas 3D, destruyendo a los rivales con armas y usando el dinero de las victorias para mejorar el vehículo.
+
+[Crayon Shin-chan - Puzzle Daimaou no Nazo]
+Year=1995
+Developer=TOSE
+Publisher=Bandai
+Genre=Puzle
+Description=Juego de puzles protagonizado por Shin-chan, personaje del manga y anime Crayon Shin-chan. Lanzado solo en Japón para el 3DO.
+
+[Creature Shock]
+Year=1996
+Developer=Argonaut Software
+Publisher=Virgin Interactive
+Genre=Disparos
+Description=Juego de disparos sobre raíles con escenarios prerrenderizados en el que el jugador investiga una nave tomada por alienígenas, disparando a las criaturas que aparecen en los pasillos y en secuencias de combate espacial.
+
+[Crime Patrol]
+Year=1994
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Juego de disparos con pistola de luz y vídeo filmado en el que el jugador es un policía que asciende de rango enfrentándose a criminales en atracos, secuestros y tiroteos, disparando a los bandidos y perdonando a los inocentes.
+
+[CyberDillo]
+Year=1996
+Developer=Pixel Technologies
+Publisher=Panasonic
+Genre=FPS
+Description=Juego de disparos en primera persona con humor absurdo en el que el jugador controla a un armadillo atropellado que vuelve a la vida como cíborg, atravesando fases surrealistas repletas de referencias a la cultura pop.
+
+[Cyberia]
+Year=1996
+Developer=Xatrix Entertainment
+Publisher=Interplay Productions
+Genre=Acción
+Description=Juego de acción y aventura con gráficos prerrenderizados en el que el hacker Zak investiga un arma misteriosa, alternando entre tramos de disparos sobre raíles en vehículos y exploración con puzles.
+
+[D]
+Year=1995
+Developer=Warp
+Publisher=Panasonic
+Genre=Aventura
+Description=Aventura de terror creada por Kenji Eno en la que Laura investiga un hospital donde su padre cometió una masacre, explorando un castillo misterioso en gráficos por ordenador prerrenderizados, con un límite de dos horas.
+
+[D no Shokutaku]
+Year=1995
+Developer=Warp
+Publisher=Sanyei Shobou
+Genre=Aventura
+Description=Versión japonesa de D, aventura de terror de Kenji Eno en la que Laura explora un castillo misterioso en gráficos por ordenador prerrenderizados, resolviendo enigmas para descubrir la verdad sobre su padre, con un límite de dos horas.
+
+[D's Diner - The Director's Cut]
+Year=1995
+Developer=Warp
+Publisher=Sanyei Shobou
+Genre=Aventura
+Description=Edición especial japonesa de D, la aventura de terror de Kenji Eno, con contenido extra respecto a la versión original. El personaje de Laura explora un castillo sombrío y resuelve enigmas en entornos prerrenderizados.
+
+[Daedalus Encounter, The]
+Year=1995
+Developer=Mechadeus
+Publisher=Panasonic
+Genre=FMV
+Description=Aventura en FMV protagonizada por Tia Carrere en la que el jugador, reducido a un cerebro dentro de una sonda robótica, ayuda a dos compañeros a escapar de una nave alienígena resolviendo puzles.
+
+[Daedalus Encounter, The - Episode 1 - Nanpasen no Alien]
+Year=1995
+Developer=Mechadeus
+Publisher=Hatnet
+Genre=FMV
+Description=Versión japonesa de The Daedalus Encounter, aventura en FMV protagonizada por Tia Carrere en la que el jugador controla una sonda robótica y resuelve puzles para escapar de una nave alienígena.
+
+[DeathKeep]
+Year=1996
+Developer=Lion Entertainment
+Publisher=Strategic Simulations
+Genre=RPG
+Description=RPG de acción en primera persona basado en Advanced Dungeons & Dragons, en el que el jugador elige entre enano, elfo o semielfo y explora mazmorras en 3D, enfrentándose a monstruos y reuniendo ítems mágicos.
+
+[Decathlon]
+Year=2007
+Developer=Studio 3DO
+Publisher=
+Genre=Deportes
+Description=Juego deportivo basado en el decatlón, con las pruebas de atletismo de la modalidad. Lanzado en los Estados Unidos para el 3DO.
+
+[Defcon 5]
+Year=1995
+Developer=Millennium Interactive
+Publisher=GoldStar
+Genre=Estrategia
+Description=Mezcla de estrategia y acción en primera persona en la que el jugador es un técnico de una base de defensa en un planeta remoto y debe reparar sistemas, gestionar torres de defensa y repeler un ataque alienígena.
+
+[Demolition Man]
+Year=1995
+Developer=Virgin Interactive
+Publisher=Virgin Interactive
+Genre=Acción
+Description=Juego de acción basado en la película con Sylvester Stallone, que combina escenas en vídeo con los actores y fases variadas de disparos en primera persona, plataformas, lucha y conducción en el papel del policía John Spartan.
+
+[Dennis Miller - That's News to Me]
+Year=1994
+Developer=Sanctuary Woods
+Publisher=
+Genre=Multimedia
+Description=Título multimedia con el cómico estadounidense Dennis Miller, en clave de humor sobre las noticias. Lanzado en los Estados Unidos para el 3DO.
+
+[Dennou Hyouryuu - Multimedia Cruising]
+Year=1995
+Developer=Scitron & Art
+Publisher=
+Genre=Multimedia
+Description=Título multimedia de navegación por contenidos interactivos. Lanzado solo en Japón para el 3DO.
+
+[Digital Dreamware]
+Year=1995
+Developer=Virgin Interactive
+Publisher=
+Genre=Multimedia
+Description=Álbum interactivo de sonidos e imágenes de Virgin Interactive: seis piezas audiovisuales caleidoscópicas con banda sonora techno-trance, que puedes controlar o simplemente dejar fluir.
+
+[DinoPark Tycoon]
+Year=1994
+Developer=MECC
+Publisher=MECC
+Genre=Simulación
+Description=Simulación educativa en la que el jugador administra un parque de dinosaurios, comprando terrenos y animales, contratando empleados, cuidando las finanzas y atrayendo visitantes para mantener el negocio rentable.
+
+[Diving Spot Guide - Marine Tour]
+Year=1994
+Developer=Office Create
+Publisher=
+Genre=Multimedia
+Description=Guía multimedia de puntos de buceo, con vídeos e información sobre lugares y vida marina. Lanzado solo en Japón para el 3DO.
+
+[Doctor Hauzer]
+Year=1994
+Developer=Riverhill Soft
+Publisher=Panasonic
+Genre=Aventura
+Description=Aventura de terror en 3D poligonal en la que el jugador explora la mansión del misterioso Dr. Hauzer, evitando trampas y resolviendo enigmas, con alternancia entre vista en primera persona, tercera persona y cenital.
+
+[Doom]
+Year=1996
+Developer=Art Data Interactive
+Publisher=Art Data Interactive
+Genre=FPS
+Description=Conversión del clásico de disparos en primera persona de id Software en el que un marine espacial se enfrenta a hordas de demonios en bases en Marte y Fobos. La versión de 3DO corre en una ventana reducida y trae banda sonora remezclada.
+
+[Dragon Lore - The Legend Begins]
+Year=1994
+Developer=Cryo Interactive
+Publisher=Mindscape
+Genre=Aventura
+Description=Aventura en primera persona con gráficos prerrenderizados en la que el joven granjero Werner descubre que es heredero de los Caballeros del Dragón y debe reunir apoyos para conquistar su lugar en la orden, con combates y enigmas.
+
+[Dragon Tycoon Edge]
+Year=1995
+Developer=Sala International
+Publisher=Sanyo
+Genre=RPG
+Description=RPG japonés de Sara International. En una galaxia lejana y hostil, un dios te convoca para conquistarla: empiezas con una forma pseudohumana y luego puedes transformarte en cualquier criatura que hayas derrotado.
+
+[Dragon's Lair]
+Year=1994
+Developer=ReadySoft
+Publisher=ReadySoft
+Genre=FMV
+Description=Conversión del clásico dibujo animado interactivo de Don Bluth, en el que el caballero Dirk intenta rescatar a la princesa Daphne de un dragón, exigiendo comandos en el momento exacto para escapar de trampas y monstruos.
+
+[Drug Wars]
+[Crime Patrol 2 - Drug Wars]
+Year=1994
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Continuación de Crime Patrol, juego de disparos con pistola de luz y vídeo filmado en el que el jugador combate a traficantes en diversas misiones, disparando a los criminales y evitando alcanzar a los civiles.
+
+[Emit Vol. 1 - Toki no Maigo]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Educativo
+Description=Primer volumen de la serie Emit, aventura educativa en formato de animación interactiva orientada al aprendizaje de inglés, con diálogos en inglés y japonés. Lanzado solo en Japón para el 3DO.
+
+[Emit Vol. 2 - Inochigake no Tabi]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Educativo
+Description=Segundo volumen de la serie Emit, aventura educativa en formato de animación interactiva orientada al aprendizaje de inglés, con diálogos en inglés y japonés. Lanzado solo en Japón para el 3DO.
+
+[Emit Vol. 3 - Watashi ni Sayonara o]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Educativo
+Description=Tercer y último volumen de la serie Emit, aventura educativa en formato de animación interactiva orientada al aprendizaje de inglés, con diálogos en inglés y japonés. Lanzado solo en Japón para el 3DO.
+
+[Endlessly]
+Year=1995
+Developer=Vivid Interactive
+Publisher=
+Genre=Adulto
+Description=Película interactiva para adultos de Vivid Interactive, la historia de un amor sin fin vivido en una playa, protagonizada por Nikki y Crystal Wilder.
+
+[Escape from Monster Manor]
+Year=1993
+Developer=Studio 3DO
+Publisher=Electronic Arts
+Genre=FPS
+Description=Juego de disparos en primera persona ambientado en una mansión encantada, en el que el jugador se enfrenta a fantasmas y monstruos mientras busca los pedazos de un amuleto para liberar a los espíritus atrapados.
+
+[ESPN Baseball - Hitting]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Título instructivo de ESPN con vídeos y lecciones interactivas para perfeccionar la técnica de bateo en el béisbol.
+
+[ESPN Fitness Pros - Step Aerobics]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Programa interactivo de ejercicios de ESPN con clases en vídeo de step aeróbico, que permite elegir series y niveles de intensidad.
+
+[ESPN Golf - Lower Your Score with Tom Kite - Shot Making]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Título instructivo de ESPN en el que el golfista Tom Kite enseña, mediante vídeos y lecciones interactivas, técnicas para ejecutar diferentes tipos de golpes y reducir el número de tacadas.
+
+[ESPN Golf - Tom Kite no Kore ga Golf da!]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Versión japonesa del título instructivo de ESPN en el que el golfista Tom Kite enseña, con vídeos y lecciones interactivas, técnicas para ejecutar diferentes tipos de golpes.
+
+[ESPN Let's Go Skiing with Picabo Street, A. J. Kitt & Holly Flanders]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Título instructivo de ESPN con clases en vídeo de esquí presentadas por los esquiadores olímpicos Picabo Street, A. J. Kitt y Holly Flanders.
+
+[ESPN Let's Play Beach Volleyball with Karch Kiraly and Karolyn Kirby]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Título instructivo de ESPN con clases en vídeo de voley playa presentadas por los jugadores Karch Kiraly y Karolyn Kirby.
+
+[ESPN Let's Play Soccer with John Harkes and Mia Hamm]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Título instructivo de ESPN con clases en vídeo de fundamentos del fútbol presentadas por los jugadores estadounidenses John Harkes y Mia Hamm.
+
+[ESPN Let's Play Tennis with Tracy Austin]
+Year=1994
+Developer=Intellimedia Sports
+Publisher=
+Genre=Deportes
+Description=Título instructivo de ESPN con clases en vídeo de tenis presentadas por la extenista Tracy Austin, que abordan golpes y fundamentos del deporte.
+
+[Eye of Typhoon, The]
+Year=1996
+Developer=Viccom
+Publisher=GoldStar
+Genre=Lucha
+Description=Juego de lucha coreano para el 3DO, con luchadores que disputan combates uno contra uno con golpes especiales.
+
+[F1GP]
+Year=1995
+Developer=Dynamite / Opera House
+Publisher=Pony Canyon
+Genre=Carreras
+Description=Juego de carreras de Fórmula 1 lanzado solo en Japón para el 3DO.
+
+[Family Feud]
+Year=1994
+Developer=GameTek
+Publisher=GameTek
+Genre=Concurso
+Description=Adaptación del programa de televisión estadounidense de preguntas y respuestas en el que dos familias compiten intentando adivinar las respuestas más populares dadas en encuestas al público.
+
+[Fatty Bear's Birthday Surprise]
+Year=1993
+Developer=Humongous Entertainment
+Publisher=Humongous Entertainment
+Genre=Educativo
+Description=Aventura infantil de apuntar y hacer clic en la que el osito de peluche Fatty Bear intenta preparar una fiesta sorpresa de cumpleaños para su dueña durante la noche, explorando la casa y resolviendo tareas sencillas.
+
+[Fatty Bear's Funpack]
+Year=1994
+Developer=Humongous Entertainment
+Publisher=Humongous Entertainment
+Genre=Educativo
+Description=Recopilación de actividades infantiles con el osito Fatty Bear, que incluye juegos sencillos, puzles y pasatiempos pensados para niños pequeños.
+
+[FB Battery Navi Ver. II]
+Year=
+Developer=Dai Nippon Printing
+Publisher=
+Genre=Puzle
+Description=Segunda versión de la serie de puzles Battery Navi, de Dai Nippon Printing, lanzada solo en Japón para el 3DO.
+
+[FIFA International Soccer]
+Year=1994
+Developer=Extended Play Productions
+Publisher=EA Sports
+Genre=Deportes
+Description=Juego de fútbol con selecciones internacionales y vista isométrica, que en la versión de 3DO incorporó múltiples ángulos de cámara y animaciones mejoradas, con partidos amistosos, torneos y campeonatos.
+
+[Fire Ball!!]
+Year=1994
+Developer=Nippon Data Works
+Publisher=Panasonic
+Genre=Pinball
+Description=Versión japonesa de Real Pinball, simulador de petacos con varias mesas temáticas, bola con física realista y marcador al estilo de las máquinas de verdad.
+
+[Firewall]
+Year=1996
+Developer=Visionary Media
+Publisher=GoldStar
+Genre=Acción
+Description=Firewall: Man vs. Machines. El superordenador de MiraCom ha tomado el control de la corporación y amenaza con destruir París. Como Blue Arrow, piloto de caza y científico informático, pilotas tu cibernave por once niveles en 3D, del mundo real al ciberespacio, siguiendo pistas y resolviendo acertijos para atravesar el Firewall y destruir la máquina.
+
+[Flashback]
+Year=1994
+Developer=U.S. Gold
+Publisher=U.S. Gold
+Genre=Acción
+Description=Aventura de acción y plataformas con animación rotoscópica en la que el agente Conrad B. Hart, sin memoria, despierta en un planeta salvaje y debe descubrir una conspiración alienígena, atravesando fases con tiroteos y enigmas.
+
+[Flashback - The Quest for Identity]
+Year=1995
+Developer=Delphine Software / Tiertex
+Publisher=U.S. Gold
+Genre=Acción
+Description=Versión estadounidense de Flashback, aventura de acción y plataformas con animación rotoscópica en la que el agente Conrad B. Hart, sin memoria, se enfrenta a una conspiración alienígena en fases con tiroteos y enigmas.
+
+[Flopon World]
+Year=1995
+Developer=WARP
+Publisher=Warp
+Genre=Puzle
+Description=Colección de minijuegos protagonizada por los personajes Flopon, desarrollada y publicada por WARP y lanzada solo en Japón en 1995.
+
+[Flying Nightmares]
+Year=1995
+Developer=Domark
+Publisher=Domark
+Genre=Simulación
+Description=Simulador de vuelo de combate en el que el jugador pilota un caza AV-8B Harrier de despegue vertical, cumpliendo misiones de ataque a objetivos terrestres y combate aéreo desde un buque.
+
+[Foes of Ali]
+Year=1995
+Developer=Gray Matter
+Publisher=EA Sports
+Genre=Deportes
+Description=Simulador de boxeo en 3D poligonal protagonizado por Muhammad Ali, en el que el jugador se enfrenta a adversarios históricos del legendario púgil con cámaras dinámicas y comentarios durante los combates.
+
+[Footie]
+Year=
+Developer=Elite
+Publisher=
+Genre=Deportes
+Description=Juego de fútbol de Elite al estilo de Sensible Soccer: juega partidos directamente, como un título deportivo normal, o profundiza y dirige tu propio club.
+
+[Fun 'n Games]
+Year=1995
+Developer=Williams Entertainment
+Publisher=Panasonic
+Genre=Educativo
+Description=Recopilación de actividades creativas para niños, con herramientas de dibujo, música y pequeños juegos.
+
+[Fun 'n Games - Soft no Omochabako]
+Year=1994
+Developer=Williams
+Publisher=Virgin Interactive
+Genre=Educativo
+Description=Versión japonesa de Fun 'n Games, recopilación de actividades creativas para niños, con herramientas de dibujo, música y pequeños juegos.
+
+[Gakkou no Kowai Uwasa - Hanako-san ga Kita!!]
+Year=1995
+Developer=Amuse
+Publisher=Amuse Productions
+Genre=Aventura
+Description=Título de terror basado en la leyenda urbana japonesa de Hanako-san, el fantasma del baño de la escuela, y en la serie Hanako-san ga Kita!!. Lanzado solo en Japón para el 3DO.
+
+[Game no Tatsujin]
+Year=1995
+Developer=Sunsoft
+Publisher=Sunsoft
+Genre=Mesa
+Description=Recopilación de juegos de mesa tradicionales japoneses, como shogi y mahjong, para jugar contra el ordenador. Lanzado solo en Japón para el 3DO.
+
+[Gateway to English - Eigo de Go!]
+Year=1996
+Developer=Gakken
+Publisher=Gakken
+Genre=Educativo
+Description=Título educativo orientado al aprendizaje de inglés por hablantes de japonés. Lanzado solo en Japón para el 3DO.
+
+[Gex]
+Year=1995
+Developer=Crystal Dynamics
+Publisher=Crystal Dynamics
+Genre=Plataformas
+Description=Juego de plataformas en el que la lagartija Gex es absorbida dentro del televisor y debe atravesar mundos inspirados en géneros de televisión y cine, trepando paredes, azotando a los enemigos con la cola y soltando chistes.
+
+[Ghost Hunter Series - Kuroki Shi no Kamen]
+Year=1994
+Developer=HummingBirdSoft
+Publisher=Panasonic
+Genre=Aventura
+Description=Título de la serie Ghost Hunter con temática sobrenatural. Lanzado solo en Japón para el 3DO.
+
+[Goal FH]
+Year=1995
+Developer=JASPAC
+Publisher=Carrozzeria Japan
+Genre=Deportes
+Description=Juego de fútbol lanzado solo en Japón, con un estilo visual inspirado en el anime y cámara cinematográfica detrás del jugador. Producido con la participación de NHK Software y publicado por Carrozzeria Japan.
+
+[Great! Soccer Kid]
+[Soccer Kid]
+Year=1994
+Developer=Krisalis Software
+Publisher=The 3DO Company
+Genre=Plataformas
+Description=Versión japonesa de Soccer Kid, juego de plataformas en el que el protagonista usa un balón de fútbol como arma y herramienta, chutando y manteniendo el balón en equilibrio para derrotar enemigos y avanzar por las fases alrededor del mundo.
+
+[Gridders]
+Year=1994
+Developer=Tetragon
+Publisher=The 3DO Company
+Genre=Puzle
+Description=Juego de puzles en perspectiva isométrica en el que el jugador controla una esfera por laberintos de rejillas, activando bloques, recogiendo ítems y evitando enemigos para abrirse camino hasta la salida de cada fase.
+
+[Grimm Meisaku Gekijou Vol. 1 - Bremen no Ongakutai]
+Year=1994
+Developer=JASPAC
+Publisher=
+Genre=Educativo
+Description=Volumen de la serie japonesa de cuentos de los Hermanos Grimm para 3DO, que presenta la historia de los Músicos de Bremen en formato de libro interactivo con ilustraciones, narración y animaciones dirigidas al público infantil.
+
+[Grimm Meisaku Gekijou Vol. 2 - Hansel to Gretel]
+Year=1994
+Developer=Ima Company
+Publisher=
+Genre=Educativo
+Description=Volumen de la serie japonesa de cuentos de los Hermanos Grimm para 3DO, que presenta la historia de Hansel y Gretel en formato de libro interactivo con ilustraciones, narración y animaciones dirigidas al público infantil.
+
+[Grimm Meisaku Gekijou Vol. 3 - Akazukin]
+Year=1994
+Developer=Ima Company
+Publisher=
+Genre=Educativo
+Description=Volumen de la serie japonesa de cuentos de los Hermanos Grimm para 3DO, que presenta la historia de Caperucita Roja en formato de libro interactivo con ilustraciones, narración y animaciones dirigidas al público infantil.
+
+[Guardian War]
+Year=1994
+Developer=Microcabin
+Publisher=Panasonic
+Genre=RPG
+Description=RPG de estrategia por turnos con batallas en escenarios 3D, en el que el jugador comanda un grupo de unidades que pueden cambiar de clase y absorber habilidades de los enemigos derrotados. Conocido en Japón como Powers Kingdom.
+
+[Hatsubai 1 Shuunen - 3DO REAL - Tokubetsu Premium CD]
+Year=1995
+Developer=Panasonic Interactive Media
+Publisher=
+Genre=Demo
+Description=Rarísimo disco de demostración japonés que celebra el primer aniversario del 3DO REAL, con siete demos jugables: Starblade, Road Rash, Shock Wave, Masters Harukanaru Augusta 3, Flopon-kun, Alone in the Dark y Street Fighter II Turbo.
+
+[Hell - A Cyberpunk Thriller]
+Year=1994
+Developer=Take-Two Interactive
+Publisher=GameTek
+Genre=Aventura
+Description=Aventura de apuntar y hacer clic ambientada en un futuro distópico controlado por un régimen teocrático. Dos agentes investigan una conspiración entre gráficos prerrenderizados y diálogos con actores conocidos, como Dennis Hopper.
+
+[Hello Kitty - Asobi no Omochabako]
+Year=1995
+Developer=Mizuki
+Publisher=Mizuki / Sanrio
+Genre=Educativo
+Description=Software infantil lanzado solo en Japón con el personaje Hello Kitty, de Sanrio, que reúne juegos y actividades sencillas dirigidas a niños pequeños en formato de caja de juguetes interactiva.
+
+[Hirata Shougo Interactive Ehon - Aesop Monogatari Vol. 1]
+Year=1994
+Developer=Elcom
+Publisher=
+Genre=Educativo
+Description=Libro ilustrado interactivo de la serie de Shōgo Hirata, lanzado solo en Japón, que narra fábulas de Esopo con ilustraciones animadas, narración e interacciones sencillas dirigidas al público infantil.
+
+[Hirata Shougo Interactive Ehon - Cinderella]
+Year=1995
+Developer=Elcom
+Publisher=
+Genre=Educativo
+Description=Libro ilustrado interactivo de la serie de Shōgo Hirata, lanzado solo en Japón, que narra la historia de Cenicienta con ilustraciones animadas, narración e interacciones sencillas dirigidas al público infantil.
+
+[Hirata Shougo Interactive Ehon - Ningyo-hime]
+Year=1994
+Developer=Elcom
+Publisher=
+Genre=Educativo
+Description=Libro ilustrado interactivo de la serie de Shōgo Hirata, lanzado solo en Japón, que narra la historia de la Sirenita con ilustraciones animadas, narración e interacciones sencillas dirigidas al público infantil.
+
+[Hirata Shougo Interactive Ehon - Ookami to Shichihiki no Koyagi]
+Year=1995
+Developer=Elcom
+Publisher=
+Genre=Educativo
+Description=Libro ilustrado interactivo de la serie de Shōgo Hirata, lanzado solo en Japón, que narra el cuento del Lobo y los Siete Cabritillos con ilustraciones animadas, narración e interacciones sencillas dirigidas al público infantil.
+
+[Hirata Shougo Interactive Ehon - Sanbiki no Kobuta]
+Year=1994
+Developer=Elcom
+Publisher=
+Genre=Educativo
+Description=Libro ilustrado interactivo de la serie de Shōgo Hirata, lanzado solo en Japón, que narra la historia de los Tres Cerditos con ilustraciones animadas, narración e interacciones sencillas dirigidas al público infantil.
+
+[Hirata Shougo Interactive Ehon - Shirayuki-hime]
+Year=1994
+Developer=Elcom
+Publisher=
+Genre=Educativo
+Description=Libro ilustrado interactivo de la serie de Shōgo Hirata, lanzado solo en Japón, que narra la historia de Blancanieves con ilustraciones animadas, narración e interacciones sencillas dirigidas al público infantil.
+
+[Hitchcock ni Chousen]
+Year=1994
+Developer=Toyota
+Publisher=Panasonic
+Genre=Puzle
+Description=Versión japonesa de Alfred Hitchcock Presents: disco promocional distribuido en concesionarios Toyota, con escenas de Hitchcock redobladas para anunciar coches de la marca y minijuegos de memoria y ruleta.
+
+[Horde, The]
+Year=1994
+Developer=Toys for Bob
+Publisher=Crystal Dynamics
+Genre=Estrategia
+Description=Mezcla de acción y estrategia en la que el jugador, como el siervo Chauncey, construye y defiende aldeas contra hordas de criaturas hambrientas, usando la espada y trampas compradas con los impuestos. Tiene escenas en vídeo con actores.
+
+[Icebreaker]
+Year=1995
+Developer=Magnet Interactive Studios
+Publisher=Panasonic
+Genre=Puzle
+Description=Juego de acción y estrategia con vista isométrica en el que el jugador controla una pirámide que debe destruir todas las pirámides enemigas de cada fase, eligiendo cuáles romper por colisión o atraer hacia las trampas del escenario.
+
+[Icebreaker II]
+Year=2007
+Developer=Magnet Interactive Studios
+Publisher=
+Genre=Puzle
+Description=Continuación de Icebreaker lanzada tardíamente como título de mercado posterior, que mantiene la mecánica de controlar una pirámide y destruir las pirámides enemigas en fases isométricas llenas de obstáculos y trampas.
+
+[Ide Yousuke Meijin no Shin Jissen Mahjong]
+Year=1996
+Developer=Capcom
+Publisher=Capcom
+Genre=Mesa
+Description=Juego de mahjong lanzado solo en Japón con la supervisión del jugador profesional Yōsuke Ide, centrado en partidas realistas y en enseñar técnicas y estrategias prácticas del juego.
+
+[Idol Janshi Suchie-Pai Special]
+Year=1995
+Developer=Jaleco
+Publisher=Jaleco
+Genre=Mesa
+Description=Versión para 3DO de la serie de mahjong de Jaleco con chicas al estilo anime, en la que el jugador se enfrenta a adversarias en partidas de mahjong y es recompensado con ilustraciones. Lanzado solo en Japón.
+
+[Idol Mahjong - Final Romance 2 - Hyper Edition]
+Year=1996
+Developer=Video System
+Publisher=ASK Kodansha
+Genre=Mesa
+Description=Versión para 3DO del juego de mahjong arcade Final Romance 2, en el que el jugador disputa partidas contra chicas al estilo anime y desbloquea ilustraciones al ganar. Lanzado solo en Japón.
+
+[Igo Time Trial - Shikatsu Daihyakka]
+Year=1995
+Developer=Ematec
+Publisher=Ematec
+Genre=Mesa
+Description=Software de go lanzado solo en Japón con una recopilación de problemas de vida y muerte, que desafían al jugador a resolver posiciones dentro de un límite de tiempo para entrenar la lectura del tablero.
+
+[Igo Time Trial - Tsumego I]
+Year=1994
+Developer=Ematec
+Publisher=Ematec
+Genre=Mesa
+Description=Software de go lanzado solo en Japón con problemas de tsumego, ejercicios de vida y muerte en los que el jugador debe encontrar la secuencia correcta de jugadas dentro de un límite de tiempo.
+
+[Immercenary]
+Year=1995
+Developer=Five Miles Out
+Publisher=Electronic Arts
+Genre=Acción
+Description=Versión europea de Immercenary, juego de acción en primera persona ambientado en un mundo virtual digital, en el que el jugador explora libremente, se enfrenta a habitantes hostiles y acumula atributos hasta desafiar a la entidad que lo controla.
+
+[Immercenary - Combat in a Digital World]
+Year=1995
+Developer=Five Miles Out
+Publisher=Electronic Arts
+Genre=Acción
+Description=Juego de acción en primera persona ambientado en un mundo virtual, en el que el jugador explora libremente, combate a habitantes digitales y gana atributos como poder y defensa hasta enfrentarse a la entidad que domina ese universo.
+
+[Immortal Desire]
+Year=1994
+Developer=Vivid Interactive
+Publisher=
+Genre=FMV
+Description=Título de contenido adulto de Vivid Interactive para 3DO, basado en vídeo con actores reales e interacción limitada. Clasificado como software no lúdico, dirigido exclusivamente al público adulto.
+
+[Incredible Machine, The]
+Year=1994
+Developer=Dynamix
+Publisher=Dynamix
+Genre=Puzle
+Description=Juego de puzles en el que el jugador monta artilugios al estilo Rube Goldberg, colocando piezas como bolas, cuerdas, engranajes y animales para realizar una tarea concreta en cada fase, respetando la física.
+
+[Incredible Machine, The - Pararancho]
+Year=1994
+Developer=Dynamix
+Publisher=T&E Soft
+Genre=Puzle
+Description=Versión japonesa de The Incredible Machine, publicada por T&E Soft. El jugador monta artilugios encadenados con bolas, cuerdas, engranajes y otros objetos para cumplir el objetivo de cada fase.
+
+[Insector War]
+Year=1994
+Developer=Riverhillsoft
+Publisher=Panasonic
+Genre=FPS
+Description=Juego de disparos en primera persona con temática de ciencia ficción, lanzado solo en Japón, en el que el jugador explora entornos tridimensionales enfrentándose a criaturas inspiradas en insectos.
+
+[Interplay 3DO Buffet, The]
+Year=1995
+Developer=Interplay Productions
+Publisher=
+Genre=Demo
+Description=Disco de demostración de Interplay para 3DO, que reúne avances y tramos jugables o en vídeo de títulos de la empresa para la plataforma, distribuido con fines promocionales.
+
+[Iron Angel of the Apocalypse - Tetsujin]
+[Iron Angel of the Apocalypse]
+Year=1994
+Developer=Synergy
+Publisher=Synergy Interactive
+Genre=FPS
+Description=Juego de disparos en primera persona en el que el jugador controla a un cíborg que escapa de un laboratorio, recorriendo pasillos laberínticos, enfrentándose a robots y criaturas y recogiendo armas. También conocido como Tetsujin.
+
+[Iron Angel of the Apocalypse - The Return]
+Year=1995
+Developer=Synergy
+Publisher=Synergy Interactive
+Genre=FPS
+Description=Continuación de Iron Angel of the Apocalypse, juego de disparos en primera persona en el que el cíborg protagonista vuelve a explorar complejos laberínticos, enfrentándose a enemigos mecánicos y biológicos con nuevas armas.
+
+[Ishida Yoshio Kudan no Igo Seiha]
+Year=1995
+Developer=G.A.M.
+Publisher=Electronic Arts Victor
+Genre=Mesa
+Description=Software de go lanzado solo en Japón con el nombre del profesional Yoshio Ishida, noveno dan, que permite jugar partidas contra el ordenador y estudiar el juego.
+
+[J. B. Harold - Blue Chicago Blues]
+Year=1995
+Developer=Riverhillsoft
+Publisher=Riverhillsoft
+Genre=Aventura
+Description=Aventura policíaca de la serie J.B. Harold, en la que el detective investiga un caso en Chicago mediante interrogatorios y recogida de pistas, con escenas en vídeo filmadas con actores. Lanzado solo en Japón.
+
+[J.League Virtual Stadium '95]
+Year=1995
+Developer=Electronic Arts Victor
+Publisher=Electronic Arts Victor
+Genre=Deportes
+Description=Actualización de J.League Virtual Stadium con datos de la temporada de 1995 de la liga japonesa, que ofrece partidos de fútbol en 3D con los clubes y jugadores licenciados de la J.League. Lanzado solo en Japón.
+
+[J.League Virtual Stadium]
+Year=1994
+Developer=JASPAC
+Publisher=Electronic Arts Victor
+Genre=Deportes
+Description=Juego de fútbol con los clubes licenciados de la J.League, la liga profesional japonesa, con partidos en gráficos 3D y varias cámaras. Publicado por Electronic Arts Victor y lanzado solo en Japón.
+
+[Jammit]
+Year=1994
+Developer=GTE Vantage
+Publisher=GTE Entertainment
+Genre=Deportes
+Description=Juego de baloncesto callejero en media cancha, con partidos uno contra uno y modos de desafío y apuestas, en los que el jugador elige entre personajes digitalizados con estilos diferentes.
+
+[Jiei Shoubou Katsudou no Gakushuu - 3DO TES]
+Year=
+Developer=
+Publisher=
+Genre=Educativo
+Description=Software de formación japonés de la serie 3DO TES (Training Educational System), orientado a la enseñanza de actividades de extinción de incendios y prevención realizadas por brigadas de autodefensa en empresas.
+
+[Jietai World]
+Year=1995
+Developer=Opera House
+Publisher=
+Genre=Multimedia
+Description=Título multimedia lanzado solo en Japón sobre las Fuerzas de Autodefensa japonesas, que presenta información, imágenes y vídeos sobre sus unidades, equipos y actividades.
+
+[Jikki Pachi-Slot Simulator Vol. 1]
+Year=1995
+Developer=Electronic Arts Victor
+Publisher=Electronic Arts Victor
+Genre=Mesa
+Description=Simulador de máquinas de pachislot lanzado solo en Japón, que reproduce el funcionamiento de las máquinas tragamonedas japonesas reales para que el jugador practique y conozca su comportamiento.
+
+[John Madden Football]
+Year=1994
+Developer=High Score Productions
+Publisher=EA Sports
+Genre=Deportes
+Description=Juego de fútbol americano de EA Sports con vídeos y comentarios de John Madden, que ofrece partidos completos con selección de jugadas, vista en perspectiva y opciones de temporada y playoffs.
+
+[John Madden NFL Football]
+Year=1994
+Developer=High Score Productions
+Publisher=EA Sports
+Genre=Deportes
+Description=Versión europea de John Madden Football para 3DO, juego de fútbol americano de EA Sports con selección de jugadas, partidos completos, vídeos y comentarios del entrenador John Madden.
+
+[Johnny Bazookatone]
+Year=1996
+Developer=Arc Developments
+Publisher=U.S. Gold
+Genre=Plataformas
+Description=Juego de plataformas en el que el roquero Johnny Bazookatone usa su guitarra como arma para atravesar fases coloridas y rescatar instrumentos, con banda sonora de rock y gráficos prerrenderizados.
+
+[Jurassic Park Interactive]
+Year=1994
+Developer=Studio 3DO
+Publisher=Universal Interactive Studios
+Genre=Acción
+Description=Juego basado en la película Jurassic Park en el que el jugador debe rescatar a los supervivientes en la isla, alternando entre fases de plataformas, tramos en primera persona y carreras de vehículo mientras evita a los dinosaurios.
+
+[Kakinoki Shougi]
+Year=1994
+Developer=ASCII
+Publisher=Panasonic
+Genre=Mesa
+Description=Juego de shogi lanzado solo en Japón con el nombre del profesional Yoshikazu Kakinoki, que permite disputar partidas de ajedrez japonés contra el ordenador.
+
+[Keiba Saishou no Housoku]
+Year=1994
+Developer=Copya System
+Publisher=
+Genre=Deportes
+Description=Software japonés de pronóstico de carreras de caballos, orientado a analizar datos de las pruebas para ayudar al usuario a montar apuestas de hípica. Lanzado solo en Japón.
+
+[Kero Kero Keroppi to Origami no Tabibito]
+Year=1995
+Developer=Mizuki
+Publisher=Mizuki / Sanrio
+Genre=Educativo
+Description=Software infantil lanzado solo en Japón con la ranita Keroppi, de Sanrio, con temática de origami y actividades sencillas dirigidas a niños pequeños.
+
+[Killing Time]
+Year=1995
+Developer=Studio 3DO
+Publisher=The 3DO Company
+Genre=FPS
+Description=Juego de disparos en primera persona ambientado en una mansión en una isla, encantada desde los años 1930. El jugador explora áreas interconectadas, se enfrenta a fantasmas y criaturas y ve escenas en vídeo con actores reales.
+
+[Kingdom - The Far Reaches]
+Year=1995
+Developer=Interplay Productions
+Publisher=Interplay Productions
+Genre=Aventura
+Description=Aventura en animación tradicional al estilo de Dragon's Lair, en la que el jugador guía a un joven héroe en un viaje por un reino de fantasía, eligiendo caminos y acciones en momentos decisivos.
+
+[Konpeki no Kantai]
+Year=1995
+Developer=Microcabin
+Publisher=Tokuma Shoten
+Genre=Estrategia
+Description=Juego de estrategia naval basado en la serie de novelas de historia alternativa Konpeki no Kantai, sobre la Guerra del Pacífico, con mando de flotas y batallas. Lanzado solo en Japón.
+
+[Kyuumei Kyuukyuu Teate no ABC]
+Year=
+Developer=
+Publisher=
+Genre=Educativo
+Description=Software educativo japonés que enseña nociones básicas de primeros auxilios y salvamento, explicando procedimientos de emergencia con imágenes, vídeos y explicaciones paso a paso.
+
+[Kyuusei Senjutsu ni Yoru - Heisei Kaiun Koyomi]
+Year=1994
+Developer=Ariadne
+Publisher=
+Genre=Multimedia
+Description=Software japonés de adivinación basado en el Kyūsei, la astrología de las nueve estrellas, que genera predicciones y un calendario de la suerte para el usuario a partir de su fecha de nacimiento.
+
+[Last Bounty Hunter, The]
+Year=1995
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Juego de disparos en vídeo con actores reales, ambientado en el Viejo Oeste, en el que el jugador es un cazarrecompensas que se enfrenta a bandidos en duelos y tiroteos, compatible con pistola de luz.
+
+[Lemmings]
+Year=1994
+Developer=DMA Design
+Publisher=Psygnosis
+Genre=Puzle
+Description=Juego de puzles en el que el jugador asigna funciones como cavar, construir y bloquear a unas pequeñas criaturas que caminan sin parar, para guiarlas con seguridad hasta la salida de cada fase.
+
+[Life Stage, The - Virtual House]
+Year=1994
+Developer=Microcabin
+Publisher=
+Genre=Simulación
+Description=Software de simulación arquitectónica en el que el usuario diseña una casa, eligiendo habitaciones, muebles y decoración, y luego la recorre en una visita virtual en 3D.
+
+[Little House, The]
+Year=1995
+Developer=Mugei
+Publisher=
+Genre=Simulación
+Description=Título japonés para 3DO sobre el que hay poca información fiable. Lanzado solo en Japón, forma parte del catálogo de software de nicho de la plataforma en aquel mercado.
+
+[Live! 3DO Magazine CD-ROM 1]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 1 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 10]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 10 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 11]
+Year=1996
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 11 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 2]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 2 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 3]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 3 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 4]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 4 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 5]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 5 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 6]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 6 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 7]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 7 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 8]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 8 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Live! 3DO Magazine CD-ROM 9]
+Year=1995
+Developer=Paragon Publishing
+Publisher=
+Genre=Demo
+Description=Volumen 9 de la serie japonesa Live! 3DO Magazine CD-ROM, disco al estilo revista con avances, vídeos y demostraciones de juegos y novedades del 3DO, lanzado solo en Japón.
+
+[Lost Dungeon]
+Year=1994
+Developer=Lion Entertainment
+Publisher=T&E Soft
+Genre=RPG
+Description=Versión japonesa de AD&D Slayer, RPG en primera persona en el universo Dungeons & Dragons. El jugador explora mazmorras en 3D generadas aleatoriamente, enfrentándose a monstruos en tiempo real y recogiendo tesoros y magias.
+
+[Lost Eden]
+Year=1995
+Developer=Cryo Interactive
+Publisher=Virgin Interactive
+Genre=Aventura
+Description=Aventura en primera persona con gráficos prerrenderizados, en un mundo donde humanos y dinosaurios conviven. El príncipe Adam debe unir a las dos razas contra los tiranosaurios, construyendo ciudadelas y conversando con aliados.
+
+[Lost Files of Sherlock Holmes, The]
+Year=1994
+Developer=Mythos Software
+Publisher=Electronic Arts
+Genre=Aventura
+Description=Aventura de apuntar y hacer clic en la que el jugador controla a Sherlock Holmes y al doctor Watson en el Londres victoriano, investigando el asesinato de una actriz, interrogando a sospechosos y examinando pistas.
+
+[Love Bites]
+Year=1995
+Developer=Vivid Interactive
+Publisher=
+Genre=FMV
+Description=Título de contenido adulto de Vivid Interactive para 3DO, basado en vídeo con actores reales e interacción limitada. Clasificado como software no lúdico, dirigido exclusivamente al público adulto.
+
+[Lucienne's Quest]
+[Sword & Sorcery]
+Year=1996
+Developer=Microcabin
+Publisher=Panasonic
+Genre=RPG
+Description=RPG en 3D con batallas por turnos, en el que la joven hechicera Lucienne viaja por un mundo de fantasía en busca de la cura para el maldito Ryuga. Lanzado en Japón como Sword & Sorcery.
+
+[Mad Dog II - The Lost Gold]
+Year=1994
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Continuación de Mad Dog McCree, juego de disparos en vídeo con actores reales en el Viejo Oeste, en el que el jugador busca un tesoro perdido enfrentándose a bandidos, compatible con pistola de luz.
+
+[Mad Dog McCree]
+Year=1994
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Juego de disparos en vídeo con actores reales, procedente de los arcades, en el que el jugador es un pistolero que se enfrenta a la banda de Mad Dog McCree en una ciudad del Viejo Oeste, compatible con pistola de luz.
+
+[Mahjong Gokuu Tenjiku]
+Year=1994
+Developer=Chat Noir
+Publisher=ASCII
+Genre=Mesa
+Description=Juego de mahjong lanzado solo en Japón con una temática inspirada en Viaje al Oeste, en el que el jugador disputa partidas contra personajes a lo largo de un viaje rumbo a Tenjiku.
+
+[Mahjong-kyou Jidai - AV Gal Seifuku-hen]
+Year=1994
+Developer=Micronet
+Publisher=Micronet
+Genre=Mesa
+Description=Juego de mahjong con contenido adulto de la serie Mahjong-kyou Jidai, en el que el jugador se enfrenta a adversarias y es recompensado con escenas en vídeo al ganar. Lanzado solo en Japón.
+
+[Mahjong-kyou Jidai Cogal Houkago-hen]
+Year=1995
+Developer=Micronet
+Publisher=Micronet
+Genre=Mesa
+Description=Juego de mahjong con contenido adulto de la serie Mahjong-kyou Jidai, en el que el jugador se enfrenta a adversarias y es recompensado con escenas en vídeo al ganar. Lanzado solo en Japón.
+
+[Makaroni Hourensou Interactive]
+Year=1995
+Developer=Future Pirates
+Publisher=Toshiba EMI
+Genre=Aventura
+Description=Título interactivo lanzado solo en Japón basado en el manga de comedia Makaroni Hōrensō, publicado por Toshiba EMI. Hay poca información fiable sobre su jugabilidad.
+
+[Mathemagics - An Interactive Learning Cube]
+Year=1994
+Developer=L3 Interactive
+Publisher=
+Genre=Educativo
+Description=Software educativo de matemáticas publicado por The 3DO Company, que presenta conceptos y ejercicios en formato interactivo organizado como un cubo de aprendizaje.
+
+[Mazer]
+Year=1995
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Acción
+Description=Juego de acción en perspectiva isométrica en el que el jugador recorre laberintos de niveles, combatiendo enemigos y recogiendo ítems y armas. Publicado por American Laser Games.
+
+[MegaRace]
+Year=1994
+Developer=Cryo Interactive
+Publisher=Mindscape
+Genre=Carreras
+Description=Juego de carreras y combate vehicular ambientado en un programa de televisión futurista, en el que el jugador conduce por pistas prerrenderizadas destruyendo bandas rivales, con presentaciones en vídeo del presentador Lance Boyle.
+
+[Memory Gwanli CD]
+Year=
+Developer=
+Publisher=
+Genre=Utilidad
+Description=Disco utilitario lanzado en Corea para 3DO, destinado a la gestión de la memoria interna de la consola, que permite ver y borrar los datos guardados de los juegos.
+
+[Microcosm]
+Year=1994
+Developer=Psygnosis
+Publisher=Psygnosis
+Genre=Disparos
+Description=Juego de disparos sobre raíles en el que el jugador pilota una nave miniaturizada dentro del cuerpo humano, destruyendo amenazas en escenarios prerrenderizados, con banda sonora de Rick Wakeman.
+
+[Mind Teazzer]
+Year=1994
+Developer=Vivid Interactive
+Publisher=Vivid Interactive
+Genre=Adulto
+Description=Título de contenido adulto de Vivid Interactive para 3DO, dirigido exclusivamente al público adulto. Hay poca información fiable sobre su jugabilidad.
+
+[Mirai Shounen Conan - Digital Library]
+Year=1995
+Developer=Bandai Visual
+Publisher=Bandai Visual
+Genre=Multimedia
+Description=Disco multimedia lanzado en Japón dedicado al anime Mirai Shōnen Conan, de Hayao Miyazaki, que reúne escenas, imágenes e información sobre la serie en formato de biblioteca digital.
+
+[Monoshiri Jiyuugaku - Ogura Hyakunin Isshu-hen]
+Year=1995
+Developer=Shinko Human Create
+Publisher=Shinko Human Create
+Genre=Educativo
+Description=Software educativo japonés dedicado al Ogura Hyakunin Isshu, antología clásica de cien poemas de cien poetas, que presenta los poemas y sus autores en formato interactivo.
+
+[Montana Jones]
+Year=1995
+Developer=Future Pirates
+Publisher=Future Pirates
+Genre=Aventura
+Description=Aventura point-and-click basada en la serie animada: el cazador de tesoros Montana Jones y sus compañeros Melissa Sone y Alfred Jones exploran lugares exóticos y descubren artefactos antiguos mientras cazadores rivales se interponen. Escenas animadas al estilo de la serie y varios minijuegos entre los tramos de aventura.
+
+[Moon Cradle - Igyou no Hanayome]
+Year=1995
+Developer=Tose
+Publisher=Pack-In-Video
+Genre=Aventura
+Description=Aventura de terror lanzada solo en Japón, parte de la línea Iida Jōji Nightmare Interactive, creada con la participación del cineasta Jōji Iida y publicada por Pack-In-Video.
+
+[Mortal Kombat II]
+Year=2025
+Developer=3DO HD
+Publisher=
+Genre=Lucha
+Description=Conversión no oficial hecha por fans del clásico de lucha Mortal Kombat II para el 3DO, lanzada décadas después del fin de la consola, con los luchadores digitalizados, golpes especiales y fatalities del arcade.
+
+[Multimedia Shinsho - Driving School - Futsuu Menkyo Gakka-hen]
+Year=1995
+Developer=JISC Life Support
+Publisher=
+Genre=Educativo
+Description=Software educativo japonés que ayuda a estudiar para el examen teórico del carné de conducir común en Japón, con explicaciones de las normas de tráfico y preguntas de práctica.
+
+[Murphy da yo Zen'in Shuugou!!]
+Year=1994
+Developer=Vantan International
+Publisher=Vantan International
+Genre=Educativo
+Description=Título japonés poco común dedicado a la Ley de Murphy: si lo más mínimo puede salir mal, sin duda saldrá mal. Sus gráficos están dibujados al estilo de imágenes de MS Paint, lo que lo hace aún más peculiar.
+
+[Myst]
+Year=1995
+Developer=Microcabin
+Publisher=Panasonic
+Genre=Aventura
+Description=Aventura en primera persona con escenarios prerrenderizados, en la que el jugador explora la misteriosa isla de Myst, resuelve puzles y viaja a otros mundos por medio de libros para descubrir lo que ocurrió allí.
+
+[N.O.B.]
+Year=1995
+Developer=Octagon Entertainment
+Publisher=Sanyo
+Genre=RPG
+Description=N.O.B.: Neo Organic Bioform. Capturado por una organización corrupta y mutado en una forma monstruosa, debes explorar el laboratorio para recuperar tu cuerpo humano, luchando contra otros bioformas. Elige una de siete formas y gasta puntos en sus habilidades; la exploración es en primera persona sobre una cuadrícula y los encuentros pasan a combates tácticos por turnos en los que cada bando apunta a los puntos débiles del otro. Todas las criaturas son muñecos en stop-motion.
+
+[Nais How's 1 - Front How's]
+Year=1995
+Developer=A&i Games / National Human Electronics
+Publisher=
+Genre=Multimedia
+Description=Disco japonés para 3DO con poca información disponible, al parecer de distribución restringida. Su contenido y finalidad exactos no están bien documentados.
+
+[Naoko to Hide-bou - Kanji no Tensai 1 - Bushu-hen, Bushu no Namae ga Tanoshii Chou Kioku-hou]
+Year=1995
+Developer=Gakuman
+Publisher=
+Genre=Educativo
+Description=Software educativo japonés para aprender kanji, centrado en los radicales (bushu) y en sus nombres, usando un método de memorización divertido dirigido a niños.
+
+[Naoko to Hide-bou - Sansuu no Tensai 1 - Wa to Sa no Bunshoudai Tsurukamezan Part I]
+Year=1995
+Developer=Gakuman
+Publisher=
+Genre=Educativo
+Description=Software educativo de matemáticas para niños, primer volumen de la serie Sansuu no Tensai, con problemas escritos de aritmética presentados por los personajes Naoko y Hide-bou. Lanzado solo en Japón para el 3DO.
+
+[Naoko to Hide-bou - Sansuu no Tensai 2 - Hayasa no Bunshoudai Tsuukasan Part I]
+Year=1995
+Developer=Gakuman
+Publisher=
+Genre=Educativo
+Description=Segundo volumen de la serie educativa Sansuu no Tensai, con problemas escritos de matemáticas para niños presentados por los personajes Naoko y Hide-bou, ahora centrados en cálculos de velocidad. Lanzado solo en Japón para el 3DO.
+
+[National-Panasonic Collection]
+Year=1994
+Developer=Panasonic
+Publisher=
+Genre=Multimedia
+Description=Disco multimedia ligado a la marca National/Panasonic, fabricante de la consola 3DO REAL. Título lanzado solo en Japón, con contenido de carácter promocional y de presentación de productos de la empresa.
+
+[Nemurenu Yoru no Chiisana Ohanashi]
+Year=1994
+Developer=Amuse Productions
+Publisher=Amuse Productions
+Genre=Multimedia
+Description=Título multimedia japonés cuyo nombre significa algo así como pequeñas historias para noches de insomnio, lo que sugiere una recopilación de cuentos narrados para escuchar antes de dormir. Lanzado solo en Japón para el 3DO.
+
+[NeuroDancer - Journey into the Neuronet!]
+Year=1994
+Developer=Electric Dreams
+Publisher=PIXIS Interactive
+Genre=Acción
+Description=Juego de acción en primera persona con estructura de laberinto, ambientado en una red digital futurista, con elementos de contenido adulto. Publicado por PIXIS Interactive para 3DO, Macintosh y Windows.
+
+[New How's 1 - Front How's]
+Year=1994
+Developer=A&i Games / National Human Electronics
+Publisher=
+Genre=Demo
+Description=Disco japonés de demostración para el 3DO, identificado como versión 1.0 de septiembre de 1994. Material de divulgación con avances y presentaciones, sin ser un juego completo; lanzado solo en Japón.
+
+[NFL Madden Football]
+Year=1994
+Developer=High Score Productions
+Publisher=Electronic Arts Victor
+Genre=Deportes
+Description=Versión japonesa del juego de fútbol americano de la serie Madden de Electronic Arts para el 3DO, con equipos y jugadores de la NFL, partidos en vista tridimensional y opciones de temporada. Lanzado en Japón.
+
+[Nice Body - For Professional Use]
+Year=1995
+Developer=BrainBusters
+Publisher=Fuji Television
+Genre=Multimedia
+Description=Título multimedia japonés lanzado solo en Japón para el 3DO. Por el nombre, se trata de un programa orientado al cuerpo y la forma física, pero los detalles sobre el contenido y el modo de uso no están bien documentados.
+
+[Night Trap]
+Year=1995
+Developer=Digital Pictures
+Publisher=Virgin Interactive
+Genre=FMV
+Description=Película interactiva en vídeo real en la que el jugador monitoriza cámaras de seguridad de una casa y acciona trampas para capturar a los intrusos que amenazan a un grupo de chicas alojadas allí. Versión de 3DO del polémico título original de Sega CD.
+
+[Nishimura Kyoutarou Travel Mystery - Akugyaku no Kisetsu - Tokyo ~ Nanki-Shirahama Renzoku Satsujin Jiken]
+Year=1994
+Developer=TOSE
+Publisher=Pack-In-Video
+Genre=Aventura
+Description=Aventura de misterio basada en las historias de detectives de viaje del escritor Kyotaro Nishimura, que involucra una serie de asesinatos en el trayecto entre Tokio y Nanki-Shirahama. Lanzado solo en Japón para el 3DO.
+
+[Nobunaga no Yabou - Haouden]
+Year=1994
+Developer=Koei
+Publisher=Koei
+Genre=Estrategia
+Description=Juego de estrategia de Koei de la serie Nobunaga no Yabou, ambientado en el Japón feudal del período Sengoku. El jugador comanda un clan, administra territorios y libra batallas para unificar el país. Lanzado solo en Japón.
+
+[Nontan to Issho - Hoshi no Okurimono]
+Year=1995
+Developer=Victor Entertainment
+Publisher=Panasonic
+Genre=Educativo
+Description=Título infantil basado en Nontan, el gatito protagonista de libros ilustrados japoneses, con actividades y juegos para niños pequeños en torno al tema del regalo de las estrellas. Lanzado solo en Japón para el 3DO.
+
+[Nontan to Issho - Nohara de Asobo]
+Year=1994
+Developer=Victor Entertainment
+Publisher=Panasonic
+Genre=Educativo
+Description=Título infantil basado en Nontan, el gatito protagonista de libros ilustrados japoneses, con juegos y actividades para niños pequeños ambientados en un campo abierto. Lanzado solo en Japón para el 3DO.
+
+[Novastorm]
+Year=1994
+Developer=Psygnosis
+Publisher=Psygnosis
+Genre=Disparos
+Description=Juego de disparos sobre raíles con escenarios prerrenderizados y vídeo, en el que el jugador pilota una nave y se enfrenta a oleadas de enemigos y jefes mientras el recorrido avanza automáticamente. Destaque visual de Psygnosis en la época.
+
+[Oceans Below]
+Year=1995
+Developer=The Software Toolworks
+Publisher=
+Genre=Educativo
+Description=Título educativo de exploración submarina, en el que el jugador bucea en diferentes lugares del mundo, observa la vida marina y busca objetos y tesoros, con información sobre animales y entornos oceánicos.
+
+[Off-World Interceptor]
+Year=1994
+Developer=Crystal Dynamics
+Publisher=Crystal Dynamics
+Genre=Carreras
+Description=Juego de combate sobre ruedas en el que el jugador conduce vehículos armados por terrenos accidentados de planetas alienígenas, saltando obstáculos y destruyendo enemigos. Gana dinero para mejorar el coche y admite dos jugadores.
+
+[Ogura Hyakunin Isshu]
+Year=1995
+Developer=Shinko Human Create
+Publisher=
+Genre=Educativo
+Description=Juego basado en la recopilación clásica japonesa Ogura Hyakunin Isshu, con cien poemas waka usados en el tradicional juego de cartas karuta, en el que hay que reconocer los versos y coger la carta correcta. Lanzado solo en Japón.
+
+[Oilman]
+Year=
+Developer=
+Publisher=
+Genre=Educativo
+Description=Disco informativo japonés para el 3DO: una aplicación de presentación multimedia, no un juego.
+
+[Olympic Soccer]
+Year=1996
+Developer=Silicon Dreams
+Publisher=U.S. Gold
+Genre=Deportes
+Description=Juego de fútbol licenciado de los Juegos Olímpicos de Atlanta 1996, con selecciones nacionales disputando el torneo olímpico en partidos con gráficos tridimensionales y jugabilidad al estilo arcade. Publicado por U.S. Gold.
+
+[Olympic Summer Games]
+Year=1996
+Developer=Silicon Dreams / Tiertex Design Studios
+Publisher=U.S. Gold
+Genre=Deportes
+Description=Juego licenciado de los Juegos Olímpicos de Atlanta 1996 con varias modalidades de atletismo y otros deportes, como carreras, saltos y lanzamientos, disputadas contra el reloj u otros jugadores. Publicado por U.S. Gold.
+
+[Oneesan to Issho! Janken Paradise]
+Year=1994
+Developer=V.I.P. Corporation
+Publisher=Intarus
+Genre=Adulto
+Description=Juego japonés lanzado solo en Japón para el 3DO, centrado en partidas de piedra, papel y tijera contra un personaje femenino, a juzgar por el título. Los detalles sobre el desarrollador y el año son inciertos.
+
+[Oneesan to Issho! Kisekae Paradise]
+Year=1995
+Developer=B.S.S. Corporation
+Publisher=B.S.S. Corporation
+Genre=Adulto
+Description=Juego japonés lanzado solo en Japón para el 3DO, centrado en vestir y cambiar la ropa de un personaje femenino, a juzgar por el título. Los detalles sobre el desarrollador, el año y el contenido exacto son inciertos.
+
+[OnSide Soccer]
+Year=2007
+Developer=Elite Systems
+Publisher=
+Genre=Deportes
+Description=Juego de fútbol desarrollado por Elite Systems, versión para 3DO de Complete Onside Soccer. Quedó inédito en su época y se lanzó tardíamente en los Estados Unidos por OlderGames, con partidos entre selecciones y clubes.
+
+[Orbatak]
+Year=1995
+Developer=American Laser Games
+Publisher=
+Genre=Acción
+Description=Juego de acción al estilo arcade de American Laser Games, en el que el jugador controla una esfera en arenas cerradas, enfrentándose a enemigos y otros jugadores. Una de las pocas producciones de la empresa que no usa pistola de luz.
+
+[Oukoku no Grand Chef]
+Year=1996
+Developer=Sala International
+Publisher=Sala International
+Genre=RPG
+Description=Título japonés lanzado solo en Japón para el 3DO, cuyo nombre se traduce como el gran chef del reino, lo que sugiere una temática culinaria. La información fiable sobre el desarrollador, el año y la jugabilidad es escasa.
+
+[Out of This World]
+Year=1993
+Developer=Interplay
+Publisher=Interplay Productions
+Genre=Aventura
+Description=Versión de 3DO del clásico de Eric Chahi, en el que un científico es transportado a un planeta alienígena hostil. Mezcla plataformas y acción cinematográfica, con puzles, huidas y tiroteos, y trae banda sonora y fondos mejorados.
+
+[Outer World]
+Year=1994
+Developer=Interplay
+Publisher=Electronic Arts Victor
+Genre=Aventura
+Description=Versión japonesa del clásico de Eric Chahi conocido en Occidente como Out of This World. Un científico va a parar a un planeta alienígena y debe sobrevivir con saltos, puzles y tiroteos en escenas cinematográficas.
+
+[Oyaji Hunter Mahjong]
+Year=1995
+Developer=WARP
+Publisher=Warp
+Genre=Mesa
+Description=Juego de mahjong lanzado solo en Japón para el 3DO, con partidas contra adversarios controlados por el ordenador. Los detalles sobre el desarrollador, el año de lanzamiento y el contenido más allá del mahjong son inciertos.
+
+[Paddock Note '95]
+Year=1995
+Developer=Scitron
+Publisher=
+Genre=Utilidad
+Description=Software japonés orientado a las carreras de caballos, con datos y herramientas para seguir la temporada de 1995 y ayudar en los pronósticos de apuestas. Lanzado solo en Japón para el 3DO; no es un juego de carreras convencional.
+
+[Panasonic 3DO Interaktiver Multiplayer Sampler Disc]
+Year=
+Developer=Panasonic
+Publisher=
+Genre=Demo
+Description=Disco de demostración alemán de Panasonic para el 3DO, con tramos jugables y vídeos de títulos de la consola, distribuido para promocionar el sistema y su biblioteca de juegos en el mercado de Alemania.
+
+[Panasonic REAL 3DO Interactive Multiplayer - Demonstration CD]
+Year=
+Developer=Panasonic
+Publisher=
+Genre=Demo
+Description=Disco de demostración de Panasonic distribuido en los Estados Unidos con la consola 3DO REAL, que reúne vídeos y avances de juegos para presentar las prestaciones del sistema y su biblioteca a los nuevos usuarios.
+
+[Panasonic REAL 3DO Interactive Multiplayer - Sampler CD]
+Year=
+Developer=Panasonic
+Publisher=
+Genre=Demo
+Description=Disco de muestras de Panasonic para la consola 3DO REAL, lanzado en Japón y los Estados Unidos, con demos jugables y vídeos de títulos de la época para mostrar las capacidades multimedia del sistema.
+
+[Panasonic REAL 3DO Interactive Multiplayer - Sampler CD for PAL System]
+Year=
+Developer=Panasonic
+Publisher=
+Genre=Demo
+Description=Versión europea del disco de muestras de Panasonic para el 3DO REAL, adaptada al sistema PAL, con demos jugables y vídeos de juegos disponibles o anunciados para la consola en Europa.
+
+[Panasonic REAL 3DO Interactive Multiplayer - Sampler III and 3DO Storage Manager]
+Year=
+Developer=Panasonic
+Publisher=
+Genre=Demo
+Description=Tercer disco de muestras de Panasonic para el 3DO en los Estados Unidos, con demos y vídeos de juegos, acompañado del 3DO Storage Manager, utilidad para gestionar los datos guardados en la memoria de la consola.
+
+[Panasonic Special CD-ROM]
+Year=
+Developer=Panasonic
+Publisher=
+Genre=Demo
+Description=Disco especial en CD-ROM de Panasonic lanzado en Japón para el 3DO, con contenido promocional como avances, vídeos y demostraciones de juegos, usado para promocionar la consola y sus lanzamientos.
+
+[Panzer General]
+Year=1995
+Developer=SSI
+Publisher=
+Genre=Estrategia
+Description=Juego de estrategia por turnos ambientado en la Segunda Guerra Mundial, en mapas de hexágonos. El jugador comanda fuerzas del Eje en campañas históricas, y las unidades ganan experiencia y pasan de una batalla a la siguiente.
+
+[PaTaank]
+Year=1994
+Developer=PF Magic
+Publisher=PF Magic
+Genre=Acción
+Description=Juego de acción al estilo del pinball en el que el jugador controla directamente un platillo volante, en lugar de usar palas, recorriendo mesas llenas de blancos y obstáculos. Una de las primeras producciones originales para el 3DO.
+
+[Pebble Beach Golf Links]
+Year=1994
+Developer=T&E Soft
+Publisher=Panasonic
+Genre=Deportes
+Description=Simulador de golf de T&E Soft ambientado en el famoso campo de Pebble Beach, en California, con hoyos recreados en detalle, fotos digitalizadas y opciones de torneo y entrenamiento. Uno de los primeros juegos deportivos del 3DO.
+
+[Penthouse Interactive - Virtual Photo Shoot Vol. 1]
+Year=1994
+Developer=Apollon
+Publisher=
+Genre=Multimedia
+Description=Título multimedia adulto de la serie Penthouse Interactive, en el que el usuario participa en una sesión de fotos virtual con modelos en vídeo, eligiendo escenarios y poses. Este volumen se lanzó en Japón para el 3DO.
+
+[Perfect General, The]
+Year=1996
+Developer=Game Guild
+Publisher=Kirin Entertainment
+Genre=Estrategia
+Description=Juego de estrategia militar por turnos en el que dos bandos compran unidades como tanques, artillería e infantería y las colocan en mapas para disputar puntos estratégicos. Adaptación para 3DO del clásico de ordenador.
+
+[Perfect World - Combat in a Digital World]
+Year=1995
+Developer=Five Miles Out
+Publisher=Electronic Arts Victor
+Genre=Acción
+Description=Versión japonesa de Immercenary, juego de acción en primera persona en el que el jugador entra en el mundo virtual Perfect y se enfrenta a sus habitantes digitales para destruir la inteligencia que lo controla.
+
+[Peter Frankl - Puzzle no Tou]
+Year=1995
+Developer=TBS Multimedia
+Publisher=Hamlet
+Genre=Puzle
+Description=Recopilación de puzles asociada al matemático Peter Frankl, conocido en Japón por sus libros de enigmas y pasatiempos de lógica. El título hace referencia a una torre de puzles. Lanzado solo en Japón.
+
+[PGA Tour 96]
+Year=1995
+Developer=EA Sports
+Publisher=EA Sports
+Genre=Deportes
+Description=Simulador de golf de la serie PGA Tour de EA Sports, con campos reales, golfistas profesionales licenciados y modos de torneo, entrenamiento y partidas entre varios jugadores. Versión de 3DO de la edición de 1996.
+
+[Phoenix 3]
+Year=1995
+Developer=Gray Matter
+Publisher=The 3DO Company
+Genre=Disparos
+Description=Juego de disparos con naves que alterna fases en diferentes perspectivas, incluyendo combates en entornos tridimensionales. El jugador se enfrenta a las fuerzas enemigas en misiones espaciales y planetarias.
+
+[Plumbers Don't Wear Ties]
+Year=1993
+Developer=United Pixtures
+Publisher=Kirin Entertainment
+Genre=FMV
+Description=Comedia romántica interactiva hecha con fotos digitalizadas y narración, en la que el jugador elige los rumbos de la cita de una pareja. Se hizo famosa por su producción amateur y se recuerda como uno de los peores juegos jamás lanzados.
+
+[PO'ed]
+Year=1995
+Developer=Any Channel
+Publisher=Any Channel
+Genre=FPS
+Description=Disparos en primera persona en el que el jugador es un cocinero de nave espacial que se enfrenta a alienígenas usando una sartén y armas variadas. Los niveles tridimensionales permiten mirar arriba y abajo y usar un jetpack.
+
+[Policenauts]
+Year=1995
+Developer=Konami
+Publisher=Konami
+Genre=Aventura
+Description=Aventura al estilo point-and-click de Hideo Kojima, ambientada en una colonia espacial. El detective Jonathan Ingram investiga un caso policial por medio de diálogos y exploración, con escenas animadas y tramos de disparos.
+
+[Policenauts - Pilot Disk]
+Year=1995
+Developer=Konami
+Publisher=
+Genre=Demo
+Description=Disco de demostración de Policenauts, aventura de Hideo Kojima, lanzado en Japón antes del juego completo. Trae un avance jugable y material de presentación sobre el universo y los personajes.
+
+[Powers Kingdom]
+[Guardian War]
+Year=1994
+Developer=Microcabin
+Publisher=Panasonic
+Genre=RPG
+Description=RPG táctico publicado por Panasonic, conocido en los Estados Unidos como Guardian War. El jugador comanda un grupo de unidades en batallas por turnos en escenarios tridimensionales, reclutando aliados y cambiando sus clases.
+
+[Powerslide]
+Year=2007
+Developer=Maelstrom Games
+Publisher=
+Genre=Carreras
+Description=Juego de carreras de rally con coches reales, versión para 3DO de un título de Elite Systems desarrollada por Maelstrom Games. La versión de 3DO quedó inédita en su época, y los detalles sobre su distribución posterior son escasos.
+
+[Pretty Soldier SailorMoon S]
+Year=1995
+Developer=Tose
+Publisher=Bandai
+Genre=Lucha
+Description=Juego de lucha basado en la serie de anime Sailor Moon S, en el que las guerreras del anime se enfrentan en combates uno contra uno con golpes especiales y escenas animadas. Lanzado solo en Japón para el 3DO.
+
+[Primal Rage]
+Year=1995
+Developer=Time Warner Interactive
+Publisher=GoldStar
+Genre=Lucha
+Description=Juego de lucha con dinosaurios y grandes primates digitalizados a partir de modelos en stop motion, que disputan el dominio de una Tierra posapocalíptica. Versión de 3DO del éxito de los salones recreativos de Atari Games.
+
+[Princess Maker 2]
+Year=1994
+Developer=Gainax
+Publisher=Microcabin
+Genre=Simulación
+Description=Simulación de crianza de Gainax en la que el jugador cría a una niña durante ocho años, definiendo estudios, trabajos y descanso. Las decisiones moldean sus atributos y su personalidad, llevando a decenas de finales diferentes.
+
+[Pro Stadium]
+Year=1995
+Developer=Workman
+Publisher=Sanyo
+Genre=Deportes
+Description=Juego de deporte lanzado solo en Japón para el 3DO, posiblemente de béisbol, a juzgar por el título. La información fiable sobre el desarrollador, el año y la jugabilidad es escasa, por lo que los detalles quedan abiertos.
+
+[Pro Yakyuu Virtual Stadium - Professional Baseball]
+Year=1995
+Developer=EA Sports
+Publisher=Electronic Arts Victor
+Genre=Deportes
+Description=Juego de béisbol profesional lanzado solo en Japón para el 3DO, con partidos en estadios virtuales y equipos de la liga japonesa, a juzgar por el título. Los detalles sobre el desarrollador y el año son inciertos.
+
+[Psychic Detective]
+Year=1995
+Developer=Colossal Pictures
+Publisher=Electronic Arts
+Genre=FMV
+Description=Película interactiva en vídeo real en la que el jugador es un detective con poderes psíquicos capaz de leer la mente de las personas. Al alternar entre puntos de vista, descubre pistas y conduce la historia hacia finales diferentes.
+
+[Puppet Tale]
+Year=1994
+Developer=Microcabin
+Publisher=Panasonic
+Genre=Aventura
+Description=Aventura tranquila de Micro Cabin: un muñeco de zorro que cobra vida en una juguetería es enviado por un portal a un bosque lejano, donde conoce a sus habitantes mientras busca su lugar en el mundo. Las elecciones de diálogo y la exploración guían al zorro en un viaje de autodescubrimiento.
+
+[Putt-Putt Goes to the Moon]
+Year=1994
+Developer=Humongous Entertainment
+Publisher=Humongous Entertainment
+Genre=Aventura
+Description=Aventura infantil point-and-click en la que el cochecito Putt-Putt va a parar a la Luna y debe encontrar la manera de volver a casa, conversando con personajes y resolviendo puzles sencillos.
+
+[Putt-Putt Joins the Parade]
+Year=1994
+Developer=Humongous Entertainment
+Publisher=Humongous Entertainment
+Genre=Aventura
+Description=Primera aventura infantil del cochecito Putt-Putt, que quiere participar en el desfile de la ciudad y debe cumplir tareas y ayudar a los vecinos. Juego point-and-click con muchos elementos pulsables y animaciones.
+
+[Putt-Putt's Fun Pack]
+Year=1994
+Developer=Humongous Entertainment
+Publisher=Humongous Entertainment
+Genre=Educativo
+Description=Recopilación infantil con minijuegos protagonizados por el cochecito Putt-Putt y sus amigos, con actividades sencillas de acción y lógica pensadas para niños pequeños, controladas por apuntar y hacer clic.
+
+[Puzzle Bobble]
+Year=1995
+Developer=Taito
+Publisher=Taito
+Genre=Puzle
+Description=Versión de 3DO del clásico de puzles de Taito con los dinosaurios Bub y Bob. El jugador dispara burbujas de colores para formar grupos de tres o más del mismo color y limpiar la pantalla antes de que las burbujas desciendan.
+
+[Pyramid Intruder]
+Year=1995
+Developer=High Tech Lab Japan
+Publisher=Taito
+Genre=Disparos
+Description=Juego de disparos con ambientación de ciencia ficción y escenas en vídeo, publicado por Taito, con perspectiva en primera persona y cámara cinematográfica. Lanzado solo en Japón para el 3DO.
+
+[Quarantine]
+Year=1994
+Developer=Imagexcel
+Publisher=GameTek
+Genre=Acción
+Description=Juego de acción en primera persona en el que el jugador conduce un taxi armado por una ciudad futurista aislada y violenta. Transporta pasajeros para ganar dinero, mejora el coche y se enfrenta a enemigos por las calles.
+
+[Quarterback Attack]
+Year=1995
+Developer=Digital Pictures
+Publisher=Acclaim
+Genre=Deportes
+Description=Juego de fútbol americano en vídeo real en el que el jugador ve la acción por los ojos de un linebacker, eligiendo jugadas defensivas y reaccionando al ataque adversario en escenas filmadas con actores.
+
+[Real Pinball]
+Year=1994
+Developer=Japan Dataworks
+Publisher=Panasonic
+Genre=Pinball
+Description=Juego de pinball publicado por Panasonic con cinco mesas de dificultad creciente, funciones como multibola y modos para uno o varios jugadores. Fue uno de los primeros títulos del 3DO en Japón.
+
+[Remute 3D]
+Year=2024
+Developer=Remute
+Publisher=
+Genre=Multimedia
+Description=Homebrew lanzado en 2024: álbum musical interactivo del músico Remute, con pistas electrónicas acompañadas de escenarios en 3D, vídeos y un minijuego, hecho especialmente para el 3DO.
+
+[Return Fire]
+Year=1995
+Developer=Silent Software
+Publisher=Prolific Publishing
+Genre=Acción
+Description=Juego de acción y estrategia en el que dos ejércitos intentan capturar la bandera enemiga usando helicóptero, tanque, jeep y vehículo antiaéreo, cada uno con sus propios puntos fuertes. Brilla en el modo para dos jugadores a pantalla dividida.
+
+[Return Fire - Maps O' Death]
+Year=1995
+Developer=Silent Software
+Publisher=Prolific Publishing
+Genre=Acción
+Description=Expansión de Return Fire con nuevos mapas para las batallas de captura de bandera entre helicópteros, tanques y otros vehículos. Requiere el disco del juego original para funcionar.
+
+[Rise of the Robots]
+Year=1995
+Developer=Mirage
+Publisher=Absolute Entertainment
+Genre=Lucha
+Description=Juego de lucha con robots prerrenderizados en el que el jugador controla a un cíborg que se enfrenta a máquinas rebeladas en una megacorporación futurista. Se hizo conocido por sus gráficos llamativos y su criticada jugabilidad.
+
+[Road & Track Presents - OverDrivin']
+Year=1994
+Developer=EA Canada
+Publisher=Electronic Arts Victor
+Genre=Carreras
+Description=Versión japonesa de The Need for Speed, juego de carreras de Electronic Arts con coches deportivos reales, datos de la revista Road & Track, persecuciones policiales y vídeos sobre los modelos. Lanzado en Japón con el título OverDrivin'.
+
+[Road & Track Presents - The Need for Speed]
+[Need for Speed, The]
+Year=1994
+Developer=EA Canada
+Publisher=Electronic Arts
+Genre=Carreras
+Description=Primer juego de la serie Need for Speed, con coches deportivos reales, física basada en datos de la revista Road & Track, pistas en carreteras abiertas y persecuciones policiales. Incluye vídeos y fichas técnicas de los modelos.
+
+[Road Rash]
+Year=1994
+Developer=Electronic Arts
+Publisher=Electronic Arts
+Genre=Carreras
+Description=Juego de carreras de motos en el que el jugador disputa pruebas ilegales por carreteras de California, dando puñetazos y patadas a los rivales. Gana dinero para comprar motos mejores, huye de la policía y trae banda sonora de bandas de rock.
+
+[Robinson's Requiem]
+Year=1996
+Developer=Silmarils
+Publisher=ReadySoft
+Genre=Aventura
+Description=Aventura de supervivencia en primera persona en la que el jugador, abandonado en un planeta hostil, debe cazar, curar heridas y enfermedades y controlar el hambre, la sed y la temperatura para sobrevivir y escapar.
+
+[Royal Pro Wrestling - Jikkyou Live!!]
+Year=1996
+Developer=Natsume
+Publisher=Natsume
+Genre=Lucha
+Description=Juego de lucha libre profesional lanzado solo en Japón para el 3DO, con combates entre luchadores y narración en directo, a juzgar por el título. Los detalles sobre el desarrollador y el año de lanzamiento son inciertos.
+
+[Sample This!]
+Year=1994
+Developer=Crystal Dynamics
+Publisher=
+Genre=Demo
+Description=Disco de muestras del 3DO con demos jugables y vídeos de juegos de la época, distribuido para promocionar la biblioteca de la consola en los Estados Unidos y Japón. No es un juego completo.
+
+[Samurai Shodown]
+Year=1994
+Developer=Crystal Dynamics
+Publisher=Crystal Dynamics
+Genre=Lucha
+Description=Versión de 3DO del juego de lucha de SNK con samuráis y guerreros armados en el Japón feudal. Los combates son uno contra uno, con golpes especiales, armas que se pueden perder y zoom de cámara según los luchadores se acercan.
+
+[San Diego Zoo Presents... The Animals!, The]
+Year=1994
+Developer=Arnowitz Studios
+Publisher=
+Genre=Educativo
+Description=Enciclopedia multimedia sobre animales producida con el Zoológico de San Diego, con vídeos, fotos, sonidos y textos sobre especies de varios hábitats, explorados libremente por el usuario. Uno de los primeros títulos del 3DO.
+
+[Sangokushi IV]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Estrategia
+Description=Juego de estrategia de Koei de la serie Sangokushi (Romance of the Three Kingdoms), ambientado en la China antigua. El jugador gobierna una facción, administra provincias, recluta oficiales y libra batallas para unificar el país.
+
+[Scramble Cobra]
+Year=1995
+Developer=Genki
+Publisher=Panasonic
+Genre=Disparos
+Description=Juego de disparos en primera persona en el que el jugador pilota un helicóptero de combate en misiones con escenarios prerrenderizados, enfrentándose a tanques, aeronaves y otras amenazas mientras el recorrido avanza.
+
+[Scramble Cobra - Premium Version]
+Year=1995
+Developer=Genki
+Publisher=Pack-In-Video
+Genre=Disparos
+Description=Versión especial lanzada en Japón del juego de helicóptero de combate Scramble Cobra, en el que el jugador cumple misiones abatiendo enemigos en escenarios prerrenderizados. El contenido extra de esta edición no está bien documentado.
+
+[Seal of the Pharaoh]
+Year=1995
+Developer=System Sacom
+Publisher=Panasonic
+Genre=RPG
+Description=RPG en primera persona al estilo dungeon crawler, en el que el jugador explora los laberintos de una pirámide egipcia en varios niveles, enfrentándose a monstruos. Lanzado antes en Japón por ASK Kodansha y en los EE. UU. por Panasonic.
+
+[Secre Fuumin no Omochabako]
+Year=1994
+Developer=Glams
+Publisher=
+Genre=Multimedia
+Description="Secret: Fumine's Toy Box", un disco para fans de la idol de los años 90 Fumie Hosokawa (Fumine): colorear carátulas de CD e interactuar con su voz y escenas en vídeo mediante varias actividades.
+
+[Seimei Handan]
+Year=1995
+Developer=Ariadne
+Publisher=
+Genre=Utilidad
+Description=Programa japonés de adivinación basado en el nombre, práctica conocida como seimei handan, que analiza los trazos de los caracteres para predecir la suerte y la personalidad. Lanzado solo en Japón para el 3DO.
+
+[Sento Monogatari - Sono I]
+Year=1995
+Developer=Ariadne
+Publisher=
+Genre=Multimedia
+Description=Software japonés de adivinación de Ariadne (el título significa algo así como ciudad de la adivinación), con consultas de suerte y destino. Lanzado solo en Japón para el 3DO.
+
+[Sesame Street - Numbers]
+Year=1995
+Developer=Children's Television Workshop
+Publisher=EA Kids
+Genre=Educativo
+Description=Software educativo de Barrio Sésamo para niños pequeños, con los personajes de la serie en actividades para aprender a contar y reconocer números, en interacción por apuntar y hacer clic con vídeos y animaciones.
+
+[Sewer Shark]
+Year=1994
+Developer=Digital Pictures
+Publisher=Hasbro
+Genre=FMV
+Description=Juego de disparos en vídeo real en el que el jugador pilota un vehículo por las alcantarillas de una ciudad, eliminando criaturas mutantes y eligiendo el camino correcto en los túneles según las indicaciones de otros personajes.
+
+[Sex]
+Year=1995
+Developer=Vivid Interactive
+Publisher=
+Genre=Multimedia
+Description=Título multimedia adulto lanzado en los Estados Unidos para el 3DO, de temática sexual, como indica el nombre. La información fiable sobre el desarrollador, el año y el contenido exacto es escasa.
+
+[SHADOW - War of Succession]
+Year=1995
+Developer=Tribeca Interactive
+Publisher=Tribeca Digital Studios
+Genre=Lucha
+Description=Juego de lucha con actores digitalizados en el que guerreros disputan la sucesión del trono de un mundo sombrío. Los combates son uno contra uno, con golpes especiales y escenas en vídeo entre los combates.
+
+[SHADOW Warriors]
+Year=1995
+Developer=Tribeca Interactive
+Publisher=T&E Soft
+Genre=Lucha
+Description=Versión japonesa de Shadow: War of Succession, juego de lucha de Tribeca Digital Studios con luchadores digitalizados a partir de actores reales, al estilo de Mortal Kombat.
+
+[Shanghai - Banri no Choujou - The Great Wall]
+Year=1994
+Developer=Activision
+Publisher=Electronic Arts Victor
+Genre=Puzle
+Description=Versión japonesa de Shanghai: The Great Wall, solitario con fichas de mahjong en el que el jugador retira pares iguales de fichas libres de una pila. Trae variaciones de reglas y disposiciones temáticas.
+
+[Shanghai - Triple-Threat]
+Year=1994
+Developer=Activision
+Publisher=Activision
+Genre=Puzle
+Description=Recopilación de juegos de solitario con fichas de mahjong de la serie Shanghai, con el modo clásico de formar pares de fichas libres y variaciones como The Great Wall y un modo de duelo contra otro jugador.
+
+[Shelley Duvall's It's a Bird's Life]
+Year=1994
+Developer=Sanctuary Woods
+Publisher=Sanctuary Woods
+Genre=Educativo
+Description=Título infantil presentado por la actriz Shelley Duvall, con historias interactivas sobre la vida de los pájaros, animaciones, canciones y actividades para que los niños pequeños exploren por apuntar y hacer clic.
+
+[Shock Wave]
+Year=1994
+Developer=Advanced Technology Group
+Publisher=Electronic Arts
+Genre=Disparos
+Description=Juego de disparos en el que el jugador pilota un caza F-177 contra una invasión alienígena en la Tierra, volando sobre escenarios tridimensionales y destruyendo objetivos, con escenas en vídeo real entre las misiones.
+
+[Shock Wave - Operation JumpGate]
+Year=1994
+Developer=Advanced Technology Group
+Publisher=Electronic Arts
+Genre=Disparos
+Description=Expansión de Shock Wave que da continuidad a la guerra contra los alienígenas con nuevas misiones de combate aéreo y escenas en vídeo. Requiere el disco del juego original para funcionar.
+
+[Shockwave 2 - Beyond the Gate]
+Year=1995
+Developer=Electronic Arts
+Publisher=Electronic Arts
+Genre=Disparos
+Description=Continuación de Shock Wave, en la que el combate contra los alienígenas se extiende por varios planetas. El jugador pilota diferentes vehículos, incluidos terrestres, en misiones tridimensionales con escenas en vídeo real.
+
+[Shootout at Old Tucson]
+Year=1994
+Developer=American Laser Games
+Publisher=
+Genre=Disparos
+Description=Juego de disparos con pistola de luz de American Laser Games ambientado en el Viejo Oeste, con actores digitalizados y duelos en los que hay que esperar el momento justo para desenfundar. Lanzado en recreativas con hardware basado en el 3DO.
+
+[Short Warp - Warp's Short Game Collection]
+Year=1996
+Developer=Warp
+Publisher=Warp
+Genre=Multimedia
+Description=Recopilación de juegos cortos y con humor creada por Warp, el estudio de Kenji Eno, que reúne pequeños juegos experimentales y escenas cómicas en un solo disco. Lanzada solo en Japón para el 3DO.
+
+[Sid Meier's C.P.U. Bach]
+Year=1994
+Developer=MicroProse
+Publisher=
+Genre=Multimedia
+Description=Software musical ideado por Sid Meier que compone e interpreta en tiempo real piezas al estilo de Johann Sebastian Bach, generando música nueva en cada sesión. No es un juego: el usuario elige formas musicales y escucha las composiciones.
+
+[Slam 'n Jam '95]
+Year=1995
+Developer=Left Field Productions
+Publisher=Crystal Dynamics
+Genre=Deportes
+Description=Juego de baloncesto cinco contra cinco con cámara situada detrás de la canasta, sprites grandes y narración en directo de las jugadas. Ofrece partidos de exhibición, temporada y playoffs con equipos ficticios inspirados en el baloncesto profesional.
+
+[Slayer]
+Year=1994
+Developer=Lion Entertainment
+Publisher=Strategic Simulations
+Genre=RPG
+Description=RPG de exploración de mazmorras en primera persona ambientado en el universo Advanced Dungeons & Dragons. Las mazmorras se generan aleatoriamente en cada partida, y el jugador se enfrenta a monstruos en tiempo real mientras recoge ítems y magias.
+
+[Slopestyle - An Interactive Learning Cube]
+Year=1994
+Developer=L3 Interactive
+Publisher=
+Genre=Educativo
+Description=Título educativo producido por L3 Interactive como parte de la línea Interactive Learning Cube. Lanzado en los Estados Unidos para el 3DO, presenta contenido multimedia con vídeos e información en vez de jugabilidad tradicional.
+
+[SnowJob Starring Tracy Scoggins]
+[Snow Job]
+Year=1996
+Developer=iXL Interactive Excellence
+Publisher=The 3DO Company
+Genre=FMV
+Description=Película interactiva en vídeo digitalizado protagonizada por la actriz Tracy Scoggins, publicada por 3DO Company. El jugador sigue la historia filmada y toma decisiones al explorar lugares e interactuar con personajes para avanzar en la trama.
+
+[Soccer Kid]
+Year=1994
+Developer=Krisalis Software
+Publisher=The 3DO Company
+Genre=Plataformas
+Description=Juego de plataformas en el que el protagonista usa un balón de fútbol como arma, lanzándolo contra los enemigos y usándolo para alcanzar lugares altos. Recorre fases en varios países para recuperar las piezas de la copa del Mundial.
+
+[Sotsugyou - Graduation - Final]
+Year=1994
+Developer=SharRock
+Publisher=Shar Rock
+Genre=Simulación
+Description=Simulación de crianza al estilo de la serie Graduation, en la que el jugador ejerce de profesor responsable de cinco alumnas problemáticas, organizando clases y actividades a lo largo del curso hasta la graduación. Lanzado solo en Japón.
+
+[Sotsugyou II Special - Neo Generation]
+Year=1995
+Developer=Fill-in-Cafe
+Publisher=Shar Rock
+Genre=Simulación
+Description=Edición especial de la continuación de la serie Graduation: el jugador ejerce de profesor de un grupo de alumnas y define su rutina de estudios y actividades hasta la graduación, con varios finales posibles. Lanzado solo en Japón.
+
+[Space Ace]
+Year=1995
+Developer=ReadySoft
+Publisher=ReadySoft
+Genre=FMV
+Description=Conversión del clásico de laserdisc de Don Bluth con animación tradicional. El héroe Dexter se enfrenta al villano Borf para salvar a Kimberly, y el jugador debe accionar la dirección o el botón correcto en el momento exacto para evitar las escenas de muerte.
+
+[Space Hulk - Vengeance of the Blood Angels]
+Year=1995
+Developer=Key Game
+Publisher=Electronic Arts
+Genre=Estrategia
+Description=Juego de acción táctica en primera persona basado en el juego de mesa Space Hulk, de Games Workshop. El jugador comanda un escuadrón de Terminators de los Blood Angels en naves abandonadas infestadas de Genestealers, alternando acción y planificación.
+
+[Space Pirates]
+Year=1995
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Juego de disparos en primera persona con vídeo real filmado, compatible con pistola de luz. El jugador se enfrenta a piratas espaciales en diversos planetas, apuntando a los enemigos que aparecen en pantalla antes de que disparen contra el jugador.
+
+[Space Shuttle]
+Year=1994
+Developer=Amazing Media
+Publisher=The Software Toolworks
+Genre=Multimedia
+Description=Título multimedia sobre el programa del transbordador espacial de la NASA, publicado por Software Toolworks. Reúne vídeos, imágenes e información sobre las misiones, permitiendo al usuario explorar el tema de forma interactiva.
+
+[Star Control II]
+Year=1994
+Developer=Toys for Bob
+Publisher=Crystal Dynamics
+Genre=Aventura
+Description=Aventura de exploración espacial con combate entre naves. El jugador viaja por cientos de sistemas estelares, recoge recursos, negocia con razas alienígenas y forma alianzas para liberar la Tierra del dominio de los Ur-Quan. Versión con vídeos y voz.
+
+[Star Control II - The Ur-Quan Masters]
+Year=1994
+Developer=Toys for Bob
+Publisher=BMG Interactive
+Genre=Aventura
+Description=Versión japonesa de Star Control II. Aventura espacial con combate entre naves en la que el jugador explora sistemas estelares, recoge recursos, conversa con razas alienígenas y reúne aliados para enfrentarse a los Ur-Quan.
+
+[Star Fighter]
+Year=1995
+Developer=Krisalis Software
+Publisher=The 3DO Company
+Genre=Simulación
+Description=Simulador de combate en 3D con gráficos poligonales, en el que el jugador pilota una nave de caza capaz de volar sobre superficies planetarias y en el espacio, cumpliendo misiones de ataque y defensa en un mundo abierto.
+
+[Star Wars - Rebel Assault]
+[Rebel Assault]
+Year=1994
+Developer=LucasArts
+Publisher=LucasArts
+Genre=Disparos
+Description=Juego de disparos sobre raíles con escenas prerrenderizadas y vídeos en el universo Star Wars. El jugador es Rookie One, piloto de la Alianza Rebelde, y participa en misiones que culminan en el ataque a la Estrella de la Muerte.
+
+[Starblade]
+Year=1994
+Developer=HighTech Lab. Japan
+Publisher=Panasonic
+Genre=Disparos
+Description=Conversión del juego de arcade de Namco. Disparos sobre raíles en el que la nave sigue un recorrido fijo por el espacio mientras el jugador controla la mira para destruir cazas y naves enemigas antes de atacar la base adversaria.
+
+[Stellar 7 - Draxon's Revenge]
+Year=1994
+Developer=Dynamix
+Publisher=Dynamix
+Genre=Acción
+Description=Juego de combate con vehículos en primera persona y gráficos poligonales. El jugador pilota un tanque futurista en diferentes planetas, destruyendo fuerzas enemigas y recogiendo mejoras para enfrentarse al villano Gir Draxon.
+
+[Storage Manager - Memory Kanri]
+Year=
+Developer=
+Publisher=
+Genre=Utilidad
+Description=Utilidad japonesa para el 3DO destinada a la gestión de la memoria interna de la consola, que permite ver y borrar los datos guardados de los juegos. No es un juego.
+
+[Strahl]
+Year=1994
+Developer=Media Entertainment
+Publisher=Panasonic
+Genre=FMV
+Description=Película interactiva con animación al estilo anime. El jugador debe reaccionar en el momento justo, eligiendo la dirección o la acción indicada para que el héroe sobreviva a los peligros de cada escena hasta el enfrentamiento final.
+
+[Striker - World Cup Special]
+Year=1995
+Developer=Rage Software
+Publisher=Panasonic
+Genre=Deportes
+Description=Juego de fútbol con vista cenital y partidos rápidos, basado en Striker, de Rage Software. Incluye selecciones nacionales y un torneo en formato de Copa del Mundo, con opciones de táctica y controles sencillos.
+
+[Super Model, The - Gail McKenna]
+Year=1995
+Developer=Digital Production
+Publisher=
+Genre=Multimedia
+Description=Título de vídeo interactivo con la modelo Gail McKenna, de contenido adulto. No es un juego: el usuario ve escenas filmadas y navega entre ellas. Lanzado solo en Japón para el 3DO.
+
+[Super Nova - Battery Navi]
+Year=1995
+Developer=Dai Nippon Printing
+Publisher=
+Genre=Puzle
+Description=Título japonés para el 3DO identificado como Super Nova - Battery Navi. No hay información fiable disponible sobre su contenido; lanzado solo en Japón.
+
+[Super Real Mahjong P.V]
+Year=1995
+Developer=SETA
+Publisher=SETA
+Genre=Mesa
+Description=Juego de mahjong de la serie Super Real Mahjong, de Seta, en el que el jugador disputa partidas contra adversarias y, al ganar, desbloquea escenas ilustradas de las personajes. Lanzado solo en Japón para el 3DO.
+
+[Super Real Mahjong PIV + Aishou Shindan]
+Year=1995
+Developer=Opus Studio
+Publisher=SETA
+Genre=Mesa
+Description=Versión de Super Real Mahjong PIV con el añadido de un diagnóstico de compatibilidad. El jugador disputa partidas de mahjong contra las personajes de la serie para ver ilustraciones. Lanzado solo en Japón.
+
+[Super Street Fighter II Turbo]
+Year=1994
+Developer=Capcom
+Publisher=Panasonic
+Genre=Lucha
+Description=Versión del clásico de lucha de Capcom con 16 luchadores, golpes Super y el personaje secreto Akuma. Destaca por su banda sonora rearreglada en CD y por su fidelidad al arcade, con modos arcade y versus.
+
+[Super Street Fighter II X - Grand Master Challenge]
+Year=1994
+Developer=Capcom
+Publisher=Capcom
+Genre=Lucha
+Description=Versión japonesa de Super Street Fighter II Turbo para el 3DO. Juego de lucha con 16 personajes, golpes Super y el luchador secreto Akuma, con banda sonora rearreglada y modos arcade y versus.
+
+[Super Wing Commander]
+Year=1994
+Developer=Origin Systems
+Publisher=Origin Systems
+Genre=Simulación
+Description=Versión mejorada del primer Wing Commander, simulador de combate espacial en el que el jugador pilota cazas de la Confederación contra los felinos Kilrathi. Las misiones siguen una campaña ramificada con escenas entre los vuelos.
+
+[SuperModels Go Wild]
+Year=1994
+Developer=Vivid Interactive
+Publisher=
+Genre=Multimedia
+Description=Título de vídeo con contenido adulto producido por Vivid Interactive, que muestra modelos en escenas filmadas. No es un juego: el usuario solo ve y navega entre los vídeos.
+
+[Supreme Warrior]
+Year=1994
+Developer=Digital Pictures
+Publisher=Acclaim
+Genre=FMV
+Description=Juego de lucha en vídeo real con vista en primera persona, ambientado en una película de kung-fu. El jugador bloquea y contraataca a los adversarios pulsando los botones correctos en el momento exacto de las secuencias filmadas.
+
+[Sword & Sorcery]
+[Lucienne's Quest]
+Year=1995
+Developer=Microcabin
+Publisher=Microcabin
+Genre=RPG
+Description=RPG japonés en el que Lucienne y el guerrero maldito Ago viajan de ciudad en ciudad en busca de la cura. Las batallas son por turnos en rejilla isométrica, y el ciclo de día y noche altera la forma de Ago. Lanzado en Occidente como Lucienne's Quest.
+
+[Syndicate]
+Year=1995
+Developer=Bullfrog Productions
+Publisher=Electronic Arts
+Genre=Estrategia
+Description=Juego de estrategia y acción con vista isométrica en un futuro cyberpunk. El jugador controla un equipo de cuatro agentes cíborg de una corporación, cumpliendo misiones de asesinato y persuasión para dominar el mundo.
+
+[System Catalog - Kigyou-muke System no Goannai]
+Year=
+Developer=
+Publisher=
+Genre=Multimedia
+Description=Disco informativo japonés para el 3DO con un catálogo de sistemas orientado a empresas, que presenta aplicaciones corporativas del hardware. No es un juego y no se vendió como título común.
+
+[T&E VR Golf - Devil's Course]
+Year=1995
+Developer=T&E Soft
+Publisher=
+Genre=Deportes
+Description=Versión japonesa de Wicked 18. Juego de golf en 3D con un campo fantasioso y repleto de obstáculos inusuales, que mantiene el sistema de golpes de la serie de golf de T&E Soft. Lanzado en Japón.
+
+[T&E VR Golf - Masters - Harukanaru Augusta 3]
+Year=1994
+Developer=T&E Soft
+Publisher=T&E Soft
+Genre=Deportes
+Description=Juego de golf de T&E Soft ambientado en el campo de Augusta, sede del torneo Masters, con el terreno recreado en 3D y el sistema de golpes de la serie. Lanzado solo en Japón para el 3DO.
+
+[T&E VR Golf - Pebble Beach no Hatou]
+Year=1994
+Developer=T&E Soft
+Publisher=T&E Soft
+Genre=Deportes
+Description=Versión japonesa de Pebble Beach Golf Links. Simulador de golf que recrea en 3D el famoso campo de Pebble Beach, en California, con control de fuerza y dirección de los golpes y diversos modos de juego.
+
+[T&E VR Golf - Waialae no Kiseki]
+Year=1994
+Developer=T&E Soft
+Publisher=T&E Soft
+Genre=Deportes
+Description=Versión japonesa de Waialae Country Club. Simulador de golf que recrea en 3D el campo hawaiano de Waialae, con control de fuerza y efecto de los golpes, además de diferentes modos de disputa.
+
+[Taiketsu Rumiizu!]
+[Taiketsu! Rooms]
+Year=1995
+Developer=Sanyei Shobou
+Publisher=Sanyo
+Genre=Acción
+Description=Título japonés para el 3DO cuyo nombre indica una disputa en formato de enfrentamiento. Desarrollado por Sanyei Shobou y lanzado solo en Japón; hay poca información fiable sobre su jugabilidad.
+
+[Takeru]
+[Terasawa Takeichi no Takeru]
+Year=1994
+Developer=Fun Project
+Publisher=Panasonic
+Genre=Aventura
+Description=Título basado en Takeru, obra del mangaka Buichi Terasawa, publicado por Panasonic. Trae la ambientación y los personajes del manga. Lanzado solo en Japón para el 3DO.
+
+[Tanjou - Debut - Pure]
+Year=1996
+Developer=Fill-in-Cafe
+Publisher=Shar Rock
+Genre=Simulación
+Description=Simulación de creación de ídolos de la serie Tanjou Debut: el jugador gestiona a un grupo de aspirantes a cantante, organizando entrenamientos, trabajos y eventos para que triunfen. Lanzado solo en Japón.
+
+[Tarot Uranai]
+Year=1995
+Developer=Axes Art Amuse
+Publisher=
+Genre=Multimedia
+Description=Programa de lectura de tarot para el 3DO. El usuario baraja y saca cartas virtuales y recibe interpretaciones de las cartas sorteadas. No es un juego; lanzado solo en Japón.
+
+[Tetsujin]
+Year=1994
+Developer=Synergy
+Publisher=Panasonic
+Genre=FPS
+Description=Versión japonesa de Iron Angel of the Apocalypse. Juego de disparos en primera persona en el que el jugador controla a un cíborg que recorre laboratorios laberínticos, enfrentándose a enemigos mecánicos, con escenas en vídeo.
+
+[Tetsujin Returns]
+Year=1995
+Developer=Synergy
+Publisher=Synergy
+Genre=FPS
+Description=Versión japonesa de Iron Angel of the Apocalypse: The Return, continuación de Tetsujin. Disparos en primera persona en el que el cíborg protagonista vuelve a explorar instalaciones laberínticas y a enfrentarse a enemigos.
+
+[Theatre Wars - Goraku no Dendou]
+Year=1994
+Developer=Scitron & Art
+Publisher=Hamlet
+Genre=Simulación
+Description=Título japonés para el 3DO publicado por Hamlet, cuyo nombre hace referencia a un templo del entretenimiento. Hay poca información fiable sobre su jugabilidad; lanzado solo en Japón.
+
+[Theme Park]
+Year=1995
+Developer=Bullfrog Productions
+Publisher=Electronic Arts
+Genre=Simulación
+Description=Simulación de gestión de parque de atracciones. El jugador construye atracciones, tiendas y caminos, contrata empleados, ajusta precios y cuida la satisfacción de los visitantes para obtener beneficios y expandir el parque por el mundo.
+
+[Theo the Dinosaur]
+Year=
+Developer=Panasonic Interactive Media
+Publisher=
+Genre=Educativo
+Description=Título educativo para niños lanzado en los Estados Unidos para el 3DO, protagonizado por un dinosaurio llamado Theo. Hay poca información fiable sobre su contenido.
+
+[Toki o Koeta Tegami]
+Year=1994
+Developer=Thinking Rabbit
+Publisher=Panasonic
+Genre=Aventura
+Description=Título japonés de Thinking Rabbit publicado por Panasonic, cuyo nombre significa carta que atravesó el tiempo. Hay poca información fiable sobre su jugabilidad; lanzado solo en Japón.
+
+[Tokimeki Mahjong Paradise Special - Koi no Tenpai Beat]
+Year=1996
+Developer=Sonnet
+Publisher=Sonnet
+Genre=Mesa
+Description=Juego de mahjong de la serie Tokimeki Mahjong Paradise, de Sonnet, en el que el jugador se enfrenta a adversarias en partidas de mahjong con escenas y diálogos de las personajes. Lanzado solo en Japón para el 3DO.
+
+[ToonTime ...In the Classroom]
+Year=1994
+Developer=Videoact V
+Publisher=
+Genre=Multimedia
+Description=Título interactivo dirigido al público infantil y al aula, con animaciones y contenido en vídeo. No es un juego en el sentido tradicional; lanzado en los Estados Unidos para el 3DO.
+
+[Total Eclipse]
+Year=1994
+Developer=Crystal Dynamics
+Publisher=Crystal Dynamics
+Genre=Disparos
+Description=Juego de disparos en 3D con vista por detrás de la nave, en el que el jugador sobrevuela superficies planetarias y pasillos destruyendo naves y objetivos enemigos con armas y bombas mientras esquiva los obstáculos del terreno.
+
+[Totsugeki Karakuri! Megadas!!]
+[Totsugeki Kikan Megadasu!!]
+Year=1994
+Developer=Warp
+Publisher=Warp
+Genre=Acción
+Description=Título japonés de Warp, el estudio de Kenji Eno, lanzado solo en Japón para el 3DO poco después del estreno de la consola en el país. Hay poca información fiable sobre su jugabilidad.
+
+[Touhaiden Akagi]
+[Akagi Touhaiden]
+Year=1996
+Developer=Micronet
+Publisher=Micronet
+Genre=Mesa
+Description=Juego de mahjong basado en el manga Akagi, de Nobuyuki Fukumoto, sobre un jugador genial de mahjong. El jugador disputa partidas de alto riesgo contra personajes de la obra. Lanzado solo en Japón.
+
+[Tower, The]
+[SimTower]
+Year=1996
+Developer=OpenBook
+Publisher=OpenBook
+Genre=Simulación
+Description=Simulación de construcción y gestión de un rascacielos. El jugador instala oficinas, apartamentos, tiendas y ascensores, atiende las necesidades de los inquilinos y amplía el edificio. Conocido en Occidente como SimTower.
+
+[Toyopet Outdoor World]
+Year=1995
+Developer=Nambokusha / Office Orange
+Publisher=
+Genre=Multimedia
+Description=Disco promocional japonés ligado a Toyopet, la red de concesionarios de Toyota, con contenido multimedia sobre vehículos y actividades al aire libre. No es un juego.
+
+[Toyopet RV Paddock]
+Year=1995
+Developer=Dentsu
+Publisher=
+Genre=Educativo
+Description=Juego educativo distribuido solo en concesionarios Toyota en Japón, creado para entretener a los niños mientras se atendía a los padres.
+
+[Toyopet RV World]
+Year=
+Developer=Dentsu
+Publisher=
+Genre=Multimedia
+Description=Disco japonés distribuido exclusivamente en los concesionarios Toyota, hecho con Panasonic para entretener a los niños mientras las familias elegían un coche. Tiene una sala de exposición virtual de los modelos Caldina, Hiace y Hilux Surf, una "clínica" que sugiere un coche según tu actividad al aire libre favorita y juegos para los pequeños.
+
+[Tozasareta Yakata]
+Year=1995
+Developer=Studio 3DO
+Publisher=The 3DO Company
+Genre=FPS
+Description=Versión japonesa de Killing Time. Disparos en primera persona en el que el jugador explora una mansión en una isla, enfrentándose a monstruos y espíritus mientras desvela el misterio de la maldición por medio de escenas en vídeo.
+
+[Trip'd]
+Year=1995
+Developer=WARP
+Publisher=Panasonic
+Genre=Puzle
+Description=Juego de puzles publicado por Panasonic para el 3DO, con fases de ingenio en las que el jugador debe resolver desafíos. Hay poca información fiable sobre sus detalles.
+
+[True Golf Classics - Pebble Beach Golf Links]
+Year=1994
+Developer=T&E Soft
+Publisher=Panasonic
+Genre=Deportes
+Description=Simulador de golf que recrea en 3D el famoso campo de Pebble Beach, en California. El jugador controla la fuerza, la dirección y el efecto de los golpes y puede disputar diversos modos, como torneo y partidas por golpes.
+
+[True Golf Classics - Waialae Country Club]
+Year=1994
+Developer=T&E Soft
+Publisher=Panasonic
+Genre=Deportes
+Description=Simulador de golf de la serie True Golf Classics que recrea en 3D el campo hawaiano de Waialae. El jugador controla la fuerza, la dirección y el efecto de los golpes en diferentes modos de disputa.
+
+[Twinkle Knights]
+Year=1995
+Developer=Axes Art Amuse
+Publisher=Intarus
+Genre=Estrategia
+Description=Título japonés para el 3DO desarrollado por Axes Art Amuse y publicado por Intarus, lanzado solo en Japón. Hay poca información fiable sobre su jugabilidad.
+
+[Twisted]
+Year=1994
+Developer=Studio 3DO
+Publisher=Electronic Arts Victor
+Genre=Concurso
+Description=Versión japonesa de Twisted: The Game Show. Concurso en el que hasta cuatro jugadores recorren un tablero respondiendo a minijuegos y puzles con vídeos, en un programa de televisión paródico.
+
+[Twisted - The Game Show]
+Year=1993
+Developer=Studio 3DO
+Publisher=Electronic Arts
+Genre=Concurso
+Description=Concurso para hasta cuatro jugadores al estilo de un programa de televisión paródico. Los participantes avanzan por un tablero ganando minijuegos y puzles con vídeos e imágenes digitalizadas.
+
+[Uchuu Seibutsu Flopon-kun]
+Year=1994
+Developer=Warp
+Publisher=Sanyei Shobou
+Genre=Puzle
+Description=Título japonés de Warp, el estudio de Kenji Eno, protagonizado por una criatura espacial llamada Flopon-kun. Lanzado solo en Japón para el 3DO; hay poca información fiable sobre su jugabilidad.
+
+[Ultraman Powered]
+Year=1994
+Developer=Tose
+Publisher=Bandai
+Genre=Acción
+Description=Juego basado en la serie de televisión Ultraman Powered, producida en colaboración entre Japón y los Estados Unidos. El jugador controla a Ultraman en combates contra monstruos gigantes. Publicado por Bandai solo en Japón.
+
+[V Goal Soccer '96]
+Year=1996
+Developer=Tecmo
+Publisher=Tecmo
+Genre=Deportes
+Description=Juego de fútbol de Tecmo, parte de la serie V Goal Soccer, con partidos entre equipos y opciones de torneo y amistoso. Lanzado solo en Japón para el 3DO, en 1996.
+
+[Virtual Cameraman Part 1 - Naomi Sawada & Anna Juri]
+Year=1995
+Developer=Naxat Soft
+Publisher=Trans-Pegasus Limited
+Genre=Multimedia
+Description=Título de ensayo fotográfico virtual: el usuario ejerce de fotógrafo en sesiones filmadas con las modelos Naomi Sawada y Anna Juri, eligiendo poses y momentos para captar. Lanzado solo en Japón.
+
+[Virtual Cameraman Part 2 - Natsumi Kawai & Kimi Tachihara]
+Year=1995
+Developer=Naxat Soft
+Publisher=Trans-Pegasus Limited
+Genre=Multimedia
+Description=Título de ensayo fotográfico virtual: el usuario ejerce de fotógrafo en sesiones filmadas con las modelos Natsumi Kawai y Kimi Tachihara, eligiendo momentos para captar. Lanzado solo en Japón.
+
+[Virtual Cameraman Part 3 - Yumika Sugimoto]
+Year=1995
+Developer=Naxat Soft
+Publisher=Trans-Pegasus Limited
+Genre=Multimedia
+Description=Título de ensayo fotográfico virtual: el usuario ejerce de fotógrafo en una sesión filmada con la modelo Yumika Sugimoto, eligiendo poses y momentos para captar. Lanzado solo en Japón.
+
+[Virtual Cameraman Part 4 - Shiori Fujitani]
+Year=1995
+Developer=Naxat Soft
+Publisher=Trans-Pegasus Limited
+Genre=Multimedia
+Description=Título de ensayo fotográfico virtual: el usuario ejerce de fotógrafo en una sesión filmada con la modelo Shiori Fujitani, eligiendo poses y momentos para captar. Lanzado solo en Japón.
+
+[Virtual Cameraman Part 5 - Yuri Andou]
+Year=1995
+Developer=Naxat Soft
+Publisher=Trans-Pegasus Limited
+Genre=Multimedia
+Description=Título de ensayo fotográfico virtual: el usuario ejerce de fotógrafo en una sesión filmada con la modelo Yuri Andou, eligiendo poses y momentos para captar. Lanzado solo en Japón.
+
+[Virtual Horror - Norowareta Yakata]
+Year=1993
+Developer=Studio 3DO
+Publisher=Electronic Arts Victor
+Genre=Aventura
+Description=Versión japonesa de Escape from Monster Manor. Juego en primera persona en el que el jugador explora los pasillos de una mansión encantada, enfrentándose a fantasmas y monstruos mientras busca la salida.
+
+[Virtual Puppet Reika]
+Year=1994
+Developer=h.a.n.d.
+Publisher=
+Genre=Multimedia
+Description=Software musical japonés para el 3DO centrado en un personaje virtual llamado Reika, desarrollado por h.a.n.d. No es un juego en el sentido tradicional; lanzado solo en Japón, hay poca información fiable sobre su funcionamiento.
+
+[Virtual Quest - Pharaoh no Fuuin]
+Year=1994
+Developer=System Sacom
+Publisher=ASK Kodansha
+Genre=RPG
+Description=Versión japonesa de Seal of the Pharaoh. RPG de exploración en primera persona en el interior de una pirámide egipcia, con laberintos, trampas, enigmas y combates contra criaturas.
+
+[Virtual Vivid]
+[Virtual Vivid Sampler]
+Year=1994
+Developer=Vivid Interactive
+Publisher=
+Genre=Demo
+Description=Disco de demostración de Vivid Interactive con muestras de títulos de vídeo con contenido adulto para el 3DO, lanzado en los Estados Unidos. No es un juego.
+
+[Virtuoso]
+Year=1995
+Developer=MotiveTime
+Publisher=Data East
+Genre=Disparos
+Description=Juego de disparos en tercera persona en 3D en el que el jugador controla a una estrella del rock transportada a mundos virtuales, enfrentándose a enemigos con armas de fuego al son de una banda sonora de rock.
+
+[VR Stalker]
+Year=1994
+Developer=Morpheus Interactive
+Publisher=American Laser Games
+Genre=Simulación
+Description=Simulador de combate aéreo en 3D con gráficos poligonales, publicado por American Laser Games. El jugador pilota aeronaves de combate y cumple misiones de ataque contra objetivos enemigos en tierra y en el aire.
+
+[Waialae Country Club]
+Year=1994
+Developer=T&E Soft
+Publisher=Panasonic
+Genre=Deportes
+Description=Simulador de golf que recrea en 3D el campo hawaiano del Waialae Country Club. El jugador controla la fuerza, la dirección y el efecto de los golpes y puede disputar torneos y partidas por golpes.
+
+[Warner Music Group]
+Year=1994
+Developer=Time Warner Interactive
+Publisher=
+Genre=Demo
+Description=Disco promocional para el 3DO con contenido multimedia de la discográfica Warner Music Group, como vídeos y muestras de artistas. No es un juego; lanzado en los Estados Unidos.
+
+[Way of the Warrior]
+Year=1994
+Developer=Naughty Dog
+Publisher=Universal Interactive Studios
+Genre=Lucha
+Description=Juego de lucha con personajes digitalizados a partir de actores reales, desarrollado por Naughty Dog. Los luchadores disputan un torneo de artes marciales con golpes especiales, finalizaciones y banda sonora de la banda White Zombie.
+
+[We Got It]
+Year=1995
+Developer=The 3DO Company
+Publisher=
+Genre=Demo
+Description=Disco lanzado en Europa para el 3DO, de carácter promocional o demostrativo, sin jugabilidad completa. Hay poca información fiable sobre su contenido.
+
+[Who Shot Johnny Rock]
+[Who Shot Johnny Rock?]
+Year=1994
+Developer=American Laser Games
+Publisher=American Laser Games
+Genre=Disparos
+Description=Juego de disparos con vídeo real filmado, compatible con pistola de luz. El jugador es un detective que investiga el asesinato del cantante Johnny Rock en un escenario de gánsteres de los años 1920, enfrentándose a bandidos.
+
+[Wicked 18]
+Year=1995
+Developer=T&E Soft
+Publisher=Panasonic
+Genre=Deportes
+Description=Juego de golf en 3D con un campo fantasioso lleno de islas, desfiladeros y obstáculos inusuales, que usa el sistema de golpes de la serie de golf de T&E Soft. Un reto más difícil que los campos reales.
+
+[Wing Commander III - Heart of the Tiger]
+Year=1995
+Developer=Origin Systems
+Publisher=Origin Systems
+Genre=Simulación
+Description=Simulador de combate espacial con escenas en vídeo real protagonizadas por Mark Hamill. El jugador pilota cazas de la Confederación contra los Kilrathi, y las decisiones en las conversaciones y misiones influyen en la campaña.
+
+[Winning Post]
+Year=1994
+Developer=Koei
+Publisher=Koei
+Genre=Simulación
+Description=Simulación de carreras de caballos de Koei en la que el jugador es propietario de caballos de carreras, ocupándose de la compra, el entrenamiento y la cría de los animales para ganar grandes pruebas. Lanzado solo en Japón.
+
+[Wolfenstein 3D]
+Year=1995
+Developer=Logicware
+Publisher=Interplay Productions
+Genre=FPS
+Description=Conversión del clásico de id Software. Disparos en primera persona en el que el soldado B.J. Blazkowicz escapa de un castillo nazi, recorriendo laberintos, enfrentándose a guardias y encontrando llaves y pasajes secretos.
+
+[Woody Woodpecker and Friends - Volume One]
+Year=1994
+Developer=MCA Universal
+Publisher=
+Genre=Multimedia
+Description=Disco con episodios clásicos de dibujos animados del Pájaro Loco y personajes de Universal, reproducidos en el 3DO con calidad de vídeo. No es un juego. Volumen uno de la serie.
+
+[Woody Woodpecker and Friends - Volume Three]
+Year=1994
+Developer=MCA Universal
+Publisher=
+Genre=Multimedia
+Description=Disco con episodios clásicos de dibujos animados del Pájaro Loco y personajes de Universal, reproducidos en el 3DO con calidad de vídeo. No es un juego. Volumen tres de la serie.
+
+[Woody Woodpecker and Friends - Volume Two]
+Year=1994
+Developer=MCA Universal
+Publisher=
+Genre=Multimedia
+Description=Disco con episodios clásicos de dibujos animados del Pájaro Loco y personajes de Universal, reproducidos en el 3DO con calidad de vídeo. No es un juego. Volumen dos de la serie.
+
+[World Cup Golf - Hyatt Dorado Beach]
+Year=1994
+Developer=Arc Developments
+Publisher=U.S. Gold
+Genre=Deportes
+Description=Juego de golf en 3D ambientado en el campo del Hyatt Dorado Beach, en Puerto Rico. El jugador controla la fuerza y la dirección de los golpes y puede disputar torneos y partidas con hasta cuatro participantes.
+
+[World Cup Special]
+Year=1995
+Developer=Rage Software
+Publisher=Coconuts Japan
+Genre=Deportes
+Description=Versión japonesa de Striker: World Cup Special. Juego de fútbol con vista cenital, partidos rápidos y selecciones nacionales en un torneo en formato de Copa del Mundo.
+
+[WorldCup Super Stadium]
+Year=1995
+Developer=TV Tokyo
+Publisher=
+Genre=Multimedia
+Description=Título multimedia japonés ligado al fútbol y a la Copa del Mundo, producido por TV Tokyo y publicado por GAGA Communications. Lanzado solo en Japón para el 3DO.
+
+[Yakyuuken Special, The]
+Year=1994
+Developer=Societa
+Publisher=Societa Daikanyama
+Genre=Adulto
+Description=Título japonés basado en el yakyuken, el tradicional juego de piedra, papel y tijera en el que el perdedor se quita una prenda de ropa, con contenido adulto. Lanzado solo en Japón.
+
+[Yamada Kamachi Bijutsukan - Kamachi's Museum]
+Year=1995
+Developer=System Sacom
+Publisher=
+Genre=Multimedia
+Description=Galería digital con las obras del ilustrador Kamachi Yamada, presentadas como un museo virtual que el usuario recorre para ver las imágenes. No es un juego; lanzado solo en Japón.
+
+[Yamamura Misa Suspense - Kyoto Kurama Sansou Satsujin Jiken]
+Year=1994
+Developer=Tose
+Publisher=Pack-In-Video
+Genre=Aventura
+Description=Aventura de misterio basada en las historias policíacas de la escritora Misa Yamamura. El jugador investiga un asesinato en una casa de campo en Kioto, interrogando a sospechosos y reuniendo pistas. Lanzado solo en Japón.
+
+[Yu Yu Hakusho]
+Year=1994
+Developer=Tose
+Publisher=Tomy
+Genre=Lucha
+Description=Juego basado en el manga y anime Yu Yu Hakusho, de Yoshihiro Togashi, publicado por Tomy. Trae a los personajes de la obra en escenas animadas. Lanzado solo en Japón para el 3DO.
+
+[Yuujou Densetsu - The Doraemons]
+[Doraemon Yuujou Densetsu]
+Year=1995
+Developer=Riverhillsoft
+Publisher=Shogakukan
+Genre=Acción
+Description=Juego basado en The Doraemons, serie derivada de Doraemon que reúne al personaje y a sus amigos robot. Publicado por Shogakukan y lanzado solo en Japón para el 3DO.
+
+[Zhadnost - The People's Party]
+Year=1995
+Developer=Studio 3DO
+Publisher=The 3DO Company
+Genre=Concurso
+Description=Concurso para hasta cuatro jugadores ambientado en un país ficticio de Europa del Este. Los participantes disputan minijuegos y preguntas humorísticas en un programa de televisión paródico, con vídeos.
+
+[Captain Quazar & BattleSport]
+[Captain Quazar and BattleSport]
+Year=1996
+Developer=Crystal Dynamics / 3DO
+Publisher=
+Genre=Demo
+Description=Disco de demostración europeo que reúne muestras jugables de dos títulos de 3DO: Captain Quazar, una aventura de acción con vista aérea y mucho tiroteo cómico, y BattleSport, un deporte futurista en arenas donde dos vehículos armados disputan puntos acertando una pelota en una portería. Sirve para probar los dos juegos antes de comprarlos.
+
+[Olympic Games]
+[Olympic Summer Games]
+Year=1996
+Developer=Silicon Dreams / U.S. Gold
+Publisher=U.S. Gold
+Genre=Deportes
+Description=Versión de demostración del juego oficial de las Olimpiadas de Atlanta 1996, con algunas de las pruebas de atletismo disponibles para probar. El jugador compite en modalidades como carreras, saltos y lanzamientos, controlando el ritmo y el tiempo de los movimientos para alcanzar las mejores marcas.
