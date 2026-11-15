@@ -4,6 +4,8 @@
 
 Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040 board) of the 3DO, by **Rodrigo Tadeu "CyberRep"**. The menu comes in **3 languages** (English, Portuguese, Spanish), runs in **NTSC and PAL** and works on **both firmwares**: the factory one and ours, **TADEU**.
 
+> 💿🔥 **NEW AND EXCLUSIVE — PLAY YOUR ORIGINAL CDs WITH THE XPORT PLUGGED IN, STRAIGHT FROM THE MENU!** Anyone using the expansion board (Xport) has always had to **power off and pull the board out** to play a real disc: the Xport factory menu cannot do it. Now the menu shows a **CD** tile on the main screen: press **A**, open and close the lid, and the 3DO **restarts by itself into your disc**. Nothing to unplug. [How it works](#-real-cds-on-the-xport-without-removing-the-board).
+
 > ⏰ **The first 3DO ODE in the world with a real-time clock (RTC).** With a cheap DS3231 module soldered to 4 points, your 3DO shows the date, the time and the temperature, and remembers when each game was played. [See how to install it](docs/RTC.md).
 
 > 🌐 **Prepare your USB / SD in the browser, nothing to install:** **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)** (Chrome or Edge on a computer).
@@ -20,6 +22,7 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 | | |
 |---|---|
+| 💿🔥 **Real CDs on the Xport** | **Only in this menu.** With the expansion board plugged in, a **CD** tile shows up on the main screen and takes the console to the disc in the drive, without removing the board. [See](#-real-cds-on-the-xport-without-removing-the-board). |
 | ⏰ **Real-time clock** 🟣 **TADEU** | Date, time and temperature on screen and "played on" for each game. The clock is **detected automatically**: without the module, nothing appears and nothing changes. [Installing the DS3231](docs/RTC.md). |
 | 🎨 **Fully customizable** | You build your own menu: 6 view modes, 9 backgrounds, what appears on each screen, the list order, the screen the console starts on. [See everything](#-your-way). |
 | 🕹️ **Recognizes your console** | Reads the BIOS and shows the picture of your machine: Panasonic FZ-1, FZ-10, GoldStar or Sanyo TRY, with region and NTSC/PAL. |
@@ -225,6 +228,32 @@ The menu detects by itself how many drives exist and shows it in *ODE informatio
 The **same `boot.iso`** works on the expansion-port ODE. The menu recognizes the board and applies the memory fix it needs.
 
 **USB or SD, by itself:** the board takes a USB stick or a microSD card. The menu finds out which one is in use and changes the texts of the whole system: "Reading the USB" becomes "Reading the SD", "USB information" becomes "SD information", and so on.
+
+### 💿 Real CDs on the Xport, without removing the board
+
+> **The big highlight of this version.** The Xport sits on the expansion port and the console's CD drive is still there, but the console always boots from the Xport. Until now, playing an original disc meant powering off and pulling the board out: the Xport factory menu has no such function. **This menu does.**
+
+<p align="center"><img src="github/20-xport-cd.png" width="820"></p>
+
+How it works:
+
+1. With the Xport plugged in, the main screen gains the **CD** tile, above **Games**. It is **dark gray** when the drive is empty and **light blue** when there is a disc. (On the internal ODE the tile does not appear: there is no CD drive there.)
+2. Select the tile and press **A**. The menu saves your lists, stops the music and takes the Xport off the port.
+3. **Panasonic FZ-10 (lid):** the screen asks **"Open the CD lid"** and then **"Close the CD lid"**. You can swap the disc at that moment.
+   **Tray consoles (FZ-1, GoldStar, Sanyo):** the menu tells the drive to open and close the tray by itself; if the drive does not obey, the screen asks you to press the tray button.
+4. The screen shows **"Loading the CD..."** and the console **restarts by itself into the game on the disc**.
+
+**B** cancels at any step. If the disc does not start, the Xport goes back on the port and the menu carries on. To return to the menu after playing the CD, power the console off and on.
+
+> **Test status:** the switch was confirmed on real hardware on the **Panasonic FZ-10** (opening and closing the lid takes the console to the disc). Automatic **tray** opening on the other models and this first in-menu version are still being tested: if something does not work on your console, [let me know](../../issues).
+
+### Game description: you choose what is shown
+
+The description screen shows the **game sheet**: genre, year, country, developer, **publisher**, discs (one icon per disc), how many times it was played and the last time. In *Options > Appearance > Description* each of these can be **shown or hidden**. A developer or publisher name longer than the space **scrolls by itself**.
+
+The layout follows the images chosen in *Media > Description*: with **one image**, it sits on the left and the sheet on the right; with **two**, both go to the left and the sheet and text to the right; with **three** (cover, screenshot and video), the images go on top.
+
+<p align="center"><img src="github/21-descricao-arrumacoes.png" width="820"></p>
 
 ---
 

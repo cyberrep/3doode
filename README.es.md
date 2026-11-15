@@ -4,6 +4,8 @@
 
 Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (placa RP2040) de la 3DO, por **Rodrigo Tadeu "CyberRep"**. El menú está en **3 idiomas** (español, inglés, portugués), funciona en **NTSC y PAL** y con los **dos firmwares**: el de fábrica y el nuestro, **TADEU**.
 
+> 💿🔥 **NUEVO Y EXCLUSIVO — ¡JUEGA TUS CDs ORIGINALES CON EL XPORT CONECTADO, DIRECTO DESDE EL MENÚ!** Quien usa la placa de expansión (Xport) siempre tuvo que **apagar la consola y quitar la placa** para jugar un disco de verdad: el menú de fábrica del Xport no lo hace. Ahora el menú muestra una caja **CD** en la pantalla principal: pulsa **A**, abre y cierra la tapa, y la 3DO **se reinicia sola en tu disco**. Sin desmontar nada. [Cómo funciona](#-cd-de-verdad-en-el-xport-sin-quitar-la-placa).
+
 > ⏰ **La primera ODE de 3DO del mundo con reloj de tiempo real (RTC).** Con un módulo DS3231 muy barato soldado en 4 puntos, tu 3DO muestra la fecha, la hora y la temperatura, y guarda cuándo se jugó cada juego. [Mira cómo instalarlo](docs/RTC.es.md).
 
 > 🌐 **Prepara tu USB / SD desde el navegador, sin instalar nada:** **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)** (Chrome o Edge en el ordenador).
@@ -20,6 +22,7 @@ Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (p
 
 | | |
 |---|---|
+| 💿🔥 **CD de verdad en el Xport** | **Exclusivo de este menú.** Con la placa de expansión conectada, aparece una caja **CD** en la pantalla principal que lleva la consola al disco del lector, sin quitar la placa. [Ver](#-cd-de-verdad-en-el-xport-sin-quitar-la-placa). |
 | ⏰ **Reloj de tiempo real** 🟣 **TADEU** | Fecha, hora y temperatura en pantalla y el "jugado el" de cada juego. El reloj se **detecta solo**: sin el módulo, nada aparece y nada cambia. [Instalación del DS3231](docs/RTC.es.md). |
 | 🎨 **Totalmente personalizable** | Tú armas tu menú: 6 modos de vista, 9 fondos, qué aparece en cada pantalla, el orden de la lista, la pantalla en la que arranca la consola. [Ver todo](#-a-tu-manera). |
 | 🕹️ **Reconoce tu consola** | Lee la BIOS y muestra la foto de tu aparato: Panasonic FZ-1, FZ-10, GoldStar o Sanyo TRY, con región y NTSC/PAL. |
@@ -225,6 +228,32 @@ El menú detecta solo cuántas unidades existen y lo muestra en *Información de
 El **mismo `boot.iso`** funciona en la ODE del puerto de expansión. El menú reconoce la placa y aplica el ajuste de memoria que necesita.
 
 **USB o SD, solo:** la placa acepta pendrive y tarjeta microSD. El menú descubre cuál de los dos está en uso y cambia los textos de todo el sistema: "Leyendo el USB" pasa a ser "Leyendo la SD", "Información del USB" pasa a ser "Información de la SD", y así sucesivamente.
+
+### 💿 CD de verdad en el Xport, sin quitar la placa
+
+> **El gran destacado de esta versión.** El Xport va en el puerto de expansión y el lector de CD de la consola sigue ahí, pero la consola siempre arranca por el Xport. Hasta ahora, para jugar un disco original había que apagar todo y quitar la placa: el menú de fábrica del Xport no tiene esa función. **Este menú sí.**
+
+<p align="center"><img src="github/20-xport-cd.png" width="820"></p>
+
+Cómo funciona:
+
+1. Con el Xport conectado, la pantalla principal gana la caja **CD**, encima de **Juegos**. Es **gris oscura** cuando no hay disco en el lector y **azul clara** cuando lo hay. (En la ODE interna la caja no aparece: allí no hay lector de CD.)
+2. Elige la caja y pulsa **A**. El menú guarda tus listas, para la música y saca el Xport del puerto.
+3. **Panasonic FZ-10 (tapa):** la pantalla pide **"Abre la tapa del CD"** y luego **"Cierra la tapa del CD"**. Puedes aprovechar para cambiar el disco.
+   **Consolas con bandeja (FZ-1, GoldStar, Sanyo):** el menú ordena al lector abrir y cerrar la bandeja solo; si el lector no obedece, la pantalla pide pulsar el botón de la bandeja.
+4. La pantalla muestra **"Cargando el CD..."** y la consola **se reinicia sola en el juego del disco**.
+
+**B** cancela en cualquier paso. Si el disco no arranca, el Xport vuelve al puerto y el menú sigue con normalidad. Para volver al menú después de jugar el CD, apaga y enciende la consola.
+
+> **Estado de las pruebas:** el cambio fue confirmado en consola real en la **Panasonic FZ-10** (abrir y cerrar la tapa lleva la consola al disco). La apertura automática de la **bandeja** en los otros modelos y esta primera versión dentro del menú siguen en pruebas: si algo no funciona en tu consola, [avisa](../../issues).
+
+### Descripción del juego: tú eliges lo que aparece
+
+La pantalla de descripción muestra la **ficha del juego**: género, año, país, productora, **editora**, discos (un icono por disco), cuántas veces se jugó y la última vez. En *Opciones > Apariencia > Descripción* cada dato se puede **mostrar u ocultar**. El nombre de productora o editora más largo que el espacio **se desplaza solo**.
+
+La disposición sigue las imágenes elegidas en *Medios > Descripción*: con **una imagen**, queda a la izquierda y la ficha a la derecha; con **dos**, ambas van a la izquierda y la ficha y el texto a la derecha; con **tres** (carátula, captura y vídeo), las imágenes van arriba.
+
+<p align="center"><img src="github/21-descricao-arrumacoes.png" width="820"></p>
 
 ---
 
