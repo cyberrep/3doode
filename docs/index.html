@@ -230,7 +230,7 @@ en:{title:"USB / SD SETUP",
  r_note:"Gives your game files the official disc names (the ones in our list), so covers, videos and texts match. The .cue is fixed too. Nothing is converted and nothing is deleted.",
  r_scan:"Check the names",r_apply:"Rename the ticked ones",r_all:"Tick all",r_none:"Untick all",
  r_dat:"Could not read the list of official names on GitHub.",r_nomove:"This browser cannot rename files on the card. Use an up-to-date Chrome or Edge on a computer.",
- r_reading:"Reading",r_ok:n=>`${n} already have the official name`,r_sure:"by content",r_guess:"by name",r_unknown:"Not identified",
+ r_reading:"Reading",r_ok:n=>`${n} already have the official name`,r_sure:"by content",r_guess:"by name",r_unknown:"Not identified",r_long:"Name too long for the ODE",r_long_n:"The ODE only reads file names of up to 126 characters (with the extension). Longer than that, the menu shows the short name (like NISHIM~1) and the media do not open.",r_long_kept:"not renamed",r_long_card:"on the card: shorten it",
  r_sure_d:"The disc content matches the official list: certain.",r_guess_d:"Only the title matches: check before ticking.",
  r_nothing:"Nothing to rename.",r_done:(a,b)=>`${a} renamed, ${b} with error`,r_exists:"a file with that name already exists",
  r_slow:"Reading whole discs can take a few minutes on a slow card.",
@@ -274,7 +274,7 @@ pt:{title:"PREPARAR O USB / SD",
  r_note:"Dá aos arquivos dos seus jogos o nome oficial dos discos (o da nossa lista), para as capas, os vídeos e os textos casarem. O .cue é acertado junto. Nada é convertido e nada é apagado.",
  r_scan:"Conferir os nomes",r_apply:"Renomear os marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
  r_dat:"Não consegui ler a lista de nomes oficiais no GitHub.",r_nomove:"Este navegador não consegue renomear arquivos no cartão. Use um Chrome ou Edge atualizado num computador.",
- r_reading:"Lendo",r_ok:n=>`${n} já estão com o nome oficial`,r_sure:"pelo conteúdo",r_guess:"pelo nome",r_unknown:"Não identificados",
+ r_reading:"Lendo",r_ok:n=>`${n} já estão com o nome oficial`,r_sure:"pelo conteúdo",r_guess:"pelo nome",r_unknown:"Não identificados",r_long:"Nome longo demais para o ODE",r_long_n:"O ODE só lê nomes de arquivo de até 126 letras (com a extensão). Acima disso o menu mostra o nome curto (tipo NISHIM~1) e as mídias não abrem.",r_long_kept:"não renomeado",r_long_card:"no cartão: encurte",
  r_sure_d:"O conteúdo do disco bate com a lista oficial: é certeza.",r_guess_d:"Só o título bate: confira antes de marcar.",
  r_nothing:"Nada para renomear.",r_done:(a,b)=>`${a} renomeados, ${b} com erro`,r_exists:"já existe um arquivo com esse nome",
  r_slow:"Ler os discos inteiros pode levar alguns minutos num cartão lento.",
@@ -318,7 +318,7 @@ es:{title:"PREPARAR EL USB / SD",
  r_note:"Da a los archivos de tus juegos el nombre oficial de los discos (el de nuestra lista), para que coincidan las portadas, los vídeos y los textos. El .cue se corrige también. No se convierte ni se borra nada.",
  r_scan:"Comprobar los nombres",r_apply:"Renombrar los marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
  r_dat:"No pude leer la lista de nombres oficiales en GitHub.",r_nomove:"Este navegador no puede renombrar archivos en la tarjeta. Usa un Chrome o Edge actualizado en un ordenador.",
- r_reading:"Leyendo",r_ok:n=>`${n} ya tienen el nombre oficial`,r_sure:"por el contenido",r_guess:"por el nombre",r_unknown:"No identificados",
+ r_reading:"Leyendo",r_ok:n=>`${n} ya tienen el nombre oficial`,r_sure:"por el contenido",r_guess:"por el nombre",r_unknown:"No identificados",r_long:"Nombre demasiado largo para la ODE",r_long_n:"La ODE solo lee nombres de archivo de hasta 126 letras (con la extensión). Por encima de eso el menú muestra el nombre corto (tipo NISHIM~1) y los medios no se abren.",r_long_kept:"no renombrado",r_long_card:"en la tarjeta: acórtalo",
  r_sure_d:"El contenido del disco coincide con la lista oficial: es seguro.",r_guess_d:"Solo coincide el título: compruébalo antes de marcar.",
  r_nothing:"Nada que renombrar.",r_done:(a,b)=>`${a} renombrados, ${b} con error`,r_exists:"ya existe un archivo con ese nombre",
  r_slow:"Leer los discos enteros puede tardar unos minutos en una tarjeta lenta.",
@@ -412,7 +412,7 @@ async function scan(dir, depth, out){
   for await (const [name, h] of dir.entries()){
     if (name.startsWith(".") || name.startsWith("_")) continue;
     if (h.kind === "directory"){ if (depth < 3 && !SKIP_DIRS.has(name.toLowerCase())) await scan(h, depth + 1, out); continue; }
-    if (!/\.(iso|cue)$/i.test(name) || /^boot.*\.iso$/i.test(name)) continue;
+    if (!/\.(iso|cue)$/i.test(name) || /boot/i.test(name)) continue;
     if (laterDisc(name)) continue;
     out.push(name.replace(/\.(iso|cue)$/i, ""));
   }
@@ -904,7 +904,10 @@ function parseDat(xml){
   }
   return D;
 }
-const R = {state:"idle", items:[], ok:0, unknown:[], msg:"", pct:0, now:""};
+const R = {state:"idle", items:[], ok:0, unknown:[], long:[], msg:"", pct:0, now:""};
+/* O firmware do ODE só lê nomes de arquivo de até 126 letras (com a extensão): acima disso o menu
+   mostra o nome curto do cartão (NISHIM~1) e as mídias não abrem. */
+const ODE_NAME_MAX = 126;
 const DISC_EXT = /\.(cue|iso|img|nrg|chd)$/i;
 async function collect(dir, depth, out){
   const here = new Map();
@@ -912,7 +915,7 @@ async function collect(dir, depth, out){
   for (const [n, h] of here){
     if (n.startsWith(".") || n.startsWith("_")) continue;
     if (h.kind === "directory"){ if (depth < 3 && !SKIP_DIRS.has(n.toLowerCase())) await collect(h, depth + 1, out); continue; }
-    if (!DISC_EXT.test(n) || /^boot.*\.iso$/i.test(n)) continue;
+    if (!DISC_EXT.test(n) || /boot/i.test(n)) continue;
     const ext = n.slice(n.lastIndexOf(".")), stem = n.slice(0, -ext.length);
     if (/\.img$/i.test(n) && here.has(stem + ".cue")) continue;                 // a imagem de um .cue entra junto com ele
     out.push({dir, here, name:n, stem, ext, h});
@@ -927,7 +930,7 @@ function byTitle(stem, D){
   return pick ? {name:pick, single:c.length === 1 || !!reg} : null;
 }
 async function renameScan(){
-  R.state = "scan"; R.items = []; R.ok = 0; R.unknown = []; R.msg = ""; R.pct = 0; R.now = ""; drawRename();
+  R.state = "scan"; R.items = []; R.ok = 0; R.unknown = []; R.long = []; R.msg = ""; R.pct = 0; R.now = ""; drawRename();
   let D;
   if (S.demo) D = parseDat('<d><game name="Alone in the Dark (USA)"><rom name="a.bin" size="1" crc="00000001"/></game><game name="Doom (USA)"/><game name="Gex (USA)"/><game name="Road Rash (USA)"/></d>');
   else try { D = parseDat(await (await get(CFG.dat)).text()); } catch(e){ R.state = "idle"; R.msg = t("r_dat"); return drawRename(); }
@@ -957,6 +960,10 @@ async function renameScan(){
       const hit = (f.parts.find(p => p.hit) || {}).hit;
       if (hit){ to = hit.game; how = "sure"; } else { const g = byTitle(f.stem, D); if (g){ to = g.name; how = "guess"; f.single = g.single; } }
     }
+    /* Nome oficial longo demais para o ODE: o arquivo fica com o nome que tem. */
+    if (to && to !== f.stem && (to + f.ext).length > ODE_NAME_MAX){ R.long.push({name:to + f.ext, n:(to + f.ext).length, kept:true}); continue; }
+    /* Já está no cartão com nome longo demais (o menu mostra o nome curto). */
+    if ((f.stem + f.ext).length > ODE_NAME_MAX) R.long.push({name:f.stem + f.ext, n:(f.stem + f.ext).length, kept:false});
     if (!to || to === f.stem){ if (to) R.ok++; else R.unknown.push(f.stem + f.ext); continue; }
     R.items.push({f, to, how, on: how === "sure" || !!f.single, err:""});
   }
@@ -1027,6 +1034,7 @@ function drawRename(){
     if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""}><span><small>${esc(it.f.stem + it.f.ext)}</small><b>${esc(it.to + it.f.ext)}</b>${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err ? "err" : it.how}" style="font-style:normal">${esc(t(it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
       <button class="big" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button>`;
     else h += `<p class="note"><b style="color:var(--fg)">${esc(t("r_nothing"))}</b></p>`;
+    if (R.long.length) h += `<div class="misshead"><b>${esc(t("r_long"))} (${R.long.length})</b></div><div class="note">${esc(t("r_long_n"))}</div><div class="ren" style="max-height:150px">${R.long.map(u => `<label style="cursor:default"><span>${esc(u.name)}</span><span class="how">${u.n} · ${esc(t(u.kept ? "r_long_kept" : "r_long_card"))}</span></label>`).join("")}</div>`;
     if (R.unknown.length) h += `<div class="misshead"><b>${esc(t("r_unknown"))} (${R.unknown.length})</b></div><div class="ren" style="max-height:150px">${R.unknown.map(u => `<label style="cursor:default"><span>${esc(u)}</span></label>`).join("")}</div>`;
   }
   $("view").innerHTML = h;
