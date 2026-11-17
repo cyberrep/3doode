@@ -1948,6 +1948,14 @@ Publisher=Electronic Arts
 Genre=Carreras
 Description=Primer juego de la serie Need for Speed, con coches deportivos reales, física basada en datos de la revista Road & Track, pistas en carreteras abiertas y persecuciones policiales. Incluye vídeos y fichas técnicas de los modelos.
 
+[Road & Track Presents - The Need for Speed - Nitro Edition]
+[Need for Speed, The]
+Year=1994
+Developer=EA Canada
+Publisher=Electronic Arts
+Genre=Carreras
+Description=Versión modificada para tener más velocidad. Primer juego de la serie Need for Speed, con coches deportivos reales, física basada en datos de la revista Road & Track, pistas en carreteras abiertas y persecuciones policiales. Incluye vídeos y fichas técnicas de los modelos.
+
 [Road Rash]
 Year=1994
 Developer=Electronic Arts
@@ -1955,12 +1963,26 @@ Publisher=Electronic Arts
 Genre=Carreras
 Description=Juego de carreras de motos en el que el jugador disputa pruebas ilegales por carreteras de California, dando puñetazos y patadas a los rivales. Gana dinero para comprar motos mejores, huye de la policía y trae banda sonora de bandas de rock.
 
+[Road Rash - Nitro Edition]
+Year=1994
+Developer=Electronic Arts
+Publisher=Electronic Arts
+Genre=Carreras
+Description=Versión modificada para tener más velocidad. Juego de carreras de motos en el que el jugador disputa pruebas ilegales por carreteras de California, dando puñetazos y patadas a los rivales. Gana dinero para comprar motos mejores, huye de la policía y trae banda sonora de bandas de rock.
+
 [Robinson's Requiem]
 Year=1996
 Developer=Silmarils
 Publisher=ReadySoft
 Genre=Aventura
 Description=Aventura de supervivencia en primera persona en la que el jugador, abandonado en un planeta hostil, debe cazar, curar heridas y enfermedades y controlar el hambre, la sed y la temperatura para sobrevivir y escapar.
+
+[Romance of the Three Kingdoms IV (USA)]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Estrategia
+Description=Versión traducida del juego Sangokushi IV. Juego de estrategia de Koei de la serie Sangokushi (Romance of the Three Kingdoms), ambientado en la China antigua. El jugador gobierna una facción, administra provincias, recluta oficiales y libra batallas para unificar el país.
 
 [Royal Pro Wrestling - Jikkyou Live!!]
 Year=1996

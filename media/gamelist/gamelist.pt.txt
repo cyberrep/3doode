@@ -1948,6 +1948,14 @@ Publisher=Electronic Arts
 Genre=Corrida
 Description=Primeiro jogo da série Need for Speed, com carros esportivos reais, física baseada em dados da revista Road & Track, pistas em estradas abertas e perseguições policiais. Inclui vídeos e fichas técnicas dos modelos.
 
+[Road & Track Presents - The Need for Speed - Nitro Edition]
+[Need for Speed, The]
+Year=1994
+Developer=EA Canada
+Publisher=Electronic Arts
+Genre=Corrida
+Description=Versão midificada para ter mais velocidade. Primeiro jogo da série Need for Speed, com carros esportivos reais, física baseada em dados da revista Road & Track, pistas em estradas abertas e perseguições policiais. Inclui vídeos e fichas técnicas dos modelos.
+
 [Road Rash]
 Year=1994
 Developer=Electronic Arts
@@ -1955,12 +1963,26 @@ Publisher=Electronic Arts
 Genre=Corrida
 Description=Jogo de corrida de motos em que o jogador disputa provas ilegais em estradas da Califórnia, socando e chutando rivais. Ganha dinheiro para comprar motos melhores, foge da polícia e traz trilha sonora de bandas de rock.
 
+[Road Rash - Nitro Edition]
+Year=1994
+Developer=Electronic Arts
+Publisher=Electronic Arts
+Genre=Corrida
+Description=Versão midificada para ter mais velocidade. Jogo de corrida de motos em que o jogador disputa provas ilegais em estradas da Califórnia, socando e chutando rivais. Ganha dinheiro para comprar motos melhores, foge da polícia e traz trilha sonora de bandas de rock.
+
 [Robinson's Requiem]
 Year=1996
 Developer=Silmarils
 Publisher=ReadySoft
 Genre=Aventura
 Description=Aventura de sobrevivência em primeira pessoa na qual o jogador, abandonado em um planeta hostil, precisa caçar, tratar ferimentos e doenças e controlar fome, sede e temperatura para sobreviver e escapar.
+
+[Romance of the Three Kingdoms IV (USA)]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Estratégia
+Description=Versão traduzida do jogo Sangokushi IV. Jogo de estratégia da Koei da série Sangokushi (Romance of the Three Kingdoms), ambientado na China antiga. O jogador governa uma facção, administra províncias, recruta oficiais e trava batalhas para unificar o país.
 
 [Royal Pro Wrestling - Jikkyou Live!!]
 Year=1996

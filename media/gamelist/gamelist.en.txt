@@ -1948,6 +1948,14 @@ Publisher=Electronic Arts
 Genre=Racing
 Description=First game in the Need for Speed series, with real sports cars, physics based on data from Road & Track magazine, tracks on open roads and police chases. It includes videos and technical specs of the models.
 
+[Road & Track Presents - The Need for Speed - Nitro Edition]
+[Need for Speed, The]
+Year=1994
+Developer=EA Canada
+Publisher=Electronic Arts
+Genre=Racing
+Description=Modified version for higher speed. First game in the Need for Speed series, with real sports cars, physics based on data from Road & Track magazine, tracks on open roads and police chases. It includes videos and technical specs of the models.
+
 [Road Rash]
 Year=1994
 Developer=Electronic Arts
@@ -1955,12 +1963,26 @@ Publisher=Electronic Arts
 Genre=Racing
 Description=Motorcycle racing game in which the player competes in illegal races on California roads, punching and kicking rivals. Earn money to buy better bikes, flee the police, and it features a rock-band soundtrack.
 
+[Road Rash - Nitro Edition]
+Year=1994
+Developer=Electronic Arts
+Publisher=Electronic Arts
+Genre=Racing
+Description=Modified version for higher speed. Motorcycle racing game in which the player competes in illegal races on California roads, punching and kicking rivals. Earn money to buy better bikes, flee the police, and it features a rock-band soundtrack.
+
 [Robinson's Requiem]
 Year=1996
 Developer=Silmarils
 Publisher=ReadySoft
 Genre=Adventure
 Description=First-person survival adventure in which the player, stranded on a hostile planet, must hunt, treat wounds and illnesses and manage hunger, thirst and temperature to survive and escape.
+
+[Romance of the Three Kingdoms IV (USA)]
+Year=1995
+Developer=Koei
+Publisher=Koei
+Genre=Strategy
+Description=Translated version of Sangokushi IV. Strategy game by Koei in the Sangokushi series (Romance of the Three Kingdoms), set in ancient China. The player governs a faction, administers provinces, recruits officers and wages battles to unify the country.
 
 [Royal Pro Wrestling - Jikkyou Live!!]
 Year=1996
