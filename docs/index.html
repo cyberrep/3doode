@@ -1364,7 +1364,7 @@ async function run(){
     for (const lb in loans) log(t(lb) + " - " + t("l_loan") + ": " + loans[lb].length + "\n  " + loans[lb].slice(0, 40).join("\n  ") + (loans[lb].length > 40 ? "\n  ..." : ""));
     if (o.fw){
       const f = S.lib.firmware.find(n => n.toUpperCase().includes(o.fw));
-      if (f) jobs.push({label:"l_fw", to:["firmware"], name:"update.uf2", from:CFG.fw + f}); else log(t("l_fw") + ": " + t("err") + " (" + o.fw + ")");
+      if (f) jobs.push({label:"l_fw", to:["firmware"], name:"update.ode", from:CFG.fw + f}); else log(t("l_fw") + ": " + t("err") + " (" + o.fw + ")");
     }
     const total = jobs.length + 2;
     let done = 0, next = 0;
