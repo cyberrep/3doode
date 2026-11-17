@@ -3532,11 +3532,11 @@
 		<rom name="Oilman (Japan).cue" size="80" crc="998b0fa9" md5="285fdd39b0771a918c2404369ecb6926" sha1="09b9a1001c018753fc0d9ef7ced50c90ea90ab49"/>
 		<rom name="Oilman (Japan).bin" size="90674304" crc="7889b6d7" md5="9c65c1dac7e9641495331f64660d7aa2" sha1="1a72c54363f3e275baedf6fbd069868d71a07a7a"/>
 	</game>
-	<game name="Jietai World (Japan)">
+	<game name="Jieitai World (Japan)">
 		<category>Games</category>
-		<description>Jietai World (Japan)</description>
-		<rom name="Jietai World (Japan).cue" size="109" crc="572fdc91" md5="329ef2a83fd2a515ac93710515139c7a" sha1="6709a18fbdbe8b412a5f8d6bb105fec316e9e4fb"/>
-		<rom name="Jietai World (Japan).bin" size="422184000" crc="ddb66280" md5="b00d6282f2358c373d3f510987c1ecf0" sha1="c9a28482af6860d81f81366f5a05792d5d36c915"/>
+		<description>Jieitai World (Japan)</description>
+		<rom name="Jieitai World (Japan).cue" size="109" crc="572fdc91" md5="329ef2a83fd2a515ac93710515139c7a" sha1="6709a18fbdbe8b412a5f8d6bb105fec316e9e4fb"/>
+		<rom name="Jieitai World (Japan).bin" size="422184000" crc="ddb66280" md5="b00d6282f2358c373d3f510987c1ecf0" sha1="c9a28482af6860d81f81366f5a05792d5d36c915"/>
 	</game>
 	<game name="3DO de Shiru Miru Asobu - Nakajima Miyuki (Japan)">
 		<category>Multimedia</category>

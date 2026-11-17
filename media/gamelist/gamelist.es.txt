@@ -1049,7 +1049,7 @@ Publisher=
 Genre=Educativo
 Description=Software de formación japonés de la serie 3DO TES (Training Educational System), orientado a la enseñanza de actividades de extinción de incendios y prevención realizadas por brigadas de autodefensa en empresas.
 
-[Jietai World]
+[Jieitai World]
 Year=1995
 Developer=Opera House
 Publisher=
