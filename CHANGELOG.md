@@ -25,7 +25,9 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - Backups made with 1.0 still restore.
 
 **Showcase and Strip**
-- **The game description appears instantly when moving to a neighbouring game**: with the controller idle and the covers already on screen, the menu reads ahead the descriptions of the 2 games on each side and of the letter-jump targets. Reading stops as soon as the controller moves.
+- ⚡ **Showcase and Strip are much faster to navigate.** In 1.0, on every game change the menu waited and read the text file again, even for a game it had just shown; on large lists the description took close to 1 second.
+- **Instant description when going back or forward**: the last 8 descriptions stay in memory, so moving back and forth between neighbouring games no longer reads the card.
+- **Read-ahead of neighbours**: with the controller idle and the covers already on screen, the menu reads the descriptions of the 2 games on each side and of the letter-jump targets (previous and next). Reading stops as soon as the controller moves, so it delays neither the covers nor navigation.
 
 **Options**
 - The menu stores **which ODE it detected** (firmware, type and whether there is a clock). The web page reads this and pre-selects the right choices.

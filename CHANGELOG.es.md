@@ -25,7 +25,9 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - Las copias hechas con la 1.0 siguen restaurándose.
 
 **Vitrina y Tira**
-- **La descripción del juego aparece al instante al pasar a un juego vecino**: con el mando quieto y las portadas ya en pantalla, el menú lee por adelantado las descripciones de los 2 juegos de cada lado y del destino del salto de letra. La lectura se detiene en cuanto se mueve el mando.
+- ⚡ **Vitrina y Tira mucho más rápidas al navegar.** En la 1.0, en cada cambio de juego el menú esperaba y leía de nuevo el archivo de textos, incluso para un juego que acababa de mostrar; en listas grandes la descripción tardaba cerca de 1 segundo.
+- **Descripción al instante al volver o avanzar**: las últimas 8 descripciones quedan en memoria, así que ir y volver entre juegos vecinos ya no lee la tarjeta.
+- **Lectura adelantada de los vecinos**: con el mando quieto y las portadas ya en pantalla, el menú lee las descripciones de los 2 juegos de cada lado y del destino del salto de letra (anterior y siguiente). La lectura se detiene en cuanto se mueve el mando, así que no retrasa las portadas ni la navegación.
 
 **Opciones**
 - El menú guarda en las opciones **qué ODE detectó** (firmware, tipo y si hay reloj). La página web lo lee y ya marca las opciones correctas.

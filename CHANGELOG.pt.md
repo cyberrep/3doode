@@ -25,7 +25,9 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - Backups feitos na 1.0 continuam restaurando.
 
 **Vitrine e Faixa**
-- **Descrição do jogo aparece na hora ao trocar para um jogo vizinho**: com o controle parado e as capas já na tela, o menu lê adiantado as descrições dos 2 jogos de cada lado e do destino do pulo de letra. A leitura para assim que o controle mexe.
+- ⚡ **Vitrine e Faixa bem mais rápidas para navegar.** Na 1.0, a cada troca de jogo o menu esperava e lia o arquivo de textos de novo, mesmo para um jogo que tinha acabado de mostrar; em listas grandes a descrição demorava perto de 1 segundo.
+- **Descrição na hora ao voltar ou avançar**: as últimas 8 descrições ficam na memória, então ir e voltar entre jogos vizinhos não lê mais o cartão.
+- **Leitura adiantada dos vizinhos**: com o controle parado e as capas já na tela, o menu lê as descrições dos 2 jogos de cada lado e do destino do pulo de letra (anterior e próxima). A leitura para assim que o controle mexe, então não atrasa as capas nem a navegação.
 
 **Opções**
 - O menu grava nas opções **qual ODE detectou** (firmware, tipo e se há relógio). A página web lê isso e já marca as escolhas certas.
