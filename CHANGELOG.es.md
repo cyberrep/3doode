@@ -4,10 +4,37 @@
 
 Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en el **generador** (`generate_usb.py`), de la versión más nueva a la más antigua.
 
+- [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menú — antes de la 1.0 (versiones 0.x)](#menú--antes-de-la-10-versiones-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Generador (generate_usb.py)](#generador-generate_usbpy)
+
+---
+
+## Menu — 1.1
+
+**Gestor de partidas**
+- 🎮 **Muestra de qué juego es cada partida.** Una franja debajo de la lista trae el nombre del juego de la partida seleccionada (ej.: `alone1.save` → Alone in the Dark). La tabla tiene 240 nombres, no distingue mayúsculas de minúsculas y reconoce partidas numeradas (`TE_Devils_1`, `EA_RR3`...). La partida que no está en la tabla aparece con el nombre del archivo.
+- **Copiar con el nombre del juego o con el nombre original**: al copiar al USB el menú pregunta. Con el nombre del juego el archivo queda `Juego (nombre de la partida).sav`. **Al volver a la consola la partida siempre recibe el nombre original**, que es el que el juego busca.
+- **Tabla de nombres actualizable sin cambiar el menú**: la página web graba la tabla en `.config/3dogamessaves.ode`. Sin ese archivo, el menú usa la tabla que trae dentro. Se puede crear el archivo a mano solo con correcciones (`=nombre<TAB>juego` o `*prefijo<TAB>juego`).
+- **Mucho más rápido al navegar**: el fondo de la pantalla ya no se redibuja en cada movimiento.
+- **Pantallas uniformes**: título, franja dorada y textos. El **RESUMEN** de copiar y restaurar muestra un conteo por línea, en colores (verde copiadas/restauradas, amarillo iguales, rojo errores), e indica el motivo del último error.
+- **Lista del USB en orden alfabético.**
+- **Las partidas copiadas a la carpeta `saves/` desde el ordenador** pasan a aparecer y restaurarse después de preparar la tarjeta en la página web (registra cada archivo en el catálogo `saves/3dosaves.ode`). Una línea del catálogo sin CRC se restaura sin comprobación; con CRC, el archivo alterado sigue siendo rechazado.
+- Las copias hechas con la 1.0 siguen restaurándose.
+
+**Vitrina y Tira**
+- **La descripción del juego aparece al instante al pasar a un juego vecino**: con el mando quieto y las portadas ya en pantalla, el menú lee por adelantado las descripciones de los 2 juegos de cada lado y del destino del salto de letra. La lectura se detiene en cuanto se mueve el mando.
+
+**Opciones**
+- El menú guarda en las opciones **qué ODE detectó** (firmware, tipo y si hay reloj). La página web lo lee y ya marca las opciones correctas.
+
+**Página web**
+- **Marca sola el ODE, el firmware TADEU y el reloj** a partir de lo que el menú detectó.
+- **Graba la tabla de nombres de las partidas** en la tarjeta.
+- **Registra las partidas de la carpeta `saves/`** en el catálogo y corrige tamaño y CRC de líneas antiguas.
+- Corrección: con **Mantener** marcado, tus portadas, capturas y vídeos que ya están en la tarjeta no se copian de nuevo.
 
 ---
 

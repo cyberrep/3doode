@@ -4,10 +4,37 @@
 
 Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador** (`generate_usb.py`), da versão mais nova para a mais antiga.
 
+- [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menu — antes da 1.0 (versões 0.x)](#menu--antes-da-10-versões-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Gerador (generate_usb.py)](#gerador-generate_usbpy)
+
+---
+
+## Menu — 1.1
+
+**Gerenciador de saves**
+- 🎮 **Mostra de qual jogo é cada save.** Uma faixa embaixo da lista traz o nome do jogo do save selecionado (ex.: `alone1.save` → Alone in the Dark). A tabela tem 240 nomes, não diferencia maiúsculas de minúsculas e reconhece saves numerados (`TE_Devils_1`, `EA_RR3`...). Save que não está na tabela aparece com o nome do arquivo.
+- **Copiar com o nome do jogo ou com o nome original**: ao copiar para o USB o menu pergunta. Com o nome do jogo o arquivo fica `Jogo (nome do save).sav`. **Na volta para o console o save sempre recebe o nome original**, que é o que o jogo procura.
+- **Tabela de nomes atualizável sem trocar o menu**: a página web grava a tabela em `.config/3dogamessaves.ode`. Sem esse arquivo, o menu usa a tabela que vem dentro dele. Dá para criar o arquivo à mão só com correções (`=nome<TAB>jogo` ou `*prefixo<TAB>jogo`).
+- **Bem mais rápido para navegar**: o fundo da tela não é mais redesenhado a cada movimento.
+- **Telas padronizadas**: título, faixa dourada e textos. O **RESUMO** de copiar e restaurar mostra uma contagem por linha, em cores (verde copiados/restaurados, amarelo iguais, vermelho erros), e diz o motivo do último erro.
+- **Lista do USB em ordem alfabética.**
+- **Saves copiados para a pasta `saves/` pelo computador** passam a aparecer e restaurar depois de preparar o cartão na página web (ela registra cada arquivo no catálogo `saves/3dosaves.ode`). Linha do catálogo sem CRC restaura sem conferência; com CRC, o arquivo alterado continua recusado.
+- Backups feitos na 1.0 continuam restaurando.
+
+**Vitrine e Faixa**
+- **Descrição do jogo aparece na hora ao trocar para um jogo vizinho**: com o controle parado e as capas já na tela, o menu lê adiantado as descrições dos 2 jogos de cada lado e do destino do pulo de letra. A leitura para assim que o controle mexe.
+
+**Opções**
+- O menu grava nas opções **qual ODE detectou** (firmware, tipo e se há relógio). A página web lê isso e já marca as escolhas certas.
+
+**Página web**
+- **Marca sozinha o ODE, o firmware TADEU e o relógio** a partir do que o menu detectou.
+- **Grava a tabela de nomes dos saves** no cartão.
+- **Registra os saves da pasta `saves/`** no catálogo e corrige tamanho e CRC de linhas antigas.
+- Correção: com **Manter** marcado, capas, telas e vídeos seus que já estão no cartão não são mais copiados de novo.
 
 ---
 

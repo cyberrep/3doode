@@ -4,10 +4,37 @@
 
 Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and the **generator** (`generate_usb.py`), from the newest version to the oldest.
 
+- [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menu — before 1.0 (0.x versions)](#menu--before-10-0x-versions)
 - [TADEU firmware](#tadeu-firmware)
 - [Generator (generate_usb.py)](#generator-generate_usbpy)
+
+---
+
+## Menu — 1.1
+
+**Save manager**
+- 🎮 **Shows which game each save belongs to.** A bar under the list gives the game name of the selected save (e.g. `alone1.save` → Alone in the Dark). The table has 240 names, ignores upper/lower case and recognises numbered saves (`TE_Devils_1`, `EA_RR3`...). A save that is not in the table is shown by its file name.
+- **Copy with the game name or the original name**: the menu asks when copying to USB. With the game name the file becomes `Game (save name).sav`. **Back on the console the save always gets its original name**, which is what the game looks for.
+- **Name table can be updated without replacing the menu**: the web page writes the table to `.config/3dogamessaves.ode`. Without that file the menu uses its built-in table. You can also create the file by hand with corrections only (`=name<TAB>game` or `*prefix<TAB>game`).
+- **Much faster to navigate**: the screen background is no longer redrawn on every move.
+- **Consistent screens**: title, gold bar and text. The copy/restore **SUMMARY** shows one count per line, in colour (green copied/restored, yellow identical, red errors), and gives the reason for the last error.
+- **USB list in alphabetical order.**
+- **Saves copied into the `saves/` folder from a computer** now show up and restore after the card is prepared on the web page (it records each file in the `saves/3dosaves.ode` catalogue). A catalogue line without a CRC restores unchecked; with a CRC, a changed file is still refused.
+- Backups made with 1.0 still restore.
+
+**Showcase and Strip**
+- **The game description appears instantly when moving to a neighbouring game**: with the controller idle and the covers already on screen, the menu reads ahead the descriptions of the 2 games on each side and of the letter-jump targets. Reading stops as soon as the controller moves.
+
+**Options**
+- The menu stores **which ODE it detected** (firmware, type and whether there is a clock). The web page reads this and pre-selects the right choices.
+
+**Web page**
+- **Selects the ODE, the TADEU firmware and the clock by itself** from what the menu detected.
+- **Writes the save-name table** to the card.
+- **Records the saves in the `saves/` folder** in the catalogue and fixes size and CRC of old lines.
+- Fix: with **Keep** selected, your own covers, screenshots and videos already on the card are no longer copied again.
 
 ---
 

@@ -238,7 +238,7 @@ en:{title:"USB / SD SETUP",
  c_txt:"Games with texts",c_miss:"Missing on the card",c_extra:"Media without a game (left over)",c_ok:"Nothing missing and nothing left over.",c_dl:"Download the report",c_of:(a,b)=>`${a} of ${b}`,
  c_have:"We have it: copy",c_all:n=>`Copy all (${n})`,c_copying:"Copying",c_legend:"The arrow marks what our library has: click to copy it now.",
  w_note:"Keep this tab open until it finishes.",reading:"Reading the list of available files…",
- l_boot:"Menu",l_cov:"Covers",l_shot:"Screenshots",l_vid:"Videos",l_txt:"Game texts",l_fw:"Firmware",l_cfg:"Menu options",
+ l_boot:"Menu",l_cov:"Covers",l_shot:"Screenshots",l_vid:"Videos",l_txt:"Game texts",l_fw:"Firmware",l_cfg:"Menu options",l_savenames:"Save names",l_saveidx:"Saves indexed in the saves folder",
  copied:(a,b)=>`${a} copied, ${b} already there`,nomatch:n=>`${n} game${n==1?"":"s"} without files`,
  texts:(a,b)=>`${a} of ${b} games with texts`,err:"Error",stopped:"Stopped.",
  done_t:"Card ready",size:"Size",time:"Time",files:"Files",done_p:"Put the card in the ODE and turn the console on.",
@@ -282,7 +282,7 @@ pt:{title:"PREPARAR O USB / SD",
  c_txt:"Jogos com textos",c_miss:"Faltando no cartão",c_extra:"Mídias sem jogo (sobrando)",c_ok:"Não falta nem sobra nada.",c_dl:"Baixar o relatório",c_of:(a,b)=>`${a} de ${b}`,
  c_have:"Temos: copiar",c_all:n=>`Copiar todos (${n})`,c_copying:"Copiando",c_legend:"A seta marca o que a nossa biblioteca tem: clique para copiar agora.",
  w_note:"Deixe esta aba aberta até terminar.",reading:"Lendo a lista de arquivos disponíveis…",
- l_boot:"Menu",l_cov:"Capas",l_shot:"Telas",l_vid:"Vídeos",l_txt:"Textos dos jogos",l_fw:"Firmware",l_cfg:"Opções do menu",
+ l_boot:"Menu",l_cov:"Capas",l_shot:"Telas",l_vid:"Vídeos",l_txt:"Textos dos jogos",l_fw:"Firmware",l_cfg:"Opções do menu",l_savenames:"Nomes dos saves",l_saveidx:"Saves da pasta saves indexados",
  copied:(a,b)=>`${a} copiados, ${b} já estavam lá`,nomatch:n=>`${n} jogo${n==1?"":"s"} sem arquivo`,
  texts:(a,b)=>`${a} de ${b} jogos com textos`,err:"Erro",stopped:"Parado.",
  done_t:"Cartão pronto",size:"Tamanho",time:"Tempo",files:"Arquivos",done_p:"Ponha o cartão no ODE e ligue o console.",
@@ -326,7 +326,7 @@ es:{title:"PREPARAR EL USB / SD",
  c_txt:"Juegos con textos",c_miss:"Falta en la tarjeta",c_extra:"Medios sin juego (sobran)",c_ok:"No falta ni sobra nada.",c_dl:"Descargar el informe",c_of:(a,b)=>`${a} de ${b}`,
  c_have:"Lo tenemos: copiar",c_all:n=>`Copiar todos (${n})`,c_copying:"Copiando",c_legend:"La flecha marca lo que tiene nuestra biblioteca: haz clic para copiarlo ahora.",
  w_note:"Deja esta pestaña abierta hasta que termine.",reading:"Leyendo la lista de archivos disponibles…",
- l_boot:"Menú",l_cov:"Portadas",l_shot:"Capturas",l_vid:"Vídeos",l_txt:"Textos de los juegos",l_fw:"Firmware",l_cfg:"Opciones del menú",
+ l_boot:"Menú",l_cov:"Portadas",l_shot:"Capturas",l_vid:"Vídeos",l_txt:"Textos de los juegos",l_fw:"Firmware",l_cfg:"Opciones del menú",l_savenames:"Nombres de las partidas",l_saveidx:"Partidas de la carpeta saves indexadas",
  copied:(a,b)=>`${a} copiados, ${b} ya estaban`,nomatch:n=>`${n} juego${n==1?"":"s"} sin archivo`,
  texts:(a,b)=>`${a} de ${b} juegos con textos`,err:"Error",stopped:"Detenido.",
  done_t:"Tarjeta lista",size:"Tamaño",time:"Tiempo",files:"Archivos",done_p:"Pon la tarjeta en el ODE y enciende la consola.",
@@ -334,6 +334,9 @@ es:{title:"PREPARAR EL USB / SD",
  foot:"3DO ODE, por Rodrigo Tadeu “CyberRep”. No se incluyen juegos ni BIOS."}
 };
 const CFG_LANG = {en:"English", pt:"Português", es:"Español"};
+/* 1.1: tabela de nomes dos saves (save -> jogo), gravada em .config/3dosavenames.ode
+ * para o gerenciador de saves traduzir. Compilada de várias fontes (paths /nvram/ dos jogos). */
+const SAVE_NAMES = "=EAAtlas3D_Info\t3D Atlas\n*alone\tAlone in the Dark\n=stageX.save\tAlone in the Dark\n*alon2\tAlone in the Dark 2\n=amargeddon\tArmageddon\n=acd.playlist\tAudio CD\n=SA_ATOKIO_J\tAutoBahn Tokio\n=EA_SkWv3\tBattle Blues\n=KGS\tBattle Blues\n=bc.save\tBattle Chess\n=BattlePinball.JDW\tBattle Pinball\n*BS_\tBattleSport\n=bs_123gosets\tBattleSport\n=BS_DONT_ERASE\tBattleSport\n=bs123gosets\tBattleSport\n=BELZERION0\tBelzerion\n=RS_BFS_J\tBFS - Blue Forest Story\n=BIOSFear.Msn\tBiosfear\n=bladeforce\tBlade Force\n=RH_BCB0J\tBlue City Blues\n*BrainDead13\tBrainDead 13\n=MC_PB\tBust-A-Move\n=CannonFodder\tCannon Fodder\n=StationInvasion\tClub 3DO - Station Invasion\n=CorpseKillerSave\tCorpse Killer\n=CNBSIXTHCIRCUIT\tCrash 'n Burn\n=CNBTESTSAVE\tCrash 'n Burn (USA, Korea)\n=Creature Shock\tCreature Shock\n=cyber.opt\tCyberDillo\n=level.cfg\tCyberDillo\n=CYBERIA\tCyberia\n=CYBERIAWORK\tCyberia\n=DsDinner\tD\n=WARPDATA(DsDinner)\tD\n=WARPDATA\tD (USA, Europe)\n=HN_DAEDALUS_0E\tDaedalus Encounter, The\n*DeathKeep Game\tDeathKeep\n=3DOGames_Decathlon\tDecathlon\n=DemolitionManHighScores2\tDemolition Man\n=vcd.playlist\tDigital Video Module\n=dinopark.sg\tDinoPark Tycoon\n=dinopark.topten\tDinoPark Tycoon\n=RH_HAUZERJ\tDoctor Hauzer\n=DoomPrefs\tDOOM\n=DragonLore.ChgDsk\tDragon Lore - The Legend Begins\n=DragonLore.S1\tDragon Lore - The Legend Begins\n=DragonLore.S2\tDragon Lore - The Legend Begins\n=DragonLore.S3\tDragon Lore - The Legend Begins\n=DragonLore.S4\tDragon Lore - The Legend Begins\n=sala_edge\tDragon Tycoon\n=MonsterManorData\tEscape from Monster Manor\n=F1GP_SYS\tF1GP\n=FAMILY_FEUD_GAME1\tFamily Feud\n=FAMILY_FEUD_GAME2\tFamily Feud\n=FAMILY_FEUD_GAME3\tFamily Feud\n=FAMILY_FEUD_GAME4\tFamily Feud\n=FAMILY_FEUD_HISCORES\tFamily Feud\n=FIFA2\tFIFA International Soccer\n=OPTS.FIFA2.2\tFIFA International Soccer\n*FIFA2.\tFIFA International Soccer (USA, Korea)\n=OPTS.FIFA\tFIFA International Soccer (USA, Korea)\n=seika2save0\tFinal Graduation 2\n=FireBall.JDW\tFire Ball\n=FN3DO_STATE\tFlying Nightmares\n=Foes of Ali - Career\tFoes of Ali\n=Foes of Ali - Trnmnt\tFoes of Ali\n=footie\tFootie\n=GameGuru.CFG\tGame Guru\n=GEX_Videos\tGex\n*HBS_MASK_\tGhost Hunter\n=Gridders by Tetragon\tGridders\n=Gridders\tGridders (USA, Korea)\n*MC_PKING_\tGuardian War\n*Hell Save Game\tHell - A Cyberpunk Thriller\n=sg\tHorde, The\n=icebreaker[levelchart]\tIcebreaker\n=icebreaker\tIcebreaker\n=icebreaker2[levels]\tIcebreaker II\n=icebreaker2\tIcebreaker II\n=Immerce  \tImmercenary\n=Immerce\tImmercenary - Combat in a Digital World\n=tim.cfg\tIncredible Machine, The\n=aaaaa.tim\tIncredible Machine, The\n=RH_InsecterJ\tInsector War\n=SY-TETSU-1J\tIron Angel of the Apocalypse - Tetsujin\n*SY-TETSU-\tIron Angel of the Apocalypse - Tetsujin\n=SY-TETSU2-1J\tIron Angel of the Apocalypse - The Return\n*SY-TETSU2-\tIron Angel of the Apocalypse - The Return\n=JLEAGOptions\tJ League Soccer\n=JL95options\tJ League Soccer '95\n=EA_JMFB94\tJohn Madden Football\n=EA_JMFB94_GREATS\tJohn Madden Football\n=EA_JMF94_Jap\tJohn Madden Football\n=EA_JMFB94 greats\tJohn Madden Football\n=jpieasyhighscores\tJurassic Park Interactive\n=jpihardhighscores\tJurassic Park Interactive\n=jpimedhighscores\tJurassic Park Interactive\n=jpisavedgames\tJurassic Park Interactive\n=AS_KAMA_0\tKamachi's Museum\n=KTime\tKilling Time\n=KTime.Options\tKilling Time\n=KingdomsSave\tKingdom - The Far Reaches\n*PIV_KURAMA\tKyoto Mysteries\n=LOSTEDEN.S1\tLost Eden\n=LOSTEDEN.S2\tLost Eden\n=LOSTEDEN.S3\tLost Eden\n=LOSTEDEN.S4\tLost Eden\n=Holmes3DOGames\tLost Files of Sherlock Holmes, The\n=Holmes3DOSetup\tLost Files of Sherlock Holmes, The\n=MC_S&S_J\tLucienne's Quest\n=MC_SS_J\tLucienne's Quest\n=MC_S\tLucienne's Quest\n*TO_MACARONI1_\tMacaroni Interactive\n=maddog\tMad Dog McCree\n=CHATNOIR_TENJIKU_GOKUJ\tMahjong\n*TE_Augusta_\tMasters\n=MazerMan.NVRAM\tMazer\n=MegaRace.1\tMegaRace\n=MegaRace.2\tMegaRace\n=MegaRace.3\tMegaRace\n*MegaRace.\tMegaRace (USA, Korea)\n=montana_save\tMontana Jones\n=montanaaction\tMontana Jones\n=montanaatime\tMontana Jones\n=MC_MYST_E1\tMyst\n=MC_MYST_E2\tMyst\n=MC_MYST_E3\tMyst\n*MC_MYST_\tMyst\n=nitetrap.inf\tNight Trap\n=NightTrap.02\tNight Trap (USA, Europe)\n*KE_HAODEN_\tNobunaga Haouden\n*V_NONTAN_\tNontan Volume 1\n=1025NovaStormHiScores\tNovastorm\n=OnsideX\tOnSide Soccer\n=OrbAtack.NVRAM\tOrbatak\n*PZGEN1V1_0_\tPanzer General\n*DEL_ME_\tPanzer General (USA, Germany)\n*PZGEN1V1_\tPanzer General (USA, Germany)\n*TE_PR_\tPararancho I Machine\n=TE_PRcfg_J\tPararancho I Machine\n=PaTaank_Hall_Of_Fame\tPaTaank\n=PaTaank_High_Scores\tPaTaank\n*T&E-Pebble-\tPebble Beach Golf Links (USA, Canada)\n*TE_Pebble_\tPebble Beach Golf Links (USA, Canada)\n*PG798694_\tPerfect General, The\n=dPGATOUR96.prefs\tPGA Tour 96\n*PGATOUR96.Player.\tPGA Tour 96\n=Phoenix 3\tPhoenix 3\n=pcd.playlist\tPhoto CD\n*POed.\tPO'ed\n*KN_NAUTS_\tPolicenauts\n=PsychicDetective\tPsychic Detective\n=PsychicDetective:Black\tPsychic Detective\n=MC_PUPPET_J\tPuppet Tales\n=QUAR_SAVE_GAME\tQuarantine\n=QBAttackGames\tQuarterback Attack\n=QBAttackPrefs\tQuarterback Attack\n=QBAttackScores\tQuarterback Attack\n=REALPinball.JDW\tReal Pinball\n=JinglesDefense\tRemute 3D\n=Return Fire\tReturn Fire\n=Maps O'Death V1.0\tReturn Fire - Maps O' Death\n=Maps O\tReturn Fire - Maps O' Death\n=Return Fire V1.0\tReturn Fire / Return Fire - Maps O' Death\n=Drive\tRoad & Track Presents - The Need for Speed\n=DriveHS\tRoad & Track Presents - The Need for Speed\n=EA_RRX\tRoad Rash\n*EA_RR\tRoad Rash\n=SamuriaShodown\tSamurai Shodown\n*TBS_POP_\tSan Kok Chi\n=GA_CBRDT\tScramble Cobra\n=PHARAOH1\tSeal of the Pharaoh\n=PHARAOH2\tSeal of the Pharaoh\n=PHARAOH3\tSeal of the Pharaoh\n=PHARAOH4\tSeal of the Pharaoh\n=PHARAOH5\tSeal of the Pharaoh\n=PHARAOH\tSeal of the Pharaoh\n=ARIADNE_SENTO\tSento (By Ariadne)\n*EA_SkWvMD\tShock Wave - Operation JumpGate\n*EA_SkWv\tShock Wave / Shock Wave - Operation JumpGate\n=ShWv2Save\tShockwave 2 - Beyond the Gate\n=SOT.NVRAM\tShootout at Old Tucson\n=cpubach.dta\tSid Meier's C.P.U. Bach\n=Slam N Jam 95\tSlam 'n Jam '95\n=Slayer Game\tSlayer\n=sockid.hi\tSoccer Kid\n=sockid.save\tSoccer Kid\n=EAHULK01.01BEST\tSpace Hulk - Vengeance of the Blood Angels\n*EAHULK01.\tSpace Hulk - Vengeance of the Blood Angels\n=Balanced Team 1.mle\tStar Control II (USA, Europe)\n=Balanced Team 2.mle\tStar Control II (USA, Europe)\n=Behemoth Zenith.mle\tStar Control II (USA, Europe)\n=melee.cfg\tStar Control II (USA, Europe)\n*starcon2.\tStar Control II (USA, Europe)\n=The Peeled Eyes.mle\tStar Control II (USA, Europe)\n=SFC:StarFighter.Config\tStar Fighter (USA, Europe)\n=stellar7.fame\tStellar 7 - Draxon's Revenge\n=stellar7.dat\tStellar 7 - Draxon's Revenge\n=ME_STRAHL_US\tStrahl\n*swc_game.\tSuper Wing Commander\n=swc_highscore\tSuper Wing Commander\n=SuprWarriorGames\tSupreme Warrior\n=SuprWarriorPrefs\tSupreme Warrior\n=SuprWarriorScores\tSupreme Warrior\n*SYNDICATE.\tSyndicate\n=SYNDICATE.LANGUAGE\tSyndicate\n=SYNDICATE.0\tSyndicate\n*FP_Takeru_\tTakeru\n=TR_LETTER_J\tThe Letter\n*HOUSE0\tThe Life Stage\n=ROOM.LS\tThe Life Stage\n*SC_GORAKU_\tTheatre Wars\n=TPA.g\tTheme Park\n=TPA.GD\tTheme Park\n=Trial.Set\tTime Trial\n*Trial_\tTime Trial\n=LaunchOrionOffroad\tTitle Sampler 1\n=S3P\tTitle Sampler 1\n*PIV_NanK\tTravel Mystery\n=Twstd\tTwisted - The Game Show\n*hand_ch\tVirtual Puppet\n*virtuoso_0_\tVirtuoso\n*FT-WACKY-\tWacky Races\n*TE_Waialae_\tWaialae Country Club (USA, Canada)\n=WayScores\tWay of the Warrior\n=wsjr\tWho Shot Johnny Rock\n=jrock\tWho Shot Johnny Rock\n*TE_Devils_\tWicked 18\n*Wing_3.1.8f.\tWing Commander III - Heart of the Tiger\n=Wing_3.1.8f.9\tWing Commander III - Heart of the Tiger\n=Wing_3_sim_scores\tWing Commander III - Heart of the Tiger\n*KE_WINPOS_\tWinning Post\n=PrefsForWolf3D\tWolfenstein 3D\n*Wolf\tWolfenstein 3D\n=WCgolf-players\tWorld Cup Golf - Hyatt Dorado Beach\n=WCgolf-tournament\tWorld Cup Golf - Hyatt Dorado Beach\n=Zhadnost\tZhadnost - The People's Party\n*DemolitionManHighS\tDemolition Man\n=Audio CD Programs\tAudio CD\n*wr2_save\tChiki Chiki Machine Mou Race 2 - In Space\n";
 let lang = (Q.get("lang") || navigator.language || "en").slice(0,2).toLowerCase();
 if (!T[lang]) lang = "en";
 const $ = id => document.getElementById(id);
@@ -381,6 +384,9 @@ function parseCfg(txt){
     const i = line.indexOf("="); if (i <= 0 || line[0] === "#") continue;
     const key = line.slice(0, i), val = line.slice(i + 1), it = ALL_ITEMS.find(x => x[2] === key);
     if (it && it[1].includes(val)) c[key] = val;
+    else if (key === "ode_fw") c._fw = val;        /* 1.1: campos auto-detectados pelo boot */
+    else if (key === "ode_type") c._type = val;
+    else if (key === "ode_rtc") c._rtc = val;
   }
   return c;
 }
@@ -389,7 +395,12 @@ function cfgText(c){
     "interface_view","jogos_ordem","jogos_lembrar","jogos_artigo","interface_nome_vel","interface_letras","interface_midia","interface_descricao",
     "desc_desenvolvedora","desc_produtora","desc_genero","desc_ano","desc_pais","desc_discos","desc_jogadas","desc_ultima","interface_tema",
     "tela_fundo","tela_protetor","audio_fx","audio_music","audio_music_vol","usb_ler_ao_ligar","hora_formato","idioma"];
-  return "#3DOREBORN-CONFIG#\n" + order.map(k => k + "=" + c[k] + "\n").join("") + "#END#\n";
+  /* 1.1: preserva os campos auto-detectados pelo boot (senão o console regrava todo arranque). */
+  let extra = "";
+  if (c._fw) extra += "ode_fw=" + c._fw + "\n";
+  if (c._type) extra += "ode_type=" + c._type + "\n";
+  if (c._rtc !== undefined) extra += "ode_rtc=" + c._rtc + "\n";
+  return "#3DOREBORN-CONFIG#\n" + order.map(k => k + "=" + c[k] + "\n").join("") + extra + "#END#\n";
 }
 
 /* ---------------- Nomes: como casar o jogo do cartão com a biblioteca ---------------- */
@@ -526,6 +537,55 @@ function missing(){
   return m;
 }
 
+
+/* 1.1: o firmware do ODE só lista pastas e jogos (.iso/.cue): o menu não tem
+ * como enxergar os .sav da pasta saves/. Quem diz ao gerenciador o que existe
+ * lá é o catálogo saves/3dosaves.ode (nome real, tamanho, CRC, arquivo).
+ * Aqui os .sav copiados na mão entram no catálogo; o que já estava fica. */
+function crc32Bytes(u8){
+  let c, crc = 0xFFFFFFFF;
+  if (!crc32Bytes.t){ crc32Bytes.t = new Uint32Array(256); for (let n = 0; n < 256; n++){ c = n; for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1); crc32Bytes.t[n] = c >>> 0; } }
+  for (let i = 0; i < u8.length; i++) crc = crc32Bytes.t[(crc ^ u8[i]) & 255] ^ (crc >>> 8);
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+function saveNameFromFile(f){
+  let s = f.replace(/\.sav$/i, "");
+  const m = /^.* \(([^()]+)\)$/.exec(s);
+  return m ? m[1] : s;
+}
+async function indexSaves(){
+  if (S.demo || !S.root) return 0;
+  let dir; try { dir = await S.root.getDirectoryHandle("saves"); } catch(e){ return 0; }
+  const files = new Map();
+  for await (const [name, h] of dir.entries()) if (h.kind === "file" && /\.sav$/i.test(name) && !name.startsWith(".")) files.set(name.toLowerCase(), {name, h});
+  let old = ""; try { old = await (await (await dir.getFileHandle("3dosaves.ode")).getFile()).text(); } catch(e){}
+  const lines = [], seen = new Set(), names = new Set();
+  for (const ln of old.split(/\r?\n/)){
+    if (!ln || ln[0] === "#") continue;
+    const p = ln.split("\t"); if (p.length < 3) continue;
+    const third = /\.sav\s*$/i.test(p[2] || "") ? p[2] : "";   /* linha nome/tamanho/arquivo, sem CRC */
+    const file = (p[3] || third || ("saves/" + p[0] + ".sav")).trim(), base = file.split("/").pop().toLowerCase();
+    if (!files.has(base)) continue;                 /* arquivo sumiu: sai do catálogo */
+    /* Tamanho e CRC sempre do arquivo que está no cartão (conserta linha feita à mão ou antiga). */
+    const u8o = new Uint8Array(await (await files.get(base).h.getFile()).arrayBuffer());
+    if (!u8o.length || u8o.length > 32768 || seen.has(base)) continue;
+    lines.push([p[0], u8o.length, crc32Bytes(u8o).toString(16).padStart(8, "0"), "saves/" + files.get(base).name].join("\t")); seen.add(base); names.add(p[0].toLowerCase());
+  }
+  let added = 0;
+  for (const [base, f] of [...files].sort((a,b) => a[0] < b[0] ? -1 : 1)){
+    if (seen.has(base) || lines.length >= 64) continue;
+    const nm = saveNameFromFile(f.name);
+    if (!nm || nm.length > 31 || /[\t\/]/.test(nm) || names.has(nm.toLowerCase())) continue;
+    const u8 = new Uint8Array(await (await f.h.getFile()).arrayBuffer());
+    if (!u8.length || u8.length > 32768) continue;
+    lines.push([nm, u8.length, crc32Bytes(u8).toString(16).padStart(8, "0"), "saves/" + f.name].join("\t"));
+    names.add(nm.toLowerCase()); added++;
+  }
+  const body = "#FXSAVES1\n" + lines.map(l => l + "\n").join("") + "#END\n";
+  if (body !== old) await put(["saves"], "3dosaves.ode", new TextEncoder().encode(body));
+  return added;
+}
+
 /* ---------------- Cartão e biblioteca ---------------- */
 async function dirAt(parts, create){ let d = S.root; for (const p of parts) d = await d.getDirectoryHandle(p, {create}); return d; }
 async function exists(parts, name){ try { await (await dirAt(parts, false)).getFileHandle(name); return true; } catch(e){ return false; } }
@@ -568,7 +628,12 @@ async function openCard(demo){
     S.games = (await scan(S.root, 0, [])).sort((a,b) => a.localeCompare(b, undefined, {sensitivity:"base"}));
     S.card = await readCard();
     try { const f = await (await (await dirAt([".config"], false)).getFileHandle("3doconfig.ode")).getFile(); S.cfg = parseCfg(await f.text()); S.cfgOnCard = true;
-          const l = Object.keys(CFG_LANG).find(k => CFG_LANG[k] === S.cfg.idioma); if (l) { S.txtLang = l; S.txtLangTouched = true; } } catch(e){}
+          const l = Object.keys(CFG_LANG).find(k => CFG_LANG[k] === S.cfg.idioma); if (l) { S.txtLang = l; S.txtLangTouched = true; }
+          /* 1.1: o boot gravou o ODE/firmware/relógio detectados — já pré-seleciona. */
+          if (S.cfg._type) S.xport = (S.cfg._type === "XPORT");
+          if (S.cfg._fw) S.tadeu = /^TADEU/.test(S.cfg._fw);
+          if (S.cfg._rtc !== undefined) S.rtc = (S.cfg._rtc === "1");
+          S.odeDetected = !!(S.cfg._fw || S.cfg._type); } catch(e){}
   }
   S.cfg.idioma = CFG_LANG[S.txtLang];
   S.sel = 0; S.filter = "all"; coverCache.clear();
@@ -1234,7 +1299,7 @@ async function run(){
         if (st === "none" || st === "part") { miss[K.log]++; (lack[K.log] = lack[K.log] || []).push(g); continue; }
         if (st === "card") { count[K.log][1]++; continue; }
         for (const [i, [cfgKey, to, box]] of K.places.entries()){
-          if (st === "lib" && S.o.keep && S.card[kind][i].has(g.toLowerCase())) continue;      // este tamanho já está no cartão
+          if ((st === "lib" || st === "own") && S.o.keep && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca OU pasta própria)
           jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + S.lib[kind].get(k) + K.ext : null, own: st === "own" ? S.own[kind].get(k) : null, box, fill:K.fill});
         }
         done1[K.log] = (done1[K.log] || 0) + 1;
@@ -1294,6 +1359,20 @@ async function run(){
       await put([".config"], "3doconfig.ode", body); files++; S.cfgOnCard = true; S.cfgTouched = false;
       log(t("l_cfg") + ": " + CFG_LANG[S.txtLang]);
       tick("l_cfg");
+    }
+    /* 1.1: a tabela de nomes dos saves agora é EMBUTIDA na boot.iso.
+     * O cartão só precisa de .config/3dogamessaves.ode se a pessoa quiser
+     * CORRIGIR/ADICIONAR nomes (override) — não é gravado automaticamente. */
+    /* Tabela de nomes dos saves: a página grava a versão completa e atual;
+     * o menu usa só ela quando existe (a embutida no boot.iso fica de reserva). */
+    if (!S.stop && SAVE_NAMES.length > 1){
+      await put([".config"], "3dogamessaves.ode", new TextEncoder().encode("#3DOSAVENAMES FULL\n" + SAVE_NAMES.replace(/\n*$/, "\n") + "#END\n")); files++;
+      log(t("l_savenames") + ": " + (SAVE_NAMES.match(/^[=*]/gm) || []).length);
+    }
+    /* Saves copiados na mão para saves/: entram no catálogo que o gerenciador lê. */
+    if (!S.stop){
+      try { const ns = await indexSaves(); if (ns){ files++; log(t("l_saveidx") + ": " + ns); } }
+      catch(e){ log(t("l_saveidx") + ": " + t("err") + " " + e.message); }
     }
     progress(++done, total, "");
     if (S.stop) log(t("stopped"));
