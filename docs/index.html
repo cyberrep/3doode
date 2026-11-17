@@ -74,7 +74,7 @@ button{cursor:pointer}
 .list button.on{background:var(--olive);border-color:#fff}
 .marks{display:flex;gap:3px;flex:none}
 .mk{width:17px;height:17px;border-radius:4px;display:grid;place-items:center;font-size:.68rem;font-weight:800;letter-spacing:0;color:#0b0d22;font-style:normal}
-.mk.card{background:var(--green)}.mk.lib{background:var(--blue);color:#fff}.mk.own{background:var(--yellow)}.mk.part{background:linear-gradient(135deg,var(--green) 50%,transparent 50%);border:1px solid var(--green);color:#fff}.mk.none{background:transparent;border:1px solid #454a78;color:#666c9c}
+.mk.card{background:var(--green)}.mk.lib{background:var(--blue);color:#fff}.mk.own{background:var(--yellow)}.mk.loan{background:#f08a24}.mk.part{background:linear-gradient(135deg,var(--green) 50%,transparent 50%);border:1px solid var(--green);color:#fff}.mk.none{background:transparent;border:1px solid #454a78;color:#666c9c}
 .side{border-left:2px solid var(--edge);padding-left:12px;min-width:0}
 .cover{border:3px solid var(--blue);border-radius:6px;background:#0b0d22;width:206px;height:286px;margin:0 auto 8px;display:grid;place-items:center;position:relative;overflow:hidden}
 .cover canvas,.cover img{width:200px;height:280px;image-rendering:pixelated;display:block;object-fit:fill}
@@ -213,7 +213,7 @@ en:{title:"USB / SD SETUP",
  cov:"Cover",shot:"Screenshot",vid:"Video",txt:"Texts",choose:"Choose…",
  st_card:"already on the card",st_lib:"comes from the library",st_own:"your file",st_none:"not available",
  lg_part:"incomplete",lack:"missing:",sz_small:"small",sz_medium:"medium",sz_large:"large",sz_videos:"",
- lg_card:"on the card",lg_lib:"library",lg_own:"yours",lg_none:"missing",
+ lg_card:"on the card",lg_lib:"library",lg_loan:"from another region",l_loan:"taken from another region",lg_own:"yours",lg_none:"missing",
  m_note:"Everything comes ready from our GitHub and only the files for your games are copied. Files that are on your card and not in our library are never changed or deleted.",
  m_boot:"Menu (boot.iso)",m_cov:"Covers",m_shot:"Screenshots",m_vid:"Video previews",m_txt:"Game texts",m_lang:"Language of the menu and texts",m_fw:"Firmware update file",
  m_keep:"If it is already on the card",keep:"Keep",replace:"Replace",yes:"Yes",no:"No",fw_no:"No",fw_clone:"Regular Pico (USB only)",fw_orig:"Original board (USB + CD-ROM)",
@@ -257,7 +257,7 @@ pt:{title:"PREPARAR O USB / SD",
  cov:"Capa",shot:"Tela",vid:"Vídeo",txt:"Textos",choose:"Escolher…",
  st_card:"já está no cartão",st_lib:"vem da biblioteca",st_own:"arquivo seu",st_none:"não tem",
  lg_part:"incompleto",lack:"falta:",sz_small:"pequena",sz_medium:"média",sz_large:"grande",sz_videos:"",
- lg_card:"no cartão",lg_lib:"biblioteca",lg_own:"seu",lg_none:"falta",
+ lg_card:"no cartão",lg_lib:"biblioteca",lg_loan:"de outra região",l_loan:"vieram de outra região",lg_own:"seu",lg_none:"falta",
  m_note:"Tudo vem pronto do nosso GitHub e só os arquivos dos seus jogos são copiados. O que está no seu cartão e não existe na nossa biblioteca nunca é alterado nem apagado.",
  m_boot:"Menu (boot.iso)",m_cov:"Capas",m_shot:"Telas",m_vid:"Prévias em vídeo",m_txt:"Textos dos jogos",m_lang:"Idioma do menu e dos textos",m_fw:"Arquivo de atualização do firmware",
  m_keep:"Se já existe no cartão",keep:"Manter",replace:"Substituir",yes:"Sim",no:"Não",fw_no:"Não",fw_clone:"Pico comum (somente USB)",fw_orig:"Placa original (USB + CD-ROM)",
@@ -301,7 +301,7 @@ es:{title:"PREPARAR EL USB / SD",
  cov:"Portada",shot:"Captura",vid:"Vídeo",txt:"Textos",choose:"Elegir…",
  st_card:"ya está en la tarjeta",st_lib:"viene de la biblioteca",st_own:"archivo tuyo",st_none:"no hay",
  lg_part:"incompleto",lack:"falta:",sz_small:"pequeña",sz_medium:"mediana",sz_large:"grande",sz_videos:"",
- lg_card:"en la tarjeta",lg_lib:"biblioteca",lg_own:"tuyo",lg_none:"falta",
+ lg_card:"en la tarjeta",lg_lib:"biblioteca",lg_loan:"de otra región",l_loan:"vienen de otra región",lg_own:"tuyo",lg_none:"falta",
  m_note:"Todo viene listo desde nuestro GitHub y solo se copian los archivos de tus juegos. Lo que está en tu tarjeta y no existe en nuestra biblioteca nunca se modifica ni se borra.",
  m_boot:"Menú (boot.iso)",m_cov:"Portadas",m_shot:"Capturas",m_vid:"Vistas previas en vídeo",m_txt:"Textos de los juegos",m_lang:"Idioma del menú y de los textos",m_fw:"Archivo de actualización del firmware",
  m_keep:"Si ya existe en la tarjeta",keep:"Mantener",replace:"Sustituir",yes:"Sí",no:"No",fw_no:"No",fw_clone:"Pico común (solo USB)",fw_orig:"Placa original (USB + CD-ROM)",
@@ -508,6 +508,7 @@ const S = {
   root:null, rootName:"", demo:false, games:[], libOk:true,
   card:{covers:[new Set(), new Set()], screenshots:[new Set(), new Set()], videos:[new Set()]},   // um conjunto por pasta (pequena, grande...)
   lib:{covers:new Map(), screenshots:new Map(), videos:new Map(), firmware:[]},
+  libAll:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   own:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   gl:new Map(), glLang:"",
   o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true},
@@ -515,6 +516,27 @@ const S = {
   screen:"home", sel:0, filter:"all", sec:0, grp:0, busy:false, stop:false
 };
 const IMG = /\.(png|jpe?g|webp|bmp|gif)$/i;
+/* ---------------- Mídia de outra região ---------------- */
+/* A biblioteca casa pelo título sem as etiquetas entre ( ): "Road Rash (Europe)" usa a mídia de
+ * "Road Rash (USA)" quando não há a da própria região. libPick escolhe qual arquivo da biblioteca
+ * vale para o jogo g: o de mesmo nome; senão o da mesma região; senão USA, Europe, Japan; senão o
+ * primeiro. loan = as etiquetas do escolhido (ex.: "USA") quando ele NÃO é da região do jogo. */
+const tagsOf = n => (n.replace(/\.(iso|cue|cel|cvd)$/i, "").match(/\(([^)]*)\)/g) || []).map(x => x.slice(1, -1).trim());
+const regionOf = n => (tagsOf(n)[0] || "").split(",")[0].trim().toLowerCase();
+function libPick(g, kind){
+  const all = (S.libAll[kind] && S.libAll[kind].get(norm(g))) || [];
+  if (!all.length) return null;
+  const stem = g.replace(/\.(iso|cue)$/i, "").toLowerCase(), same = all.find(n => n.toLowerCase() === stem);
+  if (same) return {name:same, loan:""};
+  const rg = regionOf(g), mine = rg && all.find(n => regionOf(n) === rg);
+  if (mine) return {name:mine, loan:""};
+  const pick = ["usa", "europe", "japan"].map(r => all.find(n => regionOf(n) === r)).find(Boolean) || all[0];
+  /* Sem região num dos dois lados não dá para dizer que é de outra. */
+  return {name:pick, loan: rg && regionOf(pick) ? tagsOf(pick)[0] : ""};
+}
+/* A região de onde vem a mídia do jogo, quando ela é da biblioteca e de outra região ("" = não é). */
+function loanOf(g, kind){ if (status(g, kind) !== "lib") return ""; const p = libPick(g, kind); return p ? p.loan : ""; }
+const libName = (g, kind) => { const p = libPick(g, kind); return p ? p.name : S.lib[kind].get(norm(g)); };
 function status(g, kind){
   const k = norm(g);
   if (S.own[kind].has(k)) return "own";
@@ -616,7 +638,15 @@ async function loadLibrary(){
   let idx = {covers:[], screenshots:[], videos:[], firmware:[]};
   if (S.demo) idx = {covers:DEMO_GAMES.slice(0,12), screenshots:DEMO_GAMES.slice(0,9), videos:DEMO_GAMES.slice(0,7), firmware:["SataTo3DO_TADEU_1.0.5_USB-ONLY.uf2","SataTo3DO_TADEU_1.0.5_USB-CDROM.uf2"]};
   else try { idx = Object.assign(idx, await (await get(CFG.index)).json()); } catch(e){ S.libOk = false; }
-  for (const k in KINDS) S.lib[k] = new Map((idx[k] || []).map(n => [norm(n), n.replace(/\.(cel|cvd)$/i, "")]));
+  for (const k in KINDS){
+    S.lib[k] = new Map(); S.libAll[k] = new Map();
+    for (const n of (idx[k] || [])){
+      const stem = n.replace(/\.(cel|cvd)$/i, ""), key = norm(n);
+      if (!S.lib[k].has(key)) S.lib[k].set(key, stem);
+      if (!S.libAll[k].has(key)) S.libAll[k].set(key, []);
+      S.libAll[k].get(key).push(stem);
+    }
+  }
   S.lib.firmware = idx.firmware || [];
   await loadGamelist();
 }
@@ -663,7 +693,7 @@ async function coverOf(g){
     const st = status(g, "covers");
     if (st === "own"){ const h = S.own.covers.get(k); res = {url: URL.createObjectURL(h.getFile ? await h.getFile() : h)}; }
     else if (S.card.covers[1].has(g.toLowerCase()) && st !== "lib" && !S.demo) res = {img: celDecode(await (await (await (await dirAt(["covers","large"], false)).getFileHandle(g + ".cel")).getFile()).arrayBuffer())};
-    else if (st === "lib" && !S.demo) res = {img: celDecode(await (await get(CFG.coverL + S.lib.covers.get(k) + ".cel")).arrayBuffer())};
+    else if (st === "lib" && !S.demo) res = {img: celDecode(await (await get(CFG.coverL + libName(g, "covers") + ".cel")).arrayBuffer())};
   } catch(e){}
   coverCache.set(k, res);
   return res;
@@ -721,7 +751,7 @@ function filtered(){
   return S.games.filter(g => f === "all" || (f === "txt" ? !hasText(g) : ["none","part"].includes(status(g, f))));
 }
 function marks(g){
-  return '<span class="marks">' + Object.keys(KINDS).map(k => `<i class="mk ${status(g, k)}">${KINDS[k].mark}</i>`).join("") +
+  return '<span class="marks">' + Object.keys(KINDS).map(k => `<i class="mk ${loanOf(g, k) ? "loan" : status(g, k)}">${KINDS[k].mark}</i>`).join("") +
          `<i class="mk ${hasText(g) ? "lib" : "none"}">i</i></span>`;
 }
 function drawGames(){
@@ -736,7 +766,7 @@ function drawGames(){
       <div class="side" id="side"></div>
     </div>
     <div class="info" id="info"></div>
-    <div class="legend"><span><i class="mk card">C</i>${esc(t("lg_card"))}</span><span><i class="mk lib">C</i>${esc(t("lg_lib"))}</span><span><i class="mk own">C</i>${esc(t("lg_own"))}</span><span><i class="mk part">C</i>${esc(t("lg_part"))}</span><span><i class="mk none">C</i>${esc(t("lg_none"))}</span>
+    <div class="legend"><span><i class="mk card">C</i>${esc(t("lg_card"))}</span><span><i class="mk lib">C</i>${esc(t("lg_lib"))}</span><span><i class="mk loan">C</i>${esc(t("lg_loan"))}</span><span><i class="mk own">C</i>${esc(t("lg_own"))}</span><span><i class="mk part">C</i>${esc(t("lg_part"))}</span><span><i class="mk none">C</i>${esc(t("lg_none"))}</span>
       <span>C = ${esc(t("cov"))} · T = ${esc(t("shot"))} · V = ${esc(t("vid"))} · i = ${esc(t("txt"))}</span></div>`;
   keys([["back","B",t("k_back")],["rename","C",t("k_rename")],"gap",["media","X",t("t_media")],["write","P",t("t_write")]]);
   drawSide();
@@ -749,7 +779,8 @@ function drawSide(){
   $("side").innerHTML = `<div class="cover" id="cover"><div class="disc"></div><div class="tag"><span>${esc(f.year || "")}</span><span>${esc(reg)}</span></div></div>
     <div class="kinds">${Object.keys(KINDS).map(k => { const st = status(g, k);
       const lk = st === "own" || k === "videos" ? [] : lacking(g, k), some = lk.length && lk.length < KINDS[k].places.length;
-      return `<div><i class="mk ${st}">${KINDS[k].mark}</i><span>${esc(t(KINDS[k].label))}: ${esc(t("lg_" + st))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
+      const ln = loanOf(g, k);
+      return `<div><i class="mk ${ln ? "loan" : st}">${KINDS[k].mark}</i><span>${esc(t(KINDS[k].label))}: ${esc(ln ? t("lg_loan") + " (" + ln + ")" : t("lg_" + st))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
       <div><i class="mk ${hasText(g) ? "lib" : "none"}">i</i><span>${esc(t("txt"))}: ${esc(t(hasText(g) ? "lg_lib" : "lg_none"))}</span></div></div>`;
   $("info").innerHTML = `<div><div class="a">${esc(f.publisher || f.developer || g)}</div><div class="b">${esc([f.genre, f.developer && f.publisher ? f.developer : ""].filter(Boolean).join(" - ") || " ")}</div></div><div class="n">${S.sel + 1}/${list.length}</div>`;
   coverOf(g).then(c => {
@@ -1123,7 +1154,7 @@ async function checkCopy(ki, gi){
           let data = null;
           if (!S.demo){
             if (own){ const f = own.getFile ? await own.getFile() : own; data = box ? await imageToCel(f, box[0], box[1], K.fill) : await f.arrayBuffer(); }
-            else data = await (await get(CFG[cfgKey] + S.lib[m.kind].get(norm(g)) + K.ext)).arrayBuffer();
+            else data = await (await get(CFG[cfgKey] + libName(g, m.kind) + K.ext)).arrayBuffer();
           }
           await put(to, g + K.ext, data);
           if (S.demo) S.card[m.kind][m.i].add(g.toLowerCase());
@@ -1289,7 +1320,7 @@ async function run(){
   try {
     progress(0, 1, t("reading"));
     /* A lista do que fazer: {label, pasta e nome no cartão, de onde vem (GitHub ou arquivo da pessoa)}. */
-    const jobs = [], miss = {}, count = {}, done1 = {}, lack = {};
+    const jobs = [], miss = {}, count = {}, done1 = {}, lack = {}, loans = {};
     if (o.o_boot) jobs.push({label:"l_boot", to:[], name:"boot.iso", from:CFG.boot});
     for (const kind in KINDS){
       const K = KINDS[kind]; if (!o[K.opt]) continue;
@@ -1298,13 +1329,16 @@ async function run(){
         const st = status(g, kind), k = norm(g);
         if (st === "none" || st === "part") { miss[K.log]++; (lack[K.log] = lack[K.log] || []).push(g); continue; }
         if (st === "card") { count[K.log][1]++; continue; }
+        if (st === "lib" && loanOf(g, kind)) (loans[K.log] = loans[K.log] || []).push(g + "  <-  (" + loanOf(g, kind) + ")");
         for (const [i, [cfgKey, to, box]] of K.places.entries()){
           if ((st === "lib" || st === "own") && S.o.keep && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca OU pasta própria)
-          jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + S.lib[kind].get(k) + K.ext : null, own: st === "own" ? S.own[kind].get(k) : null, box, fill:K.fill});
+          jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + libName(g, kind) + K.ext : null, own: st === "own" ? S.own[kind].get(k) : null, box, fill:K.fill});
         }
         done1[K.log] = (done1[K.log] || 0) + 1;
       }
     }
+    /* Mídia que veio de outra região: avisa quais, para a pessoa conferir (a capa costuma mudar). */
+    for (const lb in loans) log(t(lb) + " - " + t("l_loan") + ": " + loans[lb].length + "\n  " + loans[lb].slice(0, 40).join("\n  ") + (loans[lb].length > 40 ? "\n  ..." : ""));
     if (o.fw){
       const f = S.lib.firmware.find(n => n.toUpperCase().includes(o.fw));
       if (f) jobs.push({label:"l_fw", to:["firmware"], name:"update.uf2", from:CFG.fw + f}); else log(t("l_fw") + ": " + t("err") + " (" + o.fw + ")");
