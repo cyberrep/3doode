@@ -213,7 +213,7 @@ en:{title:"USB / SD SETUP",
  cov:"Cover",shot:"Screenshot",vid:"Video",txt:"Texts",choose:"Choose…",
  st_card:"already on the card",st_lib:"comes from the library",st_own:"your file",st_none:"not available",
  lg_part:"incomplete",lack:"missing:",sz_small:"small",sz_medium:"medium",sz_large:"large",sz_videos:"",
- lg_card:"on the card",lg_lib:"library",lg_loan:"from another region",l_loan:"taken from another region",lg_own:"yours",lg_none:"missing",
+ lg_card:"on the card",lg_lib:"library",lg_loan:"from another region",lg_alike:"from a similar title",l_loan:"taken from another region or a similar title",lg_own:"yours",lg_none:"missing",
  m_note:"Everything comes ready from our GitHub and only the files for your games are copied. Files that are on your card and not in our library are never changed or deleted.",
  m_boot:"Menu (boot.iso)",m_cov:"Covers",m_shot:"Screenshots",m_vid:"Video previews",m_txt:"Game texts",m_lang:"Language of the menu and texts",m_fw:"Firmware update file",
  m_keep:"If it is already on the card",keep:"Keep",replace:"Replace",yes:"Yes",no:"No",fw_no:"No",fw_clone:"Regular Pico (USB only)",fw_orig:"Original board (USB + CD-ROM)",
@@ -257,7 +257,7 @@ pt:{title:"PREPARAR O USB / SD",
  cov:"Capa",shot:"Tela",vid:"Vídeo",txt:"Textos",choose:"Escolher…",
  st_card:"já está no cartão",st_lib:"vem da biblioteca",st_own:"arquivo seu",st_none:"não tem",
  lg_part:"incompleto",lack:"falta:",sz_small:"pequena",sz_medium:"média",sz_large:"grande",sz_videos:"",
- lg_card:"no cartão",lg_lib:"biblioteca",lg_loan:"de outra região",l_loan:"vieram de outra região",lg_own:"seu",lg_none:"falta",
+ lg_card:"no cartão",lg_lib:"biblioteca",lg_loan:"de outra região",lg_alike:"de título parecido",l_loan:"vieram de outra região ou de título parecido",lg_own:"seu",lg_none:"falta",
  m_note:"Tudo vem pronto do nosso GitHub e só os arquivos dos seus jogos são copiados. O que está no seu cartão e não existe na nossa biblioteca nunca é alterado nem apagado.",
  m_boot:"Menu (boot.iso)",m_cov:"Capas",m_shot:"Telas",m_vid:"Prévias em vídeo",m_txt:"Textos dos jogos",m_lang:"Idioma do menu e dos textos",m_fw:"Arquivo de atualização do firmware",
  m_keep:"Se já existe no cartão",keep:"Manter",replace:"Substituir",yes:"Sim",no:"Não",fw_no:"Não",fw_clone:"Pico comum (somente USB)",fw_orig:"Placa original (USB + CD-ROM)",
@@ -301,7 +301,7 @@ es:{title:"PREPARAR EL USB / SD",
  cov:"Portada",shot:"Captura",vid:"Vídeo",txt:"Textos",choose:"Elegir…",
  st_card:"ya está en la tarjeta",st_lib:"viene de la biblioteca",st_own:"archivo tuyo",st_none:"no hay",
  lg_part:"incompleto",lack:"falta:",sz_small:"pequeña",sz_medium:"mediana",sz_large:"grande",sz_videos:"",
- lg_card:"en la tarjeta",lg_lib:"biblioteca",lg_loan:"de otra región",l_loan:"vienen de otra región",lg_own:"tuyo",lg_none:"falta",
+ lg_card:"en la tarjeta",lg_lib:"biblioteca",lg_loan:"de otra región",lg_alike:"de título parecido",l_loan:"vienen de otra región o de un título parecido",lg_own:"tuyo",lg_none:"falta",
  m_note:"Todo viene listo desde nuestro GitHub y solo se copian los archivos de tus juegos. Lo que está en tu tarjeta y no existe en nuestra biblioteca nunca se modifica ni se borra.",
  m_boot:"Menú (boot.iso)",m_cov:"Portadas",m_shot:"Capturas",m_vid:"Vistas previas en vídeo",m_txt:"Textos de los juegos",m_lang:"Idioma del menú y de los textos",m_fw:"Archivo de actualización del firmware",
  m_keep:"Si ya existe en la tarjeta",keep:"Mantener",replace:"Sustituir",yes:"Sí",no:"No",fw_no:"No",fw_clone:"Pico común (solo USB)",fw_orig:"Placa original (USB + CD-ROM)",
@@ -523,24 +523,47 @@ const IMG = /\.(png|jpe?g|webp|bmp|gif)$/i;
  * primeiro. loan = as etiquetas do escolhido (ex.: "USA") quando ele NÃO é da região do jogo. */
 const tagsOf = n => (n.replace(/\.(iso|cue|cel|cvd)$/i, "").match(/\(([^)]*)\)/g) || []).map(x => x.slice(1, -1).trim());
 const regionOf = n => (tagsOf(n)[0] || "").split(",")[0].trim().toLowerCase();
-function libPick(g, kind){
-  const all = (S.libAll[kind] && S.libAll[kind].get(norm(g))) || [];
-  if (!all.length) return null;
-  const stem = g.replace(/\.(iso|cue)$/i, "").toLowerCase(), same = all.find(n => n.toLowerCase() === stem);
-  if (same) return {name:same, loan:""};
-  const rg = regionOf(g), mine = rg && all.find(n => regionOf(n) === rg);
-  if (mine) return {name:mine, loan:""};
-  const pick = ["usa", "europe", "japan"].map(r => all.find(n => regionOf(n) === r)).find(Boolean) || all[0];
-  /* Sem região num dos dois lados não dá para dizer que é de outra. */
-  return {name:pick, loan: rg && regionOf(pick) ? tagsOf(pick)[0] : ""};
+/* Título em partes separadas por " - " (sem as etiquetas), cada parte normalizada. */
+const segsOf = n => n.replace(/\.(iso|cue|cel|cvd)$/i, "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/\s+-\s+/).map(norm).filter(Boolean);
+/* Último recurso, quando o título não casa: um título da biblioteca que é o COMEÇO do título do jogo
+ * (ou o contrário), parte por parte. "Road Rash - Nitro Edition" usa "Road Rash"; "Flashback" usa
+ * "Flashback - The Quest for Identity". Continuações ("... 2") não casam: a 1ª parte é diferente.
+ * Devolve a chave da biblioteca, ou "" se não há. Entre várias, a de título mais próximo. */
+function looseKey(g, kind){
+  const gs = segsOf(g); if (!gs.length) return "";
+  let best = "", bd = 99;
+  for (const [key, names] of S.libAll[kind]){
+    const ls = segsOf(names[0]), n = Math.min(gs.length, ls.length);
+    if (!ls.length || gs.length === ls.length) continue;
+    let ok = true; for (let i = 0; i < n; i++) if (gs[i] !== ls[i]) { ok = false; break; }
+    const d = Math.abs(gs.length - ls.length);
+    if (ok && d < bd){ best = key; bd = d; }
+  }
+  return best;
 }
-/* A região de onde vem a mídia do jogo, quando ela é da biblioteca e de outra região ("" = não é). */
+const pickCache = {};
+function libPick(g, kind){
+  const c = pickCache[kind] || (pickCache[kind] = new Map());
+  if (c.has(g)) return c.get(g);
+  let all = (S.libAll[kind] && S.libAll[kind].get(norm(g))) || [], alike = false, r = null;
+  if (!all.length && S.libAll[kind]){ const k = looseKey(g, kind); if (k){ all = S.libAll[kind].get(k); alike = true; } }
+  if (all.length){
+    const stem = g.replace(/\.(iso|cue)$/i, "").toLowerCase(), rg = regionOf(g);
+    const same = all.find(n => n.toLowerCase() === stem), mine = rg && all.find(n => regionOf(n) === rg);
+    const pick = same || mine || ["usa", "europe", "japan"].map(x => all.find(n => regionOf(n) === x)).find(Boolean) || all[0];
+    /* loan: de onde veio quando NÃO é o próprio jogo — a região (título igual) ou o nome inteiro (título parecido). */
+    r = {name:pick, alike, loan: alike ? pick : (same || mine || !rg || !regionOf(pick)) ? "" : tagsOf(pick)[0]};
+  }
+  c.set(g, r); return r;
+}
+/* De onde vem a mídia do jogo quando ela é da biblioteca mas não é a dele ("" = é a dele). */
 function loanOf(g, kind){ if (status(g, kind) !== "lib") return ""; const p = libPick(g, kind); return p ? p.loan : ""; }
+function loanText(g, kind){ const p = libPick(g, kind); return p && p.alike ? t("lg_alike") + ": " + p.name : t("lg_loan") + " (" + p.loan + ")"; }
 const libName = (g, kind) => { const p = libPick(g, kind); return p ? p.name : S.lib[kind].get(norm(g)); };
 function status(g, kind){
   const k = norm(g);
   if (S.own[kind].has(k)) return "own";
-  const n = S.card[kind].filter(set => set.has(g.toLowerCase())).length, full = n === S.card[kind].length, inLib = S.lib[kind].has(k);
+  const n = S.card[kind].filter(set => set.has(g.toLowerCase())).length, full = n === S.card[kind].length, inLib = !!libPick(g, kind);
   if (full && (S.o.keep || !inLib)) return "card";
   if (inLib) return "lib";
   return n ? "part" : "none";               // part: no cartão só num dos tamanhos, e a biblioteca não tem
@@ -639,7 +662,7 @@ async function loadLibrary(){
   if (S.demo) idx = {covers:DEMO_GAMES.slice(0,12), screenshots:DEMO_GAMES.slice(0,9), videos:DEMO_GAMES.slice(0,7), firmware:["SataTo3DO_TADEU_1.0.5_USB-ONLY.uf2","SataTo3DO_TADEU_1.0.5_USB-CDROM.uf2"]};
   else try { idx = Object.assign(idx, await (await get(CFG.index)).json()); } catch(e){ S.libOk = false; }
   for (const k in KINDS){
-    S.lib[k] = new Map(); S.libAll[k] = new Map();
+    S.lib[k] = new Map(); S.libAll[k] = new Map(); delete pickCache[k];
     for (const n of (idx[k] || [])){
       const stem = n.replace(/\.(cel|cvd)$/i, ""), key = norm(n);
       if (!S.lib[k].has(key)) S.lib[k].set(key, stem);
@@ -780,7 +803,7 @@ function drawSide(){
     <div class="kinds">${Object.keys(KINDS).map(k => { const st = status(g, k);
       const lk = st === "own" || k === "videos" ? [] : lacking(g, k), some = lk.length && lk.length < KINDS[k].places.length;
       const ln = loanOf(g, k);
-      return `<div><i class="mk ${ln ? "loan" : st}">${KINDS[k].mark}</i><span>${esc(t(KINDS[k].label))}: ${esc(ln ? t("lg_loan") + " (" + ln + ")" : t("lg_" + st))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
+      return `<div><i class="mk ${ln ? "loan" : st}">${KINDS[k].mark}</i><span>${esc(t(KINDS[k].label))}: ${esc(ln ? loanText(g, k) : t("lg_" + st))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
       <div><i class="mk ${hasText(g) ? "lib" : "none"}">i</i><span>${esc(t("txt"))}: ${esc(t(hasText(g) ? "lg_lib" : "lg_none"))}</span></div></div>`;
   $("info").innerHTML = `<div><div class="a">${esc(f.publisher || f.developer || g)}</div><div class="b">${esc([f.genre, f.developer && f.publisher ? f.developer : ""].filter(Boolean).join(" - ") || " ")}</div></div><div class="n">${S.sel + 1}/${list.length}</div>`;
   coverOf(g).then(c => {
@@ -1189,7 +1212,7 @@ async function drawCheck(){
     const x = [...set].filter(n => !gamesLow.has(n)); if (x.length) extra[p[1].join("/")] = x;
   });
   const mt = S.games.filter(g => !txt.has(g.toLowerCase())); if (mt.length){ miss[t("l_txt")] = mt; meta[t("l_txt")] = {txt:true}; }
-  const can = (k, g) => meta[k] && (meta[k].txt ? hasText(g) : S.lib[meta[k].kind].has(norm(g)) || S.own[meta[k].kind].has(norm(g)));
+  const can = (k, g) => meta[k] && (meta[k].txt ? hasText(g) : !!libPick(g, meta[k].kind) || S.own[meta[k].kind].has(norm(g)));
   checkMeta = {miss, meta, can};
   const yn = v => t(v ? "yes" : "no"), withTxt = S.games.length - mt.length;
   const sum = [[t("l_card"), S.rootName], [t("c_games"), S.games.length], [t("c_boot"), yn(boot)], [t("c_cfg"), yn(cfg)], [t("c_fw"), yn(fw)], [t("c_txt"), t("c_of")(withTxt, S.games.length)]];
@@ -1329,7 +1352,7 @@ async function run(){
         const st = status(g, kind), k = norm(g);
         if (st === "none" || st === "part") { miss[K.log]++; (lack[K.log] = lack[K.log] || []).push(g); continue; }
         if (st === "card") { count[K.log][1]++; continue; }
-        if (st === "lib" && loanOf(g, kind)) (loans[K.log] = loans[K.log] || []).push(g + "  <-  (" + loanOf(g, kind) + ")");
+        if (st === "lib" && loanOf(g, kind)) (loans[K.log] = loans[K.log] || []).push(g + "  <-  " + libPick(g, kind).name);
         for (const [i, [cfgKey, to, box]] of K.places.entries()){
           if ((st === "lib" || st === "own") && S.o.keep && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca OU pasta própria)
           jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + libName(g, kind) + K.ext : null, own: st === "own" ? S.own[kind].get(k) : null, box, fill:K.fill});
