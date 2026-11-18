@@ -4,11 +4,28 @@
 
 Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and the **generator** (`generate_usb.py`), from the newest version to the oldest.
 
+- [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menu — before 1.0 (0.x versions)](#menu--before-10-0x-versions)
 - [TADEU firmware](#tadeu-firmware)
 - [Generator (generate_usb.py)](#generator-generate_usbpy)
+
+---
+
+## Menu — 1.2
+
+**Folder navigation**
+- 📁 **New option Options → Appearance → Show games: List or Folders.** In **Folders** mode, the card's folders become items you **enter** (A) and **go back** from (B). A folder with 2 games or more becomes a folder; **a folder with a single game becomes that game**. System folders (covers, videos, saves, roms…) stay ignored.
+- 🎨 **Folders match the menu's look**: a yellow folder icon with a **big letter in the middle**, cover-shaped in the large modes (Covers, Carousel, Showcase, Strip). The folder is **transparent**, with no frame — only the selected one is highlighted.
+- Clearer **"no games found"** message (in all 3 languages), warning about reserved folder names.
+
+**Save manager**
+- 🌎 **Fully translated** (Spanish and English): a few screens were still Portuguese-only.
+
+**Fixes**
+- The folder list shows up **right away**, without re-reading the USB.
+- Fixed a cover-border color swap (red where it should be blue) in some modes.
 
 ---
 

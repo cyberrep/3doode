@@ -4,11 +4,28 @@
 
 Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador** (`generate_usb.py`), da versão mais nova para a mais antiga.
 
+- [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menu — antes da 1.0 (versões 0.x)](#menu--antes-da-10-versões-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Gerador (generate_usb.py)](#gerador-generate_usbpy)
+
+---
+
+## Menu — 1.2
+
+**Navegação por pastas**
+- 📁 **Nova opção Opções → Aparência → Mostrar jogos: Lista ou Pastas.** No modo **Pastas**, as pastas do cartão viram itens em que você **entra** (A) e **volta** (B). Pasta com 2 jogos ou mais vira pasta; **pasta com 1 jogo só vira o próprio jogo**. Pastas de sistema (capas, vídeos, saves, roms…) continuam ignoradas.
+- 🎨 **As pastas têm a cara do menu**: ícone de pasta amarelo com a **letra grande no meio**, no formato de capa nos modos grandes (Capas, Carrossel, Vitrine, Faixa). A pasta fica **transparente**, sem moldura — só a selecionada ganha o destaque.
+- Mensagem de **"nenhum jogo encontrado"** mais clara (nos 3 idiomas), avisando dos nomes de pasta reservados.
+
+**Gerenciador de saves**
+- 🌎 **Traduzido por completo** (espanhol e inglês): faltavam telas que estavam só em português.
+
+**Correções**
+- A lista de pastas aparece **na hora**, sem precisar reler o USB.
+- Corrigida uma troca de cores nas bordas das capas (apareciam vermelhas onde deviam ser azuis) em alguns modos.
 
 ---
 

@@ -4,11 +4,28 @@
 
 Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en el **generador** (`generate_usb.py`), de la versión más nueva a la más antigua.
 
+- [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menú — antes de la 1.0 (versiones 0.x)](#menú--antes-de-la-10-versiones-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Generador (generate_usb.py)](#generador-generate_usbpy)
+
+---
+
+## Menu — 1.2
+
+**Navegación por carpetas**
+- 📁 **Nueva opción Opciones → Apariencia → Mostrar juegos: Lista o Carpetas.** En el modo **Carpetas**, las carpetas de la tarjeta se vuelven elementos en los que **entras** (A) y **vuelves** (B). Una carpeta con 2 juegos o más se vuelve carpeta; **una carpeta con un solo juego se vuelve ese juego**. Las carpetas de sistema (carátulas, vídeos, saves, roms…) siguen ignoradas.
+- 🎨 **Las carpetas tienen la cara del menú**: ícono de carpeta amarillo con la **letra grande en el medio**, con forma de carátula en los modos grandes (Carátulas, Carrusel, Vitrina, Tira). La carpeta queda **transparente**, sin marco — solo la seleccionada se resalta.
+- Mensaje de **"ningún juego encontrado"** más claro (en los 3 idiomas), avisando de los nombres de carpeta reservados.
+
+**Gestor de saves**
+- 🌎 **Traducido por completo** (español e inglés): faltaban pantallas que estaban solo en portugués.
+
+**Correcciones**
+- La lista de carpetas aparece **al instante**, sin tener que releer el USB.
+- Corregido un cambio de colores en los bordes de las carátulas (aparecían rojos donde debían ser azules) en algunos modos.
 
 ---
 
