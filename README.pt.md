@@ -12,7 +12,7 @@ Menu (`boot.iso`), firmware e gerador de cartão para a **ODE SataTo3DO** (placa
 
 > **Em 1 minuto:** rode o **`generate_usb.py`** — um **único arquivo** que faz todo o resto: baixa a arte, converte capas, telas e vídeos, monta os textos dos jogos e **copia o `boot.iso` (o menu)** para o USB.
 
-**Versões atuais:** menu **1.0** · firmware **TADEU 1.0.5** · [histórico completo](CHANGELOG.pt.md)
+**Versões atuais:** menu **1.2** · firmware **TADEU 1.0.5** · [histórico completo](CHANGELOG.pt.md)
 
 > 🟣 **TADEU** — este selo marca, no texto todo, o que **só existe com o firmware TADEU**. Tudo o que não tem o selo funciona também no firmware de fábrica. O menu descobre sozinho o que o seu ODE tem e **só mostra o que funciona**: nada aparece pela metade nem dá erro por falta de recurso.
 
@@ -300,7 +300,7 @@ Segurar o direcional acelera a rolagem.
 
 ### A lista de jogos
 
-- **Uma lista só, em ordem alfabética**: jogos em subpastas (até 3 níveis) entram na mesma lista.
+- **Lista única ou por pastas**: por padrão, os jogos em subpastas (até 3 níveis) entram numa só lista em ordem alfabética. A opção nova **Mostrar jogos: Pastas** deixa navegar pelas pastas do cartão (entra com **A**, volta com **B**); pasta com um jogo só vira o próprio jogo.
 - **Ordenação**: por nome, ano, gênero, produtora ou mais jogados. O **L / R** pula de grupo em grupo (letra, ano, gênero…).
 - **Artigo na frente**: mostra "The Need for Speed" em vez de "Need for Speed, The".
 - **Multi-disco**: os discos de um jogo viram uma entrada só. Ao jogar, todos entram na fila do ODE.

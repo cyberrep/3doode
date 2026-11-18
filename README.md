@@ -12,7 +12,7 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 > **In 1 minute:** run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
 
-**Current versions:** menu **1.0** · firmware **TADEU 1.0.5** · [full history](CHANGELOG.md)
+**Current versions:** menu **1.2** · firmware **TADEU 1.0.5** · [full history](CHANGELOG.md)
 
 > 🟣 **TADEU** — this badge marks, throughout the text, what **only exists with the TADEU firmware**. Everything without the badge also works on the factory firmware. The menu finds out by itself what your ODE has and **only shows what works**: nothing appears half-done and nothing fails for lack of a feature.
 
@@ -302,7 +302,7 @@ Holding the D-pad speeds up scrolling.
 
 ### The game list
 
-- **A single list, in alphabetical order**: games in subfolders (up to 3 levels) go into the same list.
+- **A single list or by folders**: by default, games in subfolders (up to 3 levels) go into one alphabetical list. The new **Show games: Folders** option lets you browse the card's folders instead (enter with **A**, back with **B**); a folder with a single game becomes that game.
 - **Sorting**: by name, year, genre, developer or most played. **L / R** jumps from group to group (letter, year, genre…).
 - **Article in front**: shows "The Need for Speed" instead of "Need for Speed, The".
 - **Multi-disc**: the discs of a game become a single entry. When you play, all of them are queued on the ODE.
