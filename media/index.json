@@ -1768,10 +1768,7 @@
 "Zhadnost - The People's Party (USA, Europe)"
 ],
 "firmware": [
-"SataTo3DO_TADEU_1.0.5_PICO-ORIGINAL.uf2",
-"SataTo3DO_TADEU_1.0.5_TESTE_pico2mb-dirhi-SEM-RELOGIO.uf2",
-"SataTo3DO_TADEU_1.0.5_USB-CDROM.uf2",
-"SataTo3DO_TADEU_1.0.5_USB-ONLY.uf2",
-"SataTo3DO_TADEU_1.0.5_USB-PICO-CLONE.uf2"
+"TADEU_1.0.6_DIR-HIGH.uf2",
+"TADEU_1.0.6_DIR-LOW.uf2"
 ]
 }
