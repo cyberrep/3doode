@@ -44,9 +44,6 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - When preparing the card, it **creates the `.config`, `saves`, `firmware` and `roms` folders**, so the menu finds everything in place.
 - The firmware choice is now **DIR-HIGH** or **DIR-LOW**, with an explanation of which one fits each board.
 
-**Under investigation**
-- On the Xport with a FAT32 card, one game may be missing from the list. No confirmed cause yet.
-
 ---
 
 ## Menu — 1.2

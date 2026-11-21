@@ -44,9 +44,6 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - Ao preparar o cartão, **cria as pastas `.config`, `saves`, `firmware` e `roms`**, para o menu já encontrar tudo no lugar.
 - A escolha do firmware passou a ser **DIR-HIGH** ou **DIR-LOW**, com a explicação de qual é o de cada placa.
 
-**Em investigação**
-- No Xport com cartão FAT32, um jogo pode não aparecer na lista. Ainda sem causa confirmada.
-
 ---
 
 ## Menu — 1.2
