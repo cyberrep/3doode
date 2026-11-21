@@ -4,12 +4,48 @@
 
 Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and the **generator** (`generate_usb.py`), from the newest version to the oldest.
 
+- [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menu — before 1.0 (0.x versions)](#menu--before-10-0x-versions)
 - [TADEU firmware](#tadeu-firmware)
 - [Generator (generate_usb.py)](#generator-generate_usbpy)
+
+---
+
+## Menu — 1.3
+
+**Game list**
+- 🏷️ **New option Options → Games → Game names: Title or File.** With **File** the list shows the file name without the extension (e.g. `Doom (USA)`); with **Title**, the usual clean name (`Doom`).
+- **A game stored as `.cue` + `.iso` with the same name shows up only once** (it used to show twice). If you use the saved list, run **Read the USB again** once.
+- **Empty Favorites and Recents**: new messages and the window closes on the first button press.
+
+**Notice and confirmation windows (standard pop-up)**
+- 🪟 **Every confirmation and notice now uses the same window**, in the menu and in the Tools: yellow title, golden line, text and a band at the bottom with the buttons (Ⓐ YES / Ⓑ NO, Ⓑ BACK, Ⓑ CANCEL). Several of them used to open full screen.
+- **One window from start to finish.** For backup, restore, extraction and firmware writing, the same window shows the question, the progress and the result.
+- **SUMMARY inside the window** at the end: "Saved successfully", size and time; in the save manager, the count of copied, identical and failed items.
+- Clear recents and clear statistics ask in the window, describing what will be erased.
+
+**Write progress**
+- 📊 **New "SAVING" progress**: shows what is being written (system ROM, firmware, NVRAM…), the **file name**, the bar with the percentage and the **speed in KB/s**.
+- **Ⓑ cancels the firmware backup and the firmware write.** When writing, the cancel happens before applying: the current firmware stays.
+- Writing the firmware asks for **a single confirmation** (it was two).
+- After writing the firmware: "The ODE is restarting the 3DO. If it doesn't return, power off and on."
+
+**Options and Tools**
+- **Read the USB again happens inside the window**, with the game count and the bar, without switching to the start screen.
+- Real scroll arrows on the information screens (they were the letters `^` and `v`).
+- Restore the options backup: clearer text ("All items will be restored from USB.").
+- The **STARTING THE GAME** window got the yellow title, like the others.
+
+**Web page**
+- New options **Show games (List / Folders)** and **Game names (Title / File)**.
+- When preparing the card, it **creates the `.config`, `saves`, `firmware` and `roms` folders**, so the menu finds everything in place.
+- The firmware choice is now **DIR-HIGH** or **DIR-LOW**, with an explanation of which one fits each board.
+
+**Under investigation**
+- On the Xport with a FAT32 card, one game may be missing from the list. No confirmed cause yet.
 
 ---
 
@@ -207,6 +243,19 @@ From October 10 to November 9, 2026.
 ---
 
 ## TADEU firmware
+
+### 1.0.6
+- 🕒 **The clock protects itself.** At power-on the firmware looks for the clock chip (DS3231). If the board does not have it, the two clock pins are released and the date and time functions stay off, instead of disturbing everything else.
+- 📦 **Two files, one for each kind of board: `TADEU_1.0.6_DIR-HIGH` and `TADEU_1.0.6_DIR-LOW`.**
+
+**Which file: DIR-HIGH or DIR-LOW?**
+
+The ODE boards have a chip that controls the direction of the data between the ODE and the console. There are two models of that chip, and they work with the direction signal inverted relative to each other. The firmware must match your board.
+
+- **`TADEU_1.0.6_DIR-LOW`**: original Waveshare board (74HC245 chip).
+- **`TADEU_1.0.6_DIR-HIGH`**: clone boards such as tzmwx and TaiHu (74LVC4245 chip).
+
+**If you write the wrong one:** the console shows the 3DO logo and then a black screen. Nothing is damaged: put the Pico in BOOTSEL mode (hold the button while plugging it into the computer) and write the other file.
 
 ### 1.0.5
 - **Real-time clock (DS3231)**: date, time, temperature and battery state.

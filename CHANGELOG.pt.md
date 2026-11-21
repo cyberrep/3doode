@@ -4,12 +4,48 @@
 
 Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador** (`generate_usb.py`), da versão mais nova para a mais antiga.
 
+- [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menu — antes da 1.0 (versões 0.x)](#menu--antes-da-10-versões-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Gerador (generate_usb.py)](#gerador-generate_usbpy)
+
+---
+
+## Menu — 1.3
+
+**Lista de jogos**
+- 🏷️ **Nova opção Opções → Jogos → Nome dos jogos: Título ou Arquivo.** Em **Arquivo** aparece o nome do arquivo sem a extensão (ex.: `Doom (USA)`); em **Título**, o nome limpo de sempre (`Doom`).
+- **Jogo gravado como `.cue` + `.iso` com o mesmo nome aparece uma vez só** (antes virava dois). Quem usa a lista guardada precisa fazer **Ler o USB de novo** uma vez.
+- **Favoritos e Recentes vazios**: mensagens novas ("Nenhum jogo em Favoritos." / "Nada jogado recentemente.") e a janela fecha no primeiro botão.
+
+**Janelas de aviso e confirmação (pop-up padrão)**
+- 🪟 **Todas as confirmações e avisos passaram a usar a mesma janela**, no menu e nas Ferramentas: título em amarelo, linha dourada, texto e uma faixa embaixo com os botões (Ⓐ SIM / Ⓑ NÃO, Ⓑ VOLTAR, Ⓑ CANCELAR). Antes várias abriam em tela cheia.
+- **Uma janela só do começo ao fim.** Em backup, restauração, extração e gravação de firmware, a mesma janela mostra a pergunta, o andamento e o resultado.
+- **RESUMO dentro da janela** ao terminar: "Gravado com sucesso", tamanho e tempo; no gerenciador de saves, a contagem de copiados, iguais e erros.
+- Limpar recentes e limpar estatísticas perguntam na janela, com a descrição do que será apagado.
+
+**Andamento das gravações**
+- 📊 **Novo andamento "GRAVANDO"**: mostra o que está sendo gravado (ROM do sistema, firmware, NVRAM…), o **nome do arquivo**, a barra com a porcentagem e a **velocidade em KB/s**.
+- **Ⓑ cancela o backup e a gravação do firmware.** Na gravação, o cancelamento acontece antes de aplicar: o firmware atual continua.
+- Gravar firmware pede **uma confirmação só** (eram duas).
+- Ao terminar de gravar o firmware: "O ODE está reiniciando o 3DO. Se não voltar, desligue e ligue."
+
+**Opções e Ferramentas**
+- **Ler o USB de novo acontece dentro da janela**, com a contagem de jogos e a barra, sem trocar para a tela de início.
+- Setas de rolagem de verdade nas telas de informação (antes eram as letras `^` e `v`).
+- Restaurar o backup das opções: texto mais direto ("Todos os itens serão restaurados do USB.").
+- A janela **JOGO SENDO INICIADO** ganhou o título em amarelo, no padrão das outras.
+
+**Página web**
+- Novas opções **Mostrar jogos (Lista / Pastas)** e **Nome dos jogos (Título / Arquivo)**.
+- Ao preparar o cartão, **cria as pastas `.config`, `saves`, `firmware` e `roms`**, para o menu já encontrar tudo no lugar.
+- A escolha do firmware passou a ser **DIR-HIGH** ou **DIR-LOW**, com a explicação de qual é o de cada placa.
+
+**Em investigação**
+- No Xport com cartão FAT32, um jogo pode não aparecer na lista. Ainda sem causa confirmada.
 
 ---
 
@@ -207,6 +243,19 @@ De 10 de outubro a 9 de novembro de 2026.
 ---
 
 ## Firmware TADEU
+
+### 1.0.6
+- 🕒 **O relógio se protege sozinho.** Ao ligar, o firmware procura o chip do relógio (DS3231). Se ele não existe na placa, os dois pinos do relógio são liberados e as funções de data e hora ficam desligadas, em vez de atrapalhar o resto.
+- 📦 **Dois arquivos, um para cada tipo de placa: `TADEU_1.0.6_DIR-HIGH` e `TADEU_1.0.6_DIR-LOW`.**
+
+**Qual arquivo usar: DIR-HIGH ou DIR-LOW?**
+
+As placas do ODE têm um chip que controla o sentido dos dados entre o ODE e o console. Existem dois modelos desse chip, e eles funcionam com o sinal de direção invertido um em relação ao outro. O firmware precisa ser o da sua placa.
+
+- **`TADEU_1.0.6_DIR-LOW`**: placa original Waveshare (chip 74HC245).
+- **`TADEU_1.0.6_DIR-HIGH`**: placas clone, como tzmwx e TaiHu (chip 74LVC4245).
+
+**Se gravar o errado:** o console mostra o logo do 3DO e depois a tela fica preta. Não estraga nada: ponha o Pico em modo BOOTSEL (segure o botão ao ligar no computador) e grave o outro arquivo.
 
 ### 1.0.5
 - **Relógio de tempo real (DS3231)**: data, hora, temperatura e estado da pilha.

@@ -12,7 +12,7 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 > **In 1 minute:** run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
 
-**Current versions:** menu **1.2** · firmware **TADEU 1.0.5** · [full history](CHANGELOG.md)
+**Current versions:** menu **1.3** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
 
 > 🟣 **TADEU** — this badge marks, throughout the text, what **only exists with the TADEU firmware**. Everything without the badge also works on the factory firmware. The menu finds out by itself what your ODE has and **only shows what works**: nothing appears half-done and nothing fails for lack of a feature.
 
@@ -221,7 +221,7 @@ Check what your ODE has in *Options → ODE Device → Features*. Everything tha
 
 ### ODE only or ODE + CD-ROM
 
-The menu detects by itself how many drives exist and shows it in *ODE information* as **"ODE only"** or **"ODE + CD-ROM"**. When installing the firmware, use the `.uf2` for **your board**: flashing the other one leaves a black screen after the logo (just flash the right one again through BOOTSEL).
+The menu detects by itself how many drives exist and shows it in *ODE information* as **"ODE only"** or **"ODE + CD-ROM"**. When installing the firmware, use the `.uf2` for **your board**: flashing the other one leaves a black screen after the logo (just flash the right one again through BOOTSEL). From 1.0.6 on the files are named **DIR-LOW** (original Waveshare board, 74HC245 chip) and **DIR-HIGH** (clone boards such as tzmwx and TaiHu, 74LVC4245 chip).
 
 ### Expansion board (Xport)
 
@@ -430,7 +430,7 @@ On the console this section is an accordion: open one group at a time.
 | **Read the USB again** | Reads the game list again. |
 | **Read at power-on** | Yes · Only if there are new ones · No. With the saved list the console starts faster. |
 | **Firmware backup** 🟣 **TADEU** | Copies the ODE firmware to `firmware/` on the USB. |
-| **Update firmware** 🟣 **TADEU** | Writes `firmware/update.ode` (or `.uf2`, or `.3do`), shows the percentage and asks you to turn the console off and on. |
+| **Update firmware** 🟣 **TADEU** | Writes `firmware/update.ode` (or `.uf2`, or `.3do`), shows the file, the percentage and the speed; **B** cancels before applying. At the end the ODE restarts; if the menu does not come back, turn the console off and on. |
 | **Date and time** 🟣 **TADEU** | Only appears with the clock. Sets the date and time and chooses 12 or 24 hours. |
 | **Test the ODE and the USB** | Diagnostics with read and cover timings; writes a report to the USB. |
 

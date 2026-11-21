@@ -12,7 +12,7 @@ Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (p
 
 > **En 1 minuto:** ejecuta **`generate_usb.py`** — un **único archivo** que hace todo lo demás: descarga el arte, convierte carátulas, capturas y vídeos, arma los textos de los juegos y **copia el `boot.iso` (el menú)** al USB.
 
-**Versiones actuales:** menú **1.2** · firmware **TADEU 1.0.5** · [historial completo](CHANGELOG.es.md)
+**Versiones actuales:** menú **1.3** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
 
 > 🟣 **TADEU** — este sello marca, en todo el texto, lo que **solo existe con el firmware TADEU**. Todo lo que no lleva el sello funciona también con el firmware de fábrica. El menú descubre por sí solo lo que tiene tu ODE y **solo muestra lo que funciona**: nada aparece a medias ni falla por falta de una función.
 
@@ -221,7 +221,7 @@ Comprueba lo que tiene tu ODE en *Opciones → Dispositivo ODE → Recursos*. To
 
 ### Solo ODE u ODE + CD-ROM
 
-El menú detecta solo cuántas unidades existen y lo muestra en *Información del ODE* como **"Solo ODE"** u **"ODE + CD-ROM"**. Al instalar el firmware, usa el `.uf2` de **tu placa**: grabar el de la otra deja la pantalla en negro después del logo (basta con volver a grabar el correcto por BOOTSEL).
+El menú detecta solo cuántas unidades existen y lo muestra en *Información del ODE* como **"Solo ODE"** u **"ODE + CD-ROM"**. Al instalar el firmware, usa el `.uf2` de **tu placa**: grabar el de la otra deja la pantalla en negro después del logo (basta con volver a grabar el correcto por BOOTSEL). Desde la 1.0.6 los archivos se llaman **DIR-LOW** (placa original Waveshare, chip 74HC245) y **DIR-HIGH** (placas clon como tzmwx y TaiHu, chip 74LVC4245).
 
 ### Placa de expansión (Xport)
 
@@ -430,7 +430,7 @@ En la consola, esta sección es un acordeón: abre un grupo cada vez.
 | **Leer el USB de nuevo** | Vuelve a leer la lista de juegos. |
 | **Leer al encender** | Sí · Solo si hay nuevos · No. Con la lista guardada la consola arranca más rápido. |
 | **Copia de seguridad del firmware** 🟣 **TADEU** | Copia el firmware de la ODE a `firmware/` en el USB. |
-| **Actualizar firmware** 🟣 **TADEU** | Graba `firmware/update.ode` (o `.uf2`, o `.3do`), muestra el porcentaje y pide apagar y encender la consola. |
+| **Actualizar firmware** 🟣 **TADEU** | Graba `firmware/update.ode` (o `.uf2`, o `.3do`), muestra el archivo, el porcentaje y la velocidad; **B** cancela antes de aplicar. Al final el ODE se reinicia; si el menú no vuelve, apaga y enciende la consola. |
 | **Fecha y hora** 🟣 **TADEU** | Solo aparece con el reloj. Ajusta la fecha y la hora y elige 12 o 24 horas. |
 | **Probar el ODE y el USB** | Diagnóstico con tiempos de lectura y de portadas; graba un informe en el USB. |
 

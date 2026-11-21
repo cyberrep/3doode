@@ -4,12 +4,48 @@
 
 Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en el **generador** (`generate_usb.py`), de la versión más nueva a la más antigua.
 
+- [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
 - [Menu — 1.0](#menu--10)
 - [Menú — antes de la 1.0 (versiones 0.x)](#menú--antes-de-la-10-versiones-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Generador (generate_usb.py)](#generador-generate_usbpy)
+
+---
+
+## Menu — 1.3
+
+**Lista de juegos**
+- 🏷️ **Nueva opción Opciones → Juegos → Nombre de los juegos: Título o Archivo.** Con **Archivo** aparece el nombre del archivo sin la extensión (ej.: `Doom (USA)`); con **Título**, el nombre limpio de siempre (`Doom`).
+- **Un juego guardado como `.cue` + `.iso` con el mismo nombre aparece una sola vez** (antes salía dos veces). Si usas la lista guardada, haz **Leer el USB de nuevo** una vez.
+- **Favoritos y Recientes vacíos**: mensajes nuevos y la ventana se cierra con el primer botón.
+
+**Ventanas de aviso y confirmación (pop-up estándar)**
+- 🪟 **Todas las confirmaciones y avisos usan ahora la misma ventana**, en el menú y en las Herramientas: título en amarillo, línea dorada, texto y una franja abajo con los botones (Ⓐ SÍ / Ⓑ NO, Ⓑ VOLVER, Ⓑ CANCELAR). Antes varias se abrían a pantalla completa.
+- **Una sola ventana de principio a fin.** En copia de seguridad, restauración, extracción y grabación de firmware, la misma ventana muestra la pregunta, el progreso y el resultado.
+- **RESUMEN dentro de la ventana** al terminar: "Grabado con éxito", tamaño y tiempo; en el gestor de partidas, el recuento de copiados, iguales y errores.
+- Borrar recientes y borrar estadísticas preguntan en la ventana, con la descripción de lo que se borrará.
+
+**Progreso de las grabaciones**
+- 📊 **Nuevo progreso "GRABANDO"**: muestra qué se está grabando (ROM del sistema, firmware, NVRAM…), el **nombre del archivo**, la barra con el porcentaje y la **velocidad en KB/s**.
+- **Ⓑ cancela la copia y la grabación del firmware.** En la grabación, la cancelación ocurre antes de aplicar: el firmware actual continúa.
+- Grabar el firmware pide **una sola confirmación** (eran dos).
+- Al terminar de grabar el firmware: "El ODE está reiniciando la 3DO. Si no vuelve, apague y encienda."
+
+**Opciones y Herramientas**
+- **Leer el USB de nuevo ocurre dentro de la ventana**, con el recuento de juegos y la barra, sin cambiar a la pantalla de inicio.
+- Flechas de desplazamiento de verdad en las pantallas de información (antes eran las letras `^` y `v`).
+- Restaurar la copia de las opciones: texto más directo ("Todos los elementos se restaurarán del USB.").
+- La ventana **INICIANDO EL JUEGO** tiene ahora el título en amarillo, como las demás.
+
+**Página web**
+- Nuevas opciones **Mostrar juegos (Lista / Carpetas)** y **Nombre de los juegos (Título / Archivo)**.
+- Al preparar la tarjeta, **crea las carpetas `.config`, `saves`, `firmware` y `roms`**, para que el menú lo encuentre todo en su sitio.
+- La elección del firmware pasa a ser **DIR-HIGH** o **DIR-LOW**, con la explicación de cuál corresponde a cada placa.
+
+**En investigación**
+- En el Xport con tarjeta FAT32, un juego puede no aparecer en la lista. Todavía sin causa confirmada.
 
 ---
 
@@ -207,6 +243,19 @@ Del 10 de octubre al 9 de noviembre de 2026.
 ---
 
 ## Firmware TADEU
+
+### 1.0.6
+- 🕒 **El reloj se protege solo.** Al encender, el firmware busca el chip del reloj (DS3231). Si la placa no lo tiene, los dos pines del reloj se liberan y las funciones de fecha y hora quedan desactivadas, en vez de estorbar al resto.
+- 📦 **Dos archivos, uno para cada tipo de placa: `TADEU_1.0.6_DIR-HIGH` y `TADEU_1.0.6_DIR-LOW`.**
+
+**¿Qué archivo usar: DIR-HIGH o DIR-LOW?**
+
+Las placas del ODE tienen un chip que controla el sentido de los datos entre el ODE y la consola. Hay dos modelos de ese chip, y funcionan con la señal de dirección invertida uno respecto al otro. El firmware tiene que ser el de tu placa.
+
+- **`TADEU_1.0.6_DIR-LOW`**: placa original Waveshare (chip 74HC245).
+- **`TADEU_1.0.6_DIR-HIGH`**: placas clon, como tzmwx y TaiHu (chip 74LVC4245).
+
+**Si grabas el equivocado:** la consola muestra el logo de 3DO y luego la pantalla queda negra. No se daña nada: pon el Pico en modo BOOTSEL (mantén el botón al conectarlo al ordenador) y graba el otro archivo.
 
 ### 1.0.5
 - **Reloj de tiempo real (DS3231)**: fecha, hora, temperatura y estado de la pila.
