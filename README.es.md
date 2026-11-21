@@ -12,7 +12,7 @@ Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (p
 
 > **En 1 minuto:** ejecuta **`generate_usb.py`** — un **único archivo** que hace todo lo demás: descarga el arte, convierte carátulas, capturas y vídeos, arma los textos de los juegos y **copia el `boot.iso` (el menú)** al USB.
 
-**Versiones actuales:** menú **1.3** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
+**Versiones actuales:** menú **1.4** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
 
 > 🟣 **TADEU** — este sello marca, en todo el texto, lo que **solo existe con el firmware TADEU**. Todo lo que no lleva el sello funciona también con el firmware de fábrica. El menú descubre por sí solo lo que tiene tu ODE y **solo muestra lo que funciona**: nada aparece a medias ni falla por falta de una función.
 

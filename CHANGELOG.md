@@ -4,6 +4,7 @@
 
 Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and the **generator** (`generate_usb.py`), from the newest version to the oldest.
 
+- [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
@@ -11,6 +12,37 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - [Menu — before 1.0 (0.x versions)](#menu--before-10-0x-versions)
 - [TADEU firmware](#tadeu-firmware)
 - [Generator (generate_usb.py)](#generator-generate_usbpy)
+
+---
+
+## Menu — 1.4
+
+**Game list**
+- **The first game on the card no longer goes missing on the Xport with FAT32.** On cards with one folder per letter, the game in the first folder (e.g. `#/3D Pinball…`) was left out of the list.
+- **A game with no description uses the one from the same game of another region.** "Battle Blues (Korea)" shows the developer, genre, year and description of "Battle Blues (USA)" when only one of them has text.
+- The **COULD NOT START** notice shows the whole error code (it used to show only the last digit).
+
+**Covers**
+- 🖼️ **New option Options → Appearance → Cover format.** Long boxes and CD jewel cases are no longer stretched:
+  - **Original** (default): the cover is shown in its own proportion, with the frame around it.
+  - **Ambilight**: the cover in the middle, with a glow in the cover's own colors filling the rest.
+  - **Black background**: the cover in the middle, the rest black.
+  - **Stretched**: as it was before.
+- It applies to every screen: List, Covers, Carousel, Carousel FX, Showcase, Strip, Description and the small cover on the home screen.
+- In the **List**, the cover always starts at the height of the first game row.
+- Covers need to be **written again** (the web page does it by itself); old ones keep working, stretched as before.
+
+**Options and Tools**
+- Five texts that showed up in Portuguese in Spanish and English are now translated (Read the USB again, save backup and the missing-tool notice).
+
+**Web page**
+- ✨ **Sharper, cleaner images.** Covers and screenshots are now shrunk by averaging the whole area of the original image, with light sharpening and no dithering: the jagged edges, the grain and the white outline around letters and characters are gone.
+- **Covers in their real proportion** (long box and CD jewel case), ready for the Cover format option.
+- **Old covers and screenshots on the card are replaced by the new ones** on the first write, even with "Keep" selected. Only the ones with no source to rebuild from stay.
+- **Summary before writing**: the Write to the card screen shows what will be written, what is already on the card and the total number of files.
+- **The right region's cover** for your own images: "Cannon Fodder (USA)" no longer takes the "(Europe)" cover. With no cover for the region, the order is USA, Europe, Japan.
+- Images in subfolders with unknown names (such as `cover3d`) no longer count as covers.
+- One button at a time while writing: Start when idle, Stop while writing.
 
 ---
 
@@ -283,6 +315,11 @@ The ODE boards have a chip that controls the direction of the data between the O
 ---
 
 ## Generator (`generate_usb.py`)
+
+### November 2026 (menu 1.4)
+- ✨ **Sharper, cleaner images**: area-average shrinking, light sharpening and no dithering, the same as the web page. The old "preparations" (text, sharp, soft…) are gone.
+- **Covers in their real proportion** (long box ≈ 76x140, CD jewel case ≈ 100x87), not stretched.
+- **Old covers and screenshots are rebuilt by themselves** on the first run (`generate_usb.py` and `converter_tudo.py`).
 
 ### November 2026
 - **Publisher** (`Publisher=`) in the game texts, in Portuguese, Spanish and English.

@@ -77,7 +77,7 @@ button{cursor:pointer}
 .mk.card{background:var(--green)}.mk.lib{background:var(--blue);color:#fff}.mk.own{background:var(--yellow)}.mk.loan{background:#f08a24}.mk.part{background:linear-gradient(135deg,var(--green) 50%,transparent 50%);border:1px solid var(--green);color:#fff}.mk.none{background:transparent;border:1px solid #454a78;color:#666c9c}
 .side{border-left:2px solid var(--edge);padding-left:12px;min-width:0}
 .cover{border:3px solid var(--blue);border-radius:6px;background:#0b0d22;width:206px;height:286px;margin:0 auto 8px;display:grid;place-items:center;position:relative;overflow:hidden}
-.cover canvas,.cover img{width:200px;height:280px;image-rendering:pixelated;display:block;object-fit:fill}
+.cover canvas,.cover img{width:200px;height:280px;image-rendering:pixelated;display:block;object-fit:contain}
 .cover .tag{position:absolute;top:2px;left:6px;right:6px;display:flex;justify-content:space-between;letter-spacing:.12em;text-shadow:0 1px 0 #000,0 0 4px #000}
 .cover .disc{width:120px;height:120px}.cover .disc::after{inset:44px}
 .kinds{display:grid;gap:4px}
@@ -195,7 +195,7 @@ const BASE = Q.get("base") || `https://raw.githubusercontent.com/${CFG.repo}/${C
 
 /* ---------------- Traduções do próprio menu do console (geradas do lang_table.inc) ---------------- */
 /* TR[texto em português] = [espanhol, inglês]. */
-const TR = {"JOGOS":["JUEGOS","GAMES"],"CAPAS":["PORTADAS","COVERS"],"CARROSSEL":["CARRUSEL","CAROUSEL"],"CARROSSEL FX":["CARRUSEL FX","CAROUSEL FX"],"VITRINE":["VITRINA","SHOWCASE"],"FAIXA":["TIRA","STRIP"],"Vitrine":["Vitrina","Showcase"],"Faixa":["Tira","Strip"],"Discos":["Discos","Discs"],"Última vez":["Última vez","Last time"],"DESCRIÇÃO":["DESCRIPCIÓN","DESCRIPTION"],"Favoritos":["Favoritos","Favorites"],"Recentes":["Recientes","Recent"],"Estatísticas":["Estadísticas","Statistics"],"Jogos":["Juegos","Games"],"Opções":["Opciones","Options"],"Fundo":["Fondo","Background"],"Padrão":["Estándar","Default"],"Fibra de carbono":["Fibra de carbono","Carbon fiber"],"Aço escovado":["Acero cepillado","Brushed steel"],"Colmeia":["Panal","Honeycomb"],"Listras":["Rayas","Stripes"],"Grade":["Rejilla","Grid"],"Chapa":["Chapa","Plate"],"Vinheta":["Viñeta","Vignette"],"Pontos":["Puntos","Dots"],"Tela ao ligar":["Pantalla al encender","Start screen"],"Menu principal":["Menú principal","Main menu"],"Ordenar por":["Ordenar por","Sort by"],"Nome":["Nombre","Name"],"Ano":["Año","Year"],"Gênero":["Género","Genre"],"Produtora":["Productora","Publisher"],"Desenvolvedora":["Desarrolladora","Developer"],"Desenv.":["Desarr.","Developer"],"Última ":["Última ","Last "],"Jogado":["Jugado","Played"],"Vezes jogado":["Veces jugado","Times played"],"Mais jogados":["Más jugados","Most played"],"Lembrar a posição":["Recordar la posición","Remember position"],"Artigo na frente":["Artículo delante","Article first"],"Nome dos jogos":["Nombre de los juegos","Game names"],"Título":["Título","Title"],"Arquivo":["Archivo","File"],"Protetor de tela":["Protector de pantalla","Screen saver"],"1 minuto":["1 minuto","1 minute"],"3 minutos":["3 minutos","3 minutes"],"5 minutos":["5 minutos","5 minutes"],"10 minutos":["10 minutos","10 minutes"],"Volume da música":["Volumen de la música","Music volume"],"Aleatória":["Aleatoria","Random"],"Último jogo":["Último juego","Last game"],"Jogado: ":["Jugado: ","Played: "],"VOLTAR":["VOLVER","BACK"],"JOGAR":["JUGAR","PLAY"],"ABRIR":["ABRIR","OPEN"],"Aparência":["Apariencia","Appearance"],"Áudio":["Audio","Audio"],"Dispositivo ODE":["Dispositivo ODE","ODE Device"],"Geral":["General","General"],"MENU PRINCIPAL":["MENÚ PRINCIPAL","MAIN MENU"],"MÍDIAS":["MEDIOS","MEDIA"],"Hora":["Hora","Time"],"Data":["Fecha","Date"],"Último jogado":["Último jugado","Last played"],"Espaço do USB":["Espacio del USB","USB space"],"Espaço da NVRAM":["Espacio de la NVRAM","NVRAM space"],"Exibição":["Vista","View"],"Mostrar jogos":["Mostrar juegos","Show games"],"Pastas":["Carpetas","Folders"],"Velocidade do nome":["Velocidad del nombre","Name speed"],"Muito lenta":["Muy lenta","Very slow"],"Lenta":["Lenta","Slow"],"Normal":["Normal","Normal"],"Rápida":["Rápida","Fast"],"Muito rápida":["Muy rápida","Very fast"],"Lista":["Lista","List"],"Descrição":["Descripción","Description"],"Letras":["Letras","Letters"],"Efeitos sonoros":["Efectos de sonido","Sound effects"],"Música de fundo":["Música de fondo","Background music"],"Último":["Último","Last"],"TELA":["PANTALLA","SCREEN"],"24 horas":["24 horas","24 hours"],"12 horas":["12 horas","12 hours"],"Nunca jogado":["Nunca jugado","Never played"],"Idioma":["Idioma","Language"],"Menu e Jogos":["Menú y Juegos","Menu and Games"],"Menu Principal":["Menú Principal","Main Menu"],"Desligado":["Apagado","Off"],"Desligada":["Apagada","Off"],"Ligado":["Encendido","On"],"Mostrar":["Mostrar","Show"],"Esconder":["Ocultar","Hide"],"Capas":["Portadas","Covers"],"Carrossel":["Carrusel","Carousel"],"Carrossel FX":["Carrusel FX","Carousel FX"],"Capa":["Portada","Cover"],"Tela":["Pantalla","Screen"],"Vídeo":["Vídeo","Video"],"Capa + Tela":["Portada + Pantalla","Cover + Screen"],"Capa + Tela + Vídeo":["Portada + Pantalla + Vídeo","Cover + Screen + Video"],"Capa + Tela / Vídeo":["Portada + Pantalla / Vídeo","Cover + Screen / Video"],"Capa + Vídeo":["Portada + Vídeo","Cover + Video"],"Tela + Vídeo":["Pantalla + Vídeo","Screen + Video"],"Tela / Vídeo":["Pantalla / Vídeo","Screen / Video"],"MAIÚSCULAS":["MAYÚSCULAS","UPPERCASE"],"minúsculas":["minúsculas","lowercase"],"Primeira maiúscula":["Primera mayúscula","First capital"],"Sim":["Sí","Yes"],"Não":["No","No"],"DESCRIÇÃO DO JOGO":["DESCRIPCIÓN DEL JUEGO","GAME DESCRIPTION"],"LISTA":["LISTA","LIST"],"Só se houver novos":["Solo nuevos","Only new"],"Temperatura":["Temperatura","Temperature"],"Ler ao ligar":["Leer al encender","Read at power on"],"País":["País","Country"],"Jogar CD":["Jugar CD","Play CD"]};
+const TR = {"JOGOS":["JUEGOS","GAMES"],"CAPAS":["PORTADAS","COVERS"],"CARROSSEL":["CARRUSEL","CAROUSEL"],"CARROSSEL FX":["CARRUSEL FX","CAROUSEL FX"],"VITRINE":["VITRINA","SHOWCASE"],"FAIXA":["TIRA","STRIP"],"Vitrine":["Vitrina","Showcase"],"Faixa":["Tira","Strip"],"Discos":["Discos","Discs"],"Última vez":["Última vez","Last time"],"DESCRIÇÃO":["DESCRIPCIÓN","DESCRIPTION"],"Favoritos":["Favoritos","Favorites"],"Recentes":["Recientes","Recent"],"Estatísticas":["Estadísticas","Statistics"],"Jogos":["Juegos","Games"],"Opções":["Opciones","Options"],"Fundo":["Fondo","Background"],"Padrão":["Estándar","Default"],"Fibra de carbono":["Fibra de carbono","Carbon fiber"],"Aço escovado":["Acero cepillado","Brushed steel"],"Colmeia":["Panal","Honeycomb"],"Listras":["Rayas","Stripes"],"Grade":["Rejilla","Grid"],"Chapa":["Chapa","Plate"],"Vinheta":["Viñeta","Vignette"],"Pontos":["Puntos","Dots"],"Tela ao ligar":["Pantalla al encender","Start screen"],"Menu principal":["Menú principal","Main menu"],"Ordenar por":["Ordenar por","Sort by"],"Nome":["Nombre","Name"],"Ano":["Año","Year"],"Gênero":["Género","Genre"],"Produtora":["Productora","Publisher"],"Desenvolvedora":["Desarrolladora","Developer"],"Desenv.":["Desarr.","Developer"],"Última ":["Última ","Last "],"Jogado":["Jugado","Played"],"Vezes jogado":["Veces jugado","Times played"],"Mais jogados":["Más jugados","Most played"],"Lembrar a posição":["Recordar la posición","Remember position"],"Artigo na frente":["Artículo delante","Article first"],"Formato das capas":["Formato de las portadas","Cover format"],"Original":["Original","Original"],"Ambilight":["Ambilight","Ambilight"],"Fundo preto":["Fondo negro","Black background"],"Esticada":["Estirada","Stretched"],"Nome dos jogos":["Nombre de los juegos","Game names"],"Título":["Título","Title"],"Arquivo":["Archivo","File"],"Protetor de tela":["Protector de pantalla","Screen saver"],"1 minuto":["1 minuto","1 minute"],"3 minutos":["3 minutos","3 minutes"],"5 minutos":["5 minutos","5 minutes"],"10 minutos":["10 minutos","10 minutes"],"Volume da música":["Volumen de la música","Music volume"],"Aleatória":["Aleatoria","Random"],"Último jogo":["Último juego","Last game"],"Jogado: ":["Jugado: ","Played: "],"VOLTAR":["VOLVER","BACK"],"JOGAR":["JUGAR","PLAY"],"ABRIR":["ABRIR","OPEN"],"Aparência":["Apariencia","Appearance"],"Áudio":["Audio","Audio"],"Dispositivo ODE":["Dispositivo ODE","ODE Device"],"Geral":["General","General"],"MENU PRINCIPAL":["MENÚ PRINCIPAL","MAIN MENU"],"MÍDIAS":["MEDIOS","MEDIA"],"Hora":["Hora","Time"],"Data":["Fecha","Date"],"Último jogado":["Último jugado","Last played"],"Espaço do USB":["Espacio del USB","USB space"],"Espaço da NVRAM":["Espacio de la NVRAM","NVRAM space"],"Exibição":["Vista","View"],"Mostrar jogos":["Mostrar juegos","Show games"],"Pastas":["Carpetas","Folders"],"Velocidade do nome":["Velocidad del nombre","Name speed"],"Muito lenta":["Muy lenta","Very slow"],"Lenta":["Lenta","Slow"],"Normal":["Normal","Normal"],"Rápida":["Rápida","Fast"],"Muito rápida":["Muy rápida","Very fast"],"Lista":["Lista","List"],"Descrição":["Descripción","Description"],"Letras":["Letras","Letters"],"Efeitos sonoros":["Efectos de sonido","Sound effects"],"Música de fundo":["Música de fondo","Background music"],"Último":["Último","Last"],"TELA":["PANTALLA","SCREEN"],"24 horas":["24 horas","24 hours"],"12 horas":["12 horas","12 hours"],"Nunca jogado":["Nunca jugado","Never played"],"Idioma":["Idioma","Language"],"Menu e Jogos":["Menú y Juegos","Menu and Games"],"Menu Principal":["Menú Principal","Main Menu"],"Desligado":["Apagado","Off"],"Desligada":["Apagada","Off"],"Ligado":["Encendido","On"],"Mostrar":["Mostrar","Show"],"Esconder":["Ocultar","Hide"],"Capas":["Portadas","Covers"],"Carrossel":["Carrusel","Carousel"],"Carrossel FX":["Carrusel FX","Carousel FX"],"Capa":["Portada","Cover"],"Tela":["Pantalla","Screen"],"Vídeo":["Vídeo","Video"],"Capa + Tela":["Portada + Pantalla","Cover + Screen"],"Capa + Tela + Vídeo":["Portada + Pantalla + Vídeo","Cover + Screen + Video"],"Capa + Tela / Vídeo":["Portada + Pantalla / Vídeo","Cover + Screen / Video"],"Capa + Vídeo":["Portada + Vídeo","Cover + Video"],"Tela + Vídeo":["Pantalla + Vídeo","Screen + Video"],"Tela / Vídeo":["Pantalla / Vídeo","Screen / Video"],"MAIÚSCULAS":["MAYÚSCULAS","UPPERCASE"],"minúsculas":["minúsculas","lowercase"],"Primeira maiúscula":["Primera mayúscula","First capital"],"Sim":["Sí","Yes"],"Não":["No","No"],"LISTA":["LISTA","LIST"],"Só se houver novos":["Solo nuevos","Only new"],"Temperatura":["Temperatura","Temperature"],"Ler ao ligar":["Leer al encender","Read at power on"],"País":["País","Country"],"Jogar CD":["Jugar CD","Play CD"],"DESCRIÇÃO DO JOGO":["DESCRIPCIÓN DEL JUEGO","GAME DESCRIPTION"],"Formato da hora":["Formato de la hora","Time format"]};
 Object.assign(TR, {"Formato da hora":["Formato de la hora","Time format"],"Jogado":["Jugado","Played"]});
 
 /* ---------------- Textos só desta página ---------------- */
@@ -225,6 +225,7 @@ en:{title:"USB / SD SETUP",
  o_xport:"My ODE is the Xport (expansion board)",o_tadeu:"My ODE has the TADEU firmware",o_rtc:"My ODE has the clock (RTC)",o_keep:"Options on the card: not changed",o_set:"Options on the card: will be written",
  miss_t:"What was missing",miss_none:"Nothing was missing.",miss_dl:"Download the list",
  mu_play:"Listen to the music",mu_stop:"Stop",
+ sum_t:"What will be written",sum_new:"to write",sum_keep:"already on the card",sum_miss:"not available",sum_total:"Files to write",sum_old:"replaces the old ones",sum_folders:"Folders",
  sp_wait:"Waiting",sp_done:"Copied",sp_none:"Nothing to copy",
  k_rename:"Rename",s_rename:"RENAME THE GAMES",
  r_note:"Gives your game files the official disc names (the ones in our list), so covers, videos and texts match. The .cue is fixed too. Nothing is converted and nothing is deleted.",
@@ -269,6 +270,7 @@ pt:{title:"PREPARAR O USB / SD",
  o_xport:"Meu ODE é o Xport (placa de expansão)",o_tadeu:"Meu ODE tem o firmware TADEU",o_rtc:"Meu ODE tem o relógio (RTC)",o_keep:"Opções do cartão: não serão alteradas",o_set:"Opções do cartão: serão gravadas",
  miss_t:"O que faltou",miss_none:"Não faltou nada.",miss_dl:"Baixar a lista",
  mu_play:"Ouvir a música",mu_stop:"Parar",
+ sum_t:"O que será gravado",sum_new:"a gravar",sum_keep:"já no cartão",sum_miss:"sem mídia",sum_total:"Arquivos a gravar",sum_old:"substitui as antigas",sum_folders:"Pastas",
  sp_wait:"A copiar",sp_done:"Copiado",sp_none:"Nada a copiar",
  k_rename:"Renomear",s_rename:"RENOMEAR OS JOGOS",
  r_note:"Dá aos arquivos dos seus jogos o nome oficial dos discos (o da nossa lista), para as capas, os vídeos e os textos casarem. O .cue é acertado junto. Nada é convertido e nada é apagado.",
@@ -313,6 +315,7 @@ es:{title:"PREPARAR EL USB / SD",
  o_xport:"Mi ODE es el Xport (placa de expansión)",o_tadeu:"Mi ODE tiene el firmware TADEU",o_rtc:"Mi ODE tiene el reloj (RTC)",o_keep:"Opciones de la tarjeta: no se cambiarán",o_set:"Opciones de la tarjeta: se grabarán",
  miss_t:"Lo que faltó",miss_none:"No faltó nada.",miss_dl:"Descargar la lista",
  mu_play:"Escuchar la música",mu_stop:"Parar",
+ sum_t:"Lo que se grabará",sum_new:"por grabar",sum_keep:"ya en la tarjeta",sum_miss:"sin medio",sum_total:"Archivos por grabar",sum_old:"reemplaza las antiguas",sum_folders:"Carpetas",
  sp_wait:"Por copiar",sp_done:"Copiado",sp_none:"Nada que copiar",
  k_rename:"Renombrar",s_rename:"RENOMBRAR LOS JUEGOS",
  r_note:"Da a los archivos de tus juegos el nombre oficial de los discos (el de nuestra lista), para que coincidan las portadas, los vídeos y los textos. El .cue se corrige también. No se convierte ni se borra nada.",
@@ -348,7 +351,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 /* ---------------- As opções do menu do console (as mesmas do boot; o valor gravado é o texto em português) ---------------- */
 const V = {
   WHERE:["Menu e Jogos","Menu Principal","Jogos","Desligado"], SHOW:["Mostrar","Esconder"], CLOCK:["24 horas","12 horas"],
-  VIEW:["Lista","Capas","Carrossel","Carrossel FX","Vitrine","Faixa"], FOLDERS:["Lista","Pastas"], NAMES:["Título","Arquivo"], LISTMEDIA:["Desligado","Capa","Tela","Vídeo"],
+  VIEW:["Lista","Capas","Carrossel","Carrossel FX","Vitrine","Faixa"], FOLDERS:["Lista","Pastas"], NAMES:["Título","Arquivo"], COVERFMT:["Original","Ambilight","Fundo preto","Esticada"], LISTMEDIA:["Desligado","Capa","Tela","Vídeo"],
   DESC:["Desligado","Capa","Capa + Tela","Capa + Tela + Vídeo","Capa + Tela / Vídeo","Capa + Vídeo","Tela","Tela + Vídeo","Tela / Vídeo","Vídeo"],
   SPEED:["Muito lenta","Lenta","Normal","Rápida","Muito rápida"], SORT:["Nome","Ano","Gênero","Produtora","Mais jogados"],
   START:["Menu principal","Jogos","Favoritos","Recentes"], SAVER:["Desligado","1 minuto","3 minutos","5 minutos","10 minutos"],
@@ -365,7 +368,7 @@ const SECS = [
       ["Espaço do USB",V.SHOW,"menu_usb","usb"],["Espaço da NVRAM",V.SHOW,"menu_nvram"],["Tela ao ligar",V.START,"menu_inicio"]]},
     {hdr:"JOGOS", items:[["Exibição",V.VIEW,"interface_view"],["Mostrar jogos",V.FOLDERS,"interface_pastas"],["Ordenar por",V.SORT,"jogos_ordem"],["Lembrar a posição",V.ONOFF,"jogos_lembrar"],
       ["Nome dos jogos",V.NAMES,"jogos_nome"],["Artigo na frente",V.ONOFF,"jogos_artigo"],["Velocidade do nome",V.SPEED,"interface_nome_vel"],["Letras",V.CASE,"interface_letras"]]},
-    {hdr:"MÍDIAS", items:[["Lista",V.LISTMEDIA,"interface_midia","list"],["Descrição",V.DESC,"interface_descricao"]]},
+    {hdr:"MÍDIAS", items:[["Lista",V.LISTMEDIA,"interface_midia","list"],["Descrição",V.DESC,"interface_descricao"],["Formato das capas",V.COVERFMT,"capas_formato"]]},
     {hdr:"DESCRIÇÃO", items:[["Desenvolvedora",V.SHOW,"desc_desenvolvedora"],["Produtora",V.SHOW,"desc_produtora"],["Gênero",V.SHOW,"desc_genero"],["Ano",V.SHOW,"desc_ano"],["País",V.SHOW,"desc_pais"],
       ["Discos",V.SHOW,"desc_discos"],["Vezes jogado",V.SHOW,"desc_jogadas"],["Última vez",V.SHOW,"desc_ultima"]]},
     {hdr:"TELA", items:[["Fundo",V.BG,"tela_fundo"],["Protetor de tela",V.SAVER,"tela_protetor"]]}]},
@@ -374,7 +377,7 @@ const SECS = [
   {name:"Geral", groups:[{items:[["Idioma",V.LANG,"idioma"]]}]}
 ];
 const CFG_DEFAULT = {interface_pastas:"Lista", interface_midia:"Capa", interface_descricao:"Capa + Tela / Vídeo", interface_letras:"Primeira maiúscula", interface_nome_vel:"Normal",
-  audio_music_vol:"10", jogos_artigo:"Desligado", jogos_nome:"Título", tela_protetor:"5 minutos", interface_tema:"3DO"};
+  audio_music_vol:"10", jogos_artigo:"Desligado", jogos_nome:"Título", capas_formato:"Original", tela_protetor:"5 minutos", interface_tema:"3DO"};
 const ALL_ITEMS = SECS.flatMap(s => s.groups.flatMap(g => g.items));
 function cfgDefaults(){ const c = {}; for (const [, vals, key] of ALL_ITEMS) c[key] = CFG_DEFAULT[key] || vals[0]; c.interface_tema = "3DO"; return c; }
 function parseCfg(txt){
@@ -392,7 +395,7 @@ function parseCfg(txt){
 }
 function cfgText(c){
   const order = ["menu_favoritos","menu_recentes","menu_estatisticas","menu_ultimo","menu_hora","menu_data","menu_temp","menu_usb","menu_nvram","menu_inicio",
-    "interface_view","interface_pastas","jogos_ordem","jogos_lembrar","jogos_nome","jogos_artigo","interface_nome_vel","interface_letras","interface_midia","interface_descricao",
+    "interface_view","interface_pastas","jogos_ordem","jogos_lembrar","jogos_nome","jogos_artigo","interface_nome_vel","interface_letras","interface_midia","interface_descricao","capas_formato",
     "desc_desenvolvedora","desc_produtora","desc_genero","desc_ano","desc_pais","desc_discos","desc_jogadas","desc_ultima","interface_tema",
     "tela_fundo","tela_protetor","audio_fx","audio_music","audio_music_vol","usb_ler_ao_ligar","hora_formato","idioma"];
   /* 1.1: preserva os campos auto-detectados pelo boot (senão o console regrava todo arranque). */
@@ -477,23 +480,79 @@ function celDecode(buf){
   }
   return img;
 }
-const BAYER = [0,8,2,10, 12,4,14,6, 3,11,1,9, 15,7,13,5];
-/* Imagem (png, jpg...) -> CEL na caixa bw x bh. fill: a capa ocupa a caixa inteira e ganha os cantos arredondados do menu;
+/* ---- Redução de imagem com qualidade (capas e telas) ----
+ * O navegador reduz mal uma imagem grande num passo só (serrilha). Aqui cada pixel de destino é a MÉDIA de toda a
+ * área de origem que cai nele, calculada em luz linear (sem escurecer os detalhes finos); depois uma nitidez leve
+ * (c + (4c - vizinhos) / 5) e o arredondamento para os 5 bits por cor do 3DO, SEM pontilhado. É o mesmo cálculo do
+ * generate_usb.py. */
+const LIN = new Float32Array(256); for (let i = 0; i < 256; i++){ const c = i / 255; LIN[i] = c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+const toSrgb = v => 255 * (v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow(Math.min(1, v), 1 / 2.4) - 0.055);
+/* Pesos da média por área de n pixels de origem para m de destino: para cada destino, o primeiro pixel e os pesos. */
+function areaWeights(n, m){
+  const out = [];
+  for (let i = 0; i < m; i++){
+    const lo = i * n / m, hi = (i + 1) * n / m, a = Math.floor(lo), b = Math.min(n, Math.ceil(hi)), w = new Float32Array(b - a);
+    for (let k = a; k < b; k++) w[k - a] = (Math.min(hi, k + 1) - Math.max(lo, k)) / (hi - lo);
+    out.push([a, w]);
+  }
+  return out;
+}
+/* RGBA 8 bits (sw x sh) -> Float32 RGB em sRGB 0..255 (w x h), pela média por área em luz linear. */
+function shrinkRGB(d, sw, sh, w, h){
+  const wx = areaWeights(sw, w), wy = areaWeights(sh, h), tmp = new Float32Array(sh * w * 3), out = new Float32Array(w * h * 3);
+  for (let y = 0; y < sh; y++) for (let i = 0; i < w; i++){
+    const [a, ws] = wx[i]; let r = 0, g = 0, b = 0;
+    for (let k = 0; k < ws.length; k++){ const o = (y * sw + a + k) * 4, f = ws[k]; r += LIN[d[o]] * f; g += LIN[d[o + 1]] * f; b += LIN[d[o + 2]] * f; }
+    const t = (y * w + i) * 3; tmp[t] = r; tmp[t + 1] = g; tmp[t + 2] = b;
+  }
+  for (let j = 0; j < h; j++){
+    const [a, ws] = wy[j];
+    for (let i = 0; i < w; i++){
+      let r = 0, g = 0, b = 0;
+      for (let k = 0; k < ws.length; k++){ const t = ((a + k) * w + i) * 3, f = ws[k]; r += tmp[t] * f; g += tmp[t + 1] * f; b += tmp[t + 2] * f; }
+      const o = (j * w + i) * 3; out[o] = toSrgb(r); out[o + 1] = toSrgb(g); out[o + 2] = toSrgb(b);
+    }
+  }
+  return out;
+}
+/* Float32 RGB (w x h) -> pixels RGB555: nitidez leve e arredondamento, sem pontilhado. */
+function toRgb555(rgb, w, h){
+  const px = new Uint16Array(w * h), at = (x, y, c) => rgb[(Math.max(0, Math.min(h - 1, y)) * w + Math.max(0, Math.min(w - 1, x))) * 3 + c];
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++){
+    let v = 0;
+    for (let c = 0; c < 3; c++){
+      const p = at(x, y, c), s = p + (4 * p - at(x - 1, y, c) - at(x + 1, y, c) - at(x, y - 1, c) - at(x, y + 1, c)) / 5;
+      v = (v << 5) | Math.max(0, Math.min(31, Math.round(s * 31 / 255)));
+    }
+    px[y * w + x] = v;
+  }
+  return px;
+}
+/* Imagem (png, jpg...) -> CEL na caixa bw x bh. fill: a capa (na proporção dela, encostada na caixa) ganha os cantos arredondados do menu;
  * sem fill, a tela cabe inteira na caixa mantendo a proporção. */
 async function imageToCel(file, bw, bh, fill){
   const bmp = await createImageBitmap(file);
   let w = bw, h = bh;
   if (!fill){ const s = Math.min(bw / bmp.width, bh / bmp.height, 1); w = Math.max(1, Math.round(bmp.width * s)); h = Math.max(1, Math.round(bmp.height * s)); }
-  const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
-  const cx = cv.getContext("2d"); cx.imageSmoothingQuality = "high"; cx.fillStyle = "#000"; cx.fillRect(0, 0, w, h); cx.drawImage(bmp, 0, 0, w, h);
-  const d = cx.getImageData(0, 0, w, h).data, px = new Uint16Array(w * h);
-  const q = (c, b) => Math.max(0, Math.min(31, Math.round((c + (b / 16 - 0.47) * 5) * 31 / 255)));
-  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++){
-    const o = (y * w + x) * 4, b = BAYER[(y & 3) * 4 + (x & 3)];
-    let v = (q(d[o], b) << 10) | (q(d[o + 1], b) << 5) | q(d[o + 2], b);
-    if (fill && !v) v = 1;                      // 0 é transparente no menu
-    px[y * w + x] = v;
+  else {
+    /* Capa: na proporção dela (long box fica mais estreita, caixa de CD mais baixa), sem esticar. Largura par.
+     * Quase a proporção da caixa (até 4%): ocupa a caixa inteira. O menu escolhe como mostrar a sobra. */
+    const s = Math.min(bw / bmp.width, bh / bmp.height), fw = bmp.width * s, fh = bmp.height * s;
+    if (fw < bw * 0.96) w = Math.max(8, Math.round(fw / 2) * 2);
+    if (fh < bh * 0.96) h = Math.max(8, Math.round(fh));
   }
+  /* Origem maior que o destino (o normal): média por área, a partir da imagem inteira. Origem menor: o navegador amplia. */
+  /* (Imagem enorme, mais de 12 milhões de pixels: o navegador reduz um pouco antes, para caber na memória.) */
+  const big = bmp.width >= w && bmp.height >= h, pre = Math.min(1, Math.sqrt(12e6 / (bmp.width * bmp.height)));
+  const cw = big ? Math.max(w, Math.round(bmp.width * pre)) : w, ch = big ? Math.max(h, Math.round(bmp.height * pre)) : h;
+  const cv = document.createElement("canvas"); cv.width = cw; cv.height = ch;
+  const cx = cv.getContext("2d", {willReadFrequently:true}); cx.imageSmoothingQuality = "high"; cx.fillStyle = "#000"; cx.fillRect(0, 0, cw, ch); cx.drawImage(bmp, 0, 0, cw, ch);
+  const d = cx.getImageData(0, 0, cw, ch).data;
+  let rgb;
+  if (big) rgb = shrinkRGB(d, cw, ch, w, h);
+  else { rgb = new Float32Array(w * h * 3); for (let i = 0; i < w * h; i++){ rgb[i * 3] = d[i * 4]; rgb[i * 3 + 1] = d[i * 4 + 1]; rgb[i * 3 + 2] = d[i * 4 + 2]; } }
+  const px = toRgb555(rgb, w, h);
+  if (fill) for (let i = 0; i < px.length; i++) if (!px[i]) px[i] = 1;      // 0 é transparente no menu
   if (fill) [[0, 2], [1, 1]].forEach(([r, n]) => { for (const y of [r, h - 1 - r]) for (let x = 0; x < n; x++){ px[y * w + x] = 0; px[y * w + w - 1 - x] = 0; } });
   return celEncode(px, w, h);
 }
@@ -510,9 +569,10 @@ const S = {
   lib:{covers:new Map(), screenshots:new Map(), videos:new Map(), firmware:[]},
   libAll:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   own:{covers:new Map(), screenshots:new Map(), videos:new Map()},
+  ownAll:{covers:new Map(), screenshots:new Map(), videos:new Map()}, ownOne:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   gl:new Map(), glLang:"",
   o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true},
-  cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, tadeu:false, rtc:false, xport:false,
+  mediaVer:{}, cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, tadeu:false, rtc:false, xport:false,
   screen:"home", sel:0, filter:"all", sec:0, grp:0, busy:false, stop:false
 };
 const IMG = /\.(png|jpe?g|webp|bmp|gif)$/i;
@@ -556,15 +616,39 @@ function libPick(g, kind){
   }
   c.set(g, r); return r;
 }
+/* A mídia PRÓPRIA (pasta do computador) do jogo g: a escolhida à mão para ele; senão, entre os arquivos de mesmo
+ * título, o de mesmo nome; senão o da mesma região; senão USA, Europe, Japan; senão o primeiro. Antes valia o
+ * primeiro arquivo achado: "Cannon Fodder (USA)" ficava com a capa do "(Europe)". */
+function ownPick(g, kind){
+  const one = S.ownOne[kind].get(g.toLowerCase()); if (one) return one;
+  const all = S.ownAll[kind].get(norm(g)) || [];
+  if (!all.length) return S.own[kind].get(norm(g));
+  const stem = g.replace(/\.(iso|cue)$/i, "").toLowerCase(), rg = regionOf(g);
+  const p = all.find(x => x.name.toLowerCase() === stem) || (rg && all.find(x => regionOf(x.name) === rg))
+    || ["usa", "europe", "japan"].map(r => all.find(x => regionOf(x.name) === r)).find(Boolean) || all[0];
+  return p.h;
+}
 /* De onde vem a mídia do jogo quando ela é da biblioteca mas não é a dele ("" = é a dele). */
 function loanOf(g, kind){ if (status(g, kind) !== "lib") return ""; const p = libPick(g, kind); return p ? p.loan : ""; }
 function loanText(g, kind){ const p = libPick(g, kind); return p && p.alike ? t("lg_alike") + ": " + p.name : t("lg_loan") + " (" + p.loan + ")"; }
 const libName = (g, kind) => { const p = libPick(g, kind); return p ? p.name : S.lib[kind].get(norm(g)); };
+/* Versão das imagens do cartão (.config/3domedia.ode: "capas=2", "telas=2"). Cartão gravado antes da 1.4 não tem o
+ * arquivo: as capas (esticadas, com pontilhado) e as telas dele são ANTIGAS e a página as substitui pelas novas da
+ * biblioteca ou da pasta da pessoa, mesmo com "Manter" escolhido. Só fica a antiga que não tem de onde refazer. */
+const MEDIA_VER = 2, MEDIA_KEY = {covers:"capas", screenshots:"telas"};
+const stale = kind => !S.demo && !!MEDIA_KEY[kind] && (S.mediaVer[kind] || 0) < MEDIA_VER && S.card[kind].some(set => set.size > 0);
+const keeps = kind => S.o.keep && !stale(kind);
+async function readMediaVer(){
+  const v = {};
+  try { const f = await (await (await dirAt([".config"], false)).getFileHandle("3domedia.ode")).getFile();
+        for (const m of (await f.text()).matchAll(/^(\w+)=(\d+)/gm)) for (const k in MEDIA_KEY) if (MEDIA_KEY[k] === m[1]) v[k] = Number(m[2]); } catch(e){}
+  return v;
+}
 function status(g, kind){
   const k = norm(g);
   if (S.own[kind].has(k)) return "own";
   const n = S.card[kind].filter(set => set.has(g.toLowerCase())).length, full = n === S.card[kind].length, inLib = !!libPick(g, kind);
-  if (full && (S.o.keep || !inLib)) return "card";
+  if (full && (keeps(kind) || !inLib)) return "card";
   if (inLib) return "lib";
   return n ? "part" : "none";               // part: no cartão só num dos tamanhos, e a biblioteca não tem
 }
@@ -675,11 +759,12 @@ async function loadLibrary(){
 }
 async function openCard(demo){
   S.demo = demo; S.cfgOnCard = false; S.own = {covers:new Map(), screenshots:new Map(), videos:new Map()};
+  S.ownAll = {covers:new Map(), screenshots:new Map(), videos:new Map()}; S.ownOne = {covers:new Map(), screenshots:new Map(), videos:new Map()};
   if (demo){ S.root = null; S.rootName = "DEMO"; S.games = DEMO_GAMES.slice(); S.card = {covers:[new Set(["doom (usa)","gex (usa)"]), new Set(["doom (usa)"])], screenshots:[new Set(), new Set()], videos:[new Set()]}; }
   else {
     S.root = await window.showDirectoryPicker({mode:"readwrite"}); S.rootName = S.root.name || "USB / SD";
     S.games = (await scan(S.root, 0, [])).sort((a,b) => a.localeCompare(b, undefined, {sensitivity:"base"}));
-    S.card = await readCard();
+    S.card = await readCard(); S.mediaVer = await readMediaVer();
     try { const f = await (await (await dirAt([".config"], false)).getFileHandle("3doconfig.ode")).getFile(); S.cfg = parseCfg(await f.text()); S.cfgOnCard = true;
           const l = Object.keys(CFG_LANG).find(k => CFG_LANG[k] === S.cfg.idioma); if (l) { S.txtLang = l; S.txtLangTouched = true; }
           /* 1.1: o boot gravou o ODE/firmware/relógio detectados — já pré-seleciona. */
@@ -692,15 +777,22 @@ async function openCard(demo){
   S.sel = 0; S.filter = "all"; coverCache.clear();
   await loadLibrary();
 }
-/* Uma pasta do computador com as mídias da pessoa: imagens e .cvd, em subpastas covers / screenshots / videos (imagem solta = capa). */
+/* Uma pasta do computador com as mídias da pessoa: imagens e .cvd, em subpastas covers / screenshots / videos (imagem solta na pasta escolhida = capa). */
 async function openOwn(){
   const dir = await window.showDirectoryPicker({mode:"read"});
   async function walk(d, kind, depth){
     for await (const [n, h] of d.entries()){
       if (n.startsWith(".")) continue;
       if (h.kind === "directory"){ const k = Object.keys(KINDS).find(x => KINDS[x].dirs.includes(n.toLowerCase())); if (depth < 3) await walk(h, k || kind, depth + 1); continue; }
-      const k = /\.cvd$/i.test(n) ? "videos" : IMG.test(n) ? (kind === "videos" ? null : (kind || "covers")) : null;
-      if (k && !S.own[k].has(norm(n))) S.own[k].set(norm(n), h);
+      /* Imagem solta só vale como capa na própria pasta escolhida; dentro de uma subpasta de nome desconhecido
+       * (cover3d, fanart...) é ignorada, para não passar na frente da pasta covers. */
+      const k = /\.cvd$/i.test(n) ? "videos" : IMG.test(n) ? (kind === "videos" ? null : (kind || (depth === 0 ? "covers" : null))) : null;
+      if (k){
+        const key = norm(n);
+        if (!S.own[k].has(key)) S.own[k].set(key, h);
+        if (!S.ownAll[k].has(key)) S.ownAll[k].set(key, []);
+        S.ownAll[k].get(key).push({name:n.replace(/\.[^.]+$/, ""), h});
+      }
     }
   }
   await walk(dir, null, 0); coverCache.clear();
@@ -709,12 +801,12 @@ async function openOwn(){
 /* ---------------- Capa do jogo selecionado ---------------- */
 const coverCache = new Map();
 async function coverOf(g){
-  const k = norm(g);
+  const k = g.toLowerCase();      // por jogo (não por título): USA e Europe podem ter capas diferentes
   if (coverCache.has(k)) return coverCache.get(k);
   let res = null;
   try {
     const st = status(g, "covers");
-    if (st === "own"){ const h = S.own.covers.get(k); res = {url: URL.createObjectURL(h.getFile ? await h.getFile() : h)}; }
+    if (st === "own"){ const h = ownPick(g, "covers"); res = {url: URL.createObjectURL(h.getFile ? await h.getFile() : h)}; }
     else if (S.card.covers[1].has(g.toLowerCase()) && st !== "lib" && !S.demo) res = {img: celDecode(await (await (await (await dirAt(["covers","large"], false)).getFileHandle(g + ".cel")).getFile()).arrayBuffer())};
     else if (st === "lib" && !S.demo) res = {img: celDecode(await (await get(CFG.coverL + libName(g, "covers") + ".cel")).arrayBuffer())};
   } catch(e){}
@@ -1173,7 +1265,7 @@ async function checkCopy(ki, gi){
       for (const g of list){
         const now = $("cnow"); if (now) now.textContent = t("c_copying") + " " + (++n) + "/" + list.length + ": " + g;
         try {
-          const own = S.own[m.kind].get(norm(g));
+          const own = S.own[m.kind].has(norm(g)) ? ownPick(g, m.kind) : null;
           let data = null;
           if (!S.demo){
             if (own){ const f = own.getFile ? await own.getFile() : own; data = box ? await imageToCel(f, box[0], box[1], K.fill) : await f.arrayBuffer(); }
@@ -1231,10 +1323,37 @@ async function drawCheck(){
     <p style="margin:14px 0 0"><button class="big stop" id="cdl">${esc(t("c_dl"))}</button></p>`;
 }
 
+/* O resumo do que o Começar vai gravar (as mesmas regras do run): uma linha por tipo. */
+function writeSummary(){
+  const o = S.o, rows = []; let total = 0;
+  const row = (label, text, n) => { rows.push(`<div class="${n ? "wait" : "ok"}"><span>${esc(t(label))}</span><b>${esc(text)}</b></div>`); total += n || 0; };
+  if (o.o_boot) row("l_boot", "boot.iso", 1);
+  for (const kind in KINDS){
+    const K = KINDS[kind]; if (!o[K.opt]) continue;
+    let nw = 0, keep = 0, miss = 0;
+    for (const g of S.games){
+      const st = status(g, kind);
+      if (st === "none" || st === "part") { miss++; continue; }
+      if (st === "card") { keep++; continue; }
+      let n = 0;
+      for (const i of K.places.keys()) if (!(keeps(kind) && S.card[kind][i].has(g.toLowerCase()))) n++;
+      if (n) nw += n; else keep++;
+    }
+    row(K.log, nw + " " + t("sum_new") + " · " + keep + " " + t("sum_keep") + (miss ? " · " + miss + " " + t("sum_miss") : "") + (stale(kind) ? " · " + t("sum_old") : ""), nw);
+  }
+  if (o.o_txt) row("l_txt", CFG_LANG[S.txtLang], 1);
+  if (o.fw) row("l_fw", o.fw + " → firmware/update.ode", 1);
+  if (S.cfgTouched || !S.cfgOnCard) row("l_cfg", "3doconfig.ode", 1);
+  if (SAVE_NAMES.length > 1) row("l_savenames", "3dogamessaves.ode", 1);
+  rows.push(`<div class="ok"><span>${esc(t("sum_folders"))}</span><b>.config · saves · firmware · roms</b></div>`);
+  rows.push(`<div class="run"><span>${esc(t("sum_total"))}</span><b>${total}</b></div>`);
+  return `<div class="misshead"><b>${esc(t("sum_t"))}</b></div><div class="steps">${rows.join("")}</div>`;
+}
 function drawWrite(){
   $("title").textContent = t("s_write");
   $("view").innerHTML = `<p class="note">${esc(S.demo ? t("l_demo") : t("w_note"))}</p>
-    <button class="big" id="start">${esc(t("k_start"))}</button> <button class="big stop" id="stop" disabled>${esc(t("k_stop"))}</button>
+    <div id="sum">${writeSummary()}</div>
+    <p style="margin:12px 0 0"><button class="big" id="start">${esc(t("k_start"))}</button><button class="big stop" id="stop" hidden>${esc(t("k_stop"))}</button></p>
     <div class="prog"><i id="bar"></i><b id="pct">0%</b></div><div class="now" id="now"></div><div class="steps" id="steps"></div><pre id="log" hidden></pre><div id="done"></div>`;
   keys([["back","B",t("k_back")]]);
 }
@@ -1269,7 +1388,7 @@ $("view").addEventListener("click", async e => {
     if (d.f){ S.filter = d.f; S.sel = 0; return drawGames(); }
     if (d.i !== undefined){ S.sel = Number(d.i); $("list").querySelectorAll("button").forEach((b, i) => b.classList.toggle("on", i === S.sel)); return drawSide(); }
     if (d.own){ const g = filtered()[S.sel], inp = $("onefile"); inp.accept = d.own === "videos" ? ".cvd" : "image/*";
-      inp.onchange = () => { if (inp.files[0]) { S.own[d.own].set(norm(g), inp.files[0]); coverCache.delete(norm(g)); drawGames(); } inp.value = ""; }; return inp.click(); }
+      inp.onchange = () => { if (inp.files[0]) { S.own[d.own].set(norm(g), inp.files[0]); S.ownOne[d.own].set(g.toLowerCase(), inp.files[0]); coverCache.clear(); drawGames(); } inp.value = ""; }; return inp.click(); }
     if (d.s !== undefined){ S.sec = Number(d.s); S.grp = 0; if (SECS[S.sec].name !== "Áudio") musicStop(); return drawOptions(); }
     if (d.g !== undefined){ S.grp = Number(d.g) === S.grp ? -1 : Number(d.g); return drawOptions(); }
     if (d.o){
@@ -1338,7 +1457,7 @@ function missHtml(lack){
 async function run(){
   const o = S.o, t0 = Date.now();
   let bytes = 0, files = 0, finished = false;
-  S.busy = true; S.stop = false; $("start").disabled = true; $("stop").disabled = false; $("done").innerHTML = ""; $("steps").innerHTML = ""; $("log").textContent = ""; $("log").hidden = false;
+  S.busy = true; S.stop = false; $("start").hidden = true; $("stop").hidden = false; $("sum").hidden = true; $("done").innerHTML = ""; $("steps").innerHTML = ""; $("log").textContent = ""; $("log").hidden = false;
   document.querySelectorAll("#keys button").forEach(b => b.disabled = true);
   try {
     progress(0, 1, t("reading"));
@@ -1354,8 +1473,8 @@ async function run(){
         if (st === "card") { count[K.log][1]++; continue; }
         if (st === "lib" && loanOf(g, kind)) (loans[K.log] = loans[K.log] || []).push(g + "  <-  " + libPick(g, kind).name);
         for (const [i, [cfgKey, to, box]] of K.places.entries()){
-          if ((st === "lib" || st === "own") && S.o.keep && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca OU pasta própria)
-          jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + libName(g, kind) + K.ext : null, own: st === "own" ? S.own[kind].get(k) : null, box, fill:K.fill});
+          if ((st === "lib" || st === "own") && keeps(kind) && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca OU pasta própria)
+          jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + libName(g, kind) + K.ext : null, own: st === "own" ? ownPick(g, kind) : null, box, fill:K.fill});
         }
         done1[K.log] = (done1[K.log] || 0) + 1;
       }
@@ -1446,6 +1565,11 @@ async function run(){
     else {
       progress(1, 1, "");
       finished = true;
+      /* As imagens gravadas agora são as novas: marca no cartão (por tipo gravado), para não refazer na próxima vez. */
+      if (!S.demo){
+        for (const kind in MEDIA_KEY) if (o[KINDS[kind].opt]) S.mediaVer[kind] = MEDIA_VER;
+        try { await put([".config"], "3domedia.ode", new TextEncoder().encode("#3DOMEDIA\n" + Object.keys(MEDIA_KEY).map(k => MEDIA_KEY[k] + "=" + (S.mediaVer[k] || 1)).join("\n") + "\n")); } catch(e){}
+      }
       $("done").innerHTML = `<div class="done"><h3>${esc(t("done_t"))}</h3>${esc(t("files"))}: <b>${files}</b><br>${esc(t("size"))}: <b>${kb(bytes)}</b><br>${esc(t("time"))}: <b>${human(Date.now() - t0)}</b><p style="margin:.5rem 0 0">${esc(t("done_p"))}</p></div>` + missHtml(lack);
       const dl = $("dl"); if (dl) dl.onclick = () => {
         const txt = Object.keys(lack).map(k => t(k).toUpperCase() + " (" + lack[k].length + ")\r\n" + lack[k].join("\r\n")).join("\r\n\r\n") + "\r\n";
@@ -1454,7 +1578,7 @@ async function run(){
       if (!S.demo) S.card = await readCard();
     }
   } catch(e){ log(t("err") + ": " + e.message); }
-  S.busy = false; $("start").disabled = false; $("stop").disabled = true;
+  S.busy = false; $("start").hidden = false; $("stop").hidden = true;
   if (finished){ $("start").hidden = true; $("stop").hidden = true; }      // terminou: os botões saem (Voltar e entrar de novo para repetir)
   document.querySelectorAll("#keys button").forEach(b => b.disabled = false);
 }
@@ -1462,7 +1586,7 @@ async function run(){
 draw();
 if (Q.get("demo")) act("demo");
 /* Para os testes automáticos. */
-window.ODE = {crcOf, parseDat, byTitle, R, norm, laterDisc, parseGamelist, detailLine, shortDesc, celEncode, celDecode, imageToCel, parseCfg, cfgText, cfgDefaults, S, act, go};
+window.ODE = {shrinkRGB, toRgb555, crcOf, parseDat, byTitle, R, norm, laterDisc, parseGamelist, detailLine, shortDesc, celEncode, celDecode, imageToCel, parseCfg, cfgText, cfgDefaults, S, act, go};
 </script>
 </body>
 </html>

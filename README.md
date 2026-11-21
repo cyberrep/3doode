@@ -12,7 +12,7 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 > **In 1 minute:** run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
 
-**Current versions:** menu **1.3** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
+**Current versions:** menu **1.4** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
 
 > 🟣 **TADEU** — this badge marks, throughout the text, what **only exists with the TADEU firmware**. Everything without the badge also works on the factory firmware. The menu finds out by itself what your ODE has and **only shows what works**: nothing appears half-done and nothing fails for lack of a feature.
 

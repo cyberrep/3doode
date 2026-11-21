@@ -4,6 +4,7 @@
 
 Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador** (`generate_usb.py`), da versão mais nova para a mais antiga.
 
+- [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
@@ -11,6 +12,37 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - [Menu — antes da 1.0 (versões 0.x)](#menu--antes-da-10-versões-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Gerador (generate_usb.py)](#gerador-generate_usbpy)
+
+---
+
+## Menu — 1.4
+
+**Lista de jogos**
+- **O primeiro jogo do cartão não some mais no Xport com FAT32.** Em cartões com pastas por letra, o jogo da primeira pasta (ex.: `#/3D Pinball…`) ficava fora da lista.
+- **Jogo sem descrição usa a do mesmo jogo de outra região.** "Battle Blues (Korea)" mostra a produtora, o gênero, o ano e a descrição de "Battle Blues (USA)" quando só um deles tem texto.
+- O aviso **NÃO FOI POSSÍVEL INICIAR** mostra o código do erro inteiro (antes só o último dígito).
+
+**Capas**
+- 🖼️ **Nova opção Opções → Aparência → Formato das capas.** Long box e caixa de CD não são mais esticadas:
+  - **Original** (padrão): a capa aparece na proporção dela, com a moldura em volta.
+  - **Ambilight**: a capa no meio, com um brilho nas cores da própria capa preenchendo a sobra.
+  - **Fundo preto**: a capa no meio, com a sobra preta.
+  - **Esticada**: como era antes.
+- Vale em todas as telas: Lista, Capas, Carrossel, Carrossel FX, Vitrine, Faixa, Descrição e a capinha da tela de início.
+- Na **Lista**, a capa sempre começa na altura da primeira linha de jogos.
+- As capas precisam ser **gravadas de novo** (a página faz isso sozinha); as antigas continuam funcionando, esticadas como antes.
+
+**Opções e Ferramentas**
+- Cinco textos que apareciam em português no espanhol e no inglês foram traduzidos (Ler o USB de novo, backup dos saves e o aviso de ferramenta ausente).
+
+**Página web**
+- ✨ **Imagens mais nítidas e limpas.** Capas e telas passaram a ser reduzidas pela média de toda a área da imagem original, com nitidez leve e sem pontilhado: somem o serrilhado, o granulado e o contorno branco em volta das letras e dos personagens.
+- **Capas na proporção real** (long box e caixa de CD), prontas para o Formato das capas.
+- **As capas e telas antigas do cartão são substituídas pelas novas** na primeira gravação, mesmo com "Manter" escolhido. Só fica a antiga que não tem de onde refazer.
+- **Resumo antes de gravar**: a tela Gravar no cartão mostra o que será gravado, o que já está no cartão e o total de arquivos.
+- **Capa da região certa** nas suas próprias imagens: "Cannon Fodder (USA)" não pega mais a capa do "(Europe)". Sem a da região, a ordem é USA, Europe, Japan.
+- Imagens em subpastas de nome desconhecido (como `cover3d`) não entram mais como capas.
+- Na gravação aparece um botão por vez: Começar parado, Parar gravando.
 
 ---
 
@@ -283,6 +315,11 @@ As placas do ODE têm um chip que controla o sentido dos dados entre o ODE e o c
 ---
 
 ## Gerador (`generate_usb.py`)
+
+### Novembro de 2026 (menu 1.4)
+- ✨ **Imagens mais nítidas e limpas**: redução pela média de área, nitidez leve e sem pontilhado, igual à página web. Os "preparos" antigos (texto, nítida, suave…) deixaram de existir.
+- **Capas na proporção real** (long box ≈ 76x140, caixa de CD ≈ 100x87), sem esticar.
+- **As capas e telas antigas são refeitas sozinhas** na primeira execução (`generate_usb.py` e `converter_tudo.py`).
 
 ### Novembro de 2026
 - **Publicadora** (`Publisher=`) nos textos dos jogos, em português, espanhol e inglês.

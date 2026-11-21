@@ -4,6 +4,7 @@
 
 Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en el **generador** (`generate_usb.py`), de la versión más nueva a la más antigua.
 
+- [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
 - [Menu — 1.1](#menu--11)
@@ -11,6 +12,37 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - [Menú — antes de la 1.0 (versiones 0.x)](#menú--antes-de-la-10-versiones-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Generador (generate_usb.py)](#generador-generate_usbpy)
+
+---
+
+## Menu — 1.4
+
+**Lista de juegos**
+- **El primer juego de la tarjeta ya no desaparece en el Xport con FAT32.** En tarjetas con una carpeta por letra, el juego de la primera carpeta (ej.: `#/3D Pinball…`) quedaba fuera de la lista.
+- **Un juego sin descripción usa la del mismo juego de otra región.** "Battle Blues (Korea)" muestra el desarrollador, el género, el año y la descripción de "Battle Blues (USA)" cuando solo uno de ellos tiene texto.
+- El aviso **NO SE PUDO INICIAR** muestra el código de error entero (antes solo el último dígito).
+
+**Portadas**
+- 🖼️ **Nueva opción Opciones → Apariencia → Formato de las portadas.** Las long box y las cajas de CD ya no se estiran:
+  - **Original** (predeterminado): la portada aparece en su proporción, con el marco alrededor.
+  - **Ambilight**: la portada en el centro, con un brillo en los colores de la propia portada llenando el resto.
+  - **Fondo negro**: la portada en el centro, con el resto en negro.
+  - **Estirada**: como era antes.
+- Vale en todas las pantallas: Lista, Portadas, Carrusel, Carrusel FX, Vitrina, Tira, Descripción y la portada pequeña de la pantalla de inicio.
+- En la **Lista**, la portada siempre empieza a la altura de la primera línea de juegos.
+- Las portadas hay que **grabarlas de nuevo** (la página lo hace sola); las antiguas siguen funcionando, estiradas como antes.
+
+**Opciones y Herramientas**
+- Se tradujeron cinco textos que aparecían en portugués en español e inglés (Leer el USB de nuevo, copia de las partidas y el aviso de herramienta ausente).
+
+**Página web**
+- ✨ **Imágenes más nítidas y limpias.** Las portadas y las capturas ahora se reducen con la media de toda el área de la imagen original, con nitidez leve y sin tramado: desaparecen el dentado, el granulado y el contorno blanco alrededor de las letras y de los personajes.
+- **Portadas en su proporción real** (long box y caja de CD), listas para el Formato de las portadas.
+- **Las portadas y capturas antiguas de la tarjeta se sustituyen por las nuevas** en la primera grabación, incluso con "Mantener" elegido. Solo queda la antigua que no tiene de dónde rehacerse.
+- **Resumen antes de grabar**: la pantalla Grabar en la tarjeta muestra lo que se grabará, lo que ya está en la tarjeta y el total de archivos.
+- **Portada de la región correcta** en tus propias imágenes: "Cannon Fodder (USA)" ya no toma la portada de "(Europe)". Sin la de la región, el orden es USA, Europe, Japan.
+- Las imágenes en subcarpetas de nombre desconocido (como `cover3d`) ya no entran como portadas.
+- Al grabar aparece un botón a la vez: Empezar parado, Parar grabando.
 
 ---
 
@@ -283,6 +315,11 @@ Las placas del ODE tienen un chip que controla el sentido de los datos entre el 
 ---
 
 ## Generador (`generate_usb.py`)
+
+### Noviembre de 2026 (menú 1.4)
+- ✨ **Imágenes más nítidas y limpias**: reducción con la media del área, nitidez leve y sin tramado, igual que la página web. Los "preparados" antiguos (texto, nítida, suave…) dejaron de existir.
+- **Portadas en su proporción real** (long box ≈ 76x140, caja de CD ≈ 100x87), sin estirar.
+- **Las portadas y capturas antiguas se rehacen solas** en la primera ejecución (`generate_usb.py` y `converter_tudo.py`).
 
 ### Noviembre de 2026
 - **Editor** (`Publisher=`) en los textos de los juegos, en portugués, español e inglés.
