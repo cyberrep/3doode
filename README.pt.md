@@ -14,6 +14,8 @@ Menu (`boot.iso`), firmware e gerador de cartão para a **ODE SataTo3DO** (placa
 
 **Versões atuais:** menu **1.4** · firmware **TADEU 1.0.6** · [histórico completo](CHANGELOG.pt.md)
 
+> ⚠️ **Vindo da 1.3?** Na 1.4 as capas e as telas mudaram: as capas passaram a ser gravadas **na proporção real** (long box e caixa de CD sem esticar) e as imagens ficaram **mais nítidas e limpas**. As imagens antigas **continuam funcionando** no menu 1.4, mas aparecem como antes (esticadas e granuladas). Para ver a diferença, **grave as mídias de novo**: a [página web](https://cyberrep.github.io/3doode/) troca as capas e telas antigas do cartão sozinha na primeira gravação; no `generate_usb.py` elas são refeitas na primeira execução. Atualize o `boot.iso` junto.
+
 > 🟣 **TADEU** — este selo marca, no texto todo, o que **só existe com o firmware TADEU**. Tudo o que não tem o selo funciona também no firmware de fábrica. O menu descobre sozinho o que o seu ODE tem e **só mostra o que funciona**: nada aparece pela metade nem dá erro por falta de recurso.
 
 ---
@@ -378,6 +380,7 @@ No console, esta seção é uma sanfona: abra um grupo por vez.
 |---|---|---|
 | Lista | Desligado · Capa · Tela · Vídeo | O que aparece ao lado da lista (só no modo Lista). |
 | Descrição | Desligado · Capa · Capa + Tela · Capa + Tela + Vídeo · Capa + Tela / Vídeo · Capa + Vídeo · Tela · Tela + Vídeo · Tela / Vídeo · Vídeo | O que a tela de descrição mostra. |
+| Formato das capas | Original · Ambilight · Fundo preto · Esticada | Como aparece a capa que não tem a proporção da caixa (long box, caixa de CD). Veja [Formato das capas](#formato-das-capas). |
 
 </details>
 
@@ -472,11 +475,26 @@ Tudo é preparado no PC pelo `generate_usb.py` e fica **na raiz do USB**, com o 
 
 | Pasta | Formato | Tamanho | Onde aparece |
 |---|---|---|---|
-| `covers/small/` | CEL 16 bits | 56 × 78 | Grade de Capas e painel do último jogo |
-| `covers/large/` | CEL 16 bits | 100 × 140 | Lista, carrosséis, Vitrine, Faixa e descrição |
+| `covers/small/` | CEL 16 bits | até 56 × 78 | Grade de Capas e painel do último jogo |
+| `covers/large/` | CEL 16 bits | até 100 × 140 | Lista, carrosséis, Vitrine, Faixa e descrição |
 | `screenshots/medium/` | CEL 16 bits | até 120 × 90 | Lista, Faixa e descrição |
 | `screenshots/large/` | CEL 16 bits | até 304 × 228 | Tela cheia (X na descrição) |
 | `videos/` | **Cinepak** (`.cvd`) | 80 × 60 até 320 × 240 | Lista, descrição e tela cheia |
+
+### Formato das capas
+
+As capas são gravadas **na proporção da própria capa**: uma long box fica perto de 76 × 140, uma caixa de CD perto de 100 × 87, e a capa comum ocupa os 100 × 140 inteiros. Em *Opções → Aparência → Mídias → Formato das capas* você escolhe como o menu mostra as que não ocupam a caixa toda:
+
+| Formato | Como fica |
+|---|---|
+| **Original** (padrão) | A capa na proporção dela, com a moldura em volta. |
+| **Ambilight** | A capa no meio e um brilho nas cores da própria capa preenchendo a sobra. |
+| **Fundo preto** | A capa no meio e a sobra preta. |
+| **Esticada** | A capa esticada para a caixa inteira, como era até a 1.3. |
+
+<p align="center"><img src="github/22-formato-das-capas.png" width="820" alt="Os quatro formatos das capas"></p>
+
+Vale em todas as telas (Lista, Capas, carrosséis, Vitrine, Faixa, descrição e a capinha do menu principal). Na Lista, a capa sempre começa na altura da primeira linha de jogos. As imagens são reduzidas pela média de toda a área da imagem original, com nitidez leve e sem pontilhado.
 
 ### Vídeo em Cinepak
 
@@ -537,8 +555,8 @@ O manual completo do gerador está em **[docs/MANUAL.pt.md](docs/MANUAL.pt.md)**
 ```
 boot.iso                 o menu
 Jogo (USA).iso           os seus jogos (.iso ou .cue + .bin), na raiz ou em pastas
-covers/small/            capas 56x78
-covers/large/            capas 100x140
+covers/small/            capas até 56x78
+covers/large/            capas até 100x140
 screenshots/medium/      telas pequenas
 screenshots/large/       telas grandes (tela cheia)
 videos/                  prévias em Cinepak (.cvd)

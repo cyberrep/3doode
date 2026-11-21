@@ -14,6 +14,8 @@ Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (p
 
 **Versiones actuales:** menú **1.4** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
 
+> ⚠️ **¿Vienes de la 1.3?** En la 1.4 las portadas y las capturas cambiaron: las portadas ahora se graban **en su proporción real** (las long box y las cajas de CD ya no se estiran) y las imágenes quedaron **más nítidas y limpias**. Las imágenes antiguas **siguen funcionando** en el menú 1.4, pero se ven como antes (estiradas y con grano). Para ver la diferencia, **graba los medios de nuevo**: la [página web](https://cyberrep.github.io/3doode/) cambia sola las portadas y capturas antiguas de la tarjeta en la primera grabación; en el `generate_usb.py` se rehacen en la primera ejecución. Actualiza el `boot.iso` a la vez.
+
 > 🟣 **TADEU** — este sello marca, en todo el texto, lo que **solo existe con el firmware TADEU**. Todo lo que no lleva el sello funciona también con el firmware de fábrica. El menú descubre por sí solo lo que tiene tu ODE y **solo muestra lo que funciona**: nada aparece a medias ni falla por falta de una función.
 
 ---
@@ -380,6 +382,7 @@ En la consola, esta sección es un acordeón: abre un grupo cada vez.
 |---|---|---|
 | Lista | Desactivado · Portada · Captura · Vídeo | Qué aparece junto a la lista (solo en el modo Lista). |
 | Descripción | Desactivado · Portada · Portada + Captura · Portada + Captura + Vídeo · Portada + Captura / Vídeo · Portada + Vídeo · Captura · Captura + Vídeo · Captura / Vídeo · Vídeo | Qué muestra la pantalla de descripción. |
+| Formato de las portadas | Original · Ambilight · Fondo negro · Estirada | Cómo aparece la portada que no tiene la proporción de la caja (long box, caja de CD). Ver [Formato de las portadas](#formato-de-las-portadas). |
 
 </details>
 
@@ -474,11 +477,26 @@ Todo se prepara en el PC con `generate_usb.py` y queda **en la raíz del USB**, 
 
 | Carpeta | Formato | Tamaño | Dónde aparece |
 |---|---|---|---|
-| `covers/small/` | CEL de 16 bits | 56 × 78 | Cuadrícula de Portadas y panel del último juego |
-| `covers/large/` | CEL de 16 bits | 100 × 140 | Lista, carruseles, Vitrina, Tira y descripción |
+| `covers/small/` | CEL de 16 bits | hasta 56 × 78 | Cuadrícula de Portadas y panel del último juego |
+| `covers/large/` | CEL de 16 bits | hasta 100 × 140 | Lista, carruseles, Vitrina, Tira y descripción |
 | `screenshots/medium/` | CEL de 16 bits | hasta 120 × 90 | Lista, Tira y descripción |
 | `screenshots/large/` | CEL de 16 bits | hasta 304 × 228 | Pantalla completa (X en la descripción) |
 | `videos/` | **Cinepak** (`.cvd`) | de 80 × 60 a 320 × 240 | Lista, descripción y pantalla completa |
+
+### Formato de las portadas
+
+Las portadas se graban **en la proporción de la propia portada**: una long box queda cerca de 76 × 140, una caja de CD cerca de 100 × 87, y la portada común ocupa los 100 × 140 enteros. En *Opciones → Apariencia → Medios → Formato de las portadas* eliges cómo muestra el menú las que no ocupan toda la caja:
+
+| Formato | Cómo queda |
+|---|---|
+| **Original** (predeterminado) | La portada en su proporción, con el marco alrededor. |
+| **Ambilight** | La portada en el centro y un brillo en los colores de la propia portada llenando el resto. |
+| **Fondo negro** | La portada en el centro y el resto en negro. |
+| **Estirada** | La portada estirada a toda la caja, como era hasta la 1.3. |
+
+<p align="center"><img src="github/22-formato-das-capas.png" width="820" alt="Los cuatro formatos de las portadas"></p>
+
+Vale en todas las pantallas (Lista, Portadas, carruseles, Vitrina, Tira, descripción y la portada pequeña del menú principal). En la Lista, la portada siempre empieza a la altura de la primera línea de juegos. Las imágenes se reducen con la media de toda el área de la imagen original, con nitidez leve y sin tramado.
 
 ### Vídeo en Cinepak
 
@@ -539,8 +557,8 @@ El manual completo del generador está en **[docs/MANUAL.es.md](docs/MANUAL.es.m
 ```
 boot.iso                 el menú
 Juego (USA).iso          tus juegos (.iso o .cue + .bin), en la raíz o en carpetas
-covers/small/            portadas 56x78
-covers/large/            portadas 100x140
+covers/small/            portadas hasta 56x78
+covers/large/            portadas hasta 100x140
 screenshots/medium/      capturas pequeñas
 screenshots/large/       capturas grandes (pantalla completa)
 videos/                  vistas previas en Cinepak (.cvd)

@@ -14,6 +14,8 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 **Current versions:** menu **1.4** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
 
+> ⚠️ **Coming from 1.3?** In 1.4 the covers and screenshots changed: covers are now written **in their real proportion** (long boxes and CD jewel cases are no longer stretched) and the images are **sharper and cleaner**. Old images **still work** with menu 1.4, but they look as before (stretched and grainy). To see the difference, **write the media again**: the [web page](https://cyberrep.github.io/3doode/) replaces the old covers and screenshots on the card by itself on the first write; `generate_usb.py` rebuilds them on the first run. Update `boot.iso` along with them.
+
 > 🟣 **TADEU** — this badge marks, throughout the text, what **only exists with the TADEU firmware**. Everything without the badge also works on the factory firmware. The menu finds out by itself what your ODE has and **only shows what works**: nothing appears half-done and nothing fails for lack of a feature.
 
 ---
@@ -380,6 +382,7 @@ On the console this section is an accordion: open one group at a time.
 |---|---|---|
 | List | Off · Cover · Screenshot · Video | What appears next to the list (List mode only). |
 | Description | Off · Cover · Cover + Screenshot · Cover + Screenshot + Video · Cover + Screenshot / Video · Cover + Video · Screenshot · Screenshot + Video · Screenshot / Video · Video | What the description screen shows. |
+| Cover format | Original · Ambilight · Black background · Stretched | How a cover that does not have the box proportion is shown (long box, CD jewel case). See [Cover format](#cover-format). |
 
 </details>
 
@@ -474,11 +477,26 @@ Everything is prepared on the PC by `generate_usb.py` and lives **in the root of
 
 | Folder | Format | Size | Where it appears |
 |---|---|---|---|
-| `covers/small/` | 16-bit CEL | 56 × 78 | Covers grid and last game panel |
-| `covers/large/` | 16-bit CEL | 100 × 140 | List, carousels, Showcase, Strip and description |
+| `covers/small/` | 16-bit CEL | up to 56 × 78 | Covers grid and last game panel |
+| `covers/large/` | 16-bit CEL | up to 100 × 140 | List, carousels, Showcase, Strip and description |
 | `screenshots/medium/` | 16-bit CEL | up to 120 × 90 | List, Strip and description |
 | `screenshots/large/` | 16-bit CEL | up to 304 × 228 | Full screen (X on the description) |
 | `videos/` | **Cinepak** (`.cvd`) | 80 × 60 to 320 × 240 | List, description and full screen |
+
+### Cover format
+
+Covers are written **in the cover's own proportion**: a long box ends up near 76 × 140, a CD jewel case near 100 × 87, and a regular cover fills the whole 100 × 140. In *Options → Appearance → Media → Cover format* you choose how the menu shows the ones that do not fill the box:
+
+| Format | How it looks |
+|---|---|
+| **Original** (default) | The cover in its own proportion, with the frame around it. |
+| **Ambilight** | The cover in the middle and a glow in the cover's own colors filling the rest. |
+| **Black background** | The cover in the middle and the rest black. |
+| **Stretched** | The cover stretched to the whole box, as it was up to 1.3. |
+
+<p align="center"><img src="github/22-formato-das-capas.png" width="820" alt="The four cover formats"></p>
+
+It applies to every screen (List, Covers, carousels, Showcase, Strip, description and the small cover on the main menu). In the List, the cover always starts at the height of the first game row. Images are shrunk by averaging the whole area of the original image, with light sharpening and no dithering.
 
 ### Cinepak video
 
@@ -539,8 +557,8 @@ The full generator manual is in **[docs/MANUAL.md](docs/MANUAL.md)**.
 ```
 boot.iso                 the menu
 Game (USA).iso           your games (.iso or .cue + .bin), in the root or in folders
-covers/small/            56x78 covers
-covers/large/            100x140 covers
+covers/small/            covers up to 56x78
+covers/large/            covers up to 100x140
 screenshots/medium/      small screenshots
 screenshots/large/       large screenshots (full screen)
 videos/                  Cinepak previews (.cvd)

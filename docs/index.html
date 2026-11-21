@@ -32,6 +32,7 @@ button{cursor:pointer}
 .xcd{display:flex;gap:12px;align-items:center;margin:12px 0 0;padding:9px 14px;border:2px solid #8fd6ff;border-radius:10px;background:linear-gradient(180deg,#2a6fb8,#143a6e);color:#fff;font-size:13px;line-height:1.35}
 .xcd b{color:var(--gold);letter-spacing:.06em}
 .xcd i{flex:0 0 30px;height:30px;border-radius:50%;background:radial-gradient(circle,#10122a 0 14%,#e8eef8 15% 30%,#9fd0ff 31% 78%,#dfe6f2 79% 100%);box-shadow:0 0 0 2px #0a0c1e}
+.xcd.v14{border-color:var(--gold);background:linear-gradient(180deg,#5a4a12,#2e2608)}
 .warn{border:2px solid var(--red);background:#3a1420;border-radius:10px;padding:10px 14px;margin:0 0 14px}
 .warn b{color:#ffb0b0}
 
@@ -201,6 +202,7 @@ Object.assign(TR, {"Formato da hora":["Formato de la hora","Time format"],"Jogad
 /* ---------------- Textos só desta página ---------------- */
 const T = {
 en:{title:"USB / SD SETUP",
+ v14_t:"MENU 1.4: NEW COVERS AND SHARPER IMAGES",v14_b:"Covers now keep their real shape (long box and CD jewel case, not stretched) and all images are sharper and cleaner. Coming from 1.3? Just write the card again: this page replaces the old covers and screenshots by itself, together with the new menu.",
  xcd_t:"NEW: REAL CDs ON THE XPORT",xcd_b:"With the expansion board plugged in, the menu shows a CD tile: press A, open and close the lid, and the console restarts into your original disc. No need to remove the board.",
  nofs_t:"This browser cannot write to your card.",nofs_b:"Use Chrome, Edge, Brave, Opera or Vivaldi on a computer. On Firefox or Safari, use the Python tool (generate_usb.py). You can still try the demo.",
  t_card:"Card",t_card_s:"Choose the USB / SD",t_games:"Games",t_media:"Media",t_media_s:"What to copy",t_opts:"Options",t_opts_s:"Menu settings",t_write:"Write",t_write_s:"Copy to the card",
@@ -246,6 +248,7 @@ en:{title:"USB / SD SETUP",
  min:n=>`${n} minute${n==1?"":"s"}`,sec:n=>`${n} second${n==1?"":"s"}`,and:" and ",
  foot:"3DO ODE by Rodrigo Tadeu “CyberRep”. Games and BIOS are not provided."},
 pt:{title:"PREPARAR O USB / SD",
+ v14_t:"MENU 1.4: CAPAS NOVAS E IMAGENS MAIS NÍTIDAS",v14_b:"As capas agora ficam na proporção real (long box e caixa de CD, sem esticar) e todas as imagens estão mais nítidas e limpas. Vem da 1.3? É só gravar o cartão de novo: esta página troca as capas e telas antigas sozinha, junto com o menu novo.",
  xcd_t:"NOVO: CD DE VERDADE NO XPORT",xcd_b:"Com a placa de expansão ligada, o menu mostra a caixa CD: aperte A, abra e feche a tampa, e o console reinicia no seu disco original. Sem tirar a placa.",
  nofs_t:"Este navegador não consegue gravar no seu cartão.",nofs_b:"Use o Chrome, Edge, Brave, Opera ou Vivaldi num computador. No Firefox ou no Safari, use a ferramenta em Python (generate_usb.py). Você ainda pode ver a demonstração.",
  t_card:"Cartão",t_card_s:"Escolher o USB / SD",t_games:"Jogos",t_media:"Mídias",t_media_s:"O que copiar",t_opts:"Opções",t_opts_s:"Ajustes do menu",t_write:"Gravar",t_write_s:"Copiar para o cartão",
@@ -291,6 +294,7 @@ pt:{title:"PREPARAR O USB / SD",
  min:n=>`${n} minuto${n==1?"":"s"}`,sec:n=>`${n} segundo${n==1?"":"s"}`,and:" e ",
  foot:"3DO ODE, por Rodrigo Tadeu “CyberRep”. Jogos e BIOS não são fornecidos."},
 es:{title:"PREPARAR EL USB / SD",
+ v14_t:"MENÚ 1.4: PORTADAS NUEVAS E IMÁGENES MÁS NÍTIDAS",v14_b:"Las portadas ahora mantienen su proporción real (long box y caja de CD, sin estirar) y todas las imágenes son más nítidas y limpias. ¿Vienes de la 1.3? Solo graba la tarjeta de nuevo: esta página cambia sola las portadas y capturas antiguas, junto con el menú nuevo.",
  xcd_t:"NUEVO: CD DE VERDAD EN EL XPORT",xcd_b:"Con la placa de expansión conectada, el menú muestra la caja CD: pulsa A, abre y cierra la tapa, y la consola se reinicia en tu disco original. Sin quitar la placa.",
  nofs_t:"Este navegador no puede grabar en tu tarjeta.",nofs_b:"Usa Chrome, Edge, Brave, Opera o Vivaldi en un ordenador. En Firefox o Safari, usa la herramienta en Python (generate_usb.py). Aun así puedes ver la demostración.",
  t_card:"Tarjeta",t_card_s:"Elegir el USB / SD",t_games:"Juegos",t_media:"Medios",t_media_s:"Qué copiar",t_opts:"Opciones",t_opts_s:"Ajustes del menú",t_write:"Grabar",t_write_s:"Copiar a la tarjeta",
@@ -857,6 +861,7 @@ function drawHome(){
       <button class="tile t-gray" data-go="options" ${dis}>${ICON.gear}<span>${esc(t("t_opts"))}</span><small>${esc(t("t_opts_s"))}</small></button>
     </div>
     <div class="last">${last}</div>
+    <div class="xcd v14"><div><b>${esc(t("v14_t"))}</b><br>${esc(t("v14_b"))}</div></div>
     <div class="xcd"><i></i><div><b>${esc(t("xcd_t"))}</b><br>${esc(t("xcd_b"))}</div></div>`;
   keys([["pick","A",t("k_pick"),noFS],["demo","X",t("k_demo")],["check","C",t("k_check"),!ready()],"gap",["write","P",t("t_write"),!ready()]]);
 }
