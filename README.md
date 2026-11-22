@@ -12,7 +12,7 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 > **In 1 minute:** run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
 
-**Current versions:** menu **1.4** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
+**Current versions:** menu **1.5** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
 
 > ⚠️ **Coming from 1.3?** In 1.4 the covers and screenshots changed: covers are now written **in their real proportion** (long boxes and CD jewel cases are no longer stretched) and the images are **sharper and cleaner**. Old images **still work** with menu 1.4, but they look as before (stretched and grainy). To see the difference, **write the media again**: the [web page](https://cyberrep.github.io/3doode/) replaces the old covers and screenshots on the card by itself on the first write; `generate_usb.py` rebuilds them on the first run. Update `boot.iso` along with them.
 

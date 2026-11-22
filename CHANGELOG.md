@@ -4,6 +4,7 @@
 
 Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and the **generator** (`generate_usb.py`), from the newest version to the oldest.
 
+- [Menu — 1.5](#menu--15)
 - [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
@@ -12,6 +13,31 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - [Menu — before 1.0 (0.x versions)](#menu--before-10-0x-versions)
 - [TADEU firmware](#tadeu-firmware)
 - [Generator (generate_usb.py)](#generator-generate_usbpy)
+
+---
+
+## Menu — 1.5
+
+**Fixes**
+- **The controller no longer freezes while covers load.** Each cover is now read in short steps, and the controller keeps responding during loading, in every view. A quick tap on a direction is no longer lost.
+- **Strip view: the country was cut off**, showing only its first letter. Year and country now sit on a translucent band along the bottom of the game screenshot (year on the left, country on the right); the genre stays in the text.
+- **Strip view: a game name that does not fit on screen now scrolls**, as in the List.
+- **Message windows and Tools:** the button band went past the rounded border of the window.
+- **Showcase:** the CD jewel case cover sat lower than the long box; both now start at the same height.
+
+**Speed**
+- ⚡ **Covers load before you reach them:** the current page and the next one, in the Covers view.
+- **Game screenshots ready as you browse** (Strip, and List with screenshot): the menu keeps 5 screenshots and reads the neighbours of the selected game ahead of time.
+- **Faster description in Showcase and Strip.** On an ODE that can seek inside a file, the menu jumps straight to the game's text instead of reading the description file from the start.
+- **Lighter drawing** in the Covers view while covers arrive.
+
+**Memory**
+- 🧠 **More covers in memory at once.** Tools and the save catalogue only take memory while open, the folder area only exists in Folders mode, and free video memory now holds covers.
+- The cover space is rebuilt on every view change, sized for what the view needs.
+
+**Options and texts**
+- **Options → ODE Device** opens as an accordion, like Appearance (every submenu that does not fit on screen works this way).
+- First start text: **"SAVING THE GAME LIST — The next startup will be faster"**.
 
 ---
 

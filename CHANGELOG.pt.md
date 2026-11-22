@@ -4,6 +4,7 @@
 
 Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador** (`generate_usb.py`), da versão mais nova para a mais antiga.
 
+- [Menu — 1.5](#menu--15)
 - [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
@@ -12,6 +13,31 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - [Menu — antes da 1.0 (versões 0.x)](#menu--antes-da-10-versões-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Gerador (generate_usb.py)](#gerador-generate_usbpy)
+
+---
+
+## Menu — 1.5
+
+**Correções**
+- **O controle não trava mais enquanto as capas carregam.** A leitura de cada capa passou a ser feita em passos curtos, e o controle continua respondendo durante o carregamento, em todos os modos. Um toque rápido na direção não se perde mais.
+- **Faixa: o país aparecia cortado**, só com a primeira letra. Ano e país agora ficam numa faixa translúcida na base da tela do jogo (ano à esquerda, país à direita); o gênero continua no texto.
+- **Faixa: o nome do jogo que não cabe na tela agora passa**, como na Lista.
+- **Janelas de aviso e Ferramentas:** a faixa dos botões passava da borda arredondada da janela.
+- **Vitrine:** a capa de caixa de CD ficava mais baixa que a long box; agora as duas começam na mesma altura.
+
+**Velocidade**
+- ⚡ **Capas carregam antes de você chegar nelas:** a página atual e a seguinte, no modo Capas.
+- **Telas dos jogos já prontas ao navegar** (Faixa e Lista com tela): o menu guarda 5 telas e lê as vizinhas do jogo selecionado com antecedência.
+- **Descrição mais rápida na Vitrine e na Faixa.** Em ODE com busca dentro do arquivo (*seek*), o menu vai direto ao texto do jogo, sem ler o arquivo de descrições desde o começo.
+- **Desenho mais leve** no modo Capas enquanto as capas chegam.
+
+**Memória**
+- 🧠 **Mais capas na memória ao mesmo tempo.** As Ferramentas e o catálogo de saves só ocupam memória quando abertos, a área de pastas só existe no modo Pastas e a memória de vídeo livre passou a guardar capas.
+- O espaço das capas é refeito a cada troca de modo de visualização, do tamanho que o modo precisa.
+
+**Opções e textos**
+- **Opções → Dispositivo ODE** abre em sanfona, como Aparência (todo submenu que não cabe na tela funciona assim).
+- Texto do primeiro início: **"SALVANDO A LISTA DE JOGOS — O próximo início será mais rápido"**.
 
 ---
 

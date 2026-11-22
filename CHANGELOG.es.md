@@ -4,6 +4,7 @@
 
 Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en el **generador** (`generate_usb.py`), de la versión más nueva a la más antigua.
 
+- [Menu — 1.5](#menu--15)
 - [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
 - [Menu — 1.2](#menu--12)
@@ -12,6 +13,31 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - [Menú — antes de la 1.0 (versiones 0.x)](#menú--antes-de-la-10-versiones-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Generador (generate_usb.py)](#generador-generate_usbpy)
+
+---
+
+## Menu — 1.5
+
+**Correcciones**
+- **El control ya no se traba mientras cargan las portadas.** Cada portada se lee ahora en pasos cortos, y el control sigue respondiendo durante la carga, en todos los modos. Un toque rápido en la dirección ya no se pierde.
+- **Tira: el país aparecía cortado**, solo con la primera letra. Año y país ahora van en una franja translúcida en la base de la captura del juego (año a la izquierda, país a la derecha); el género sigue en el texto.
+- **Tira: el nombre del juego que no cabe en pantalla ahora se desplaza**, como en la Lista.
+- **Ventanas de aviso y Herramientas:** la franja de los botones pasaba del borde redondeado de la ventana.
+- **Vitrina:** la portada de caja de CD quedaba más baja que la long box; ahora las dos empiezan a la misma altura.
+
+**Velocidad**
+- ⚡ **Las portadas cargan antes de que llegues a ellas:** la página actual y la siguiente, en el modo Portadas.
+- **Capturas de los juegos ya listas al navegar** (Tira y Lista con captura): el menú guarda 5 capturas y lee con antelación las vecinas del juego seleccionado.
+- **Descripción más rápida en Vitrina y Tira.** En un ODE con búsqueda dentro del archivo (*seek*), el menú va directo al texto del juego, sin leer el archivo de descripciones desde el principio.
+- **Dibujo más ligero** en el modo Portadas mientras llegan las portadas.
+
+**Memoria**
+- 🧠 **Más portadas en memoria a la vez.** Las Herramientas y el catálogo de saves solo ocupan memoria cuando están abiertos, el área de carpetas solo existe en el modo Carpetas y la memoria de vídeo libre ahora guarda portadas.
+- El espacio de las portadas se rehace en cada cambio de modo de visualización, del tamaño que el modo necesita.
+
+**Opciones y textos**
+- **Opciones → Dispositivo ODE** se abre en acordeón, como Apariencia (todo submenú que no cabe en pantalla funciona así).
+- Texto del primer inicio: **"GUARDANDO LA LISTA DE JUEGOS — El próximo inicio será más rápido"**.
 
 ---
 

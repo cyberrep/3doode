@@ -12,7 +12,7 @@ Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (p
 
 > **En 1 minuto:** ejecuta **`generate_usb.py`** — un **único archivo** que hace todo lo demás: descarga el arte, convierte carátulas, capturas y vídeos, arma los textos de los juegos y **copia el `boot.iso` (el menú)** al USB.
 
-**Versiones actuales:** menú **1.4** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
+**Versiones actuales:** menú **1.5** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
 
 > ⚠️ **¿Vienes de la 1.3?** En la 1.4 las portadas y las capturas cambiaron: las portadas ahora se graban **en su proporción real** (las long box y las cajas de CD ya no se estiran) y las imágenes quedaron **más nítidas y limpias**. Las imágenes antiguas **siguen funcionando** en el menú 1.4, pero se ven como antes (estiradas y con grano). Para ver la diferencia, **graba los medios de nuevo**: la [página web](https://cyberrep.github.io/3doode/) cambia sola las portadas y capturas antiguas de la tarjeta en la primera grabación; en el `generate_usb.py` se rehacen en la primera ejecución. Actualiza el `boot.iso` a la vez.
 
