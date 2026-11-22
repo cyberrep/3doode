@@ -29,10 +29,11 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
   - **Black background**: the cover in the middle, the rest black.
   - **Stretched**: as it was before.
 - It applies to every screen: List, Covers, Carousel, Carousel FX, Showcase, Strip, Description and the small cover on the home screen.
-- In the **List**, the cover always starts at the height of the first game row.
+- In the **List**, the cover always starts at the height of the first game row, and the gold line and the play count sit right under it.
 - Covers need to be **written again** (the web page does it by itself); old ones keep working, stretched as before.
 
 **Options and Tools**
+- The **Test the ODE and the USB** report (`3dodiag.txt`) now also carries the USB read log: a single file to send when something goes wrong.
 - Five texts that showed up in Portuguese in Spanish and English are now translated (Read the USB again, save backup and the missing-tool notice).
 
 **Web page**

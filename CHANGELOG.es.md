@@ -29,10 +29,11 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
   - **Fondo negro**: la portada en el centro, con el resto en negro.
   - **Estirada**: como era antes.
 - Vale en todas las pantallas: Lista, Portadas, Carrusel, Carrusel FX, Vitrina, Tira, Descripción y la portada pequeña de la pantalla de inicio.
-- En la **Lista**, la portada siempre empieza a la altura de la primera línea de juegos.
+- En la **Lista**, la portada siempre empieza a la altura de la primera línea de juegos, y la línea dorada y las partidas quedan pegadas debajo de ella.
 - Las portadas hay que **grabarlas de nuevo** (la página lo hace sola); las antiguas siguen funcionando, estiradas como antes.
 
 **Opciones y Herramientas**
+- El informe de **Probar el ODE y el USB** (`3dodiag.txt`) ahora trae también el registro de la lectura del USB: un solo archivo para enviar cuando algo falle.
 - Se tradujeron cinco textos que aparecían en portugués en español e inglés (Leer el USB de nuevo, copia de las partidas y el aviso de herramienta ausente).
 
 **Página web**

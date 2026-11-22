@@ -29,10 +29,11 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
   - **Fundo preto**: a capa no meio, com a sobra preta.
   - **Esticada**: como era antes.
 - Vale em todas as telas: Lista, Capas, Carrossel, Carrossel FX, Vitrine, Faixa, Descrição e a capinha da tela de início.
-- Na **Lista**, a capa sempre começa na altura da primeira linha de jogos.
+- Na **Lista**, a capa sempre começa na altura da primeira linha de jogos, e a linha dourada e as jogadas ficam encostadas embaixo dela.
 - As capas precisam ser **gravadas de novo** (a página faz isso sozinha); as antigas continuam funcionando, esticadas como antes.
 
 **Opções e Ferramentas**
+- O relatório do **Testar o ODE e o USB** (`3dodiag.txt`) agora traz também o registro da leitura do USB: um arquivo só para mandar quando algo der errado.
 - Cinco textos que apareciam em português no espanhol e no inglês foram traduzidos (Ler o USB de novo, backup dos saves e o aviso de ferramenta ausente).
 
 **Página web**
