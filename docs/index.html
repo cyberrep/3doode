@@ -137,6 +137,13 @@ button{cursor:pointer}
 @media (max-width:900px){.optgrid{grid-template-columns:1fr}.pvwrap{position:static}.pv{zoom:1}}
 
 /* ---- renomear ---- */
+.ren u{display:inline-block;width:42px;text-decoration:none;color:var(--dim);font-size:.72rem;letter-spacing:.1em;font-weight:700}
+.ren b u{color:var(--gold)}
+.ren label small,.ren label b{display:block;padding-left:42px;text-indent:-42px}
+.ren u{text-indent:0}
+.dd{text-decoration:none;border-radius:3px;padding:0 1px;white-space:pre-wrap}
+del.dd{background:#7a2230;color:#ffd0d0}
+ins.dd{background:#1f6a3a;color:#d6ffe2}
 .ren{max-height:330px;overflow-y:auto;border:2px solid var(--edge);border-radius:8px;background:#0e1026;padding:4px 8px;margin:8px 0;scrollbar-color:var(--edge) transparent}
 .ren label{display:flex;gap:9px;align-items:flex-start;padding:4px 2px;border-bottom:1px solid #1c2048;cursor:pointer}
 .ren input{margin-top:4px;width:16px;height:16px;accent-color:var(--yellow);flex:none}
@@ -215,6 +222,7 @@ Object.assign(TR, {"Formato da hora":["Formato de la hora","Time format"],"Jogad
 /* ---------------- Textos só desta página ---------------- */
 const T = {
 en:{title:"USB / SD SETUP",
+ r_from:"FROM",r_to:"TO",r_out:"goes out",r_in:"comes in",r_diff:"What changes in each name is highlighted:",
  n_t:"WHAT'S NEW",n_more:"More",n_less:"Less",n_all:"Full history",n15_t:"MENU 1.5",n15_s:"The controller no longer freezes while covers load, and everything loads faster.",
  n15:["The controller keeps responding while covers load, in every view.","Covers load before you reach them; screenshots are ready as you browse.","More covers in memory at once.","Faster description in Showcase and Strip (on an ODE with seek).","Strip: year and country on a band over the screenshot; long names scroll.","This page: How to use button and a step-by-step manual."],
  n14_t:"MENU 1.4",
@@ -271,6 +279,7 @@ en:{title:"USB / SD SETUP",
  min:n=>`${n} minute${n==1?"":"s"}`,sec:n=>`${n} second${n==1?"":"s"}`,and:" and ",
  foot:"3DO ODE by Rodrigo Tadeu “CyberRep”. Games and BIOS are not provided."},
 pt:{title:"PREPARAR O USB / SD",
+ r_from:"DE",r_to:"PARA",r_out:"sai",r_in:"entra",r_diff:"O que muda em cada nome fica marcado:",
  n_t:"NOVIDADES",n_more:"Mais",n_less:"Menos",n_all:"Histórico completo",n15_t:"MENU 1.5",n15_s:"O controle não trava mais enquanto as capas carregam, e tudo carrega mais rápido.",
  n15:["O controle continua respondendo enquanto as capas carregam, em todos os modos.","Capas carregam antes de você chegar nelas; telas já prontas ao navegar.","Mais capas na memória ao mesmo tempo.","Descrição mais rápida na Vitrine e na Faixa (em ODE com seek).","Faixa: ano e país numa faixa sobre a tela; nome longo passa.","Esta página: botão Como usar e manual passo a passo."],
  n14_t:"MENU 1.4",
@@ -327,6 +336,7 @@ pt:{title:"PREPARAR O USB / SD",
  min:n=>`${n} minuto${n==1?"":"s"}`,sec:n=>`${n} segundo${n==1?"":"s"}`,and:" e ",
  foot:"3DO ODE, por Rodrigo Tadeu “CyberRep”. Jogos e BIOS não são fornecidos."},
 es:{title:"PREPARAR EL USB / SD",
+ r_from:"DE",r_to:"A",r_out:"sale",r_in:"entra",r_diff:"Lo que cambia en cada nombre queda marcado:",
  n_t:"NOVEDADES",n_more:"Más",n_less:"Menos",n_all:"Historial completo",n15_t:"MENÚ 1.5",n15_s:"El control ya no se traba mientras cargan las portadas, y todo carga más rápido.",
  n15:["El control sigue respondiendo mientras cargan las portadas, en todos los modos.","Las portadas cargan antes de que llegues a ellas; capturas ya listas al navegar.","Más portadas en memoria a la vez.","Descripción más rápida en Vitrina y Tira (en un ODE con seek).","Tira: año y país en una franja sobre la captura; el nombre largo se desplaza.","Esta página: botón Cómo usar y manual paso a paso."],
  n14_t:"MENÚ 1.4",
@@ -1297,6 +1307,22 @@ async function renameApply(){
   R.items = R.items.filter(x => !x.done);
   R.msg = t("r_done")(done, bad); R.state = "list"; drawRename();
 }
+/* De -> para: marca, letra a letra, o que sai do nome antigo e o que entra no novo (maior subsequência comum). */
+function nameDiff(a, b){
+  const n = a.length, m = b.length, W = m + 1, L = new Uint16Array((n + 1) * W);
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    L[i * W + j] = a[i] === b[j] ? L[(i + 1) * W + j + 1] + 1 : Math.max(L[(i + 1) * W + j], L[i * W + j + 1]);
+  let i = 0, j = 0, A = "", B = "", da = "", db = "";
+  const flush = () => { if (da){ A += `<del class="dd">${esc(da)}</del>`; da = ""; } if (db){ B += `<ins class="dd">${esc(db)}</ins>`; db = ""; } };
+  while (i < n || j < m){
+    if (i < n && j < m && a[i] === b[j]){ flush(); A += esc(a[i]); B += esc(b[j]); i++; j++; }
+    else if (j < m && (i === n || L[i * W + j + 1] >= L[(i + 1) * W + j])) db += b[j++];
+    else da += a[i++];
+  }
+  flush();
+  return [A, B];
+}
+
 function drawRename(){
   $("title").textContent = t("s_rename");
   const canMove = S.demo || (window.FileSystemFileHandle && "move" in FileSystemFileHandle.prototype);
@@ -1306,8 +1332,9 @@ function drawRename(){
   if (R.state === "idle") h += `<button class="big" id="rscan" ${canMove ? "" : "disabled"}>${esc(t("r_scan"))}</button><p class="note" style="margin-top:10px">${esc(t("r_slow"))}</p>`;
   if (R.state === "scan" || R.state === "apply") h += `<div class="prog"><i id="rbar" style="width:${R.pct}%"></i><b id="rpct">${R.pct}%</b></div><div class="now" id="rnow">${esc(R.now)}</div>`;
   if (R.state === "list"){
-    h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))}</p>`;
-    if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""}><span><small>${esc(it.f.stem + it.f.ext)}</small><b>${esc(it.to + it.f.ext)}</b>${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err ? "err" : it.how}" style="font-style:normal">${esc(t(it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
+    h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))}</p>
+      <p class="note">${esc(t("r_diff"))} <del class="dd">${esc(t("r_out"))}</del> <ins class="dd">${esc(t("r_in"))}</ins></p>`;
+    if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""}><span>${(d => `<small><u>${esc(t("r_from"))}</u>${d[0]}</small><b><u>${esc(t("r_to"))}</u>${d[1]}</b>`)(nameDiff(it.f.stem + it.f.ext, it.to + it.f.ext))}${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err ? "err" : it.how}" style="font-style:normal">${esc(t(it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
       <button class="big" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button>`;
     else h += `<p class="note"><b style="color:var(--fg)">${esc(t("r_nothing"))}</b></p>`;
     if (R.long.length) h += `<div class="misshead"><b>${esc(t("r_long"))} (${R.long.length})</b></div><div class="note">${esc(t("r_long_n"))}</div><div class="ren" style="max-height:150px">${R.long.map(u => `<label style="cursor:default"><span>${esc(u.name)}</span><span class="how">${u.n} · ${esc(t(u.kept ? "r_long_kept" : "r_long_card"))}</span></label>`).join("")}</div>`;
