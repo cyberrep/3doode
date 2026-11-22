@@ -36,6 +36,8 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - El espacio de las portadas se rehace en cada cambio de modo de visualización, del tamaño que el modo necesita.
 
 **Página web y manuales**
+- 🧭 **Paso a paso en la página**: una caja en el centro de la primera pantalla te lleva por las cinco etapas (Tarjeta, Nombres, Medios, Opciones, Grabar), con Volver y Siguiente.
+- **Renombrar muestra "de → a"** con lo que cambia en cada nombre marcado en colores.
 - 📖 **Botón "Cómo usar" en la página**: los cinco pasos para preparar la tarjeta, en los 3 idiomas.
 - **Manual de la página** ([docs/SITE.es.md](docs/SITE.es.md)), paso a paso y con imágenes. El README ahora indica primero la página; el generador quedó como camino avanzado.
 

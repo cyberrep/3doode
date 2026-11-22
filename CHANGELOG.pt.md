@@ -36,6 +36,8 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - O espaço das capas é refeito a cada troca de modo de visualização, do tamanho que o modo precisa.
 
 **Página web e manuais**
+- 🧭 **Passo a passo na página**: uma caixa no meio da primeira tela leva pelas cinco etapas (Cartão, Nomes, Mídias, Opções, Gravar), com Voltar e Avançar.
+- **Renomear mostra "de → para"** com o que muda em cada nome marcado em cores.
 - 📖 **Botão "Como usar" na página**: os cinco passos para preparar o cartão, nos 3 idiomas.
 - **Manual da página** ([docs/SITE.pt.md](docs/SITE.pt.md)), passo a passo e com imagens. O README passou a indicar a página primeiro; o gerador ficou como caminho avançado.
 

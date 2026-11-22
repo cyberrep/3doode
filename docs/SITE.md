@@ -29,6 +29,8 @@ The page has five buttons, in the order you use them: **Card → Games → Media
 
 <p align="center"><img src="../github/site-1-cartao.png" width="640" alt="The first screen"></p>
 
+**Easiest way:** click the **Step by step** box in the middle of the screen. It takes you through the five stages in order (Card → Names → Media → Options → Write), with **Back** and **Next** at the bottom. The other boxes are still there to go straight to one stage.
+
 The **How to use** button on the page itself shows a summary of these steps.
 
 ### 1. Card — choose the USB / SD

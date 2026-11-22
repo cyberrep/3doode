@@ -36,6 +36,8 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - The cover space is rebuilt on every view change, sized for what the view needs.
 
 **Web page and manuals**
+- 🧭 **Step by step on the page**: a box in the middle of the first screen takes you through the five stages (Card, Names, Media, Options, Write), with Back and Next.
+- **Rename shows "from → to"** with what changes in each name highlighted in colour.
 - 📖 **"How to use" button on the page**: the five steps to prepare the card, in 3 languages.
 - **Page manual** ([docs/SITE.md](docs/SITE.md)), step by step and with pictures. The README now points to the page first; the generator became the advanced route.
 

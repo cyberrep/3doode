@@ -29,6 +29,8 @@ La página tiene cinco botones, en el orden en que los usas: **Tarjeta → Juego
 
 <p align="center"><img src="../github/site-1-cartao.png" width="640" alt="La primera pantalla"></p>
 
+**La forma más fácil:** haz clic en la caja **Paso a paso**, en el centro de la pantalla. Te lleva por las cinco etapas en orden (Tarjeta → Nombres → Medios → Opciones → Grabar), con **Volver** y **Siguiente** abajo. Las otras cajas siguen ahí para ir directo a una etapa.
+
 El botón **Cómo usar** de la propia página muestra un resumen de estos pasos.
 
 ### 1. Tarjeta — elegir el USB / SD
