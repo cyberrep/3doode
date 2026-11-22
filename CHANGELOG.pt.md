@@ -35,6 +35,10 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - 🧠 **Mais capas na memória ao mesmo tempo.** As Ferramentas e o catálogo de saves só ocupam memória quando abertos, a área de pastas só existe no modo Pastas e a memória de vídeo livre passou a guardar capas.
 - O espaço das capas é refeito a cada troca de modo de visualização, do tamanho que o modo precisa.
 
+**Página web e manuais**
+- 📖 **Botão "Como usar" na página**: os cinco passos para preparar o cartão, nos 3 idiomas.
+- **Manual da página** ([docs/SITE.pt.md](docs/SITE.pt.md)), passo a passo e com imagens. O README passou a indicar a página primeiro; o gerador ficou como caminho avançado.
+
 **Opções e textos**
 - **Opções → Dispositivo ODE** abre em sanfona, como Aparência (todo submenu que não cabe na tela funciona assim).
 - Texto do primeiro início: **"SALVANDO A LISTA DE JOGOS — O próximo início será mais rápido"**.

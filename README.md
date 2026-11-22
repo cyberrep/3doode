@@ -8,9 +8,9 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 > ⏰ **The first 3DO ODE in the world with a real-time clock (RTC).** With a cheap DS3231 module soldered to 4 points, your 3DO shows the date, the time and the temperature, and remembers when each game was played. [See how to install it](docs/RTC.md).
 
-> 🌐 **Prepare your USB / SD in the browser, nothing to install:** **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)** (Chrome or Edge on a computer).
+> 🌐 **Start here — prepare your USB / SD in the browser, nothing to install:** **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)** (Chrome or Edge on a computer). 📖 [Page manual](docs/SITE.md)
 
-> **In 1 minute:** run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
+> **Prefer to do it on the PC, or need to convert games?** Run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
 
 **Current versions:** menu **1.5** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
 
@@ -517,11 +517,13 @@ The video preview uses **Cinepak**, the same codec as 3DO games, with its own de
 
 ## 🛠️ Preparing the USB / SD
 
-### In the browser
+### In the browser (recommended)
 
-Open **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)**, choose your USB / SD and the page copies the menu, covers, screenshots, videos and texts for your games, ready to use. It works in Chrome and Edge on a computer. To convert games (`.chd`, `.iso`) or to use another browser, use the generator below.
+Open **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)**, choose your USB / SD and the page copies the menu, covers, screenshots, videos and texts for your games, ready to use. It works in Chrome and Edge on a computer, and the page itself has a **How to use** button. 📖 **[Page manual, step by step](docs/SITE.md)**
 
-### With the generator
+To convert games (`.chd`, `.iso`), convert your own videos or use another browser, use the generator below.
+
+### With the generator (advanced)
 
 
 You download **a single file**. It does everything else with a step-by-step wizard (the first question is the language):
@@ -576,7 +578,7 @@ boot/        the menu (boot.iso) — always the latest version
 firmware/    the TADEU firmware (.uf2) for both boards
 media/       covers, screenshots and videos already converted for the card, and the game text database
 tools/       the generator (generate_usb.py, a single file)
-docs/        the generator manual and the clock manual
+docs/        the web page manual, the generator manual and the clock manual
 ```
 
 ---

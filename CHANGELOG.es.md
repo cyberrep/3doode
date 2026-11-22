@@ -35,6 +35,10 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - 🧠 **Más portadas en memoria a la vez.** Las Herramientas y el catálogo de saves solo ocupan memoria cuando están abiertos, el área de carpetas solo existe en el modo Carpetas y la memoria de vídeo libre ahora guarda portadas.
 - El espacio de las portadas se rehace en cada cambio de modo de visualización, del tamaño que el modo necesita.
 
+**Página web y manuales**
+- 📖 **Botón "Cómo usar" en la página**: los cinco pasos para preparar la tarjeta, en los 3 idiomas.
+- **Manual de la página** ([docs/SITE.es.md](docs/SITE.es.md)), paso a paso y con imágenes. El README ahora indica primero la página; el generador quedó como camino avanzado.
+
 **Opciones y textos**
 - **Opciones → Dispositivo ODE** se abre en acordeón, como Apariencia (todo submenú que no cabe en pantalla funciona así).
 - Texto del primer inicio: **"GUARDANDO LA LISTA DE JUEGOS — El próximo inicio será más rápido"**.

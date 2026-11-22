@@ -35,6 +35,10 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - 🧠 **More covers in memory at once.** Tools and the save catalogue only take memory while open, the folder area only exists in Folders mode, and free video memory now holds covers.
 - The cover space is rebuilt on every view change, sized for what the view needs.
 
+**Web page and manuals**
+- 📖 **"How to use" button on the page**: the five steps to prepare the card, in 3 languages.
+- **Page manual** ([docs/SITE.md](docs/SITE.md)), step by step and with pictures. The README now points to the page first; the generator became the advanced route.
+
 **Options and texts**
 - **Options → ODE Device** opens as an accordion, like Appearance (every submenu that does not fit on screen works this way).
 - First start text: **"SAVING THE GAME LIST — The next startup will be faster"**.

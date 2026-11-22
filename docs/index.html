@@ -29,9 +29,22 @@ button{cursor:pointer}
 .gap{flex:1}
 .view{padding:16px 16px 18px;min-height:430px}
 .note{color:var(--dim);margin:0 0 12px}
+.help{list-style:none;counter-reset:h;margin:0 0 14px;padding:0}
+.help li{counter-increment:h;display:flex;gap:12px;align-items:flex-start;margin:0 0 8px;padding:10px 14px;border:2px solid #3a4a86;border-radius:10px;background:#141a3a;line-height:1.4}
+.help li::before{content:counter(h);flex:0 0 28px;height:28px;border-radius:50%;background:var(--gold);color:#10122a;font-weight:700;text-align:center;line-height:28px}
+.help b{flex:0 0 76px;color:var(--gold);letter-spacing:.04em;padding-top:4px}
+.help span{flex:1;padding-top:4px}
+.help+.note a,.note a{color:#9fd0ff}
 .xcd{display:flex;gap:12px;align-items:center;margin:12px 0 0;padding:9px 14px;border:2px solid #8fd6ff;border-radius:10px;background:linear-gradient(180deg,#2a6fb8,#143a6e);color:#fff;font-size:13px;line-height:1.35}
 .xcd b{color:var(--gold);letter-spacing:.06em}
 .xcd i{flex:0 0 30px;height:30px;border-radius:50%;background:radial-gradient(circle,#10122a 0 14%,#e8eef8 15% 30%,#9fd0ff 31% 78%,#dfe6f2 79% 100%);box-shadow:0 0 0 2px #0a0c1e}
+.news>div{flex:1}
+.news .nh{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 4px}
+.news button{background:#0e1026;border:1px solid var(--gold);border-radius:6px;padding:3px 12px;color:var(--gold);font:inherit;font-weight:700;letter-spacing:.06em;cursor:pointer}
+.news ul{margin:8px 0 10px;padding-left:20px}
+.news li{margin:0 0 3px}
+.news p{margin:8px 0 0}
+.news a{color:#9fd0ff}
 .xcd.v14{border-color:var(--gold);background:linear-gradient(180deg,#5a4a12,#2e2608)}
 .warn{border:2px solid var(--red);background:#3a1420;border-radius:10px;padding:10px 14px;margin:0 0 14px}
 .warn b{color:#ffb0b0}
@@ -202,6 +215,16 @@ Object.assign(TR, {"Formato da hora":["Formato de la hora","Time format"],"Jogad
 /* ---------------- Textos só desta página ---------------- */
 const T = {
 en:{title:"USB / SD SETUP",
+ n_t:"WHAT'S NEW",n_more:"More",n_less:"Less",n_all:"Full history",n15_t:"MENU 1.5",n15_s:"The controller no longer freezes while covers load, and everything loads faster.",
+ n15:["The controller keeps responding while covers load, in every view.","Covers load before you reach them; screenshots are ready as you browse.","More covers in memory at once.","Faster description in Showcase and Strip (on an ODE with seek).","Strip: year and country on a band over the screenshot; long names scroll.","This page: How to use button and a step-by-step manual."],
+ n14_t:"MENU 1.4",
+ k_help:"How to use",s_help:"HOW TO USE",h_note:"Five steps. You need a computer with Chrome, Edge, Brave, Opera or Vivaldi, and your card with the 3DO games already on it (.iso or .cue + .bin).",
+ h1:"Choose the card and select the drive of your USB / SD. When the browser asks whether the page may see and edit the files, answer yes: without that it cannot write.",
+ h2:"See what each game has: cover, screenshot, video and texts. Many games with nothing? The file names do not match the official list: use Rename.",
+ h3:"Tick what to copy: menu (boot.iso), covers, screenshots, videos, texts and the language. Keep only copies what is missing; Replace writes everything again.",
+ h4:"Optional. The settings of the console menu itself: the console starts with them already set. Skip it and the settings on the card stay as they are.",
+ h5:"Check the summary, click Start and leave this tab open until Card ready shows up. Then eject the card, put it in the ODE and turn the console on.",
+ h_more:"To convert games (.chd, .iso), convert your own videos, or use Firefox or Safari, use generate_usb.py.",h_man:"Full manual",h_demo:"Just want to look? The Demo shows everything and neither downloads nor writes anything.",
  v14_t:"MENU 1.4: NEW COVERS AND SHARPER IMAGES",v14_b:"Covers now keep their real shape (long box and CD jewel case, not stretched) and all images are sharper and cleaner. Coming from 1.3? Just write the card again: this page replaces the old covers and screenshots by itself, together with the new menu.",
  xcd_t:"NEW: REAL CDs ON THE XPORT",xcd_b:"With the expansion board plugged in, the menu shows a CD tile: press A, open and close the lid, and the console restarts into your original disc. No need to remove the board.",
  nofs_t:"This browser cannot write to your card.",nofs_b:"Use Chrome, Edge, Brave, Opera or Vivaldi on a computer. On Firefox or Safari, use the Python tool (generate_usb.py). You can still try the demo.",
@@ -248,6 +271,16 @@ en:{title:"USB / SD SETUP",
  min:n=>`${n} minute${n==1?"":"s"}`,sec:n=>`${n} second${n==1?"":"s"}`,and:" and ",
  foot:"3DO ODE by Rodrigo Tadeu “CyberRep”. Games and BIOS are not provided."},
 pt:{title:"PREPARAR O USB / SD",
+ n_t:"NOVIDADES",n_more:"Mais",n_less:"Menos",n_all:"Histórico completo",n15_t:"MENU 1.5",n15_s:"O controle não trava mais enquanto as capas carregam, e tudo carrega mais rápido.",
+ n15:["O controle continua respondendo enquanto as capas carregam, em todos os modos.","Capas carregam antes de você chegar nelas; telas já prontas ao navegar.","Mais capas na memória ao mesmo tempo.","Descrição mais rápida na Vitrine e na Faixa (em ODE com seek).","Faixa: ano e país numa faixa sobre a tela; nome longo passa.","Esta página: botão Como usar e manual passo a passo."],
+ n14_t:"MENU 1.4",
+ k_help:"Como usar",s_help:"COMO USAR",h_note:"São cinco passos. Você precisa de um computador com Chrome, Edge, Brave, Opera ou Vivaldi, e do seu cartão com os jogos de 3DO já dentro (.iso ou .cue + .bin).",
+ h1:"Clique em Escolher o cartão e selecione a unidade do seu USB / SD. Quando o navegador perguntar se a página pode ver e editar os arquivos, responda sim: sem isso ela não consegue gravar.",
+ h2:"Veja o que cada jogo tem: capa, tela, vídeo e textos. Muitos jogos sem nada? Os nomes dos arquivos não batem com a lista oficial: use Renomear.",
+ h3:"Marque o que copiar: menu (boot.iso), capas, telas, vídeos, textos e o idioma. Manter só copia o que falta; Substituir grava tudo de novo.",
+ h4:"Opcional. São as opções do próprio menu do console: ele já liga com elas ajustadas. Se pular, as opções que estão no cartão ficam como estão.",
+ h5:"Confira o resumo, clique em Começar e deixe esta aba aberta até aparecer Cartão pronto. Depois ejete o cartão, ponha no ODE e ligue o console.",
+ h_more:"Para converter jogos (.chd, .iso), converter os seus próprios vídeos ou usar Firefox ou Safari, use o generate_usb.py.",h_man:"Manual completo",h_demo:"Quer só olhar? A Demonstração mostra tudo e não baixa nem grava nada.",
  v14_t:"MENU 1.4: CAPAS NOVAS E IMAGENS MAIS NÍTIDAS",v14_b:"As capas agora ficam na proporção real (long box e caixa de CD, sem esticar) e todas as imagens estão mais nítidas e limpas. Vem da 1.3? É só gravar o cartão de novo: esta página troca as capas e telas antigas sozinha, junto com o menu novo.",
  xcd_t:"NOVO: CD DE VERDADE NO XPORT",xcd_b:"Com a placa de expansão ligada, o menu mostra a caixa CD: aperte A, abra e feche a tampa, e o console reinicia no seu disco original. Sem tirar a placa.",
  nofs_t:"Este navegador não consegue gravar no seu cartão.",nofs_b:"Use o Chrome, Edge, Brave, Opera ou Vivaldi num computador. No Firefox ou no Safari, use a ferramenta em Python (generate_usb.py). Você ainda pode ver a demonstração.",
@@ -294,6 +327,16 @@ pt:{title:"PREPARAR O USB / SD",
  min:n=>`${n} minuto${n==1?"":"s"}`,sec:n=>`${n} segundo${n==1?"":"s"}`,and:" e ",
  foot:"3DO ODE, por Rodrigo Tadeu “CyberRep”. Jogos e BIOS não são fornecidos."},
 es:{title:"PREPARAR EL USB / SD",
+ n_t:"NOVEDADES",n_more:"Más",n_less:"Menos",n_all:"Historial completo",n15_t:"MENÚ 1.5",n15_s:"El control ya no se traba mientras cargan las portadas, y todo carga más rápido.",
+ n15:["El control sigue respondiendo mientras cargan las portadas, en todos los modos.","Las portadas cargan antes de que llegues a ellas; capturas ya listas al navegar.","Más portadas en memoria a la vez.","Descripción más rápida en Vitrina y Tira (en un ODE con seek).","Tira: año y país en una franja sobre la captura; el nombre largo se desplaza.","Esta página: botón Cómo usar y manual paso a paso."],
+ n14_t:"MENÚ 1.4",
+ k_help:"Cómo usar",s_help:"CÓMO USAR",h_note:"Son cinco pasos. Necesitas un ordenador con Chrome, Edge, Brave, Opera o Vivaldi, y tu tarjeta con los juegos de 3DO ya dentro (.iso o .cue + .bin).",
+ h1:"Haz clic en Elegir la tarjeta y selecciona la unidad de tu USB / SD. Cuando el navegador pregunte si la página puede ver y editar los archivos, responde sí: sin eso no puede grabar.",
+ h2:"Mira lo que tiene cada juego: portada, captura, vídeo y textos. ¿Muchos juegos sin nada? Los nombres de los archivos no coinciden con la lista oficial: usa Renombrar.",
+ h3:"Marca qué copiar: menú (boot.iso), portadas, capturas, vídeos, textos y el idioma. Mantener solo copia lo que falta; Sustituir lo graba todo de nuevo.",
+ h4:"Opcional. Son las opciones del propio menú de la consola: arranca ya con ellas ajustadas. Si lo saltas, las opciones que están en la tarjeta quedan como están.",
+ h5:"Revisa el resumen, haz clic en Empezar y deja esta pestaña abierta hasta que aparezca Tarjeta lista. Después expulsa la tarjeta, ponla en el ODE y enciende la consola.",
+ h_more:"Para convertir juegos (.chd, .iso), convertir tus propios vídeos o usar Firefox o Safari, usa generate_usb.py.",h_man:"Manual completo",h_demo:"¿Solo quieres mirar? La Demostración lo muestra todo y no descarga ni graba nada.",
  v14_t:"MENÚ 1.4: PORTADAS NUEVAS E IMÁGENES MÁS NÍTIDAS",v14_b:"Las portadas ahora mantienen su proporción real (long box y caja de CD, sin estirar) y todas las imágenes son más nítidas y limpias. ¿Vienes de la 1.3? Solo graba la tarjeta de nuevo: esta página cambia sola las portadas y capturas antiguas, junto con el menú nuevo.",
  xcd_t:"NUEVO: CD DE VERDAD EN EL XPORT",xcd_b:"Con la placa de expansión conectada, el menú muestra la caja CD: pulsa A, abre y cierra la tapa, y la consola se reinicia en tu disco original. Sin quitar la placa.",
  nofs_t:"Este navegador no puede grabar en tu tarjeta.",nofs_b:"Usa Chrome, Edge, Brave, Opera o Vivaldi en un ordenador. En Firefox o Safari, usa la herramienta en Python (generate_usb.py). Aun así puedes ver la demostración.",
@@ -836,7 +879,7 @@ function draw(){
   document.querySelectorAll("#langs button").forEach(b => b.classList.toggle("on", b.dataset.l === lang));
   $("foot").textContent = t("foot");
   document.title = "3DO ODE — " + t("title");
-  ({home:drawHome, games:drawGames, media:drawMedia, options:drawOptions, write:drawWrite, rename:drawRename, check:drawCheck})[S.screen]();
+  ({home:drawHome, games:drawGames, media:drawMedia, options:drawOptions, write:drawWrite, rename:drawRename, check:drawCheck, help:drawHelp})[S.screen]();
 }
 const ready = () => S.games.length > 0;
 const noFS = !window.showDirectoryPicker;
@@ -861,9 +904,26 @@ function drawHome(){
       <button class="tile t-gray" data-go="options" ${dis}>${ICON.gear}<span>${esc(t("t_opts"))}</span><small>${esc(t("t_opts_s"))}</small></button>
     </div>
     <div class="last">${last}</div>
-    <div class="xcd v14"><div><b>${esc(t("v14_t"))}</b><br>${esc(t("v14_b"))}</div></div>
-    <div class="xcd"><i></i><div><b>${esc(t("xcd_t"))}</b><br>${esc(t("xcd_b"))}</div></div>`;
-  keys([["pick","A",t("k_pick"),noFS],["demo","X",t("k_demo")],["check","C",t("k_check"),!ready()],"gap",["write","P",t("t_write"),!ready()]]);
+    <div class="xcd"><i></i><div><b>${esc(t("xcd_t"))}</b><br>${esc(t("xcd_b"))}</div></div>
+    <div class="xcd v14 news"><div>
+      <div class="nh"><b>${esc(t("n_t"))} — ${esc(t("n15_t"))}</b><button data-news="1">${esc(t(S.news ? "n_less" : "n_more"))} ${S.news ? "▴" : "▾"}</button></div>
+      ${esc(t("n15_s"))}
+      ${S.news ? `<ul>${t("n15").map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+        <b>${esc(t("n14_t"))}</b><br>${esc(t("v14_b"))}
+        <p><a href="https://github.com/cyberrep/3doode/blob/main/CHANGELOG${lang === "en" ? "" : "." + lang}.md" target="_blank" rel="noopener">${esc(t("n_all"))}</a></p>` : ""}
+    </div></div>`;
+  keys([["pick","A",t("k_pick"),noFS],["demo","X",t("k_demo")],["check","C",t("k_check"),!ready()],["help","?",t("k_help")],"gap",["write","P",t("t_write"),!ready()]]);
+}
+
+/* ---------------- Como usar: os cinco passos, na ordem dos botões da primeira tela ---------------- */
+function drawHelp(){
+  $("title").textContent = t("s_help");
+  const steps = [["t_card","h1"],["t_games","h2"],["t_media","h3"],["t_opts","h4"],["t_write","h5"]];
+  $("view").innerHTML = `<p class="note">${esc(t("h_note"))}</p><ol class="help">` +
+    steps.map(x => `<li><b>${esc(t(x[0]))}</b><span>${esc(t(x[1]))}</span></li>`).join("") + `</ol>
+    <p class="note">${esc(t("h_demo"))}</p>
+    <p class="note">${esc(t("h_more"))} <a href="https://github.com/cyberrep/3doode/blob/main/docs/SITE${lang === "en" ? "" : "." + lang}.md" target="_blank" rel="noopener">${esc(t("h_man"))}</a></p>`;
+  keys([["back","B",t("k_back")],"gap",["demo","X",t("k_demo")],["pick","A",t("k_pick"),noFS]]);
 }
 
 function filtered(){
@@ -1375,6 +1435,7 @@ async function act(k){
     if (k === "pick"){ await openCard(false); go("home"); }
     else if (k === "demo"){ await openCard(true); go("home"); }
     else if (k === "back") go("home");
+    else if (k === "help") go("help");
     else if (k === "rename" && ready()){ R.state = "idle"; R.msg = ""; go("rename"); }
     else if (["games","media","options","write","check"].includes(k) && ready()) go(k);
   } catch(e){ if (e.name !== "AbortError") alert(t("err") + ": " + e.message); }
@@ -1390,6 +1451,7 @@ $("view").addEventListener("click", async e => {
   const d = el.dataset;
   try {
     if (d.go) return act(d.go);
+    if (d.news){ S.news = !S.news; return drawHome(); }
     if (d.f){ S.filter = d.f; S.sel = 0; return drawGames(); }
     if (d.i !== undefined){ S.sel = Number(d.i); $("list").querySelectorAll("button").forEach((b, i) => b.classList.toggle("on", i === S.sel)); return drawSide(); }
     if (d.own){ const g = filtered()[S.sel], inp = $("onefile"); inp.accept = d.own === "videos" ? ".cvd" : "image/*";

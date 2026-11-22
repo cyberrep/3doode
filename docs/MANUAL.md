@@ -2,6 +2,8 @@
 
 [← Back to start](../README.md) · **English** · [Português](MANUAL.pt.md) · [Español](MANUAL.es.md)
 
+> 🌐 **Most people do not need this generator.** The easiest way is the [web page](https://cyberrep.github.io/3doode/), which prepares the card in the browser with nothing to install: see the **[page manual](SITE.md)**. Use the generator to convert games (`.chd`, `.iso`), convert your own videos, or if your browser is Firefox or Safari.
+
 `generate_usb.py` prepares your 3DO ODE USB (or card) **by itself**. You download **only this file** and it does the rest:
 
 - builds the **covers** and **screenshots** of the games, each in two sizes;

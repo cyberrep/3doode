@@ -2,6 +2,8 @@
 
 [← Voltar ao início](../README.pt.md) · [English](MANUAL.md) · **Português** · [Español](MANUAL.es.md)
 
+> 🌐 **A maioria das pessoas não precisa deste gerador.** O jeito mais fácil é a [página web](https://cyberrep.github.io/3doode/), que prepara o cartão pelo navegador sem instalar nada: veja o **[manual da página](SITE.pt.md)**. Use o gerador para converter jogos (`.chd`, `.iso`), converter os seus próprios vídeos, ou se o seu navegador for Firefox ou Safari.
+
 O `generate_usb.py` prepara o seu USB (ou cartão) do 3DO ODE **sozinho**. Você baixa **só este arquivo** e ele faz o resto:
 
 - gera as **capas** e as **telas** dos jogos, cada uma em dois tamanhos;

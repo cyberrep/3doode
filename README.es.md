@@ -8,9 +8,9 @@ Menú (`boot.iso`), firmware y generador de tarjeta para la **ODE SataTo3DO** (p
 
 > ⏰ **La primera ODE de 3DO del mundo con reloj de tiempo real (RTC).** Con un módulo DS3231 muy barato soldado en 4 puntos, tu 3DO muestra la fecha, la hora y la temperatura, y guarda cuándo se jugó cada juego. [Mira cómo instalarlo](docs/RTC.es.md).
 
-> 🌐 **Prepara tu USB / SD desde el navegador, sin instalar nada:** **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)** (Chrome o Edge en el ordenador).
+> 🌐 **Empieza por aquí — prepara tu USB / SD desde el navegador, sin instalar nada:** **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)** (Chrome o Edge en el ordenador). 📖 [Manual de la página](docs/SITE.es.md)
 
-> **En 1 minuto:** ejecuta **`generate_usb.py`** — un **único archivo** que hace todo lo demás: descarga el arte, convierte carátulas, capturas y vídeos, arma los textos de los juegos y **copia el `boot.iso` (el menú)** al USB.
+> **¿Prefieres hacerlo en el PC, o necesitas convertir juegos?** Ejecuta **`generate_usb.py`** — un **único archivo** que hace todo lo demás: descarga el arte, convierte carátulas, capturas y vídeos, arma los textos de los juegos y **copia el `boot.iso` (el menú)** al USB.
 
 **Versiones actuales:** menú **1.5** · firmware **TADEU 1.0.6** · [historial completo](CHANGELOG.es.md)
 
@@ -517,11 +517,13 @@ La vista previa en vídeo usa **Cinepak**, el mismo códec de los juegos de 3DO,
 
 ## 🛠️ Preparar el USB / SD
 
-### Desde el navegador
+### Desde el navegador (recomendado)
 
-Abre **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)**, elige tu USB / SD y la página copia el menú, las portadas, las capturas, los vídeos y los textos de tus juegos, ya listos. Funciona en Chrome y Edge en el ordenador. Para convertir juegos (`.chd`, `.iso`) o usar otro navegador, usa el generador de abajo.
+Abre **[https://cyberrep.github.io/3doode/](https://cyberrep.github.io/3doode/)**, elige tu USB / SD y la página copia el menú, las portadas, las capturas, los vídeos y los textos de tus juegos, ya listos. Funciona en Chrome y Edge en el ordenador, y la propia página tiene el botón **Cómo usar**. 📖 **[Manual de la página, paso a paso](docs/SITE.es.md)**
 
-### Con el generador
+Para convertir juegos (`.chd`, `.iso`), convertir tus propios vídeos o usar otro navegador, usa el generador de abajo.
+
+### Con el generador (avanzado)
 
 
 Descargas **un único archivo**. Hace todo lo demás con un asistente paso a paso (la primera pregunta es el idioma):
@@ -576,7 +578,7 @@ boot/        el menú (boot.iso) — siempre la última versión
 firmware/    el firmware TADEU (.uf2) para las dos placas
 media/       portadas, capturas y vídeos ya convertidos para la tarjeta, y la base de textos de los juegos
 tools/       el generador (generate_usb.py, un solo archivo)
-docs/        el manual del generador y el manual del reloj
+docs/        el manual de la página web, el manual del generador y el manual del reloj
 ```
 
 ---
