@@ -42,6 +42,9 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - **Page manual** ([docs/SITE.md](docs/SITE.md)), step by step and with pictures. The README now points to the page first; the generator became the advanced route.
 
 **Options and texts**
+- 🎚️ **New option Options → Appearance → Media → Strip transparency** (0%, 25%, 50%, 75%, 100%): how much of the image shows behind the year/country and discs/favourite strips. Default 75%.
+- **List with Screenshot or Video:** the image fills the whole box and the strips sit on top of it, translucent, as on covers (they used to be two opaque bars with dividing lines).
+- **Lighter Ambilight format:** building the glow is faster and runs in a step separate from reading, so it does not hold the controller.
 - **Options → ODE Device** opens as an accordion, like Appearance (every submenu that does not fit on screen works this way).
 - First start text: **"SAVING THE GAME LIST — The next startup will be faster"**.
 

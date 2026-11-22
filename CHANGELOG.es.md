@@ -42,6 +42,9 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - **Manual de la página** ([docs/SITE.es.md](docs/SITE.es.md)), paso a paso y con imágenes. El README ahora indica primero la página; el generador quedó como camino avanzado.
 
 **Opciones y textos**
+- 🎚️ **Nueva opción Opciones → Apariencia → Medios → Transparencia de las franjas** (0%, 25%, 50%, 75%, 100%): cuánto se ve de la imagen detrás de las franjas de año/país y de discos/favorito. Por defecto 75%.
+- **Lista con Captura o Vídeo:** la imagen ocupa toda la caja y las franjas van encima, translúcidas, como en las portadas (antes eran dos barras opacas con líneas de división).
+- **Formato Ambilight más ligero:** el montaje del brillo es más rápido y se hace en un paso separado de la lectura, para no retener el control.
 - **Opciones → Dispositivo ODE** se abre en acordeón, como Apariencia (todo submenú que no cabe en pantalla funciona así).
 - Texto del primer inicio: **"GUARDANDO LA LISTA DE JUEGOS — El próximo inicio será más rápido"**.
 

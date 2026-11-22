@@ -42,6 +42,9 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - **Manual da página** ([docs/SITE.pt.md](docs/SITE.pt.md)), passo a passo e com imagens. O README passou a indicar a página primeiro; o gerador ficou como caminho avançado.
 
 **Opções e textos**
+- 🎚️ **Nova opção Opções → Aparência → Mídias → Transparência das faixas** (0%, 25%, 50%, 75%, 100%): o quanto aparece da imagem por trás das faixas de ano/país e de discos/favorito. Padrão 75%.
+- **Lista com Tela ou Vídeo:** a imagem ocupa a caixa inteira e as faixas ficam por cima dela, translúcidas, como nas capas (antes eram duas barras opacas com linhas de divisão).
+- **Formato Ambilight mais leve:** a montagem do brilho ficou mais rápida e é feita num passo separado da leitura, para não segurar o controle.
 - **Opções → Dispositivo ODE** abre em sanfona, como Aparência (todo submenu que não cabe na tela funciona assim).
 - Texto do primeiro início: **"SALVANDO A LISTA DE JOGOS — O próximo início será mais rápido"**.
 
