@@ -280,7 +280,7 @@ en:{title:"USB / SD SETUP",
  r_dat:"Could not read the list of official names on GitHub.",r_nomove:"This browser cannot rename files on the card. Use an up-to-date Chrome or Edge on a computer.",
  r_reading:"Reading",r_ok:n=>`${n} already have the official name`,r_sure:"by content",r_guess:"by name",r_unknown:"Not identified",r_long:"Name too long for the ODE",r_long_n:"The ODE only reads file names of up to 126 characters (with the extension). Longer than that, the menu shows the short name (like NISHIM~1) and the media do not open.",r_long_kept:"not renamed",r_long_card:"on the card: shorten it",
  r_sure_d:"The disc content matches the official list: certain.",r_guess_d:"Only the title matches: check before ticking.",
- r_nothing:"Nothing to rename.",r_done:(a,b)=>`${a} renamed, ${b} with error`,r_exists:"a file with that name already exists",
+ r_nothing:"Nothing to rename.",r_done:(a,b)=>`${a} renamed, ${b} with error`,r_exists:"a file with that name already exists",r_copy_q:"The browser did not allow a direct rename.\n\nIt can be done by COPYING each file under the new name and deleting the old one. It works, but it copies the whole game: it can take a long time and needs free space for the largest game.\n\nContinue by copying?",r_blocked:"the browser did not allow the rename",r_copying:"copying",
  r_slow:"Reading whole discs can take a few minutes on a slow card.",
  k_check:"Check the card",s_check:"CHECK THE CARD",c_note:"What is on your card right now. Nothing changes unless you click to copy.",c_sum:"Summary",c_games:"Games",c_boot:"Menu (boot.iso)",c_cfg:"Menu options",c_fw:"Firmware update file",
  c_txt:"Games with texts",c_miss:"Missing on the card",c_extra:"Media without a game (left over)",c_ok:"Nothing missing and nothing left over.",c_dl:"Download the report",c_of:(a,b)=>`${a} of ${b}`,
@@ -338,7 +338,7 @@ pt:{title:"PREPARAR O USB / SD",
  r_dat:"Não consegui ler a lista de nomes oficiais no GitHub.",r_nomove:"Este navegador não consegue renomear arquivos no cartão. Use um Chrome ou Edge atualizado num computador.",
  r_reading:"Lendo",r_ok:n=>`${n} já estão com o nome oficial`,r_sure:"pelo conteúdo",r_guess:"pelo nome",r_unknown:"Não identificados",r_long:"Nome longo demais para o ODE",r_long_n:"O ODE só lê nomes de arquivo de até 126 letras (com a extensão). Acima disso o menu mostra o nome curto (tipo NISHIM~1) e as mídias não abrem.",r_long_kept:"não renomeado",r_long_card:"no cartão: encurte",
  r_sure_d:"O conteúdo do disco bate com a lista oficial: é certeza.",r_guess_d:"Só o título bate: confira antes de marcar.",
- r_nothing:"Nada para renomear.",r_done:(a,b)=>`${a} renomeados, ${b} com erro`,r_exists:"já existe um arquivo com esse nome",
+ r_nothing:"Nada para renomear.",r_done:(a,b)=>`${a} renomeados, ${b} com erro`,r_exists:"já existe um arquivo com esse nome",r_copy_q:"O navegador não deixou renomear direto.\n\nDá para fazer COPIANDO cada arquivo com o nome novo e apagando o antigo. Funciona, mas copia o jogo inteiro: pode demorar bastante e precisa de espaço livre para o maior jogo.\n\nContinuar copiando?",r_blocked:"o navegador não deixou renomear",r_copying:"copiando",
  r_slow:"Ler os discos inteiros pode levar alguns minutos num cartão lento.",
  k_check:"Verificar o cartão",s_check:"VERIFICAR O CARTÃO",c_note:"O que há no seu cartão agora. Nada muda, a não ser que você clique para copiar.",c_sum:"Resumo",c_games:"Jogos",c_boot:"Menu (boot.iso)",c_cfg:"Opções do menu",c_fw:"Arquivo de atualização do firmware",
  c_txt:"Jogos com textos",c_miss:"Faltando no cartão",c_extra:"Mídias sem jogo (sobrando)",c_ok:"Não falta nem sobra nada.",c_dl:"Baixar o relatório",c_of:(a,b)=>`${a} de ${b}`,
@@ -396,7 +396,7 @@ es:{title:"PREPARAR EL USB / SD",
  r_dat:"No pude leer la lista de nombres oficiales en GitHub.",r_nomove:"Este navegador no puede renombrar archivos en la tarjeta. Usa un Chrome o Edge actualizado en un ordenador.",
  r_reading:"Leyendo",r_ok:n=>`${n} ya tienen el nombre oficial`,r_sure:"por el contenido",r_guess:"por el nombre",r_unknown:"No identificados",r_long:"Nombre demasiado largo para la ODE",r_long_n:"La ODE solo lee nombres de archivo de hasta 126 letras (con la extensión). Por encima de eso el menú muestra el nombre corto (tipo NISHIM~1) y los medios no se abren.",r_long_kept:"no renombrado",r_long_card:"en la tarjeta: acórtalo",
  r_sure_d:"El contenido del disco coincide con la lista oficial: es seguro.",r_guess_d:"Solo coincide el título: compruébalo antes de marcar.",
- r_nothing:"Nada que renombrar.",r_done:(a,b)=>`${a} renombrados, ${b} con error`,r_exists:"ya existe un archivo con ese nombre",
+ r_nothing:"Nada que renombrar.",r_done:(a,b)=>`${a} renombrados, ${b} con error`,r_exists:"ya existe un archivo con ese nombre",r_copy_q:"El navegador no permitió renombrar directamente.\n\nSe puede hacer COPIANDO cada archivo con el nombre nuevo y borrando el antiguo. Funciona, pero copia el juego entero: puede tardar bastante y necesita espacio libre para el juego más grande.\n\n¿Continuar copiando?",r_blocked:"el navegador no permitió renombrar",r_copying:"copiando",
  r_slow:"Leer los discos enteros puede tardar unos minutos en una tarjeta lenta.",
  k_check:"Comprobar la tarjeta",s_check:"COMPROBAR LA TARJETA",c_note:"Lo que hay en tu tarjeta ahora. Nada cambia, salvo que hagas clic para copiar.",c_sum:"Resumen",c_games:"Juegos",c_boot:"Menú (boot.iso)",c_cfg:"Opciones del menú",c_fw:"Archivo de actualización del firmware",
  c_txt:"Juegos con textos",c_miss:"Falta en la tarjeta",c_extra:"Medios sin juego (sobran)",c_ok:"No falta ni sobra nada.",c_dl:"Descargar el informe",c_of:(a,b)=>`${a} de ${b}`,
@@ -1301,14 +1301,31 @@ async function renameScan(){
   R.items.sort((a, b) => (a.how === b.how ? a.f.stem.localeCompare(b.f.stem) : a.how === "sure" ? -1 : 1));
   R.state = "list"; drawRename();
 }
-/* Troca o nome de um arquivo dentro da pasta dele (sem copiar). */
-async function mv(dirMap, h, to){
+/* Troca o nome de um arquivo dentro da pasta dele. Primeiro do jeito direto (move, sem copiar). Se o navegador
+   recusar (acontece: o Chrome nega o move em certas situações), pede a permissão de novo e tenta outra vez; se
+   ainda recusar, pergunta UMA vez se pode fazer copiando (arquivo novo com o nome novo, depois apaga o antigo).
+   R.mode: 0 = tentando o move, 1 = copiando (a pessoa aceitou), -1 = a pessoa não quis copiar. */
+async function mv(dir, dirMap, h, to){
   const clash = [...dirMap.keys()].find(k => k.toLowerCase() === to.toLowerCase());
   if (clash && dirMap.get(clash) !== h) throw new Error(t("r_exists"));
-  await h.move(to);
+  if (!R.mode){
+    try { await h.move(to); return; }
+    catch(e){
+      R.why = (e && e.name) || "";
+      try { if (await S.root.requestPermission({mode:"readwrite"}) === "granted"){ await h.move(to); return; } } catch(e2){}
+      R.mode = window.confirm(t("r_copy_q")) ? 1 : -1;
+    }
+  }
+  /* (Só a caixa das letras muda: no cartão é o mesmo arquivo, não dá para copiar por cima dele.) */
+  if (R.mode < 0 || to.toLowerCase() === h.name.toLowerCase()) throw new Error(t("r_blocked") + (R.why ? " (" + R.why + ")" : ""));
+  const now = $("rnow"); if (now) now.textContent = t("r_copying") + ": " + to;
+  const nh = await dir.getFileHandle(to, {create:true});
+  try { await (await h.getFile()).stream().pipeTo(await nh.createWritable()); }
+  catch(e){ try { await dir.removeEntry(to); } catch(e2){} throw e; }
+  await dir.removeEntry(h.name);
 }
 async function renameApply(){
-  R.state = "apply"; R.pct = 0; R.now = ""; drawRename();
+  R.state = "apply"; R.pct = 0; R.now = ""; R.mode = 0; R.why = ""; drawRename();
   let done = 0, bad = 0;
   const ren = [], sel = R.items.filter(x => x.on);
   for (const [n, it] of sel.entries()){
@@ -1320,17 +1337,17 @@ async function renameApply(){
           let cue = f.cueText;
           for (const p of f.parts){
             const nn = p.hit ? p.hit.rom : (f.parts.length === 1 ? it.to + p.name.slice(p.name.lastIndexOf(".")) : p.name);
-            if (nn !== p.name){ await mv(f.here, p.h, nn); cue = cue.split('"' + p.name + '"').join('"' + nn + '"').split(" " + p.name + " ").join(' "' + nn + '" '); }
+            if (nn !== p.name){ await mv(f.dir, f.here, p.h, nn); cue = cue.split('"' + p.name + '"').join('"' + nn + '"').split(" " + p.name + " ").join(' "' + nn + '" '); }
           }
           const w = await f.h.createWritable(); await w.write(cue); await w.close();
-          await mv(f.here, f.h, it.to + ".cue");
+          await mv(f.dir, f.here, f.h, it.to + ".cue");
         } else {
-          await mv(f.here, f.h, it.to + f.ext);
-          for (const side of [".ccd", ".sub", ".CCD", ".SUB"]){ const sh = f.here.get(f.stem + side); if (sh) await mv(f.here, sh, it.to + side.toLowerCase()); }
+          await mv(f.dir, f.here, f.h, it.to + f.ext);
+          for (const side of [".ccd", ".sub", ".CCD", ".SUB"]){ const sh = f.here.get(f.stem + side); if (sh) await mv(f.dir, f.here, sh, it.to + side.toLowerCase()); }
         }
         /* As capas, telas e vídeos que já estavam no cartão com o nome antigo acompanham. */
         for (const kind in KINDS) for (const p of KINDS[kind].places){
-          try { const d = await dirAt(p[1], false), oh = await d.getFileHandle(f.stem + KINDS[kind].ext); try { await d.getFileHandle(it.to + KINDS[kind].ext); } catch(e){ await oh.move(it.to + KINDS[kind].ext); } } catch(e){}
+          try { const d = await dirAt(p[1], false), oh = await d.getFileHandle(f.stem + KINDS[kind].ext); try { await d.getFileHandle(it.to + KINDS[kind].ext); } catch(e){ await mv(d, new Map(), oh, it.to + KINDS[kind].ext); } } catch(e){}
         }
       }
       ren.push([f.stem, it.to]); done++; it.err = ""; it.done = true;
