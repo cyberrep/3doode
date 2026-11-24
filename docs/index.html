@@ -50,6 +50,9 @@ button{cursor:pointer}
 .news>div{flex:1}
 .news .n2{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
 .news .n2>div+div{border-left:1px solid rgba(255,255,255,.35);padding-left:22px}
+.rbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.rbatwrap{text-align:center;margin-top:16px}
+.rbatwrap .note{max-width:640px;margin:8px auto 0}
 .news .nv{display:flex;gap:10px;margin-top:3px}.news .nv b{flex:0 0 46px}.news .nv span{flex:1}
 .news .nold{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.35)}
 @media(max-width:760px){.news .n2{grid-template-columns:1fr}.news .n2>div+div{border-left:0;padding-left:0;margin-top:8px}}
@@ -856,7 +859,7 @@ async function dirAt(parts, create){ let d = S.root; for (const p of parts) d = 
 async function exists(parts, name){ try { await (await dirAt(parts, false)).getFileHandle(name); return true; } catch(e){ return false; } }
 /* 1.6: capas e telas num arquivo só por pasta (pacote), que o menu lê por busca
  * dentro do arquivo (firmware TADEU 1.0.7 ou mais novo). Formato: src/pak.c do menu. */
-const PAKS = [[["covers","small"], "small.pak"], [["covers","large"], "large.pak"], [["screenshots","medium"], "medium.pak"]];
+const PAKS = [[["covers","small"], "small.pak"], [["covers","large"], "large.pak"], [["screenshots","medium"], "medium.pak"], [["screenshots","large"], "large.pak"]];
 const PAK_MAX = 2000;
 function pakHash(name){ let h = 2166136261; for (let c of new TextEncoder().encode(name)){ if (c >= 65 && c <= 90) c += 32; h = Math.imul(h ^ c, 16777619) >>> 0; } return h >>> 0; }
 const pakOf = to => PAKS.findIndex(([d]) => d.join("/") === to.join("/"));
@@ -1194,7 +1197,7 @@ function has107(){ return !S.xport && (fwSure() || (S.tadeu && !S.cfg._ver && S.
  * telas; "cov" = só as capas (pequenas + grandes); "small" = só as capas pequenas
  * (a grade, que é onde a velocidade mais importa; o pacote fica bem menor). PAKS: 0
  * capas pequenas, 1 capas grandes, 2 telas. O que não entra no pacote é gravado solto. */
-function pakActive(i){ const w = S.o.pakWhat; return i === 0 || (i === 1 && w !== "small") || (i === 2 && w === "all"); }
+function pakActive(i){ const w = S.o.pakWhat; return i === 0 || (i === 1 && w !== "small") || (i >= 2 && w === "all"); }
 function row(id, name, val, cls){ return `<button class="opt ${cls || ""}" data-o="${id}"><span>${esc(name)}</span><b>${val}</b></button>`; }
 /* Quantas imagens a pessoa escolheu à mão (capas e telas): as que vão no zip. */
 const ownCount = () => S.ownOne.covers.size + S.ownOne.screenshots.size;
@@ -1623,8 +1626,8 @@ function drawRename(){
     h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))}</p>
       <p class="note">${esc(t("r_diff"))} <del class="dd">${esc(t("r_out"))}</del> <ins class="dd">${esc(t("r_in"))}</ins></p>`;
     if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""} ${it.dup ? "disabled" : ""}><span>${(d => `<small><u>${esc(t("r_from"))}</u>${d[0]}</small><b><u>${esc(t("r_to"))}</u>${d[1]}</b>`)(nameDiff(it.f.stem + it.f.ext, it.to + it.f.ext))}${it.dup ? `<small style="color:#ffd38a">${esc(t("r_dup_d")(it.dup))}</small>` : ""}${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err || it.dup ? "err" : it.how}" style="font-style:normal">${esc(t(it.dup ? "r_dup" : it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
-      <button class="big" id="rbat">${esc(t("r_bat"))}</button> <button class="big stop" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button>
-      <p class="note" style="margin-top:8px">${esc(t("r_bat_d"))}</p>`;
+      <div class="rbtns"><button class="big stop" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button></div>
+      <div class="rbatwrap"><button class="big" id="rbat">${esc(t("r_bat"))}</button><p class="note">${esc(t("r_bat_d"))}</p></div>`;
     else h += `<p class="note"><b style="color:var(--fg)">${esc(t("r_nothing"))}</b></p>`;
     if (R.long.length) h += `<div class="misshead"><b>${esc(t("r_long"))} (${R.long.length})</b></div><div class="note">${esc(t("r_long_n"))}</div><div class="ren" style="max-height:150px">${R.long.map(u => `<label style="cursor:default"><span>${esc(u.name)}</span><span class="how">${u.n} · ${esc(t(u.kept ? "r_long_kept" : "r_long_card"))}</span></label>`).join("")}</div>`;
     if (R.unknown.length) h += `<div class="misshead"><b>${esc(t("r_unknown"))} (${R.unknown.length})</b></div><div class="ren" style="max-height:150px">${R.unknown.map(u => `<label style="cursor:default"><span>${esc(u)}</span></label>`).join("")}</div>`;
