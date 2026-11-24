@@ -312,7 +312,7 @@ en:{title:"USB / SD SETUP",
  m_gen:"To convert games (.chd, .iso), rename, organize or convert your own videos, use generate_usb.py.",
  pv:"Preview",pv_note:"Approximate preview of the console menu with these options.",
  o_note:"These are the menu's own options. They go to the card with the rest; the console shows them already set.",
- v_cur:"Current version",o_det:"Detected by the menu: firmware",o_type:"type",o_newfw:v=>"A newer firmware exists: TADEU "+v+". Tick it under Media to write it.",o_xport:"My ODE is the Xport (expansion board)",o_tadeu:"My ODE has the TADEU firmware",o_rtc:"My ODE has the clock (RTC)",o_keep:"Options on the card: not changed",o_set:"Options on the card: will be written",
+ v_cur:"Current version",o_det:"Detected by the menu: firmware",o_type:"type",o_newfw:v=>"A newer firmware exists: TADEU "+v+". Tick it under Media to write it.",o_fw107:"My TADEU firmware is 1.0.7 or newer",pak_both:"The card has not confirmed the 1.0.7 firmware yet: this time the page writes the pack AND the individual files, so covers show up with any firmware. After you power the console on with 1.0.7, the next write uses the pack only.",o_xport:"My ODE is the Xport (expansion board)",o_tadeu:"My ODE has the TADEU firmware",o_rtc:"My ODE has the clock (RTC)",o_keep:"Options on the card: not changed",o_set:"Options on the card: will be written",
  miss_t:"What was missing",miss_none:"Nothing was missing.",miss_dl:"Download the list",
  mu_play:"Listen to the music",mu_stop:"Stop",
  sum_t:"What will be written",sum_new:"to write",sum_keep:"already on the card",sum_miss:"not available",sum_total:"Files to write",sum_old:"replaces the old ones",sum_folders:"Folders",
@@ -371,7 +371,7 @@ pt:{title:"PREPARAR O USB / SD",
  m_gen:"Para converter jogos (.chd, .iso), renomear, organizar ou converter os seus próprios vídeos, use o generate_usb.py.",
  pv:"Prévia",pv_note:"Prévia aproximada do menu do console com estas opções.",
  o_note:"Estas são as opções do próprio menu. Elas vão para o cartão junto com o resto; o console já liga com elas ajustadas.",
- v_cur:"Versão atual",o_det:"Detectado pelo menu: firmware",o_type:"tipo",o_newfw:v=>"Há firmware mais novo: TADEU "+v+". Marque em Mídias para gravar.",o_xport:"Meu ODE é o Xport (placa de expansão)",o_tadeu:"Meu ODE tem o firmware TADEU",o_rtc:"Meu ODE tem o relógio (RTC)",o_keep:"Opções do cartão: não serão alteradas",o_set:"Opções do cartão: serão gravadas",
+ v_cur:"Versão atual",o_det:"Detectado pelo menu: firmware",o_type:"tipo",o_newfw:v=>"Há firmware mais novo: TADEU "+v+". Marque em Mídias para gravar.",o_fw107:"Meu firmware TADEU é o 1.0.7 ou mais novo",pak_both:"O cartão ainda não confirmou o firmware 1.0.7: desta vez a página grava o pacote E os arquivos individuais, para as capas aparecerem com qualquer firmware. Depois de ligar o console com o 1.0.7, a próxima gravação já usa só o pacote.",o_xport:"Meu ODE é o Xport (placa de expansão)",o_tadeu:"Meu ODE tem o firmware TADEU",o_rtc:"Meu ODE tem o relógio (RTC)",o_keep:"Opções do cartão: não serão alteradas",o_set:"Opções do cartão: serão gravadas",
  miss_t:"O que faltou",miss_none:"Não faltou nada.",miss_dl:"Baixar a lista",
  mu_play:"Ouvir a música",mu_stop:"Parar",
  sum_t:"O que será gravado",sum_new:"a gravar",sum_keep:"já no cartão",sum_miss:"sem mídia",sum_total:"Arquivos a gravar",sum_old:"substitui as antigas",sum_folders:"Pastas",
@@ -430,7 +430,7 @@ es:{title:"PREPARAR EL USB / SD",
  m_gen:"Para convertir juegos (.chd, .iso), renombrar, organizar o convertir tus propios vídeos, usa generate_usb.py.",
  pv:"Vista previa",pv_note:"Vista previa aproximada del menú de la consola con estas opciones.",
  o_note:"Estas son las opciones del propio menú. Van a la tarjeta con lo demás; la consola arranca con ellas ya ajustadas.",
- v_cur:"Versión actual",o_det:"Detectado por el menú: firmware",o_type:"tipo",o_newfw:v=>"Hay un firmware más nuevo: TADEU "+v+". Márcalo en Medios para grabarlo.",o_xport:"Mi ODE es el Xport (placa de expansión)",o_tadeu:"Mi ODE tiene el firmware TADEU",o_rtc:"Mi ODE tiene el reloj (RTC)",o_keep:"Opciones de la tarjeta: no se cambiarán",o_set:"Opciones de la tarjeta: se grabarán",
+ v_cur:"Versión actual",o_det:"Detectado por el menú: firmware",o_type:"tipo",o_newfw:v=>"Hay un firmware más nuevo: TADEU "+v+". Márcalo en Medios para grabarlo.",o_fw107:"Mi firmware TADEU es el 1.0.7 o más nuevo",pak_both:"La tarjeta todavía no confirmó el firmware 1.0.7: esta vez la página graba el paquete Y los archivos individuales, para que las portadas aparezcan con cualquier firmware. Después de encender la consola con el 1.0.7, la próxima grabación ya usa solo el paquete.",o_xport:"Mi ODE es el Xport (placa de expansión)",o_tadeu:"Mi ODE tiene el firmware TADEU",o_rtc:"Mi ODE tiene el reloj (RTC)",o_keep:"Opciones de la tarjeta: no se cambiarán",o_set:"Opciones de la tarjeta: se grabarán",
  miss_t:"Lo que faltó",miss_none:"No faltó nada.",miss_dl:"Descargar la lista",
  mu_play:"Escuchar la música",mu_stop:"Parar",
  sum_t:"Lo que se grabará",sum_new:"por grabar",sum_keep:"ya en la tarjeta",sum_miss:"sin medio",sum_total:"Archivos por grabar",sum_old:"reemplaza las antiguas",sum_folders:"Carpetas",
@@ -696,7 +696,7 @@ const S = {
   ownAll:{covers:new Map(), screenshots:new Map(), videos:new Map()}, ownOne:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   gl:new Map(), glLang:"",
   o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true, o_pak:false},
-  mediaVer:{}, cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, tadeu:false, rtc:false, xport:false,
+  mediaVer:{}, cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, fw107:false, tadeu:false, rtc:false, xport:false,
   screen:"home", sel:0, filter:"all", sec:0, grp:0, busy:false, stop:false
 };
 const IMG = /\.(png|jpe?g|webp|bmp|gif)$/i;
@@ -1169,7 +1169,12 @@ const BK_URL = () => "https://github.com/cyberrep/3doode/blob/main/README" + (la
 function fwAlert(){ return `<div class="bk"><b>⚠ ${esc(t("bk_t"))}</b><span>${esc(t("bk_b"))}</span><a href="${BK_URL()}" target="_blank" rel="noopener">${esc(t("bk_l"))} →</a></div>`; }
 function drawVers(){ const e = $("vers"); if (e) e.innerHTML = `<div title="${esc(t("v_cur"))}"><b>BOOT:</b> <span>${MENU_VER}</span></div><div title="${esc(t("v_cur"))}"><b>FIRMWARE:</b> <span>TADEU ${esc(fwLatest())}</span></div>`; }
 /* Otimizar USB: só com o TADEU 1.0.7 ou mais novo (sem a versão no cartão, vale o "tem o TADEU"). */
-function has107(){ return S.tadeu && !S.xport && (!S.cfg._ver || verNum(S.cfg._ver) >= 10007); }
+/* fwSure: o cartão CONFIRMA o TADEU 1.0.7 ou mais novo (o menu gravou a versão).
+ * has107: vale também quando a pessoa diz que tem o 1.0.7, ou marcou o firmware
+ * para atualizar agora. Sem a confirmação do cartão, o formato PAK grava também os
+ * arquivos individuais (as capas aparecem com qualquer firmware). */
+function fwSure(){ return S.tadeu && !S.xport && !!S.cfg._ver && verNum(S.cfg._ver) >= 10007; }
+function has107(){ return !S.xport && (fwSure() || (S.tadeu && !S.cfg._ver && S.fw107) || !!S.o.fw); }
 function row(id, name, val, cls){ return `<button class="opt ${cls || ""}" data-o="${id}"><span>${esc(name)}</span><b>${val}</b></button>`; }
 /* Quantas imagens a pessoa escolheu à mão (capas e telas): as que vão no zip. */
 const ownCount = () => S.ownOne.covers.size + S.ownOne.screenshots.size;
@@ -1183,7 +1188,7 @@ function drawMedia(){
     ${S.xport ? "" : row("fw", t("m_fw") + "  [TADEU]", esc(t(o.fw === "DIR-HIGH" ? "fw_hi" : o.fw === "DIR-LOW" ? "fw_lo" : "fw_no")), "top")}${S.xport ? "" : `<p class="note" style="margin:6px 4px 10px">${esc(t("fw_hint"))}</p>${fwAlert()}`}
     ${S.cfg._menu || S.cfg._ver ? `<p class="note det" style="margin:0 4px 10px">${esc(t("m_oncard"))} ${S.cfg._menu ? `${esc(t("l_boot"))} <b>${esc(S.cfg._menu)}</b>${S.cfg._menu === MENU_VER ? " ✓" : ""}` : ""}${S.cfg._menu && S.cfg._ver ? " · " : ""}${S.cfg._ver ? `firmware <b>${esc((S.cfg._fw || "") + " " + S.cfg._ver + (S.cfg._dir ? " DIR-" + S.cfg._dir : ""))}</b>${verNum(S.cfg._ver) >= verNum(fwLatest()) ? " ✓" : ""}` : ""}</p>` : ""}
     ${row("keep", t("m_keep"), esc(t(o.keep ? "keep" : "replace")), "top")}
-    ${has107() ? row("o_pak", t("m_pak") + "  [TADEU 1.0.7]", esc(t(o.o_pak ? "fmt_pak" : "fmt_one")), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_pak_d"))}</p>` : ""}
+    ${has107() ? row("o_pak", t("m_pak") + "  [TADEU 1.0.7]", esc(t(o.o_pak ? "fmt_pak" : "fmt_one")), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_pak_d"))}${o.o_pak && !fwSure() ? `<br><b style="color:var(--gold)">${esc(t("pak_both"))}</b>` : ""}</p>` : ""}
     ${row("own", t("m_own"), esc(t("m_own_n")(n.covers.size, n.screenshots.size, n.videos.size)), "top act")}
     </div><p class="note" style="margin-top:10px">${esc(t("m_own_d"))}</p><p class="note">${esc(t("m_gen"))}</p>
     ${ownCount() ? `<p style="margin:12px 0 0"><button class="big stop" data-zip="1">${esc(t("lk_zip")(ownCount()))}</button></p><p class="note">${esc(t("lk_zip_d"))}</p>` : ""}`;
@@ -1209,7 +1214,7 @@ function drawOptions(){
     <div class="chips">${SECS.map((s, i) => `<button data-s="${i}" class="${i === S.sec ? "on" : ""}">${esc(tr(s.name))}</button>`).join("")}</div>
     <div class="optgrid"><div>
     <div class="panel"><h2>${esc(tr(sec.name))}</h2>${body}</div>
-    <div class="panel" style="margin-top:10px">${row("xport", t("o_xport"), esc(t(S.xport ? "yes" : "no")), "top")}${S.xport ? "" : row("tadeu", t("o_tadeu"), esc(t(S.tadeu ? "yes" : "no")), "top") + row("rtc", t("o_rtc"), esc(t(S.rtc ? "yes" : "no")), "top")}${S.cfg._fw || S.cfg._type ? `<p class="note det">${esc(t("o_det"))} <b>${esc([S.cfg._fw, S.cfg._ver].filter(Boolean).join(" ") || "?")}</b> · ${esc(t("o_type"))} <b>${esc(S.cfg._type === "XPORT" ? "Xport" : "ODE")}</b>${S.cfg._dir ? ` <b>DIR-${esc(S.cfg._dir)}</b>` : ""}${S.cfg._menu ? ` · ${esc(t("l_boot")).toLowerCase()} <b>${esc(S.cfg._menu)}</b>` : ""}${S.tadeu && S.cfg._ver && verNum(S.cfg._ver) < verNum(fwLatest()) ? `<br><span class="upd">${esc(t("o_newfw")(fwLatest()))}</span>` : ""}</p>` : ""}</div>
+    <div class="panel" style="margin-top:10px">${row("xport", t("o_xport"), esc(t(S.xport ? "yes" : "no")), "top")}${S.xport ? "" : row("tadeu", t("o_tadeu"), esc(t(S.tadeu ? "yes" : "no")), "top") + (S.tadeu && !S.cfg._ver ? row("fw107", t("o_fw107"), esc(t(S.fw107 ? "yes" : "no")), "top") : "") + row("rtc", t("o_rtc"), esc(t(S.rtc ? "yes" : "no")), "top")}${S.cfg._fw || S.cfg._type ? `<p class="note det">${esc(t("o_det"))} <b>${esc([S.cfg._fw, S.cfg._ver].filter(Boolean).join(" ") || "?")}</b> · ${esc(t("o_type"))} <b>${esc(S.cfg._type === "XPORT" ? "Xport" : "ODE")}</b>${S.cfg._dir ? ` <b>DIR-${esc(S.cfg._dir)}</b>` : ""}${S.cfg._menu ? ` · ${esc(t("l_boot")).toLowerCase()} <b>${esc(S.cfg._menu)}</b>` : ""}${S.tadeu && S.cfg._ver && verNum(S.cfg._ver) < verNum(fwLatest()) ? `<br><span class="upd">${esc(t("o_newfw")(fwLatest()))}</span>` : ""}</p>` : ""}</div>
     <p class="note" style="margin-top:10px">${esc(t(S.cfgTouched || !S.cfgOnCard ? "o_set" : "o_keep"))}</p>
     </div>${preview()}</div>`;
   keys([["back","B",t("k_back")],"gap",["write","P",t("t_write")]]);
@@ -1649,7 +1654,7 @@ function writeSummary(){
   if (o.o_txt) row("l_txt", CFG_LANG[S.txtLang], 1);
   if (o.fw) rows.push(fwAlert());
   if (o.fw) row("l_fw", "TADEU " + fwLatest() + " " + o.fw + " → firmware/update.ode", 1);
-  if (has107()) row("m_pak", o.o_pak ? t("fmt_pak") + ": covers/small.pak · covers/large.pak · screenshots/medium.pak" : t("fmt_one"), o.o_pak ? 1 : 0);
+  if (has107()) row("m_pak", o.o_pak ? t("fmt_pak") + (fwSure() ? "" : " + " + t("fmt_one")) + ": covers/small.pak · covers/large.pak · screenshots/medium.pak" : t("fmt_one"), o.o_pak ? 1 : 0);
   if (S.cfgTouched || !S.cfgOnCard) row("l_cfg", "3doconfig.ode", 1);
   if (SAVE_NAMES.length > 1) row("l_savenames", "3dogamessaves.ode", 1);
   rows.push(`<div class="ok"><span>${esc(t("sum_folders"))}</span><b>.config · saves · firmware · roms</b></div>`);
@@ -1890,10 +1895,11 @@ $("view").addEventListener("click", async e => {
         if (it[2] === "audio_music_vol") player.volume = Number(S.cfg.audio_music_vol) / 10;
         if (it[2] === "idioma") await setTxtLang(Object.keys(CFG_LANG).find(k => CFG_LANG[k] === S.cfg.idioma), true); return drawOptions(); }
       if (o === "xport"){ S.xport = !S.xport; if (S.xport){ S.tadeu = false; S.rtc = false; S.o.fw = ""; } return drawOptions(); }
-      if (o === "tadeu"){ S.tadeu = !S.tadeu; if (!S.tadeu) S.rtc = false; return drawOptions(); }
+      if (o === "tadeu"){ S.tadeu = !S.tadeu; if (!S.tadeu){ S.rtc = false; S.fw107 = false; } return drawOptions(); }
+      if (o === "fw107"){ S.fw107 = !S.fw107; if (S.fw107) S.o.o_pak = true; return drawOptions(); }
       if (o === "rtc"){ S.rtc = !S.rtc; if (S.rtc) S.tadeu = true; return drawOptions(); }
       if (o === "lang"){ await setTxtLang(cycle(Object.keys(CFG_LANG), S.txtLang), true); S.cfgTouched = true; }
-      else if (o === "fw"){ S.o.fw = cycle(["", "DIR-HIGH", "DIR-LOW"], S.o.fw); if (S.o.fw){ S.cfg._dir = S.o.fw.slice(4); S.cfgTouched = true; } }
+      else if (o === "fw"){ S.o.fw = cycle(["", "DIR-HIGH", "DIR-LOW"], S.o.fw); if (S.o.fw){ S.cfg._dir = S.o.fw.slice(4); S.cfgTouched = true; S.o.o_pak = true; } }
       else if (o === "keep") S.o.keep = !S.o.keep;
       else if (o === "own"){ if (noFS) return; await openOwn(); }
       else S.o[o] = !S.o[o];
@@ -2006,7 +2012,7 @@ async function run(){
           if (S.demo) bytes += 24000;
           else if (j.own){ const f = j.own.getFile ? await j.own.getFile() : j.own; data = j.box ? await imageToCel(f, j.box[0], j.box[1], j.fill) : await f.arrayBuffer(); bytes += data.byteLength; }
           else { data = await (await get(j.from)).arrayBuffer(); bytes += data.byteLength; }
-          const pi = pakMode ? pakOf(j.to) : -1;
+          const pi = pakMode && fwSure() ? pakOf(j.to) : -1;
           if (pi >= 0 && data) pakNew[pi].set(pakHash(j.name.slice(0, -4)), data); else { await put(j.to, j.name, data); files++; }
           count[j.label][0]++;
           log(j.to.concat(j.name).join("/"));                    // cada arquivo gravado, na hora
