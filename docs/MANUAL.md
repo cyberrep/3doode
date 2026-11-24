@@ -78,6 +78,10 @@ At the end it shows the **equivalent command**, so you can repeat it without que
 
 The generator also prepares the **TADEU firmware**: you say which board you have and it downloads the right file and leaves it in `firmware/` on the USB, ready for *Options → ODE Device → Update firmware*. If your ODE is still on the factory firmware, the first installation is through BOOTSEL: hold the button, plug the Pico into the PC and drag the `.uf2`.
 
+> ⚠️ **Before installing TADEU for the first time, back up your board's original firmware** (`picotool save -a firmware_original.uf2`). The step by step, with Zadig on Windows, is in the [README](../README.en.md). TADEU has not been tested yet on the FZ-10 dual boards, nor on GoldStar and Sanyo.
+
+The generator downloads **TADEU 1.0.7** for your board (**DIR-LOW**: original Waveshare; **DIR-HIGH**: tzmwx and TaiHu clones), writes the version next to it, which the menu shows before updating, and records the board in the card's options file.
+
 ---
 
 ## ⚙️ Command line
@@ -111,6 +115,7 @@ The option names are in Portuguese; they are the same in every language.
 | `--baixar-tudo` | Downloads the images again, even the ones you already have. |
 | `--somente-lista` | Builds only the game texts, without covers, screenshots or videos. |
 | `--pular-gamelist` | Leaves the game texts alone. |
+| `--pak` / `--sem-pak` | Builds the cover and screenshot packs (`covers/small.pak`, `covers/large.pak`, `screenshots/medium.pak`) from what is on the card / deletes the packs. For menu 1.6 with the TADEU 1.0.7 firmware: the menu goes straight to the image inside the pack. The loose files stay on the card. |
 
 ### Videos
 

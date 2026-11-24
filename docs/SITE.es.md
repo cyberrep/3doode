@@ -76,6 +76,12 @@ Marca lo que quieres en la tarjeta:
 - **Idioma del menú y de los textos** — Português, Español o English.
 - **Si ya existe en la tarjeta** — **Mantener** (solo copia lo que falta, más rápido) o **Sustituir** (lo graba todo de nuevo).
 - **Archivo de actualización del firmware** — opcional. Márcalo solo si vas a actualizar el firmware; mira el aviso de abajo.
+- **Formato de portadas y capturas** — **PAK** o **Individual**. Solo aparece cuando la tarjeta dice que el ODE tiene el firmware **TADEU 1.0.7 o más nuevo**.
+  - **PAK**: todas las portadas van a un solo archivo y las capturas a otro, grabados de una vez. El menú abre el paquete y va directo a la imagen; la grabación de la tarjeta también es mucho más rápida. Necesita el menú 1.6.
+  - **Individual**: un archivo por imagen, como siempre. Funciona con cualquier firmware.
+  - Al cambiar de formato, la página convierte lo que ya está en la tarjeta.
+
+**La página sabe qué tiene la tarjeta.** Después de encender la consola una vez con el menú 1.6, la tarjeta guarda la versión del menú y la del firmware. La página lo muestra en *Medios* ("En la tarjeta: Menú 1.6 ✓ · firmware TADEU 1.0.7 ✓") y ya deja en **No** lo que está en la versión actual. Arriba en la página están siempre las versiones actuales: **BOOT** y **FIRMWARE**.
 
 <p align="center"><img src="../github/site-3-midias.png" width="640" alt="Medios"></p>
 
@@ -83,6 +89,8 @@ Solo se copian los archivos **de tus juegos**. Lo que está en tu tarjeta y no e
 
 **Tus propias imágenes y vídeos.** Haz clic en **Usar una carpeta de mi ordenador…** y elige una carpeta con subcarpetas `covers`, `screenshots` y `videos`. Las imágenes `png`/`jpg` con el nombre del juego se convierten en portadas y capturas; los vídeos `.cvd` se copian.
 
+> ⚠️ **¿Primera vez con el TADEU? Haz antes la copia del firmware original** (mira el aviso en el [README](../README.es.md)).
+>
 > ⚠️ **Firmware: ¿DIR-HIGH o DIR-LOW?**
 > **DIR-LOW**: placa original Waveshare. **DIR-HIGH**: placas clon (tzmwx, TaiHu).
 > ¿Grabaste el equivocado? La consola muestra el logo de 3DO y la pantalla queda en negro. No se estropea nada: pon el Pico en BOOTSEL y graba el otro.

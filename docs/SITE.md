@@ -76,6 +76,12 @@ Tick what you want on the card:
 - **Language of the menu and texts** — Português, Español or English.
 - **If it is already on the card** — **Keep** (only copies what is missing, faster) or **Replace** (writes everything again).
 - **Firmware update file** — optional. Only tick it if you are going to update the firmware; see the warning below.
+- **Format of covers and screenshots** — **PAK** or **Individual**. Only shows when the card says the ODE has the **TADEU 1.0.7 firmware or newer**.
+  - **PAK**: all covers go into a single file and the screenshots into another, written in one go. The menu opens the pack and goes straight to the image; writing the card also gets much faster. Needs menu 1.6.
+  - **Individual**: one file per image, as always. Works with any firmware.
+  - When you change the format, the page converts what is already on the card.
+
+**The page knows what the card has.** After you power the console on once with menu 1.6, the card stores the menu version and the firmware version. The page shows it under *Media* ("On the card: Menu 1.6 ✓ · firmware TADEU 1.0.7 ✓") and already leaves on **No** whatever is on the current version. The top of the page always shows the current versions: **BOOT** and **FIRMWARE**.
 
 <p align="center"><img src="../github/site-3-midias.png" width="640" alt="Media"></p>
 
@@ -83,6 +89,8 @@ Only the files **for your games** are copied. Whatever is on your card and does 
 
 **Your own images and videos.** Click **Use a folder from my computer…** and choose a folder with subfolders `covers`, `screenshots` and `videos`. `png`/`jpg` images with the game name become covers and screenshots; `.cvd` videos are copied.
 
+> ⚠️ **First time with TADEU? Back up the original firmware first** (see the warning in the [README](../README.en.md)).
+>
 > ⚠️ **Firmware: DIR-HIGH or DIR-LOW?**
 > **DIR-LOW**: original Waveshare board. **DIR-HIGH**: clone boards (tzmwx, TaiHu).
 > Wrote the wrong one? The console shows the 3DO logo and the screen goes black. Nothing is damaged: put the Pico in BOOTSEL and write the other one.

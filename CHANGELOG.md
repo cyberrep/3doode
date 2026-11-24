@@ -4,6 +4,7 @@
 
 Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and the **generator** (`generate_usb.py`), from the newest version to the oldest.
 
+- [Menu — 1.6](#menu--16)
 - [Menu — 1.5](#menu--15)
 - [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
@@ -13,6 +14,45 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - [Menu — before 1.0 (0.x versions)](#menu--before-10-0x-versions)
 - [TADEU firmware](#tadeu-firmware)
 - [Generator (generate_usb.py)](#generator-generate_usbpy)
+
+---
+
+## Menu — 1.6
+
+**Optimize USB** (with the TADEU 1.0.7 firmware)
+- ⚡ **Covers open much faster on full cards.** On a card with hundreds of games, the cover, screenshot and video folders usually end up stored after all the games, and the ODE has to go past every one of them each time it opens a cover. The menu now asks the ODE to put those folders at the start of the card. No game is copied or deleted: only the order of the folders changes.
+- **At power on, the menu checks by itself** (it is instant). If the card needs it, it asks: *"Media at the USB's end: optimize for faster loads. Up to 30 s, only once."* With a yes, it optimizes and reads the game list again.
+- **Options → ODE Device → Optimize USB**: *Check at power on* (default) or *Off*. With a microSD the menu shows "Optimize SD". And **Optimize now**, to do it right away.
+- Only shows up with the **TADEU 1.0.7 firmware or newer**. With other firmwares nothing changes.
+
+**Covers and screenshots in a pack** (with the TADEU 1.0.7 firmware)
+- 📦 **Covers and screenshots can go in a single file per folder**: `covers/small.pak`, `covers/large.pak` and `screenshots/medium.pak`. The menu opens the pack and goes straight to the image instead of looking for each file in a folder with hundreds of them.
+- The **web page** builds it: under *Media*, **Format of covers and screenshots: PAK or Individual**. With PAK the images go straight into the pack, written in one go; with Individual, one file per image, as always. When you change the format the page converts what is already on the card. Image outside the pack, card without a pack or an older firmware: the menu uses the loose files.
+- *ODE information* shows **Covers in a pack** and **Screens in a pack**: Yes or No.
+- Memory: 8 bytes per image in each pack (about 7 KB for 293 games across the three).
+
+**Console information**
+- 🔎 **"Chips" group**: the full **MADAM** and **CLIO** registers and your console's **video encoder** — *Brooktree (BT9101)* on NTSC, *Brooktree (BT9103)* on PAL, *ANVIL* or *VP536 or ANVIL*. Useful for anyone thinking about an RGB or 240p mod.
+- The screen is leaner: the system version and the music state are gone (they stay in the diagnostic report), and "Covers in memory" moved to *ODE information*.
+
+**Web page**
+- **Rename: when the browser does not allow a direct rename**, the page asks for permission again and, if that still fails, asks whether it may do it by copying the file under the new name and deleting the old one.
+- **Rename: "already exists" warning** when the card already has a file with the new name (the same game twice). That file is left as it is.
+- 🔍 **Find the game** (on the Games screen): for a game left without cover, screenshot or texts, pick the right game in the library and its media is used for your file, without renaming anything. Or use your own image: paste it (Ctrl+V), drag it or choose a file, and it shows up right there.
+- 📦 **Download my images (.zip)**: gathers the covers and screenshots you chose by hand, named after the game, to send to the library.
+- **Optimize USB** option in *Options → ODE Device*.
+- When writing the firmware to the card, the page picks the **newest** one for your board by itself and tells the menu its version.
+- **Header with the current version**: BOOT and FIRMWARE.
+- **The page knows what is on the card**: the menu stores its own version (`menu_ver`) and the firmware version; the page stores the board (`ode_dir`, DIR-HIGH or DIR-LOW). If the card is already on the current version, *Menu* and *Firmware* start as **No**; if the firmware is older, the file for your board is already selected.
+- **Optimize USB / SD** only shows with TADEU 1.0.7 or newer.
+
+**Update firmware**
+- The confirmation shows the ODE's **current version** and the **new version** about to be written.
+- When writing ends, the screen asks you to **turn the console off and on**, blinking yellow and red.
+
+**ODE information**
+- New **USB** (or **SD**) line: *Folders optimized* or *Not optimized*.
+- The menu stores the firmware version in the card's options file (`ode_ver`), so the web page knows what your ODE has.
 
 ---
 
@@ -42,8 +82,8 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 - **Page manual** ([docs/SITE.md](docs/SITE.md)), step by step and with pictures. The README now points to the page first; the generator became the advanced route.
 
 **Options and texts**
-- 🎚️ **New option Options → Appearance → Media → Strip transparency** (0%, 25%, 50%, 75%, 100%): how much of the image shows behind the year/country and discs/favourite strips. Default 75%.
-- **List with Screenshot or Video:** the image fills the whole box and the strips sit on top of it, translucent, as on covers (they used to be two opaque bars with dividing lines).
+- 🎚️ **New option Options → Appearance → Media → Strip transparency** (0%, 25%, 50%, 75%, 100%): how much of the cover shows behind the year/country and discs/favourite strips. Default 75%.
+- **List with Screenshot or Video:** the dividing lines between the image and the top and bottom bars are gone.
 - **Lighter Ambilight format:** building the glow is faster and runs in a step separate from reading, so it does not hold the controller.
 - **Options → ODE Device** opens as an accordion, like Appearance (every submenu that does not fit on screen works this way).
 - First start text: **"SAVING THE GAME LIST — The next startup will be faster"**.
@@ -309,6 +349,32 @@ From October 10 to November 9, 2026.
 
 ## TADEU firmware
 
+### 1.0.7
+- ⚠️ **Before installing TADEU for the first time, back up the original firmware** with `picotool` (step by step in the README). TADEU has not been tested yet on the FZ-10 dual boards, nor on GoldStar and Sanyo.
+- ⚡ **Optimize USB: the media folders go to the start.**
+  - **The problem.** A card keeps the file names in a list, in the order they were written. To open a cover, the ODE reads that list from the start until it finds the `covers` folder. When you copy the games first and the media later, the folder ends up at the end, after hundreds of games, and every cover costs that whole read. On a hard disk with 650 items that was close to 0.2 second per cover just to find the folder.
+  - **Why the computer cannot fix it.** In the exFAT format, Windows always writes what is new at the end of the list. Renaming, moving or copying again on the PC does not change the position.
+  - **What the firmware does.** The ODE itself reorganizes the list: it takes the `covers`, `screenshots`, `videos` and `.config` folders out of where they are and puts them back in the first positions. It takes about 20 rename operations. **No game and no cover is copied or deleted.**
+  - **The result.** In tests, with 650 games in the root, finding the covers folder dropped from about 290 card reads to 3, on exFAT and on FAT32.
+  - **How long it takes.** Checking whether the card needs it takes an instant and is done every time the console is turned on. Optimizing takes 10 to 30 seconds and only needs to be done **once per card** (again only if you format it or recreate the folders).
+  - **If power is lost halfway**, next time the firmware notices what was left unfinished and completes the job.
+  - Needs menu **1.6** or newer, which is what asks and sends the command.
+- 🎯 **Direct reading inside a file (*seek*).** The firmware now jumps to any point of an open file instead of reading everything from the start. With it the menu fetches a game's description by going straight to its text, and the way is open to keep all the covers in a single file.
+- 📦 **Files: `TADEU_1.0.7_DIR-HIGH` and `TADEU_1.0.7_DIR-LOW`**, one for each kind of board (see the explanation under 1.0.6).
+
+#### ⏱️ Timings: factory, TADEU up to 1.0.6 and TADEU 1.0.7
+
+| | Factory | TADEU up to 1.0.6 | TADEU 1.0.7 |
+|---|:---:|:---:|:---:|
+| Opening a game from the end of the USB | ~30 s | 2 to 4 s | 2 to 4 s |
+| Finding the covers folder, for every cover (≈650 items in the root, folder at the end) | ~175 ms ¹ | ~175 ms | ~8 ms ² |
+| Card reads to find the covers folder | ~290 ¹ | ~290 | 3 |
+| Fetching a game's description | reads the file from the start | reads the file from the start | goes straight to the text |
+| Checking whether the card is optimized | — | — | ~2 ms |
+| Optimizing (once per card) | — | — | 10 to 30 s |
+
+¹ Not measured separately: the factory firmware opens files the same way TADEU up to 1.0.6 does. ² After optimizing; value measured with the folder at the start of the root. Timings change with the card and with the number of games.
+
 ### 1.0.6
 - 🕒 **The clock protects itself.** At power-on the firmware looks for the clock chip (DS3231). If the board does not have it, the two clock pins are released and the date and time functions stay off, instead of disturbing everything else.
 - 📦 **Two files, one for each kind of board: `TADEU_1.0.6_DIR-HIGH` and `TADEU_1.0.6_DIR-LOW`.**
@@ -351,6 +417,10 @@ The ODE boards have a chip that controls the direction of the data between the O
 ---
 
 ## Generator (`generate_usb.py`)
+
+### November 2026 (menu 1.6)
+- **`--pak` / `--sem-pak`**: builds (or deletes) the cover and screenshot packs that menu 1.6 reads with the TADEU 1.0.7 firmware.
+- **Firmware**: downloads **TADEU 1.0.7** for your board (DIR-LOW or DIR-HIGH), writes next to it the version the menu shows before updating, and records the board in the options file.
 
 ### November 2026 (menu 1.4)
 - ✨ **Sharper, cleaner images**: area-average shrinking, light sharpening and no dithering, the same as the web page. The old "preparations" (text, sharp, soft…) are gone.

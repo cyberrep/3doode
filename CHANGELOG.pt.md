@@ -4,6 +4,7 @@
 
 Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador** (`generate_usb.py`), da versão mais nova para a mais antiga.
 
+- [Menu — 1.6](#menu--16)
 - [Menu — 1.5](#menu--15)
 - [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
@@ -13,6 +14,45 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - [Menu — antes da 1.0 (versões 0.x)](#menu--antes-da-10-versões-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Gerador (generate_usb.py)](#gerador-generate_usbpy)
+
+---
+
+## Menu — 1.6
+
+**Otimizar USB** (com o firmware TADEU 1.0.7)
+- ⚡ **As capas abrem muito mais rápido em cartões cheios.** Em cartão com centenas de jogos, as pastas de capas, telas e vídeos costumam ficar gravadas depois de todos os jogos, e o ODE precisa passar por todos eles cada vez que abre uma capa. Agora o menu pede ao ODE para colocar essas pastas no começo do cartão. Nenhum jogo é copiado nem apagado: só muda a ordem das pastas.
+- **Ao ligar, o menu confere sozinho** (é instantâneo). Se o cartão precisa, pergunta: *"Mídias no fim do USB: otimizar acelera a leitura. Leva até 30 s, uma vez só."* Com o sim, ele otimiza e lê a lista de jogos de novo.
+- **Opções → Dispositivo ODE → Otimizar USB**: *Verificar ao ligar* (padrão) ou *Desligado*. Com microSD o menu mostra "Otimizar SD". E **Otimizar agora**, para fazer na hora.
+- Só aparece com o firmware **TADEU 1.0.7 ou mais novo**. Com outros firmwares nada muda.
+
+**Capas e telas em pacote** (com o firmware TADEU 1.0.7)
+- 📦 **As capas e as telas podem ir num arquivo só por pasta**: `covers/small.pak`, `covers/large.pak` e `screenshots/medium.pak`. O menu abre o pacote e vai direto à imagem, em vez de procurar cada arquivo numa pasta com centenas deles.
+- Quem gera é a **página web**: em *Mídias*, **Formato das capas e telas: PAK ou Individual**. Em PAK as imagens vão direto para o pacote, gravado de uma vez; em Individual, um arquivo por imagem, como sempre. Ao trocar de formato a página converte o que já está no cartão. Imagem fora do pacote, cartão sem pacote ou firmware mais antigo: o menu usa os arquivos soltos.
+- *Informações do ODE* mostra **Capas em pacote** e **Telas em pacote**: Sim ou Não.
+- Memória: 8 bytes por imagem em cada pacote (cerca de 7 KB para 293 jogos nos três).
+
+**Informações do console**
+- 🔎 **Grupo "Chips"**: os registradores do **MADAM** e do **CLIO** por inteiro e o **encoder de vídeo** do seu console — *Brooktree (BT9101)* nos NTSC, *Brooktree (BT9103)* nos PAL, *ANVIL* ou *VP536 ou ANVIL*. Útil para quem pensa em mod de RGB ou 240p.
+- A tela ficou mais enxuta: a versão do sistema e o estado da música saíram (continuam no relatório de diagnóstico), e "Capas na memória" foi para *Informações do ODE*.
+
+**Página web**
+- **Renomear: quando o navegador não deixa renomear direto**, a página pede a permissão de novo e, se ainda assim não der, pergunta se pode fazer copiando o arquivo com o nome novo e apagando o antigo.
+- **Renomear: aviso de "já existe"** quando o cartão já tem um arquivo com o nome novo (o mesmo jogo duas vezes). Esse arquivo fica como está.
+- 🔍 **Procurar o jogo** (na tela Jogos): para o jogo que ficou sem capa, tela ou textos, escolha o jogo certo na biblioteca e as mídias dele passam a valer para o seu arquivo, sem renomear nada. Ou use uma imagem sua: cole (Ctrl+V), arraste ou escolha um arquivo, e ela aparece ali na hora.
+- 📦 **Baixar as minhas imagens (.zip)**: junta as capas e telas que você escolheu à mão, com o nome do jogo, para mandar para a biblioteca.
+- Opção **Otimizar USB** em *Opções → Dispositivo ODE*.
+- Ao gravar o firmware no cartão, a página escolhe sozinha o **mais novo** da sua placa e informa a versão ao menu.
+- **Cabeçalho com a versão atual**: BOOT e FIRMWARE.
+- **A página sabe o que está no cartão**: o menu grava a versão dele (`menu_ver`) e a do firmware; a página guarda a placa (`ode_dir`, DIR-HIGH ou DIR-LOW). Se o cartão já está na versão atual, *Menu* e *Firmware* começam em **Não**; se o firmware é mais antigo, já vem marcado o arquivo da sua placa.
+- **Otimizar USB / SD** só aparece com firmware TADEU 1.0.7 ou mais novo.
+
+**Atualizar firmware**
+- A confirmação mostra a **versão atual** do ODE e a **versão nova** que será gravada.
+- No fim da gravação a tela pede para **desligar e ligar o console**, piscando em amarelo e vermelho.
+
+**Informações do ODE**
+- Linha nova **USB** (ou **SD**): *Pastas otimizadas* ou *Não otimizado*.
+- O menu guarda a versão do firmware no arquivo de opções do cartão (`ode_ver`), para a página web saber o que o seu ODE tem.
 
 ---
 
@@ -42,8 +82,8 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 - **Manual da página** ([docs/SITE.pt.md](docs/SITE.pt.md)), passo a passo e com imagens. O README passou a indicar a página primeiro; o gerador ficou como caminho avançado.
 
 **Opções e textos**
-- 🎚️ **Nova opção Opções → Aparência → Mídias → Transparência das faixas** (0%, 25%, 50%, 75%, 100%): o quanto aparece da imagem por trás das faixas de ano/país e de discos/favorito. Padrão 75%.
-- **Lista com Tela ou Vídeo:** a imagem ocupa a caixa inteira e as faixas ficam por cima dela, translúcidas, como nas capas (antes eram duas barras opacas com linhas de divisão).
+- 🎚️ **Nova opção Opções → Aparência → Mídias → Transparência das faixas** (0%, 25%, 50%, 75%, 100%): o quanto aparece da capa por trás das faixas de ano/país e de discos/favorito. Padrão 75%.
+- **Lista com Tela ou Vídeo:** saíram as linhas de divisão entre a imagem e as barras de cima e de baixo.
 - **Formato Ambilight mais leve:** a montagem do brilho ficou mais rápida e é feita num passo separado da leitura, para não segurar o controle.
 - **Opções → Dispositivo ODE** abre em sanfona, como Aparência (todo submenu que não cabe na tela funciona assim).
 - Texto do primeiro início: **"SALVANDO A LISTA DE JOGOS — O próximo início será mais rápido"**.
@@ -309,6 +349,32 @@ De 10 de outubro a 9 de novembro de 2026.
 
 ## Firmware TADEU
 
+### 1.0.7
+- ⚠️ **Antes de instalar o TADEU pela primeira vez, faça o backup do firmware original** com o `picotool` (passo a passo no README). O TADEU ainda não foi testado nas placas dual do FZ-10, nem em GoldStar e Sanyo.
+- ⚡ **Otimizar USB: as pastas de mídia vão para o começo.**
+  - **O problema.** Um cartão guarda os nomes dos arquivos numa lista, na ordem em que foram gravados. Para abrir uma capa, o ODE lê essa lista desde o começo até achar a pasta `covers`. Quando você copia os jogos primeiro e as mídias depois, a pasta fica no fim, depois de centenas de jogos, e cada capa custa essa leitura inteira. Num HD com 650 itens isso dava perto de 0,2 segundo por capa só para achar a pasta.
+  - **Por que o computador não resolve.** No formato exFAT, o Windows sempre grava o que é novo no fim da lista. Renomear, mover ou copiar de novo pelo PC não muda a posição.
+  - **O que o firmware faz.** O próprio ODE reorganiza a lista: tira as pastas `covers`, `screenshots`, `videos` e `.config` do lugar onde estão e as recoloca nas primeiras posições. São cerca de 20 operações de troca de nome. **Nenhum jogo e nenhuma capa são copiados ou apagados.**
+  - **O resultado.** Nos testes, com 650 jogos na raiz, achar a pasta de capas caiu de cerca de 290 leituras do cartão para 3, em exFAT e em FAT32.
+  - **Quanto demora.** Conferir se o cartão precisa leva um instante e é feito toda vez que o console liga. Otimizar leva de 10 a 30 segundos e só precisa ser feito **uma vez por cartão** (de novo só se você formatar ou recriar as pastas).
+  - **Se a energia cair no meio**, na próxima vez o firmware percebe o que ficou pela metade e termina o serviço.
+  - Precisa do menu **1.6** ou mais novo, que é quem pergunta e manda otimizar.
+- 🎯 **Leitura direta dentro de um arquivo (*seek*).** O firmware agora pula para qualquer ponto de um arquivo aberto, em vez de ler tudo desde o começo. Com isso o menu busca a descrição de um jogo indo direto ao texto dele, e fica aberto o caminho para guardar todas as capas num arquivo só.
+- 📦 **Arquivos: `TADEU_1.0.7_DIR-HIGH` e `TADEU_1.0.7_DIR-LOW`**, um para cada tipo de placa (veja a explicação na 1.0.6).
+
+#### ⏱️ Tempos: de fábrica, TADEU até 1.0.6 e TADEU 1.0.7
+
+| | De fábrica | TADEU até 1.0.6 | TADEU 1.0.7 |
+|---|:---:|:---:|:---:|
+| Abrir um jogo do fim do USB | ~30 s | 2 a 4 s | 2 a 4 s |
+| Achar a pasta de capas, a cada capa (≈650 itens na raiz, pasta no fim) | ~175 ms ¹ | ~175 ms | ~8 ms ² |
+| Leituras do cartão para achar a pasta de capas | ~290 ¹ | ~290 | 3 |
+| Buscar a descrição de um jogo | lê o arquivo desde o começo | lê o arquivo desde o começo | vai direto ao texto |
+| Conferir se o cartão está otimizado | — | — | ~2 ms |
+| Otimizar (uma vez por cartão) | — | — | 10 a 30 s |
+
+¹ Não medido em separado: o firmware de fábrica abre arquivos do mesmo jeito que o TADEU até 1.0.6. ² Depois de otimizar; valor medido com a pasta no começo da raiz. Os tempos mudam com o cartão e com a quantidade de jogos.
+
 ### 1.0.6
 - 🕒 **O relógio se protege sozinho.** Ao ligar, o firmware procura o chip do relógio (DS3231). Se ele não existe na placa, os dois pinos do relógio são liberados e as funções de data e hora ficam desligadas, em vez de atrapalhar o resto.
 - 📦 **Dois arquivos, um para cada tipo de placa: `TADEU_1.0.6_DIR-HIGH` e `TADEU_1.0.6_DIR-LOW`.**
@@ -351,6 +417,10 @@ As placas do ODE têm um chip que controla o sentido dos dados entre o ODE e o c
 ---
 
 ## Gerador (`generate_usb.py`)
+
+### Novembro de 2026 (menu 1.6)
+- **`--pak` / `--sem-pak`**: monta (ou apaga) os pacotes de capas e telas que o menu 1.6 lê com o firmware TADEU 1.0.7.
+- **Firmware**: baixa o **TADEU 1.0.7** da sua placa (DIR-LOW ou DIR-HIGH), grava ao lado a versão que o menu mostra antes de atualizar e anota a placa no arquivo de opções.
 
 ### Novembro de 2026 (menu 1.4)
 - ✨ **Imagens mais nítidas e limpas**: redução pela média de área, nitidez leve e sem pontilhado, igual à página web. Os "preparos" antigos (texto, nítida, suave…) deixaram de existir.

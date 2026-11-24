@@ -12,7 +12,7 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 
 > **Prefer to do it on the PC, or need to convert games?** Run **`generate_usb.py`** — a **single file** that does everything else: it downloads the art, converts covers, screenshots and videos, builds the game texts and **copies `boot.iso` (the menu)** to the USB.
 
-**Current versions:** menu **1.5** · firmware **TADEU 1.0.6** · [full history](CHANGELOG.md)
+**Current versions:** menu **1.6** · firmware **TADEU 1.0.7** · [full history](CHANGELOG.md)
 
 > ⚠️ **Coming from 1.3?** In 1.4 the covers and screenshots changed: covers are now written **in their real proportion** (long boxes and CD jewel cases are no longer stretched) and the images are **sharper and cleaner**. Old images **still work** with menu 1.4, but they look as before (stretched and grainy). To see the difference, **write the media again**: the [web page](https://cyberrep.github.io/3doode/) replaces the old covers and screenshots on the card by itself on the first write; `generate_usb.py` rebuilds them on the first run. Update `boot.iso` along with them.
 
@@ -42,6 +42,9 @@ Menu (`boot.iso`), firmware and card generator for the **SataTo3DO ODE** (RP2040
 | 🗓️ **Files with date and time** | Everything the console writes to the USB gets the right date. |
 | 💾 **Firmware backup** | Copies the ODE firmware to the USB, from the menu. |
 | 🔄 **Update from the menu** | Writes the new firmware without opening the console and without a PC, checking it before applying. |
+| 🚀 **Optimize USB** | Puts the cover, screenshot and video folders at the start of the card, where the ODE finds them at once. Covers open much faster on cards with many games. Takes up to 30 s, only once, and neither copies nor deletes anything. (firmware 1.0.7) |
+| 🎯 **Direct reading (*seek*)** | The ODE jumps to any point of an open file. The menu goes straight to a game's text without reading the descriptions file from the start. (firmware 1.0.7) |
+| 📦 **Covers and screenshots in a pack** | All covers in a single file, and the screenshots in another: the menu goes straight to the image. Built by the web page. (firmware 1.0.7) |
 | 🛟 **Always recoverable** | If something goes wrong, BOOTSEL and a `.uf2` fix it. |
 
 The menu shows what your ODE has in *Options → ODE Device → Features*:
@@ -181,6 +184,26 @@ With that the menu:
 
 ## 🔌 The two firmwares
 
+> [!CAUTION]
+> # ⚠️ BACK UP THE ORIGINAL FIRMWARE BEFORE INSTALLING TADEU
+>
+> The TADEU firmware was tested on the **Panasonic FZ-1** and on the **FZ-10** with an ODE. **It has not been tested yet on the dual boards (ODE + CD-ROM) for the FZ-10, nor on GoldStar and Sanyo.** If something does not work on your console, the backup is what brings your board back to what it was.
+>
+> **Keep a copy of the firmware that is on your board today. It takes 5 minutes and only has to be done once.**
+>
+> 1. **Download `picotool`**, Raspberry Pi's official program for the Pico (ready-made builds for Windows, macOS and Linux are in the [pico-sdk-tools](https://github.com/raspberrypi/pico-sdk-tools/releases) repository).
+> 2. **Put the Pico in BOOTSEL mode**: hold the BOOTSEL button and plug the USB cable into the computer. The **RPI-RP2** drive shows up.
+> 3. **Windows only — install the driver with [Zadig](https://zadig.akeo.ie/)**: open Zadig, pick **RP2 Boot (Interface 1)** in the list (if it is not there, tick *Options → List All Devices*), select **WinUSB** and click **Install Driver**. Without it `picotool` cannot see the board.
+> 4. **Save the board's whole memory** (in the Command Prompt, inside the `picotool` folder):
+>    ```
+>    picotool save -a firmware_original.uf2
+>    ```
+> 5. **Keep the `firmware_original.uf2` file somewhere safe**, off the ODE card.
+>
+> **To go back to the original firmware:** put the Pico in BOOTSEL and drag `firmware_original.uf2` to the **RPI-RP2** drive (or run `picotool load firmware_original.uf2`).
+>
+> The *Firmware backup* in the menu only works **after** TADEU is installed. It does not save the factory firmware.
+
 The SataTo3DO ODE has a firmware on its RP2040 board. There are two:
 
 - **Factory** — the one that comes on the board.
@@ -198,6 +221,9 @@ The **menu runs on both**: at power-on it asks the ODE which firmware and versio
 | Firmware update from the menu | — | ✅ |
 | Clock, date, time and temperature (with the DS3231) | — | ✅ (1.0.5) |
 | Files written with date and time | — | ✅ (1.0.5) |
+| Optimize USB or SD: media folders at the start, faster covers | — | ✅ (1.0.7) |
+| Direct reading inside a file (*seek*) | — | ✅ (1.0.7) |
+| Covers and screenshots in a pack (.pak) | — | ✅ (1.0.7) |
 
 Check what your ODE has in *Options → ODE Device → Features*. Everything that depends on TADEU carries the 🟣 badge in this document.
 
@@ -220,10 +246,25 @@ Check what your ODE has in *Options → ODE Device → Features*. Everything tha
 - **USB space** (size and free).
 - **DS3231 clock**: date, time, temperature and battery state.
 - **One source code for both boards**: the original (RP2040-Plus, 4 MB) and the clone with a regular Pico (2 MB).
+- **Optimize USB or SD** (1.0.7): the ODE checks in an instant whether the `covers`, `screenshots`, `videos` and `.config` folders are at the start of the root and, when the menu asks, puts them all there by renaming only. No file is copied.
+- **Direct reading (*seek*)** (1.0.7): the command that jumps inside an open file now really works. The menu uses it to fetch a game's description; it is the base for keeping all covers in a single file.
+
+### ⏱️ Timings: factory, TADEU up to 1.0.6 and TADEU 1.0.7
+
+| | Factory | TADEU up to 1.0.6 | TADEU 1.0.7 |
+|---|:---:|:---:|:---:|
+| Opening a game from the end of the USB | ~30 s | 2 to 4 s | 2 to 4 s |
+| Finding the covers folder, for every cover (≈650 items in the root, folder at the end) | ~175 ms ¹ | ~175 ms | ~8 ms ² |
+| Card reads to find the covers folder | ~290 ¹ | ~290 | 3 |
+| Fetching a game's description | reads the file from the start | reads the file from the start | goes straight to the text |
+| Checking whether the card is optimized | — | — | ~2 ms |
+| Optimizing (once per card) | — | — | 10 to 30 s |
+
+¹ Not measured separately: the factory firmware opens files the same way TADEU up to 1.0.6 does. ² After optimizing; value measured with the folder at the start of the root. Timings change with the card and with the number of games.
 
 ### ODE only or ODE + CD-ROM
 
-The menu detects by itself how many drives exist and shows it in *ODE information* as **"ODE only"** or **"ODE + CD-ROM"**. When installing the firmware, use the `.uf2` for **your board**: flashing the other one leaves a black screen after the logo (just flash the right one again through BOOTSEL). From 1.0.6 on the files are named **DIR-LOW** (original Waveshare board, 74HC245 chip) and **DIR-HIGH** (clone boards such as tzmwx and TaiHu, 74LVC4245 chip).
+The menu detects by itself how many drives exist and shows it in *ODE information* as **"ODE only"** or **"ODE + CD-ROM"**. When installing the firmware, use the `.uf2` for **your board**: flashing the other one leaves a black screen after the logo (just flash the right one again through BOOTSEL). The current files are **`TADEU_1.0.7_DIR-LOW`** and **`TADEU_1.0.7_DIR-HIGH`**. Since 1.0.6 they are named **DIR-LOW** (original Waveshare board, 74HC245 chip) and **DIR-HIGH** (clone boards such as tzmwx and TaiHu, 74LVC4245 chip).
 
 ### Expansion board (Xport)
 
@@ -427,13 +468,15 @@ On the console this section is an accordion: open one group at a time.
 
 | Item | What it does |
 |---|---|
-| **ODE information** | Firmware, version, board, type (ODE only or ODE + CD-ROM), clock and temperature. |
+| **ODE information** | Firmware, version, board, type (ODE only or ODE + CD-ROM), clock, temperature and covers in memory. |
 | **Features** | Says "Yes" or "No" for each feature of your ODE: clock, temperature, USB space, fast list, backup and update. |
-| **USB information** | Games, discs, covers in memory and read speed. 🟣 **TADEU** Also the size and free space. |
+| **USB information** | Games, discs and read speed. 🟣 **TADEU** Also the size and free space. |
 | **Read the USB again** | Reads the game list again. |
 | **Read at power-on** | Yes · Only if there are new ones · No. With the saved list the console starts faster. |
+| **Optimize USB** 🟣 **TADEU 1.0.7** | Check at power on · Off. With a microSD the menu shows "Optimize SD". At power on, the menu checks whether the media folders are at the start of the card; if not, it asks whether it may optimize. |
+| **Optimize now** 🟣 **TADEU 1.0.7** | Does the optimization right away: moves the media folders to the start of the card and reads the game list again. Takes up to 30 s. |
 | **Firmware backup** 🟣 **TADEU** | Copies the ODE firmware to `firmware/` on the USB. |
-| **Update firmware** 🟣 **TADEU** | Writes `firmware/update.ode` (or `.uf2`, or `.3do`), shows the file, the percentage and the speed; **B** cancels before applying. At the end the ODE restarts; if the menu does not come back, turn the console off and on. |
+| **Update firmware** 🟣 **TADEU** | Writes `firmware/update.ode` (or `.uf2`, or `.3do`), shows the **current version** and the **new version** before writing, then the percentage and the speed; **B** cancels before applying. At the end the screen asks you to **turn the console off and on**. |
 | **Date and time** 🟣 **TADEU** | Only appears with the clock. Sets the date and time and chooses 12 or 24 hours. |
 | **Test the ODE and the USB** | Diagnostics with read and cover timings; writes a report to the USB. |
 
@@ -444,7 +487,7 @@ On the console this section is an accordion: open one group at a time.
 
 | Item | What it does |
 |---|---|
-| **Console information** | Console, region, BIOS signature, video, processor, chips, system, DRAM, VRAM, NVRAM, connected controllers, FMV module, music and covers in memory. |
+| **Console information** | Console, region, BIOS signature, video, processor, chips (MADAM, CLIO and the video encoder: Brooktree BT9101/BT9103, ANVIL or VP536), DRAM, VRAM, NVRAM, connected controllers and FMV module. |
 | **Picture adjustment** | Test pattern with a grid, colour bars and the border of the visible area. |
 | **Controller test** | A picture of the controller; each button lights up in the colour of whoever pressed it. **Up to 8 controllers**, each with its own colour. Hold A + B + C for 5 s to leave. |
 | **System ROM** | Saves the console BIOS to `roms/`. |
@@ -547,7 +590,7 @@ It **never deletes** your files.
 
 1. Run `py generate_usb.py` and follow the wizard.
 2. Put the USB in the ODE and turn the console on.
-3. (Optional) To install the **TADEU firmware** for the first time: hold BOOTSEL, plug the Pico into the PC and drag the `.uf2` for your board onto the **RPI-RP2** drive. After that, updates are done from the menu.
+3. (Optional) To install the **TADEU firmware** for the first time: hold BOOTSEL, plug the Pico into the PC and drag the `.uf2` for your board onto the **RPI-RP2** drive. After that, updates are done from the menu. ⚠️ **Back up the original firmware first** (see the warning under the two firmwares section).
 4. (Optional) Install the **[DS3231 clock](docs/RTC.md)**.
 
 The full generator manual is in **[docs/MANUAL.md](docs/MANUAL.md)**.

@@ -78,6 +78,10 @@ Al final muestra el **comando equivalente**, para repetirlo sin preguntas la pr�
 
 El generador también prepara el **firmware TADEU**: dices cuál es tu placa y él descarga el archivo correcto y lo deja en `firmware/` en el USB, listo para *Opciones → Dispositivo ODE → Actualizar firmware*. Si tu ODE aún está con el firmware de fábrica, la primera instalación es por BOOTSEL: mantén el botón, conecta el Pico al PC y arrastra el `.uf2`.
 
+> ⚠️ **Antes de instalar el TADEU por primera vez, haz una copia del firmware original de tu placa** (`picotool save -a firmware_original.uf2`). El paso a paso, con Zadig en Windows, está en el [README](../README.es.md). El TADEU todavía no se probó en las placas dual de la FZ-10, ni en GoldStar y Sanyo.
+
+El generador descarga el **TADEU 1.0.7** de tu placa (**DIR-LOW**: original Waveshare; **DIR-HIGH**: clones tzmwx y TaiHu), graba al lado la versión, que el menú muestra antes de actualizar, y anota la placa en el archivo de opciones de la tarjeta.
+
 ---
 
 ## ⚙️ Línea de comandos
@@ -111,6 +115,7 @@ Los nombres de las opciones están en portugués; son los mismos en todos los id
 | `--baixar-tudo` | Descarga de nuevo las imágenes, incluso las que ya tienes. |
 | `--somente-lista` | Genera solo los textos de los juegos, sin portadas, capturas ni vídeos. |
 | `--pular-gamelist` | No toca los textos de los juegos. |
+| `--pak` / `--sem-pak` | Monta los paquetes de portadas y capturas (`covers/small.pak`, `covers/large.pak`, `screenshots/medium.pak`) con lo que hay en la tarjeta / borra los paquetes. Para el menú 1.6 con el firmware TADEU 1.0.7: el menú va directo a la imagen dentro del paquete. Los archivos sueltos siguen en la tarjeta. |
 
 ### Vídeos
 

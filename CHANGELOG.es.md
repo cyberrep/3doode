@@ -4,6 +4,7 @@
 
 Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en el **generador** (`generate_usb.py`), de la versión más nueva a la más antigua.
 
+- [Menu — 1.6](#menu--16)
 - [Menu — 1.5](#menu--15)
 - [Menu — 1.4](#menu--14)
 - [Menu — 1.3](#menu--13)
@@ -13,6 +14,45 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - [Menú — antes de la 1.0 (versiones 0.x)](#menú--antes-de-la-10-versiones-0x)
 - [Firmware TADEU](#firmware-tadeu)
 - [Generador (generate_usb.py)](#generador-generate_usbpy)
+
+---
+
+## Menu — 1.6
+
+**Optimizar USB** (con el firmware TADEU 1.0.7)
+- ⚡ **Las portadas abren mucho más rápido en tarjetas llenas.** En una tarjeta con cientos de juegos, las carpetas de portadas, capturas y vídeos suelen quedar grabadas después de todos los juegos, y el ODE tiene que pasar por todos ellos cada vez que abre una portada. Ahora el menú pide al ODE que ponga esas carpetas al principio de la tarjeta. No se copia ni se borra ningún juego: solo cambia el orden de las carpetas.
+- **Al encender, el menú lo comprueba solo** (es instantáneo). Si la tarjeta lo necesita, pregunta: *"Medios al final del USB: optimizar acelera la carga. Hasta 30 s, una sola vez."* Con el sí, optimiza y vuelve a leer la lista de juegos.
+- **Opciones → Dispositivo ODE → Optimizar USB**: *Revisar al inicio* (por defecto) o *Apagado*. Con microSD el menú muestra "Optimizar SD". Y **Optimizar ahora**, para hacerlo al momento.
+- Solo aparece con el firmware **TADEU 1.0.7 o más nuevo**. Con otros firmwares no cambia nada.
+
+**Portadas y capturas en paquete** (con el firmware TADEU 1.0.7)
+- 📦 **Las portadas y las capturas pueden ir en un solo archivo por carpeta**: `covers/small.pak`, `covers/large.pak` y `screenshots/medium.pak`. El menú abre el paquete y va directo a la imagen, en vez de buscar cada archivo en una carpeta con cientos de ellos.
+- Lo genera la **página web**: en *Medios*, **Formato de portadas y capturas: PAK o Individual**. En PAK las imágenes van directo al paquete, grabado de una vez; en Individual, un archivo por imagen, como siempre. Al cambiar de formato la página convierte lo que ya está en la tarjeta. Imagen fuera del paquete, tarjeta sin paquete o firmware más antiguo: el menú usa los archivos sueltos.
+- *Información del ODE* muestra **Portadas en paquete** y **Capturas en paquete**: Sí o No.
+- Memoria: 8 bytes por imagen en cada paquete (unos 7 KB para 293 juegos entre los tres).
+
+**Información de la consola**
+- 🔎 **Grupo "Chips"**: los registros completos de **MADAM** y **CLIO** y el **encoder de vídeo** de tu consola — *Brooktree (BT9101)* en NTSC, *Brooktree (BT9103)* en PAL, *ANVIL* o *VP536 o ANVIL*. Útil para quien piensa en un mod de RGB o 240p.
+- La pantalla quedó más limpia: la versión del sistema y el estado de la música salieron (siguen en el informe de diagnóstico), y "Portadas en memoria" pasó a *Información del ODE*.
+
+**Página web**
+- **Renombrar: cuando el navegador no deja renombrar directamente**, la página pide el permiso otra vez y, si aun así no puede, pregunta si puede hacerlo copiando el archivo con el nombre nuevo y borrando el antiguo.
+- **Renombrar: aviso de "ya existe"** cuando la tarjeta ya tiene un archivo con el nombre nuevo (el mismo juego dos veces). Ese archivo se queda como está.
+- 🔍 **Buscar el juego** (en la pantalla Juegos): para el juego que quedó sin portada, captura o textos, elige el juego correcto en la biblioteca y sus medios pasan a valer para tu archivo, sin renombrar nada. O usa una imagen tuya: pégala (Ctrl+V), arrástrala o elige un archivo, y aparece ahí al momento.
+- 📦 **Descargar mis imágenes (.zip)**: reúne las portadas y capturas que elegiste a mano, con el nombre del juego, para enviarlas a la biblioteca.
+- Opción **Optimizar USB** en *Opciones → Dispositivo ODE*.
+- Al grabar el firmware en la tarjeta, la página elige sola el **más nuevo** de tu placa e informa la versión al menú.
+- **Encabezado con la versión actual**: BOOT y FIRMWARE.
+- **La página sabe qué hay en la tarjeta**: el menú guarda su versión (`menu_ver`) y la del firmware; la página guarda la placa (`ode_dir`, DIR-HIGH o DIR-LOW). Si la tarjeta ya está en la versión actual, *Menú* y *Firmware* empiezan en **No**; si el firmware es más antiguo, ya viene marcado el archivo de tu placa.
+- **Optimizar USB / SD** solo aparece con firmware TADEU 1.0.7 o más nuevo.
+
+**Actualizar firmware**
+- La confirmación muestra la **versión actual** del ODE y la **versión nueva** que se va a grabar.
+- Al terminar la grabación, la pantalla pide **apagar y encender la consola**, parpadeando en amarillo y rojo.
+
+**Información del ODE**
+- Línea nueva **USB** (o **SD**): *Carpetas optimizadas* o *No optimizado*.
+- El menú guarda la versión del firmware en el archivo de opciones de la tarjeta (`ode_ver`), para que la página web sepa qué tiene tu ODE.
 
 ---
 
@@ -42,8 +82,8 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 - **Manual de la página** ([docs/SITE.es.md](docs/SITE.es.md)), paso a paso y con imágenes. El README ahora indica primero la página; el generador quedó como camino avanzado.
 
 **Opciones y textos**
-- 🎚️ **Nueva opción Opciones → Apariencia → Medios → Transparencia de las franjas** (0%, 25%, 50%, 75%, 100%): cuánto se ve de la imagen detrás de las franjas de año/país y de discos/favorito. Por defecto 75%.
-- **Lista con Captura o Vídeo:** la imagen ocupa toda la caja y las franjas van encima, translúcidas, como en las portadas (antes eran dos barras opacas con líneas de división).
+- 🎚️ **Nueva opción Opciones → Apariencia → Medios → Transparencia de las franjas** (0%, 25%, 50%, 75%, 100%): cuánto se ve de la portada detrás de las franjas de año/país y de discos/favorito. Por defecto 75%.
+- **Lista con Captura o Vídeo:** se quitaron las líneas de división entre la imagen y las barras de arriba y de abajo.
 - **Formato Ambilight más ligero:** el montaje del brillo es más rápido y se hace en un paso separado de la lectura, para no retener el control.
 - **Opciones → Dispositivo ODE** se abre en acordeón, como Apariencia (todo submenú que no cabe en pantalla funciona así).
 - Texto del primer inicio: **"GUARDANDO LA LISTA DE JUEGOS — El próximo inicio será más rápido"**.
@@ -309,6 +349,32 @@ Del 10 de octubre al 9 de noviembre de 2026.
 
 ## Firmware TADEU
 
+### 1.0.7
+- ⚠️ **Antes de instalar el TADEU por primera vez, haz una copia del firmware original** con `picotool` (paso a paso en el README). El TADEU todavía no se probó en las placas dual de la FZ-10, ni en GoldStar y Sanyo.
+- ⚡ **Optimizar USB: las carpetas de medios van al principio.**
+  - **El problema.** Una tarjeta guarda los nombres de los archivos en una lista, en el orden en que se grabaron. Para abrir una portada, el ODE lee esa lista desde el principio hasta encontrar la carpeta `covers`. Cuando copias primero los juegos y después los medios, la carpeta queda al final, detrás de cientos de juegos, y cada portada cuesta esa lectura entera. En un disco duro con 650 elementos eso daba cerca de 0,2 segundo por portada solo para encontrar la carpeta.
+  - **Por qué el ordenador no lo resuelve.** En el formato exFAT, Windows siempre graba lo nuevo al final de la lista. Renombrar, mover o copiar de nuevo desde el PC no cambia la posición.
+  - **Lo que hace el firmware.** El propio ODE reorganiza la lista: saca las carpetas `covers`, `screenshots`, `videos` y `.config` de donde están y las vuelve a colocar en las primeras posiciones. Son unas 20 operaciones de cambio de nombre. **No se copia ni se borra ningún juego ni ninguna portada.**
+  - **El resultado.** En las pruebas, con 650 juegos en la raíz, encontrar la carpeta de portadas bajó de unas 290 lecturas de la tarjeta a 3, en exFAT y en FAT32.
+  - **Cuánto tarda.** Comprobar si la tarjeta lo necesita lleva un instante y se hace cada vez que se enciende la consola. Optimizar tarda de 10 a 30 segundos y solo hace falta **una vez por tarjeta** (de nuevo solo si la formateas o recreas las carpetas).
+  - **Si se va la luz a medias**, la próxima vez el firmware detecta lo que quedó a medio hacer y termina el trabajo.
+  - Necesita el menú **1.6** o más nuevo, que es quien pregunta y manda optimizar.
+- 🎯 **Lectura directa dentro de un archivo (*seek*).** El firmware ahora salta a cualquier punto de un archivo abierto, en vez de leerlo todo desde el principio. Con eso el menú busca la descripción de un juego yendo directo a su texto, y queda abierto el camino para guardar todas las portadas en un solo archivo.
+- 📦 **Archivos: `TADEU_1.0.7_DIR-HIGH` y `TADEU_1.0.7_DIR-LOW`**, uno para cada tipo de placa (mira la explicación en la 1.0.6).
+
+#### ⏱️ Tiempos: de fábrica, TADEU hasta 1.0.6 y TADEU 1.0.7
+
+| | De fábrica | TADEU hasta 1.0.6 | TADEU 1.0.7 |
+|---|:---:|:---:|:---:|
+| Abrir un juego del final del USB | ~30 s | 2 a 4 s | 2 a 4 s |
+| Encontrar la carpeta de portadas, en cada portada (≈650 elementos en la raíz, carpeta al final) | ~175 ms ¹ | ~175 ms | ~8 ms ² |
+| Lecturas de la tarjeta para encontrar la carpeta de portadas | ~290 ¹ | ~290 | 3 |
+| Buscar la descripción de un juego | lee el archivo desde el principio | lee el archivo desde el principio | va directo al texto |
+| Comprobar si la tarjeta está optimizada | — | — | ~2 ms |
+| Optimizar (una vez por tarjeta) | — | — | 10 a 30 s |
+
+¹ No medido por separado: el firmware de fábrica abre archivos igual que el TADEU hasta 1.0.6. ² Después de optimizar; valor medido con la carpeta al principio de la raíz. Los tiempos cambian con la tarjeta y con la cantidad de juegos.
+
 ### 1.0.6
 - 🕒 **El reloj se protege solo.** Al encender, el firmware busca el chip del reloj (DS3231). Si la placa no lo tiene, los dos pines del reloj se liberan y las funciones de fecha y hora quedan desactivadas, en vez de estorbar al resto.
 - 📦 **Dos archivos, uno para cada tipo de placa: `TADEU_1.0.6_DIR-HIGH` y `TADEU_1.0.6_DIR-LOW`.**
@@ -351,6 +417,10 @@ Las placas del ODE tienen un chip que controla el sentido de los datos entre el 
 ---
 
 ## Generador (`generate_usb.py`)
+
+### Noviembre de 2026 (menú 1.6)
+- **`--pak` / `--sem-pak`**: monta (o borra) los paquetes de portadas y capturas que el menú 1.6 lee con el firmware TADEU 1.0.7.
+- **Firmware**: descarga el **TADEU 1.0.7** de tu placa (DIR-LOW o DIR-HIGH), graba al lado la versión que el menú muestra antes de actualizar y anota la placa en el archivo de opciones.
 
 ### Noviembre de 2026 (menú 1.4)
 - ✨ **Imágenes más nítidas y limpias**: reducción con la media del área, nitidez leve y sin tramado, igual que la página web. Los "preparados" antiguos (texto, nítida, suave…) dejaron de existir.

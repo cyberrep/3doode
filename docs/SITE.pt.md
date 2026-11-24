@@ -74,6 +74,12 @@ Marque o que você quer no cartão:
 - **Idioma do menu e dos textos** — Português, Español ou English.
 - **Se já existe no cartão** — **Manter** (só copia o que falta, mais rápido) ou **Substituir** (grava tudo de novo).
 - **Arquivo de atualização do firmware** — opcional. Só marque se for atualizar o firmware; veja o aviso abaixo.
+- **Formato das capas e telas** — **PAK** ou **Individual**. Só aparece quando o cartão diz que o ODE tem o firmware **TADEU 1.0.7 ou mais novo**.
+  - **PAK**: todas as capas vão para um arquivo só e as telas para outro, gravados de uma vez. O menu abre o pacote e vai direto à imagem; a gravação do cartão também fica bem mais rápida. Precisa do menu 1.6.
+  - **Individual**: um arquivo por imagem, como sempre. Funciona em qualquer firmware.
+  - Ao trocar de formato, a página converte o que já está no cartão.
+
+**A página sabe o que o cartão tem.** Depois de ligar o console uma vez com o menu 1.6, o cartão guarda a versão do menu e a do firmware. A página mostra isso em *Mídias* ("No cartão: Menu 1.6 ✓ · firmware TADEU 1.0.7 ✓") e já deixa em **Não** o que está na versão atual. No alto da página ficam sempre as versões atuais: **BOOT** e **FIRMWARE**.
 
 <p align="center"><img src="../github/site-3-midias.png" width="640" alt="Mídias"></p>
 
@@ -81,6 +87,8 @@ Só os arquivos **dos seus jogos** são copiados. O que está no seu cartão e n
 
 **Suas próprias imagens e vídeos.** Clique em **Usar uma pasta do meu computador…** e escolha uma pasta com subpastas `covers`, `screenshots` e `videos`. Imagens `png`/`jpg` com o nome do jogo viram capas e telas; vídeos `.cvd` são copiados.
 
+> ⚠️ **Primeira vez com o TADEU? Faça antes o backup do firmware original** (veja o alerta no [README](../README.pt.md#-os-dois-firmwares)).
+>
 > ⚠️ **Firmware: DIR-HIGH ou DIR-LOW?**
 > **DIR-LOW**: placa original Waveshare. **DIR-HIGH**: placas clone (tzmwx, TaiHu).
 > Gravou o errado? O console mostra o logo do 3DO e a tela fica preta. Não estraga nada: ponha o Pico em BOOTSEL e grave o outro.
