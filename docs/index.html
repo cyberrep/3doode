@@ -306,7 +306,7 @@ en:{title:"USB / SD SETUP",
  lg_card:"on the card",lg_lib:"library",lg_loan:"from another region",lg_alike:"from a similar title",l_loan:"taken from another region or a similar title",lg_own:"yours",lg_none:"missing",
  m_note:"Everything comes ready from our GitHub and only the files for your games are copied. Files that are on your card and not in our library are never changed or deleted.",
  m_boot:"Menu (boot.iso)",m_cov:"Covers",m_shot:"Screenshots",m_vid:"Video previews",m_txt:"Game texts",m_lang:"Language of the menu and texts",m_fw:"Firmware update file",
- m_oncard:"On the card:",m_pak:"Format of covers and screenshots",fmt_pak:"PAK",fmt_one:"Individual",m_pak_d:"PAK: all covers go into a single file and the screenshots into another, written in one go. The menu opens the pack and goes straight to the image instead of looking for each file in a folder with hundreds of them. Needs the TADEU 1.0.7 firmware and menu 1.6. Individual: one file per image, as always; works with any firmware. When you change the format, the page converts what is already on the card.",l_pak:"Pack",pak_del:"deleted",pak_big:(n,m)=>"not built: "+n+" images (the limit is "+m+")",m_keep:"If it is already on the card",keep:"Keep",replace:"Replace",yes:"Yes",no:"No",fw_no:"No",fw_hi:"DIR-HIGH (clone boards)",fw_lo:"DIR-LOW (original Waveshare board)",bk_t:"BACK UP YOUR FIRMWARE FIRST!",bk_b:"Before installing the TADEU firmware for the first time, save a copy of the firmware that is on your board today (picotool + Zadig on Windows). TADEU has not been tested yet on the FZ-10 dual boards, nor on GoldStar and Sanyo: the backup is what brings your board back.",bk_l:"How to back up",fw_warn:"FIRST TIME WITH TADEU? Back up the original firmware of your board first (picotool save -a, with Zadig on Windows): step by step in the README on GitHub. TADEU has not been tested yet on the FZ-10 dual boards, nor on GoldStar and Sanyo.",fw_hint:"The ODE boards use one of two data-direction chips, and they work with the direction signal inverted. DIR-LOW: original Waveshare board (74HC245 chip). DIR-HIGH: clone boards such as tzmwx and TaiHu (74LVC4245 chip). Wrong file: the console shows the 3DO logo and then a black screen. Nothing is damaged: put the Pico in BOOTSEL mode and write the other file.",
+ pk_prep:"preparing",pk_pack:"Packing",m_oncard:"On the card:",m_pak:"Format of covers and screenshots",m_what:"What to pack",m_what_d:"All = covers (small and large) and screenshots: bigger pack. Covers only = no screenshots. Small covers only = just the grid, much smaller pack (the rest stays loose). The small covers, which are the grid, are always in.",pw_all:"Everything (covers and screenshots)",pw_cov:"Covers only",pw_small:"Small covers only",fmt_pak:"PAK",fmt_one:"Individual",m_pak_d:"PAK: all covers go into a single file and the screenshots into another, written in one go. The menu opens the pack and goes straight to the image instead of looking for each file in a folder with hundreds of them. Needs the TADEU 1.0.7 firmware and menu 1.6. Individual: one file per image, as always; works with any firmware. When you change the format, the page converts what is already on the card.",l_pak:"Pack",pak_del:"deleted",pak_big:(n,m)=>"not built: "+n+" images (the limit is "+m+")",m_keep:"If it is already on the card",keep:"Keep",replace:"Replace",yes:"Yes",no:"No",fw_no:"No",fw_hi:"DIR-HIGH (clone boards)",fw_lo:"DIR-LOW (original Waveshare board)",bk_t:"BACK UP YOUR FIRMWARE FIRST!",bk_b:"Before installing the TADEU firmware for the first time, save a copy of the firmware that is on your board today (picotool + Zadig on Windows). TADEU has not been tested yet on the FZ-10 dual boards, nor on GoldStar and Sanyo: the backup is what brings your board back.",bk_l:"How to back up",fw_warn:"FIRST TIME WITH TADEU? Back up the original firmware of your board first (picotool save -a, with Zadig on Windows): step by step in the README on GitHub. TADEU has not been tested yet on the FZ-10 dual boards, nor on GoldStar and Sanyo.",fw_hint:"The ODE boards use one of two data-direction chips, and they work with the direction signal inverted. DIR-LOW: original Waveshare board (74HC245 chip). DIR-HIGH: clone boards such as tzmwx and TaiHu (74LVC4245 chip). Wrong file: the console shows the 3DO logo and then a black screen. Nothing is damaged: put the Pico in BOOTSEL mode and write the other file.",
  m_own:"Use a folder from my computer…",m_own_d:"Images (png, jpg) become covers and screenshots; .cvd videos are copied. Put them in folders named covers, screenshots and videos, with the game's name.",
  m_own_n:(a,b,c)=>`${a} covers, ${b} screenshots, ${c} videos`,
  m_gen:"To convert games (.chd, .iso), rename, organize or convert your own videos, use generate_usb.py.",
@@ -319,7 +319,7 @@ en:{title:"USB / SD SETUP",
  sp_wait:"Waiting",sp_done:"Copied",sp_none:"Nothing to copy",
  k_rename:"Rename",s_rename:"RENAME THE GAMES",
  r_note:"Gives your game files the official disc names (the ones in our list), so covers, videos and texts match. The .cue is fixed too. Nothing is converted and nothing is deleted.",
- r_scan:"Check the names",r_apply:"Rename the ticked ones",r_all:"Tick all",r_none:"Untick all",
+ r_scan:"Check the names",r_bat:"Download .bat (rename on Windows)",r_bat_d:"More reliable: download the .bat, put it in the ROOT of the card and double-click. It renames the chosen games, the loose covers/screenshots/videos and fixes favorites and stats. The \"Rename here\" button tries through the browser, which fails on some cards.",r_pick:"Select at least one game.",r_apply:"Rename the ticked ones",r_all:"Tick all",r_none:"Untick all",
  r_dat:"Could not read the list of official names on GitHub.",r_nomove:"This browser cannot rename files on the card. Use an up-to-date Chrome or Edge on a computer.",
  r_reading:"Reading",r_ok:n=>`${n} already have the official name`,r_dup:"already exists",r_dup_d:n=>`The card already has "${n}". This file is probably a second copy of the same game; it is left as it is.`,r_sure:"by content",r_guess:"by name",r_unknown:"Not identified",r_long:"Name too long for the ODE",r_long_n:"The ODE only reads file names of up to 126 characters (with the extension). Longer than that, the menu shows the short name (like NISHIM~1) and the media do not open.",r_long_kept:"not renamed",r_long_card:"on the card: shorten it",
  r_sure_d:"The disc content matches the official list: certain.",r_guess_d:"Only the title matches: check before ticking.",
@@ -365,7 +365,7 @@ pt:{title:"PREPARAR O USB / SD",
  lg_card:"no cartão",lg_lib:"biblioteca",lg_loan:"de outra região",lg_alike:"de título parecido",l_loan:"vieram de outra região ou de título parecido",lg_own:"seu",lg_none:"falta",
  m_note:"Tudo vem pronto do nosso GitHub e só os arquivos dos seus jogos são copiados. O que está no seu cartão e não existe na nossa biblioteca nunca é alterado nem apagado.",
  m_boot:"Menu (boot.iso)",m_cov:"Capas",m_shot:"Telas",m_vid:"Prévias em vídeo",m_txt:"Textos dos jogos",m_lang:"Idioma do menu e dos textos",m_fw:"Arquivo de atualização do firmware",
- m_oncard:"No cartão:",m_pak:"Formato das capas e telas",fmt_pak:"PAK",fmt_one:"Individual",m_pak_d:"PAK: todas as capas vão para um arquivo só e as telas para outro, gravados de uma vez. O menu abre o pacote e vai direto à imagem, em vez de procurar cada arquivo numa pasta com centenas deles. Precisa do firmware TADEU 1.0.7 e do menu 1.6. Individual: um arquivo por imagem, como sempre; funciona em qualquer firmware. Ao trocar de formato, a página converte o que já está no cartão.",l_pak:"Pacote",pak_del:"apagado",pak_big:(n,m)=>"não gerado: "+n+" imagens (o limite é "+m+")",m_keep:"Se já existe no cartão",keep:"Manter",replace:"Substituir",yes:"Sim",no:"Não",fw_no:"Não",fw_hi:"DIR-HIGH (placas clone)",fw_lo:"DIR-LOW (placa original Waveshare)",bk_t:"FAÇA BACKUP DO FIRMWARE ANTES!",bk_b:"Antes de instalar o firmware TADEU pela primeira vez, salve uma cópia do firmware que está na sua placa hoje (picotool + Zadig no Windows). O TADEU ainda não foi testado nas placas dual do FZ-10, nem em GoldStar e Sanyo: é o backup que traz a sua placa de volta.",bk_l:"Como fazer o backup",fw_warn:"PRIMEIRA VEZ COM O TADEU? Faça antes o backup do firmware original da sua placa (picotool save -a, com o Zadig no Windows): passo a passo no README do GitHub. O TADEU ainda não foi testado nas placas dual do FZ-10, nem em GoldStar e Sanyo.",fw_hint:"As placas do ODE usam um de dois chips de direção dos dados, e eles funcionam com o sinal de direção invertido. DIR-LOW: placa original Waveshare (chip 74HC245). DIR-HIGH: placas clone, como tzmwx e TaiHu (chip 74LVC4245). Arquivo errado: o console mostra o logo do 3DO e depois a tela fica preta. Não estraga nada: ponha o Pico em modo BOOTSEL e grave o outro arquivo.",
+ pk_prep:"preparando",pk_pack:"Empacotando",m_oncard:"No cartão:",m_pak:"Formato das capas e telas",m_what:"O que empacotar",m_what_d:"All = capas (pequenas e grandes) e telas: pacote maior. Só capas = sem as telas. Só capas pequenas = só a grade, pacote bem menor (o resto fica solto). As capas pequenas, que são a grade, entram sempre.",pw_all:"Tudo (capas e telas)",pw_cov:"Só as capas",pw_small:"Só capas pequenas",fmt_pak:"PAK",fmt_one:"Individual",m_pak_d:"PAK: todas as capas vão para um arquivo só e as telas para outro, gravados de uma vez. O menu abre o pacote e vai direto à imagem, em vez de procurar cada arquivo numa pasta com centenas deles. Precisa do firmware TADEU 1.0.7 e do menu 1.6. Individual: um arquivo por imagem, como sempre; funciona em qualquer firmware. Ao trocar de formato, a página converte o que já está no cartão.",l_pak:"Pacote",pak_del:"apagado",pak_big:(n,m)=>"não gerado: "+n+" imagens (o limite é "+m+")",m_keep:"Se já existe no cartão",keep:"Manter",replace:"Substituir",yes:"Sim",no:"Não",fw_no:"Não",fw_hi:"DIR-HIGH (placas clone)",fw_lo:"DIR-LOW (placa original Waveshare)",bk_t:"FAÇA BACKUP DO FIRMWARE ANTES!",bk_b:"Antes de instalar o firmware TADEU pela primeira vez, salve uma cópia do firmware que está na sua placa hoje (picotool + Zadig no Windows). O TADEU ainda não foi testado nas placas dual do FZ-10, nem em GoldStar e Sanyo: é o backup que traz a sua placa de volta.",bk_l:"Como fazer o backup",fw_warn:"PRIMEIRA VEZ COM O TADEU? Faça antes o backup do firmware original da sua placa (picotool save -a, com o Zadig no Windows): passo a passo no README do GitHub. O TADEU ainda não foi testado nas placas dual do FZ-10, nem em GoldStar e Sanyo.",fw_hint:"As placas do ODE usam um de dois chips de direção dos dados, e eles funcionam com o sinal de direção invertido. DIR-LOW: placa original Waveshare (chip 74HC245). DIR-HIGH: placas clone, como tzmwx e TaiHu (chip 74LVC4245). Arquivo errado: o console mostra o logo do 3DO e depois a tela fica preta. Não estraga nada: ponha o Pico em modo BOOTSEL e grave o outro arquivo.",
  m_own:"Usar uma pasta do meu computador…",m_own_d:"Imagens (png, jpg) viram capas e telas; vídeos .cvd são copiados. Ponha em pastas chamadas covers, screenshots e videos, com o nome do jogo.",
  m_own_n:(a,b,c)=>`${a} capas, ${b} telas, ${c} vídeos`,
  m_gen:"Para converter jogos (.chd, .iso), renomear, organizar ou converter os seus próprios vídeos, use o generate_usb.py.",
@@ -378,7 +378,7 @@ pt:{title:"PREPARAR O USB / SD",
  sp_wait:"A copiar",sp_done:"Copiado",sp_none:"Nada a copiar",
  k_rename:"Renomear",s_rename:"RENOMEAR OS JOGOS",
  r_note:"Dá aos arquivos dos seus jogos o nome oficial dos discos (o da nossa lista), para as capas, os vídeos e os textos casarem. O .cue é acertado junto. Nada é convertido e nada é apagado.",
- r_scan:"Conferir os nomes",r_apply:"Renomear os marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
+ r_scan:"Conferir os nomes",r_bat:"Baixar .bat (renomear no Windows)",r_bat_d:"Mais confi\u00e1vel: baixe o .bat, coloque na RAIZ do cart\u00e3o e clique duas vezes. Ele renomeia os jogos escolhidos, as capas/telas/v\u00eddeos soltos e ajusta favoritos e estat\u00edsticas. O bot\u00e3o \"Renomear aqui\" tenta pelo navegador, que falha em alguns cart\u00f5es.",r_pick:"Marque pelo menos um jogo.",r_apply:"Renomear os marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
  r_dat:"Não consegui ler a lista de nomes oficiais no GitHub.",r_nomove:"Este navegador não consegue renomear arquivos no cartão. Use um Chrome ou Edge atualizado num computador.",
  r_reading:"Lendo",r_ok:n=>`${n} já estão com o nome oficial`,r_dup:"já existe",r_dup_d:n=>`O cartão já tem "${n}". Este arquivo deve ser uma segunda cópia do mesmo jogo; fica como está.`,r_sure:"pelo conteúdo",r_guess:"pelo nome",r_unknown:"Não identificados",r_long:"Nome longo demais para o ODE",r_long_n:"O ODE só lê nomes de arquivo de até 126 letras (com a extensão). Acima disso o menu mostra o nome curto (tipo NISHIM~1) e as mídias não abrem.",r_long_kept:"não renomeado",r_long_card:"no cartão: encurte",
  r_sure_d:"O conteúdo do disco bate com a lista oficial: é certeza.",r_guess_d:"Só o título bate: confira antes de marcar.",
@@ -424,7 +424,7 @@ es:{title:"PREPARAR EL USB / SD",
  lg_card:"en la tarjeta",lg_lib:"biblioteca",lg_loan:"de otra región",lg_alike:"de título parecido",l_loan:"vienen de otra región o de un título parecido",lg_own:"tuyo",lg_none:"falta",
  m_note:"Todo viene listo desde nuestro GitHub y solo se copian los archivos de tus juegos. Lo que está en tu tarjeta y no existe en nuestra biblioteca nunca se modifica ni se borra.",
  m_boot:"Menú (boot.iso)",m_cov:"Portadas",m_shot:"Capturas",m_vid:"Vistas previas en vídeo",m_txt:"Textos de los juegos",m_lang:"Idioma del menú y de los textos",m_fw:"Archivo de actualización del firmware",
- m_oncard:"En la tarjeta:",m_pak:"Formato de portadas y capturas",fmt_pak:"PAK",fmt_one:"Individual",m_pak_d:"PAK: todas las portadas van a un solo archivo y las capturas a otro, grabados de una vez. El menú abre el paquete y va directo a la imagen, en vez de buscar cada archivo en una carpeta con cientos de ellos. Necesita el firmware TADEU 1.0.7 y el menú 1.6. Individual: un archivo por imagen, como siempre; funciona con cualquier firmware. Al cambiar de formato, la página convierte lo que ya está en la tarjeta.",l_pak:"Paquete",pak_del:"borrado",pak_big:(n,m)=>"no generado: "+n+" imágenes (el límite es "+m+")",m_keep:"Si ya existe en la tarjeta",keep:"Mantener",replace:"Sustituir",yes:"Sí",no:"No",fw_no:"No",fw_hi:"DIR-HIGH (placas clon)",fw_lo:"DIR-LOW (placa original Waveshare)",bk_t:"¡HAZ UNA COPIA DEL FIRMWARE ANTES!",bk_b:"Antes de instalar el firmware TADEU por primera vez, guarda una copia del firmware que tiene tu placa hoy (picotool + Zadig en Windows). El TADEU todavía no se probó en las placas dual de la FZ-10, ni en GoldStar y Sanyo: la copia es lo que devuelve tu placa a como estaba.",bk_l:"Cómo hacer la copia",fw_warn:"¿PRIMERA VEZ CON EL TADEU? Haz antes una copia del firmware original de tu placa (picotool save -a, con Zadig en Windows): paso a paso en el README de GitHub. El TADEU todavía no se probó en las placas dual de la FZ-10, ni en GoldStar y Sanyo.",fw_hint:"Las placas del ODE usan uno de dos chips de dirección de datos, y funcionan con la señal de dirección invertida. DIR-LOW: placa original Waveshare (chip 74HC245). DIR-HIGH: placas clon, como tzmwx y TaiHu (chip 74LVC4245). Archivo equivocado: la consola muestra el logo de 3DO y luego la pantalla queda negra. No se daña nada: pon el Pico en modo BOOTSEL y graba el otro archivo.",
+ pk_prep:"preparando",pk_pack:"Empaquetando",m_oncard:"En la tarjeta:",m_pak:"Formato de portadas y capturas",m_what:"Qué empaquetar",m_what_d:"All = portadas (pequeñas y grandes) y capturas: paquete mayor. Solo portadas = sin capturas. Solo portadas pequeñas = solo la grilla, paquete mucho menor (el resto queda suelto). Las portadas pequeñas, que son la grilla, entran siempre.",pw_all:"Todo (portadas y capturas)",pw_cov:"Solo portadas",pw_small:"Solo portadas pequeñas",fmt_pak:"PAK",fmt_one:"Individual",m_pak_d:"PAK: todas las portadas van a un solo archivo y las capturas a otro, grabados de una vez. El menú abre el paquete y va directo a la imagen, en vez de buscar cada archivo en una carpeta con cientos de ellos. Necesita el firmware TADEU 1.0.7 y el menú 1.6. Individual: un archivo por imagen, como siempre; funciona con cualquier firmware. Al cambiar de formato, la página convierte lo que ya está en la tarjeta.",l_pak:"Paquete",pak_del:"borrado",pak_big:(n,m)=>"no generado: "+n+" imágenes (el límite es "+m+")",m_keep:"Si ya existe en la tarjeta",keep:"Mantener",replace:"Sustituir",yes:"Sí",no:"No",fw_no:"No",fw_hi:"DIR-HIGH (placas clon)",fw_lo:"DIR-LOW (placa original Waveshare)",bk_t:"¡HAZ UNA COPIA DEL FIRMWARE ANTES!",bk_b:"Antes de instalar el firmware TADEU por primera vez, guarda una copia del firmware que tiene tu placa hoy (picotool + Zadig en Windows). El TADEU todavía no se probó en las placas dual de la FZ-10, ni en GoldStar y Sanyo: la copia es lo que devuelve tu placa a como estaba.",bk_l:"Cómo hacer la copia",fw_warn:"¿PRIMERA VEZ CON EL TADEU? Haz antes una copia del firmware original de tu placa (picotool save -a, con Zadig en Windows): paso a paso en el README de GitHub. El TADEU todavía no se probó en las placas dual de la FZ-10, ni en GoldStar y Sanyo.",fw_hint:"Las placas del ODE usan uno de dos chips de dirección de datos, y funcionan con la señal de dirección invertida. DIR-LOW: placa original Waveshare (chip 74HC245). DIR-HIGH: placas clon, como tzmwx y TaiHu (chip 74LVC4245). Archivo equivocado: la consola muestra el logo de 3DO y luego la pantalla queda negra. No se daña nada: pon el Pico en modo BOOTSEL y graba el otro archivo.",
  m_own:"Usar una carpeta de mi ordenador…",m_own_d:"Las imágenes (png, jpg) se convierten en portadas y capturas; los vídeos .cvd se copian. Ponlos en carpetas llamadas covers, screenshots y videos, con el nombre del juego.",
  m_own_n:(a,b,c)=>`${a} portadas, ${b} capturas, ${c} vídeos`,
  m_gen:"Para convertir juegos (.chd, .iso), renombrar, organizar o convertir tus propios vídeos, usa generate_usb.py.",
@@ -437,7 +437,7 @@ es:{title:"PREPARAR EL USB / SD",
  sp_wait:"Por copiar",sp_done:"Copiado",sp_none:"Nada que copiar",
  k_rename:"Renombrar",s_rename:"RENOMBRAR LOS JUEGOS",
  r_note:"Da a los archivos de tus juegos el nombre oficial de los discos (el de nuestra lista), para que coincidan las portadas, los vídeos y los textos. El .cue se corrige también. No se convierte ni se borra nada.",
- r_scan:"Comprobar los nombres",r_apply:"Renombrar los marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
+ r_scan:"Comprobar los nombres",r_bat:"Descargar .bat (renombrar en Windows)",r_bat_d:"Mas fiable: descarga el .bat, ponlo en la RAIZ de la tarjeta y haz doble clic. Renombra los juegos elegidos, las portadas/capturas/videos sueltos y ajusta favoritos y estadisticas. El boton \"Renombrar aqui\" intenta por el navegador, que falla en algunas tarjetas.",r_pick:"Marca al menos un juego.",r_apply:"Renombrar los marcados",r_all:"Marcar todos",r_none:"Desmarcar todos",
  r_dat:"No pude leer la lista de nombres oficiales en GitHub.",r_nomove:"Este navegador no puede renombrar archivos en la tarjeta. Usa un Chrome o Edge actualizado en un ordenador.",
  r_reading:"Leyendo",r_ok:n=>`${n} ya tienen el nombre oficial`,r_dup:"ya existe",r_dup_d:n=>`La tarjeta ya tiene "${n}". Este archivo debe de ser una segunda copia del mismo juego; se queda como está.`,r_sure:"por el contenido",r_guess:"por el nombre",r_unknown:"No identificados",r_long:"Nombre demasiado largo para la ODE",r_long_n:"La ODE solo lee nombres de archivo de hasta 126 letras (con la extensión). Por encima de eso el menú muestra el nombre corto (tipo NISHIM~1) y los medios no se abren.",r_long_kept:"no renombrado",r_long_card:"en la tarjeta: acórtalo",
  r_sure_d:"El contenido del disco coincide con la lista oficial: es seguro.",r_guess_d:"Solo coincide el título: compruébalo antes de marcar.",
@@ -695,7 +695,7 @@ const S = {
   own:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   ownAll:{covers:new Map(), screenshots:new Map(), videos:new Map()}, ownOne:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   gl:new Map(), glLang:"",
-  o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true, o_pak:false},
+  o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true, o_pak:false, pakWhat:"all"},
   mediaVer:{}, cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, fw107:false, tadeu:false, rtc:false, xport:false,
   screen:"home", sel:0, filter:"all", sec:0, grp:0, busy:false, stop:false
 };
@@ -886,7 +886,7 @@ async function pakKeys(dir, out){
 }
 /* Monta o pacote. Vale, nesta ordem: o que acabou de chegar (fresh), o que o pacote
  * antigo já tinha, e os arquivos soltos da pasta. Devolve quantas imagens (negativo = passou do limite). */
-async function pakBuild(dir, out, fresh){
+async function pakBuild(dir, out, fresh, onProg){
   const items = new Map();
   try { for await (const [name, h] of (await dirAt(dir, false)).entries()){
     if (h.kind !== "file" || !/\.cel$/i.test(name)) continue;
@@ -895,15 +895,30 @@ async function pakBuild(dir, out, fresh){
   for (const [k, b] of await pakRead(dir, out)) items.set(k, b);
   for (const [k, b] of fresh || []) items.set(k, b);
   if (!items.size || items.size > PAK_MAX) return items.size ? -items.size : 0;
-  const keys = [...items.keys()].sort((a, b) => a - b), head = new DataView(new ArrayBuffer(8 + 8 * keys.length)), parts = [];
+  const keys = [...items.keys()].sort((a, b) => a - b), head = new DataView(new ArrayBuffer(8 + 8 * keys.length));
   [0x33, 0x44, 0x50, 0x4b, 1, 0].forEach((b, i) => head.setUint8(i, b)); head.setUint16(6, keys.length);
+  /* Primeiro os tamanhos (para o índice, que vai na frente); depois grava imagem por
+   * imagem no mesmo arquivo, avisando o andamento. */
   let pos = head.byteLength;
   for (let i = 0; i < keys.length; i++){
-    const it = items.get(keys[i]), buf = it.getFile ? await (await it.getFile()).arrayBuffer() : it, pad = (4 - buf.byteLength % 4) % 4;
-    head.setUint32(8 + i * 8, keys[i]); head.setUint32(12 + i * 8, pos);
-    parts.push(buf); if (pad) parts.push(new Uint8Array(pad)); pos += buf.byteLength + pad;
+    const it = items.get(keys[i]), size = it.getFile ? (await it.getFile()).size : it.byteLength;
+    head.setUint32(8 + i * 8, keys[i]); head.setUint32(12 + i * 8, pos); pos += size + (4 - size % 4) % 4;
   }
-  await put(dir.slice(0, 1), out, new Blob([head.buffer, ...parts]));
+  const fh = await (await dirAt(dir.slice(0, 1), true)).getFileHandle(out + ".tmp", {create:true}), w = await fh.createWritable();
+  try {
+    await w.write(head.buffer);
+    for (let i = 0; i < keys.length; i++){
+      const it = items.get(keys[i]), buf = it.getFile ? await (await it.getFile()).arrayBuffer() : it, pad = (4 - buf.byteLength % 4) % 4;
+      await w.write(buf); if (pad) await w.write(new Uint8Array(pad));
+      if (onProg && (i % 8 === 7 || i === keys.length - 1)) onProg(i + 1, keys.length);
+    }
+    await w.close();
+  } catch(e){ try { await w.abort(); } catch(_){} await pakRemove(dir, out + ".tmp"); throw e; }
+  /* Só troca o pacote antigo pelo novo depois de o novo estar inteiro no cartão. */
+  const d1 = await dirAt(dir.slice(0, 1), false);
+  try { await d1.removeEntry(out); } catch(e){}
+  try { await fh.move(out); }
+  catch(e){ const nf = await d1.getFileHandle(out, {create:true}), nw = await nf.createWritable(); await nw.write(await fh.getFile()); await nw.close(); await pakRemove(dir, out + ".tmp"); }
   return keys.length;
 }
 /* Formato Individual: o que só existe no pacote volta a ser arquivo solto, e o pacote sai. */
@@ -1175,6 +1190,11 @@ function drawVers(){ const e = $("vers"); if (e) e.innerHTML = `<div title="${es
  * arquivos individuais (as capas aparecem com qualquer firmware). */
 function fwSure(){ return S.tadeu && !S.xport && !!S.cfg._ver && verNum(S.cfg._ver) >= 10007; }
 function has107(){ return !S.xport && (fwSure() || (S.tadeu && !S.cfg._ver && S.fw107) || !!S.o.fw); }
+/* O que vai no pacote (para controlar o tamanho): "all" = capas pequenas + grandes +
+ * telas; "cov" = só as capas (pequenas + grandes); "small" = só as capas pequenas
+ * (a grade, que é onde a velocidade mais importa; o pacote fica bem menor). PAKS: 0
+ * capas pequenas, 1 capas grandes, 2 telas. O que não entra no pacote é gravado solto. */
+function pakActive(i){ const w = S.o.pakWhat; return i === 0 || (i === 1 && w !== "small") || (i === 2 && w === "all"); }
 function row(id, name, val, cls){ return `<button class="opt ${cls || ""}" data-o="${id}"><span>${esc(name)}</span><b>${val}</b></button>`; }
 /* Quantas imagens a pessoa escolheu à mão (capas e telas): as que vão no zip. */
 const ownCount = () => S.ownOne.covers.size + S.ownOne.screenshots.size;
@@ -1188,7 +1208,7 @@ function drawMedia(){
     ${S.xport ? "" : row("fw", t("m_fw") + "  [TADEU]", esc(t(o.fw === "DIR-HIGH" ? "fw_hi" : o.fw === "DIR-LOW" ? "fw_lo" : "fw_no")), "top")}${S.xport ? "" : `<p class="note" style="margin:6px 4px 10px">${esc(t("fw_hint"))}</p>${fwAlert()}`}
     ${S.cfg._menu || S.cfg._ver ? `<p class="note det" style="margin:0 4px 10px">${esc(t("m_oncard"))} ${S.cfg._menu ? `${esc(t("l_boot"))} <b>${esc(S.cfg._menu)}</b>${S.cfg._menu === MENU_VER ? " ✓" : ""}` : ""}${S.cfg._menu && S.cfg._ver ? " · " : ""}${S.cfg._ver ? `firmware <b>${esc((S.cfg._fw || "") + " " + S.cfg._ver + (S.cfg._dir ? " DIR-" + S.cfg._dir : ""))}</b>${verNum(S.cfg._ver) >= verNum(fwLatest()) ? " ✓" : ""}` : ""}</p>` : ""}
     ${row("keep", t("m_keep"), esc(t(o.keep ? "keep" : "replace")), "top")}
-    ${has107() ? row("o_pak", t("m_pak") + "  [TADEU 1.0.7]", esc(t(o.o_pak ? "fmt_pak" : "fmt_one")), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_pak_d"))}${o.o_pak && !fwSure() ? `<br><b style="color:var(--gold)">${esc(t("pak_both"))}</b>` : ""}</p>` : ""}
+    ${has107() ? row("o_pak", t("m_pak") + "  [TADEU 1.0.7]", esc(t(o.o_pak ? "fmt_pak" : "fmt_one")), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_pak_d"))}${o.o_pak && !fwSure() ? `<br><b style="color:var(--gold)">${esc(t("pak_both"))}</b>` : ""}</p>` + (o.o_pak ? row("pakwhat", t("m_what"), esc(t("pw_" + o.pakWhat)), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_what_d"))}</p>` : "") : ""}
     ${row("own", t("m_own"), esc(t("m_own_n")(n.covers.size, n.screenshots.size, n.videos.size)), "top act")}
     </div><p class="note" style="margin-top:10px">${esc(t("m_own_d"))}</p><p class="note">${esc(t("m_gen"))}</p>
     ${ownCount() ? `<p style="margin:12px 0 0"><button class="big stop" data-zip="1">${esc(t("lk_zip")(ownCount()))}</button></p><p class="note">${esc(t("lk_zip_d"))}</p>` : ""}`;
@@ -1525,6 +1545,56 @@ async function renameApply(){
   R.items = R.items.filter(x => !x.done);
   R.msg = t("r_done")(done, bad); R.state = "list"; drawRename();
 }
+
+/* renBat() - gera um .bat que renomeia no Windows o que a pessoa escolheu.
+ * O move() do navegador falha em muitos cartoes (exFAT/USB); o "ren" do Windows
+ * e instantaneo e sempre funciona. A pessoa poe o .bat na RAIZ do cartao e clica.
+ * Tudo em PowerShell usa SO aspas simples (aspas duplas quebrariam dentro do -Command
+ * entre aspas do batch) e [char]10/[char]9 no lugar de quebras de linha e TAB. */
+function batName(x){ return String(x).replace(/%/g, "%%"); }
+function psQ(x){ return "'" + String(x).replace(/'/g, "''") + "'"; }
+function renBat(){
+  const sel = R.items.filter(x => x.on && !x.dup), pairs = [];
+  const L = ["@echo off", "chcp 65001 >nul", "cd /d \"%~dp0\"", "echo Renomeando " + sel.length + " jogo(s) na pasta atual...", "echo."];
+  const PS = "powershell -NoProfile -Command ";
+  const ENC = "$e=New-Object System.Text.UTF8Encoding($false); ";
+  for (const it of sel){
+    const f = it.f, to = it.to;
+    L.push("echo " + batName(f.stem) + "  ->  " + batName(to));
+    if (/\.cue$/i.test(f.name)){
+      const reps = [];
+      for (const pt of f.parts){
+        const nn = pt.hit ? pt.hit.rom : (f.parts.length === 1 ? to + pt.name.slice(pt.name.lastIndexOf(".")) : pt.name);
+        if (nn !== pt.name){ L.push('if exist "' + batName(pt.name) + '" ren "' + batName(pt.name) + '" "' + batName(nn) + '"'); reps.push([pt.name, nn]); }
+      }
+      L.push('if exist "' + batName(f.name) + '" ren "' + batName(f.name) + '" "' + batName(to + ".cue") + '"');
+      if (reps.length){
+        const chain = reps.map(([a, b]) => ".Replace(" + psQ(a) + "," + psQ(b) + ")").join("");
+        L.push(PS + "\"" + ENC + "$p=" + psQ(to + ".cue") + "; if([System.IO.File]::Exists($p)){ [System.IO.File]::WriteAllText($p, [System.IO.File]::ReadAllText($p,$e)" + chain + ", $e) }\"");
+      }
+    } else {
+      L.push('if exist "' + batName(f.name) + '" ren "' + batName(f.name) + '" "' + batName(to + f.ext) + '"');
+      for (const side of [".ccd", ".sub"]) L.push('if exist "' + batName(f.stem + side) + '" ren "' + batName(f.stem + side) + '" "' + batName(to + side) + '"');
+    }
+    /* Capas, telas e videos (os arquivos soltos; o que estiver em .pak o menu acha pelo nome do jogo). */
+    for (const kind in KINDS) for (const pl of KINDS[kind].places){
+      const d = pl[1].join("\\"), e = KINDS[kind].ext;
+      L.push('if exist "' + d + "\\" + batName(f.stem + e) + '" if not exist "' + d + "\\" + batName(to + e) + '" ren "' + d + "\\" + batName(f.stem + e) + '" "' + batName(to + e) + '"');
+    }
+    pairs.push([f.stem, to]);
+  }
+  /* Favoritos, recentes, estatisticas e detalhes guardam o nome do jogo no comeco da linha
+   * (UTF-8 sem BOM, via .NET, para nao corromper nomes com acento). */
+  if (pairs.length){
+    const map = "@{" + pairs.map(([a, b]) => psQ(a) + "=" + psQ(b)).join(";") + "}";
+    L.push("echo. & echo Ajustando favoritos, recentes e estatisticas...");
+    L.push(PS + "\"" + ENC + "$m=" + map + "; foreach($n in '3dofavorites.ode','3dorecent.ode','3dostats.ode','3dogamesdetails.ode'){ $p=Join-Path '.config' $n; if([System.IO.File]::Exists($p)){ $o=([System.IO.File]::ReadAllText($p,$e) -split [char]10) | ForEach-Object{ $i=$_.IndexOf([char]9); if($i -gt 0 -and $m.ContainsKey($_.Substring(0,$i))){ $m[$_.Substring(0,$i)]+$_.Substring($i) } else { $_ } }; [System.IO.File]::WriteAllText($p, ($o -join [char]10), $e) } }\"");
+  }
+  L.push("echo. & echo Pronto!", "pause");
+  const blob = new Blob([L.join("\r\n") + "\r\n"], {type:"application/bat"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "renomear_3do.bat"; a.click();
+}
+
 /* De -> para: marca, letra a letra, o que sai do nome antigo e o que entra no novo (maior subsequência comum). */
 function nameDiff(a, b){
   const n = a.length, m = b.length, W = m + 1, L = new Uint16Array((n + 1) * W);
@@ -1553,7 +1623,8 @@ function drawRename(){
     h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))}</p>
       <p class="note">${esc(t("r_diff"))} <del class="dd">${esc(t("r_out"))}</del> <ins class="dd">${esc(t("r_in"))}</ins></p>`;
     if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""} ${it.dup ? "disabled" : ""}><span>${(d => `<small><u>${esc(t("r_from"))}</u>${d[0]}</small><b><u>${esc(t("r_to"))}</u>${d[1]}</b>`)(nameDiff(it.f.stem + it.f.ext, it.to + it.f.ext))}${it.dup ? `<small style="color:#ffd38a">${esc(t("r_dup_d")(it.dup))}</small>` : ""}${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err || it.dup ? "err" : it.how}" style="font-style:normal">${esc(t(it.dup ? "r_dup" : it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
-      <button class="big" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button>`;
+      <button class="big" id="rbat">${esc(t("r_bat"))}</button> <button class="big stop" id="rapply">${esc(t("r_apply"))}</button> <button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button>
+      <p class="note" style="margin-top:8px">${esc(t("r_bat_d"))}</p>`;
     else h += `<p class="note"><b style="color:var(--fg)">${esc(t("r_nothing"))}</b></p>`;
     if (R.long.length) h += `<div class="misshead"><b>${esc(t("r_long"))} (${R.long.length})</b></div><div class="note">${esc(t("r_long_n"))}</div><div class="ren" style="max-height:150px">${R.long.map(u => `<label style="cursor:default"><span>${esc(u.name)}</span><span class="how">${u.n} · ${esc(t(u.kept ? "r_long_kept" : "r_long_card"))}</span></label>`).join("")}</div>`;
     if (R.unknown.length) h += `<div class="misshead"><b>${esc(t("r_unknown"))} (${R.unknown.length})</b></div><div class="ren" style="max-height:150px">${R.unknown.map(u => `<label style="cursor:default"><span>${esc(u)}</span></label>`).join("")}</div>`;
@@ -1654,7 +1725,7 @@ function writeSummary(){
   if (o.o_txt) row("l_txt", CFG_LANG[S.txtLang], 1);
   if (o.fw) rows.push(fwAlert());
   if (o.fw) row("l_fw", "TADEU " + fwLatest() + " " + o.fw + " → firmware/update.ode", 1);
-  if (has107()) row("m_pak", o.o_pak ? t("fmt_pak") + (fwSure() ? "" : " + " + t("fmt_one")) + ": covers/small.pak · covers/large.pak · screenshots/medium.pak" : t("fmt_one"), o.o_pak ? 1 : 0);
+  if (has107()) row("m_pak", o.o_pak ? t("fmt_pak") + " (" + t("pw_" + o.pakWhat) + ")" + (fwSure() ? "" : " + " + t("fmt_one")) + ": covers/small.pak · covers/large.pak · screenshots/medium.pak" : t("fmt_one"), o.o_pak ? 1 : 0);
   if (S.cfgTouched || !S.cfgOnCard) row("l_cfg", "3doconfig.ode", 1);
   if (SAVE_NAMES.length > 1) row("l_savenames", "3dogamessaves.ode", 1);
   rows.push(`<div class="ok"><span>${esc(t("sum_folders"))}</span><b>.config · saves · firmware · roms</b></div>`);
@@ -1900,12 +1971,14 @@ $("view").addEventListener("click", async e => {
       if (o === "rtc"){ S.rtc = !S.rtc; if (S.rtc) S.tadeu = true; return drawOptions(); }
       if (o === "lang"){ await setTxtLang(cycle(Object.keys(CFG_LANG), S.txtLang), true); S.cfgTouched = true; }
       else if (o === "fw"){ S.o.fw = cycle(["", "DIR-HIGH", "DIR-LOW"], S.o.fw); if (S.o.fw){ S.cfg._dir = S.o.fw.slice(4); S.cfgTouched = true; S.o.o_pak = true; } }
+      else if (o === "pakwhat") S.o.pakWhat = cycle(["all", "cov", "small"], S.o.pakWhat);
       else if (o === "keep") S.o.keep = !S.o.keep;
       else if (o === "own"){ if (noFS) return; await openOwn(); }
       else S.o[o] = !S.o[o];
       return drawMedia();
     }
     if (el.id === "rscan" || el.id === "rapply"){ S.busy = true; try { await (el.id === "rscan" ? renameScan() : renameApply()); } finally { S.busy = false; } return; }
+    if (el.id === "rbat"){ if (R.items.some(x => x.on && !x.dup)) renBat(); else R.msg = t("r_pick"); return drawRename(); }
     if (el.id === "rall" || el.id === "rnone"){ R.items.forEach(it => it.on = el.id === "rall" && !it.dup); return drawRename(); }
     if (d.getall !== undefined) return checkCopy(Number(d.getall));
     if (d.get){ const [a, b] = d.get.split("|").map(Number); return checkCopy(a, b); }
@@ -1993,7 +2066,7 @@ async function run(){
     const addStep = (label, n) => steps.push({label, n, d:0, state: n ? "wait" : "ok"});
     for (const l of ["l_boot","l_cov","l_shot","l_vid","l_fw"]){ const n = jobs.filter(j => j.label === l).length; if (n || count[l]) addStep(l, n); }
     if (o.o_txt) addStep("l_txt", 1);
-    if (o.o_pak && has107() && !S.demo) addStep("l_pak", PAKS.length);
+    if (o.o_pak && has107() && !S.demo) addStep("l_pak", Math.max(1, PAKS.filter((_, i) => fwSure() && pakActive(i)).length) * 100);
     if (S.cfgTouched || !S.cfgOnCard) addStep("l_cfg", 1);
     const stepOf = l => steps.find(x => x.label === l);
     const tick = (l, start) => { const st = stepOf(l); if (!st) return; if (start) st.state = "run"; else { st.d++; st.state = st.d >= st.n ? "ok" : "run"; } paintSteps(); };
@@ -2006,19 +2079,19 @@ async function run(){
     async function worker(){
       while (next < jobs.length && !S.stop){
         const j = jobs[next++]; count[j.label] = count[j.label] || [0, 0];
-        tick(j.label, true);
+        tick(j.label, true); let inPak = false;
         try {
           let data = null;
           if (S.demo) bytes += 24000;
           else if (j.own){ const f = j.own.getFile ? await j.own.getFile() : j.own; data = j.box ? await imageToCel(f, j.box[0], j.box[1], j.fill) : await f.arrayBuffer(); bytes += data.byteLength; }
           else { data = await (await get(j.from)).arrayBuffer(); bytes += data.byteLength; }
-          const pi = pakMode && fwSure() ? pakOf(j.to) : -1;
-          if (pi >= 0 && data) pakNew[pi].set(pakHash(j.name.slice(0, -4)), data); else { await put(j.to, j.name, data); files++; }
+          const pj = pakMode && fwSure() ? pakOf(j.to) : -1, pi = pj >= 0 && pakActive(pj) ? pj : -1; inPak = pi >= 0 && !!data;
+          if (inPak) pakNew[pi].set(pakHash(j.name.slice(0, -4)), data); else { await put(j.to, j.name, data); files++; }
           count[j.label][0]++;
-          log(j.to.concat(j.name).join("/"));                    // cada arquivo gravado, na hora
+          if (!inPak) log(j.to.concat(j.name).join("/"));        // cada arquivo gravado, na hora (o que vai para o pacote não é arquivo)
         } catch(e){ log(t("err") + ": " + j.name + " — " + e.message); }
         tick(j.label);
-        progress(++done, total, t(j.label) + ": " + j.name);
+        { const st = stepOf(j.label); progress(++done, total, inPak && st ? t(j.label) + ": " + t("pk_prep") + " " + st.d + "/" + st.n : t(j.label) + ": " + j.name); }
       }
     }
     await Promise.all([worker(), worker(), worker(), worker()]);
@@ -2048,13 +2121,23 @@ async function run(){
     /* 1.6: os pacotes de capas e telas. PAK: junta o que chegou agora com o que o
      * cartão já tinha. Individual: o pacote que existir vira arquivos soltos e sai. */
     if (!S.stop && !S.demo){
+      const pst = stepOf("l_pak"), nAct = Math.max(1, PAKS.filter((_, i) => pakMode && pakActive(i)).length);
+      let seen = 0;
       if (pakMode) tick("l_pak", true);
       for (const [i, [d, f]] of PAKS.entries()){
+        const active = pakMode && pakActive(i);
         try {
-          if (pakMode){ const n = await pakBuild(d, f, pakNew[i]); if (n > 0){ files++; log(t("l_pak") + ": " + d[0] + "/" + f + " (" + n + ")"); } else if (n < 0){ for (const g of S.games){ const b = pakNew[i].get(pakHash(g)); if (b) await put(d, g + ".cel", b); } await pakRemove(d, f); log(t("l_pak") + ": " + d[0] + "/" + f + " " + t("pak_big")(-n, PAK_MAX)); } }
+          if (active){
+            const base = seen;
+            const n = await pakBuild(d, f, pakNew[i], (k, tot) => { if (pst){ pst.d = base * 100 + Math.floor(k * 100 / tot); pst.n = nAct * 100; paintSteps(); } $("now").textContent = t("pk_pack") + " " + d[0] + "/" + f + ": " + k + "/" + tot; });
+            if (n > 0){ files++; log(t("l_pak") + ": " + d[0] + "/" + f + " (" + n + ")"); }
+            else if (n < 0){ for (const g of S.games){ const b = pakNew[i].get(pakHash(g)); if (b) await put(d, g + ".cel", b); } await pakRemove(d, f); log(t("l_pak") + ": " + d[0] + "/" + f + " " + t("pak_big")(-n, PAK_MAX)); }
+          }
+          /* Tipo fora do pacote (Individual, ou não escolhido): as imagens que ainda só
+           * existem no pacote voltam a ser arquivos soltos e o pacote sai. */
           else if (await exists(d.slice(0, 1), f)){ const n = await pakUnpack(d, f); log(t("l_pak") + ": " + d[0] + "/" + f + " " + t("pak_del") + (n ? " (" + n + " → " + d.join("/") + ")" : "")); }
         } catch(e){ log(t("l_pak") + ": " + d[0] + "/" + f + " " + t("err") + " " + e.message); }
-        if (pakMode) tick("l_pak");
+        if (active){ seen++; if (pst){ pst.d = seen * 100; pst.n = nAct * 100; pst.state = seen >= nAct ? "ok" : "run"; paintSteps(); } }
       }
     }
     /* As opções do menu: só se a pessoa mexeu nelas aqui, ou se o cartão ainda não tem o arquivo. */

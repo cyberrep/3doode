@@ -28,6 +28,7 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 **Covers and screenshots in a pack** (with the TADEU 1.0.7 firmware)
 - 📦 **Covers and screenshots can go in a single file per folder**: `covers/small.pak`, `covers/large.pak` and `screenshots/medium.pak`. The menu opens the pack and goes straight to the image instead of looking for each file in a folder with hundreds of them.
 - The **web page** builds it: under *Media*, **Format of covers and screenshots: PAK or Individual**. With PAK the images go straight into the pack, written in one go; with Individual, one file per image, as always. When you change the format the page converts what is already on the card. Image outside the pack, card without a pack or an older firmware: the menu uses the loose files.
+- Under *Media* you can choose **what to pack** (everything, covers only, or small covers only), to control the pack size.
 - *ODE information* shows **Covers in a pack** and **Screens in a pack**: Yes or No.
 - Memory: 8 bytes per image in each pack (about 7 KB for 293 games across the three).
 
@@ -53,6 +54,10 @@ Everything that changed in the **menu** (`boot.iso`), the **TADEU firmware** and
 **ODE information**
 - New **USB** (or **SD**) line: *Folders optimized* or *Not optimized*.
 - The menu stores the firmware version in the card's options file (`ode_ver`), so the web page knows what your ODE has.
+
+**List**
+- **List with Screenshot or Video:** a thin line (1 pixel) separates the image from the top and bottom bars.
+- With covers and screenshots in a pack, videos stay as separate files and play normally.
 
 ---
 
