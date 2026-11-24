@@ -185,6 +185,7 @@ button{cursor:pointer}
 .pv .bar{height:5px;background:#0b0d22}.pv .bar i{left:0;top:0;bottom:0}
 .pv .rw{left:8px;height:13px;background:#191c3d;border-radius:2px;padding:2px 6px;white-space:nowrap;overflow:hidden}
 .pv .rw.on{background:var(--olive);outline:1px solid #fff}
+.pv .cvslot{border-radius:2px;overflow:hidden}
 .pv .cv{border-radius:2px;display:grid;place-items:center;text-align:center;font-size:6px;line-height:1.1;padding:2px;color:#fff;text-shadow:0 1px 0 #000;overflow:hidden}
 .pv .cv>*{position:static}
 .pv .box{border:1px solid var(--edge);border-radius:3px;background:#0e1026}
@@ -1244,9 +1245,9 @@ function drawOptions(){
 }
 
 /* ---------------- Prévia do menu do console (aproximada, desenhada em 320 x 240 como a tela do 3DO) ---------------- */
-const PV_GAMES = [["Alone in the Dark","1994","Aventura","Infogrames",3,"USA"],["Brain Dead 13","1996","FMV","ReadySoft",9,"USA"],["Doom","1996","Tiro","id Software",12,"USA"],
-  ["Gex","1995","Plataforma","Crystal Dynamics",7,"USA"],["Need for Speed, The","1994","Corrida","EA Canada",5,"USA"],["Road Rash","1994","Corrida","Electronic Arts",8,"USA"],
-  ["Super Street Fighter II Turbo","1994","Luta","Capcom",15,"JAP"],["Wing Commander III","1994","Simulador","Origin",2,"USA"]];
+const PV_GAMES = [["Alone in the Dark","1994","Aventura","Infogrames",3,"USA",0.70],["Brain Dead 13","1996","FMV","ReadySoft",9,"USA",0.95],["Doom","1996","Tiro","id Software",12,"USA",0.95],
+  ["Gex","1995","Plataforma","Crystal Dynamics",7,"USA",0.70],["Need for Speed, The","1994","Corrida","EA Canada",5,"USA",0.72],["Road Rash","1994","Corrida","Electronic Arts",8,"USA",0.95],
+  ["Super Street Fighter II Turbo","1994","Luta","Capcom",15,"JAP",0.70],["Wing Commander III","1994","Simulador","Origin",2,"USA",0.95]];
 const PV_BG = {
   "Padrão":"#12142e", "Vinheta":"radial-gradient(ellipse at center,#23275a 0,#12142e 55%,#05060f 100%)",
   "Fibra de carbono":"repeating-conic-gradient(#171a38 0 25%,#0d0f24 0 50%) 0 0/6px 6px",
@@ -1269,7 +1270,27 @@ function pvSorted(){
   const k = {"Nome":0, "Ano":1, "Gênero":2, "Produtora":3}[S.cfg.jogos_ordem], a = PV_GAMES.slice();
   return k === undefined ? a.sort((x, y) => y[4] - x[4]) : a.sort((x, y) => String(x[k]).localeCompare(String(y[k])) || x[0].localeCompare(y[0]));
 }
-const pvCover = (g, x, y, w, h, extra) => `<div class="cv" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:linear-gradient(160deg,hsl(${g[4] * 47 % 360} 70% 45%),hsl(${g[4] * 47 % 360} 70% 18%));${extra || ""}"><span>${esc(g[0].replace(/, The$/, ""))}</span></div>`;
+function pvCover(g, x, y, w, h, extra){
+  const fmt = S.cfg.capas_formato, ar = g[6] || 0.72;
+  const grad = `linear-gradient(160deg,hsl(${g[4] * 47 % 360} 70% 45%),hsl(${g[4] * 47 % 360} 70% 18%))`;
+  let cw = w, ch = h, cx = 0, cy = 0;
+  if (fmt !== "Esticada"){                                   // cabe inteira, mantendo a proporção; sobra vira borda
+    if (w / h > ar){ ch = h; cw = Math.round(h * ar); } else { cw = w; ch = Math.round(w / ar); }
+    cx = Math.round((w - cw) / 2); cy = Math.round((h - ch) / 2);
+  }
+  const bars = cw < w - 1 || ch < h - 1;
+  const slotBg = fmt === "Fundo preto" && bars ? ";background:#000" : "";   // Original: deixa o fundo do menu aparecer
+  const glow = fmt === "Ambilight" && bars ? `<i style="left:-15%;top:-15%;width:130%;height:130%;background:${grad};filter:blur(5px)"></i>` : "";
+  const content = `<div class="cv" style="left:${cx}px;top:${cy}px;width:${cw}px;height:${ch}px;background:${grad}"><span>${esc(g[0].replace(/, The$/, ""))}</span></div>`;
+  return `<div class="cvslot" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px${slotBg};${extra || ""}">${glow}${content}</div>`;
+}
+/* A faixa translúcida de ano/país sobre a imagem; a transparência vem de "Transparência das faixas". */
+function pvBand(x, y, w, yr, country){
+  const op = (parseInt(S.cfg.capas_faixa) || 0) / 100;
+  const band = op > 0 ? `<div style="left:${x}px;top:${y}px;width:${w}px;height:11px;background:rgba(0,0,0,${op})"></div>` : "";
+  const sh = op > 0 ? "" : ";text-shadow:0 1px 2px #000,0 0 2px #000";
+  return band + `<div style="left:${x + 3}px;top:${y + 1}px${sh}">${yr}</div><div style="left:${x}px;top:${y + 1}px;width:${w - 3}px;text-align:right${sh}">${country}</div>`;
+}
 const pvShot = (x, y, w, h, play) => `<div class="cv" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:linear-gradient(180deg,#3a6ea8 0 55%,#2c7a3a 55%);font-size:14px"><span>${play ? "▶" : ""}</span></div>`;
 const inMenu = k => ["Menu e Jogos", "Menu Principal"].includes(S.cfg[k]), inGames = k => ["Menu e Jogos", "Jogos"].includes(S.cfg[k]);
 function pvHome(){
@@ -1308,8 +1329,8 @@ function pvHome(){
   }
   return h;
 }
-function pvGames(){
-  const c = S.cfg, view = c.interface_view, gs = pvSorted(), sel = gs[2];
+function pvGames(viewOverride){
+  const c = S.cfg, view = viewOverride || c.interface_view, gs = pvSorted(), sel = gs[2];
   let h = `<div class="tb"></div><div class="ct">${esc(tr("JOGOS"))} - ${esc(tr(view).toUpperCase())}</div><div class="bb"></div>
     <div style="left:8px;bottom:6px"><b class="gd" style="position:static">Ⓐ</b>INFO <b class="gd" style="position:static">Ⓑ</b>${esc(tr("VOLTAR"))} <b class="gd" style="position:static">Ⓟ</b>${esc(tr("JOGAR"))}</div>`;
   if (view === "Lista"){
@@ -1320,7 +1341,7 @@ function pvGames(){
     if (media !== "Desligado"){
       h += `<div class="box" style="left:200px;top:32px;width:112px;height:150px;border-color:var(--blue)"></div>`;
       h += media === "Capa" ? pvCover(sel, 204, 36, 104, 142) : pvShot(204, 66, 104, 78, media === "Vídeo");
-      h += `<div style="left:206px;top:38px;text-shadow:0 1px 0 #000">${sel[1]}</div><div style="right:12px;top:38px;text-shadow:0 1px 0 #000">${sel[5]}</div>`;
+      h += pvBand(204, 36, 104, sel[1], sel[5]);
     }
     h += `<div class="box" style="left:4px;top:192px;width:312px;height:22px"></div><div style="left:10px;top:194px">${esc(sel[3])}</div><div class="gd" style="left:10px;top:203px">${esc(sel[2])}</div><div class="gd" style="right:10px;top:194px">3/${gs.length}</div>`;
   } else if (view === "Capas"){
@@ -1339,7 +1360,7 @@ function pvGames(){
       <div class="dim" style="left:120px;top:104px;right:8px;line-height:1.35">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
       <div class="dim" style="left:10px;top:180px">${esc(pvCase(tr("Nunca jogado")))}</div>`;
   } else {
-    h += pvShot(8, 32, 120, 90) + `<div style="left:136px;top:34px;right:8px">${esc(pvName(sel))}</div><div style="left:136px;top:46px;right:8px;height:1px;background:var(--gold)"></div>
+    h += pvShot(8, 32, 120, 90) + pvBand(8, 32, 120, sel[1], sel[5]) + `<div style="left:136px;top:34px;right:8px">${esc(pvName(sel))}</div><div style="left:136px;top:46px;right:8px;height:1px;background:var(--gold)"></div>
       <div style="left:136px;top:51px">${esc(sel[3])}</div><div class="sky" style="left:136px;top:62px">${esc(sel[2])} - ${sel[1]} - ${sel[5]}</div>
       <div class="dim" style="left:136px;top:76px;right:8px;line-height:1.35">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>`;
     gs.slice(0, 6).forEach((g, i) => { h += pvCover(g, 6 + i * 53, 134, 48, 67, i === 2 ? "outline:2px solid var(--red)" : ""); });
@@ -1372,7 +1393,7 @@ function pvDesc(){
 }
 function preview(){
   const sec = SECS[S.sec], g = sec.groups[S.grp], which = S.sec === 0 && g && g.hdr === "DESCRIÇÃO" ? "desc" : S.sec === 0 && g && (g.hdr === "JOGOS" || g.hdr === "MÍDIAS") ? "games" : "home";
-  return `<div class="pvwrap"><p class="pvcap">${esc(t("pv").toUpperCase())}</p><div class="pv" id="pv" style="background:${PV_BG[S.cfg.tela_fundo] || PV_BG["Padrão"]}">${which === "desc" ? pvDesc() : which === "games" ? pvGames() : pvHome()}</div>
+  return `<div class="pvwrap"><p class="pvcap">${esc(t("pv").toUpperCase())}</p><div class="pv" id="pv" style="background:${PV_BG[S.cfg.tela_fundo] || PV_BG["Padrão"]}">${which === "desc" ? pvDesc() : which === "games" ? pvGames(g && g.hdr === "MÍDIAS" && S.cfg.interface_view === "Lista" && S.cfg.interface_midia === "Desligado" ? "Vitrine" : null) : pvHome()}</div>
     <p class="note" style="margin-top:8px;text-align:center">${esc(t("pv_note"))}</p></div>`;
 }
 
