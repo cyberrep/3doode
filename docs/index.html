@@ -1575,12 +1575,12 @@ function batEcho(x){ return String(x).replace(/[\^&<>|()%]/g, c => c === "%" ? "
 function psQ(x){ return "'" + String(x).replace(/'/g, "''") + "'"; }
 function renBat(){
   const sel = R.items.filter(x => x.on && !x.dup), pairs = [];
-  const L = ["@echo off", "chcp 65001 >nul", "cd /d \"%~dp0\"", "echo Renomeando " + sel.length + " jogo(s) na pasta atual...", "echo."];
+  const L = ["@echo off", "chcp 65001 >nul", "cd /d \"%~dp0\"", "echo " + batEcho("Renomeando " + sel.length + " jogo(s) na pasta atual..."), "echo."];
   const PS = "powershell -NoProfile -Command ";
   const ENC = "$e=New-Object System.Text.UTF8Encoding($false); ";
   for (const it of sel){
     const f = it.f, to = it.to, BS = String.fromCharCode(92), R = f.rel && f.rel.length ? f.rel.map(batName).join(BS) + BS : "";
-    L.push("echo " + batEcho(f.stem) + "  ->  " + batEcho(to));
+    L.push("echo " + batEcho(f.stem + "  ->  " + to));   // a seta tambem: um ">" solto vira redirecionamento e cria arquivo
     if (/\.cue$/i.test(f.name)){
       const reps = [];
       for (const pt of f.parts){
@@ -1612,6 +1612,22 @@ function renBat(){
     L.push(PS + "\"" + ENC + "$m=" + map + "; foreach($n in '3dofavorites.ode','3dorecent.ode','3dostats.ode','3dogamesdetails.ode'){ $p=Join-Path '.config' $n; if([System.IO.File]::Exists($p)){ $o=([System.IO.File]::ReadAllText($p,$e) -split [char]10) | ForEach-Object{ $i=$_.IndexOf([char]9); if($i -gt 0 -and $m.ContainsKey($_.Substring(0,$i))){ $m[$_.Substring(0,$i)]+$_.Substring($i) } else { $_ } }; [System.IO.File]::WriteAllText($p, ($o -join [char]10), $e) } }\"");
   }
   L.push("echo. & echo Pronto!", "pause");
+  /* Linhas do PowerShell: o batch troca %...% ate dentro de aspas; um % no nome vira %%. */
+  for (let i = 0; i < L.length; i++) if (L[i].startsWith(PS)) L[i] = PS + L[i].slice(PS.length).replace(/%/g, "%%");
+  /* Trava final: nenhuma linha pode ter & < > | fora de aspas sem o ^ (viraria outro comando ou
+   * redirecionamento, criando/sobrescrevendo arquivo), nem % solto. Se tiver, nao baixa nada. */
+  const ok = ["chcp 65001 >nul", "echo. & echo "];
+  for (const l of L){
+    if (ok.some(x => l.startsWith(x))) continue;
+    let q = false;
+    for (let i = 0; i < l.length; i++){
+      const c = l[i];
+      if (c === '"') q = !q;
+      else if (c === "^" && !q) i++;
+      else if ("&<>|".includes(c) && !q){ alert("Erro interno ao montar o .bat (nada foi baixado):\n" + l.slice(0, 160)); return; }
+      else if (c === "%" && !l.startsWith("cd /d ")){ if (l[i + 1] === "%") i++; else { alert("Erro interno ao montar o .bat (nada foi baixado):\n" + l.slice(0, 160)); return; } }
+    }
+  }
   const blob = new Blob([L.join("\r\n") + "\r\n"], {type:"application/bat"});
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "renomear_3do.bat"; a.click();
 }
