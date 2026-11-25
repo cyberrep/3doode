@@ -33,7 +33,8 @@ button{cursor:pointer}
 .langs button{background:#0e1026;border:1px solid var(--edge);border-radius:6px;padding:3px 9px;color:var(--dim);font-weight:700;letter-spacing:.08em}
 .langs button.on{background:var(--yellow);border-color:var(--yellow);color:#16183a}
 .key{display:inline-flex;align-items:center;gap:7px;background:none;border:0;padding:4px 6px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-.key i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--gold);color:#16183a;font-size:.85rem;letter-spacing:0}
+.key i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:linear-gradient(#c9cbd4,#9a9daa);color:#16183a;border:2px solid #000;box-shadow:inset 0 -2px 0 #0004;font-size:.82rem;font-weight:800;letter-spacing:0}
+.key:hover i{background:linear-gradient(#e2e4ec,#b4b7c3)}
 .key:hover{color:var(--yellow)}.key[disabled]{opacity:.35;cursor:not-allowed}
 .gap{flex:1}
 .view{padding:16px 16px 18px;min-height:430px}
@@ -118,7 +119,7 @@ button{cursor:pointer}
 .list button.on{background:var(--olive);border-color:#fff}
 .marks{display:flex;gap:3px;flex:none}
 .mk{width:17px;height:17px;border-radius:4px;display:grid;place-items:center;font-size:.68rem;font-weight:800;letter-spacing:0;color:#0b0d22;font-style:normal}
-.mk.card{background:var(--green)}.mk.lib{background:var(--blue);color:#fff}.mk.own{background:var(--yellow)}.mk.loan{background:#f08a24}.mk.part{background:linear-gradient(135deg,var(--green) 50%,transparent 50%);border:1px solid var(--green);color:#fff}.mk.none{background:transparent;border:1px solid #454a78;color:#666c9c}
+.mk.card{background:var(--green)}.mk.lib{background:var(--blue);color:#fff}.mk.own{background:var(--yellow)}.mk.loan{background:#f08a24}.mk.retro{background:#b06ce8;color:#fff}.mk.part{background:linear-gradient(135deg,var(--green) 50%,transparent 50%);border:1px solid var(--green);color:#fff}.mk.none{background:transparent;border:1px solid #454a78;color:#666c9c}
 .side{border-left:2px solid var(--edge);padding-left:12px;min-width:0}
 .cover{border:3px solid var(--blue);border-radius:6px;background:#0b0d22;width:206px;height:286px;margin:0 auto 8px;display:grid;place-items:center;position:relative;overflow:hidden}
 .cover canvas,.cover img{width:200px;height:280px;image-rendering:pixelated;display:block;object-fit:contain}
@@ -129,10 +130,21 @@ button{cursor:pointer}
 /* A primeira linha (título e o X) fica presa no alto ao rolar, com a linha amarela embaixo. */
 .lkh{position:sticky;top:-24px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 -18px 12px;padding:12px 18px 10px;background:var(--scr);border-bottom:2px solid var(--gold);border-radius:12px 12px 0 0}
 .lkh b{color:var(--gold);letter-spacing:.14em}
-.lkbox h4{margin:14px 0 6px;color:var(--gold);letter-spacing:.1em;font-size:.86rem}
+.lkbox h4{display:flex;align-items:center;gap:8px;margin:14px 0 6px;color:var(--gold);letter-spacing:.1em;font-size:.86rem}.lkbox h4 small{color:var(--dim);font-weight:400;letter-spacing:.04em}
 .lkg{margin:4px 0;color:var(--dim)}.lkg b{color:var(--fg)}
 .mini{background:#0e1026;border:1px solid var(--edge);border-radius:6px;padding:3px 10px;color:var(--sky);font:inherit;cursor:pointer}
 .mini:hover{border-color:var(--gold);color:var(--fg)}
+.txf{display:grid;grid-template-columns:120px 1fr;gap:8px 10px;align-items:center;margin:6px 0 10px}
+.txf label{color:var(--dim)}.txf .full{grid-column:1/-1}
+.txf input,.txf textarea{width:100%;padding:7px 9px;border-radius:8px;border:2px solid var(--edge);background:#0e1026;color:var(--fg);font:inherit}
+.txf textarea{min-height:150px;resize:vertical}.txf small{color:var(--dim);grid-column:2}
+.txbtns{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.lkthumbs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px}
+.lkt{flex:0 0 96px;background:var(--row);border:1px solid var(--edge);border-radius:6px;padding:3px;cursor:pointer;color:var(--dim);font:inherit;font-size:.65em}
+.lkt:hover{border-color:var(--gold)}.lkt.on{border-color:var(--green)}
+.lkt img{width:100%;aspect-ratio:1;object-fit:contain;background:#0b0d22;display:block}
+.lkt span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lkrh{display:flex;align-items:center;gap:6px;margin:4px 0 4px;color:var(--dim);font-size:.85em}
 #lkq{width:100%;padding:8px 10px;border-radius:8px;border:2px solid var(--edge);background:#0e1026;color:var(--fg);font:inherit}
 .lksug{display:flex;gap:10px;flex-wrap:wrap}
 .lkc{display:flex;align-items:center;gap:8px;width:100%;text-align:left;margin:0 0 4px;padding:6px 10px;border:1px solid #2c3160;border-radius:8px;background:#141a3a;color:var(--fg);font:inherit;cursor:pointer}
@@ -154,6 +166,8 @@ button{cursor:pointer}
 .kinds div{display:flex;align-items:center;gap:6px}
 .kinds span{flex:1;min-width:0;color:var(--dim)}
 .kinds button{background:#0e1026;border:1px solid var(--edge);border-radius:6px;padding:1px 8px;color:var(--sky)}
+.lkbtn{display:block;width:100%;margin:10px 0 0;background:#0e1026;border:1px solid var(--gold);border-radius:8px;color:var(--yellow);font:inherit;font-weight:700;letter-spacing:.06em;padding:7px;cursor:pointer}
+.lkbtn:hover{background:#1a1d40}
 .info{margin-top:10px;border:2px solid var(--edge);border-radius:8px;background:#0e1026;padding:6px 12px;display:flex;gap:12px;align-items:flex-end}
 .info div{flex:1;min-width:0}.info .a{color:var(--fg)}.info .b{color:var(--gold)}.info .n{color:var(--gold);flex:none}
 .legend{display:flex;gap:6px 14px;flex-wrap:wrap;color:var(--dim);margin-top:8px;font-size:.88rem}
@@ -161,6 +175,9 @@ button{cursor:pointer}
 
 /* ---- opções ---- */
 .panel{border:2px solid var(--edge);border-radius:10px;background:#0e1026;padding:8px 12px 12px}
+.panel h3{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:12px 2px 2px;padding-bottom:3px;border-bottom:1px solid var(--edge);font-size:.82rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.panel h3 small{color:var(--dim);letter-spacing:.04em;text-transform:none;font-weight:400}.panel h3 small b{color:var(--sky);font-weight:400}
+.panel.ownp{border-color:var(--gold);background:linear-gradient(#16183a,#0e1026)}
 .panel h2{margin:0 0 6px;padding:2px 2px 6px;font-size:1rem;letter-spacing:.14em;border-bottom:2px solid var(--gold)}
 .hdr{display:flex;width:100%;text-align:left;background:none;border:0;padding:5px 8px;color:var(--yellow);letter-spacing:.2em;border-radius:5px}
 .hdr.on{background:var(--olive)}.hdr::after{content:"›";margin-left:auto}.hdr.on::after{content:"▾"}
@@ -222,6 +239,7 @@ ins.dd{background:#1f6a3a;color:#d6ffe2}
 .steps .run{outline:1px solid #fff;background:var(--olive)}.steps .run b{color:#fff}.steps .ok b{color:#8ff0a8}
 pre{margin:8px 0 0;max-height:190px;overflow:auto;background:#0b0d22;border:1px solid #2c3160;border-radius:8px;padding:8px 12px;font:13px/1.45 inherit;color:#c8ccf0;white-space:pre-wrap}
 .done{margin-top:12px;border:2px solid var(--green);border-radius:10px;padding:10px 14px;background:#10301c}
+.sendask{margin-top:12px;border:2px solid var(--gold);border-radius:10px;padding:10px 14px;background:#2a2410}.sendask p{margin:4px 0 8px}
 .done h3{margin:0 0 4px;color:#8ff0a8;letter-spacing:.14em;text-transform:uppercase;font-size:1rem}
 .misshead{display:flex;align-items:center;gap:12px;margin:14px 0 6px;letter-spacing:.14em;text-transform:uppercase}.misshead b{flex:1;color:var(--yellow)}
 .miss{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:10px}
@@ -268,6 +286,12 @@ const CFG = {
   shotM: "media/screenshots/medium/", shotL: "media/screenshots/large/",
   video: "media/videos/", fw: "firmware/"
 };
+/* Capas e telas que faltam: libretro-thumbnails (3DO), convertidas aqui mesmo, como no Neo Geo. */
+const RETRO = "https://raw.githubusercontent.com/libretro-thumbnails/The_3DO_Company_-_3DO/master/";
+const RETRO_API = "https://api.github.com/repos/libretro-thumbnails/The_3DO_Company_-_3DO/git/trees/master?recursive=1";
+const RETRO_JSD = "https://data.jsdelivr.com/v1/packages/gh/libretro-thumbnails/The_3DO_Company_-_3DO@master?structure=flat";
+const RETRO_DIR = {covers:"Named_Boxarts", screenshots:"Named_Snaps"};
+const retroUrl = (kind, n) => RETRO + RETRO_DIR[kind] + "/" + encodeURIComponent(n) + ".png";
 const Q = new URLSearchParams(location.search);
 /* As 10 músicas do menu (mp3), numa pasta music/ ao lado da página. Abrindo a página do disco, vêm do site. */
 const MUSIC = location.protocol.startsWith("http") ? "music/" : "https://cyberrep.github.io/3doode/music/";
@@ -284,7 +308,7 @@ en:{title:"USB / SD SETUP",
  lk_btn:"Find the game…",lk_t:"FIND THE GAME",lk_file:"File on the card",lk_cur:"Using the media of",lk_off:"Undo",lk_note:"If this game came up without cover, screenshot or texts, pick the right game in the list: its media is used for this file. The file is not renamed.",lk_sug:"Suggestions",lk_nosug:"No suggestion. Search below.",lk_find:"Search the library",lk_ph:"Type part of the name…",lk_type:"Type to search.",lk_none:"Nothing found.",lk_img:"Only the image",lk_img_n:"Use your own image for this game: paste it (Ctrl+V), drag it here or choose a file. It is written the next time you write the card.",lk_paste:"Paste image",lk_pick:"Choose file…",lk_drop:"or drag the image here",lk_set:k=>`${k} chosen: it is written the next time you write the card.`,lk_del:"Remove",lk_noclip:"There is no image in the clipboard.",lk_ctrlv:"The browser did not allow reading the clipboard. Click here and press Ctrl+V.",lk_cors:"That site does not allow fetching the image. Save it to the computer and drag the file, or copy the image and paste it.",lk_yours:"your image",lk_zip:n=>`Download my images (.zip) — ${n}`,lk_zip_d:"A zip with the covers and screenshots you chose by hand, named after the game. You can send it to us to add to the library.",
  t_wiz:"Step by step",t_wiz_s:"I'll guide you",w_step:(a,b)=>`STEP ${a} OF ${b}`,w_next:"Next",w_skip:"Skip",w_quit:"Leave",s_wcard:"STEP BY STEP",w_names:"Names",w_card_d:"Choose your USB / SD. When the browser asks whether the page may see and edit the files, answer yes.",w_names_d:"Optional. Check the names if many games show up without cover or texts. If everything is fine, just go on.",w_opts_d:"Optional. Don't want to change the menu settings? Just go on.",
  r_from:"FROM",r_to:"TO",r_out:"goes out",r_in:"comes in",r_diff:"What changes in each name is highlighted:",
- n_t:"WHAT'S NEW",nvm:[["1.5", "The controller no longer freezes while covers load, and everything loads faster."], ["1.4", "Covers in their real proportion (long box and CD case), sharper images."], ["1.3", "Game names by title or file, one standard window for warnings, and write progress."], ["1.2", "Folder navigation and a fully translated save manager."], ["1.1", "The save manager shows which game each save belongs to; faster Showcase and Strip."], ["1.0", "Real CD on the Xport without removing the board, new description screen and game publishers."]],nvf:[["1.0.6", "The clock protects itself; two files, DIR-HIGH and DIR-LOW, one for each kind of board."], ["1.0.5", "Real-time clock (DS3231): date, time and temperature; files written with the right date."], ["1.0.4", "USB space: size and free."], ["1.0.3", "One source code for both boards."], ["1.0.2", "Version marker, read and shown by the menu."], ["1.0", "Fast game list, folder creation, firmware backup and update from the console."]],n16_t:"MENU 1.6",n16_s:"Much faster covers on full cards, with the TADEU 1.0.7 firmware.",n16:["Optimize USB (or SD): at power on the menu checks the card and, if needed, puts the media folders at the start. Up to 30 s, only once.", "Console information: Chips group, with MADAM, CLIO and the video encoder.", "ODE information: USB with folders optimized or not.", "Update firmware shows the current version and the new version.", "Covers and screenshots in a pack (.pak): the page joins everything in one file and the menu goes straight to the image.","Page: Find the game, for a game left without cover, screenshot or texts.", "Page: Rename with from → to, a warning when the file already exists, and copying when the browser will not rename.", "Page: download your own images as a .zip."],nfw_t:"TADEU FIRMWARE 1.0.7",nfw_s:"The ODE tidies the card and reads straight inside files.",nfw:["Optimize: the covers, screenshots, videos and .config folders go to the start of the card. Nothing is copied or deleted.", "Finding the covers folder: from about 290 card reads to 3.", "Direct reading inside a file (seek): the menu goes straight to the game's description.", "Files: TADEU_1.0.7_DIR-HIGH and TADEU_1.0.7_DIR-LOW, one for each kind of board."],n_old:"Earlier versions",n_more:"More",n_less:"Less",n_all:"Full history",n15_t:"MENU 1.5",n15_s:"The controller no longer freezes while covers load, and everything loads faster.",
+ n_t:"WHAT'S NEW",nvm:[["1.5", "The controller no longer freezes while covers load, and everything loads faster."], ["1.4", "Covers in their real proportion (long box and CD case), sharper images."], ["1.3", "Game names by title or file, one standard window for warnings, and write progress."], ["1.2", "Folder navigation and a fully translated save manager."], ["1.1", "The save manager shows which game each save belongs to; faster Showcase and Strip."], ["1.0", "Real CD on the Xport without removing the board, new description screen and game publishers."]],nvf:[["1.0.6", "The clock protects itself; two files, DIR-HIGH and DIR-LOW, one for each kind of board."], ["1.0.5", "Real-time clock (DS3231): date, time and temperature; files written with the right date."], ["1.0.4", "USB space: size and free."], ["1.0.3", "One source code for both boards."], ["1.0.2", "Version marker, read and shown by the menu."], ["1.0", "Fast game list, folder creation, firmware backup and update from the console."]],n16_t:"MENU 1.6",n16_s:"Much faster covers on full cards, with the TADEU 1.0.7 firmware.",n16:["Optimize USB (or SD): at power on the menu checks the card and, if needed, puts the media folders at the start. Up to 30 s, only once.", "Console information: Chips group, with MADAM, CLIO and the video encoder.", "ODE information: USB with folders optimized or not.", "Update firmware shows the current version and the new version.", "Covers and screenshots in a pack (.pak): the page joins everything in one file and the menu goes straight to the image.","Page: Find the game, for a game left without cover, screenshot or texts.", "Page: Rename with from → to, a warning when the file already exists, and copying when the browser will not rename.", "Page: download your own images and texts as a .zip, and send them to the library.", "Page: covers and screenshots from libretro for what our library does not have.", "Page: write the texts of a game (year, genre, developer, publisher, description).", "Page: Media in groups (media, card, menu, firmware) with your folder first."],nfw_t:"TADEU FIRMWARE 1.0.7",nfw_s:"The ODE tidies the card and reads straight inside files.",nfw:["Optimize: the covers, screenshots, videos and .config folders go to the start of the card. Nothing is copied or deleted.", "Finding the covers folder: from about 290 card reads to 3.", "Direct reading inside a file (seek): the menu goes straight to the game's description.", "Files: TADEU_1.0.7_DIR-HIGH and TADEU_1.0.7_DIR-LOW, one for each kind of board."],n_old:"Earlier versions",n_more:"More",n_less:"Less",n_all:"Full history",n15_t:"MENU 1.5",n15_s:"The controller no longer freezes while covers load, and everything loads faster.",
  n15:["The controller keeps responding while covers load, in every view.","Covers load before you reach them; screenshots are ready as you browse.","More covers in memory at once.","Faster description in Showcase and Strip (on an ODE with seek).","Strip: year and country on a band over the screenshot; long names scroll.","This page: How to use button and a step-by-step manual."],
  n14_t:"MENU 1.4",
  k_help:"How to use",s_help:"HOW TO USE",h_note:"Five steps. You need a computer with Chrome, Edge, Brave, Opera or Vivaldi, and your card with the 3DO games already on it (.iso or .cue + .bin).",
@@ -343,7 +367,7 @@ pt:{title:"PREPARAR O USB / SD",
  lk_btn:"Procurar o jogo…",lk_t:"PROCURAR O JOGO",lk_file:"Arquivo no cartão",lk_cur:"Usando as mídias de",lk_off:"Desfazer",lk_note:"Se este jogo ficou sem capa, tela ou textos, escolha o jogo certo na lista: as mídias dele passam a valer para este arquivo. O arquivo não é renomeado.",lk_sug:"Sugestões",lk_nosug:"Nenhuma sugestão. Procure abaixo.",lk_find:"Procurar na biblioteca",lk_ph:"Digite parte do nome…",lk_type:"Digite para procurar.",lk_none:"Nada encontrado.",lk_img:"Só a imagem",lk_img_n:"Use uma imagem sua para este jogo: cole (Ctrl+V), arraste para cá ou escolha um arquivo. Ela é gravada na próxima vez que você gravar o cartão.",lk_paste:"Colar imagem",lk_pick:"Escolher arquivo…",lk_drop:"ou arraste a imagem para cá",lk_set:k=>`${k} escolhida: grava na próxima vez que você gravar o cartão.`,lk_del:"Tirar",lk_noclip:"Não há imagem na área de transferência.",lk_ctrlv:"O navegador não deixou ler a área de transferência. Clique aqui e aperte Ctrl+V.",lk_cors:"Esse site não deixa buscar a imagem. Salve no computador e arraste o arquivo, ou copie a imagem e cole.",lk_yours:"imagem sua",lk_zip:n=>`Baixar as minhas imagens (.zip) — ${n}`,lk_zip_d:"Um zip com as capas e telas que você escolheu à mão, com o nome do jogo. Você pode mandar para a gente incluir na biblioteca.",
  t_wiz:"Passo a passo",t_wiz_s:"Eu te guio",w_step:(a,b)=>`PASSO ${a} DE ${b}`,w_next:"Avançar",w_skip:"Pular",w_quit:"Sair",s_wcard:"PASSO A PASSO",w_names:"Nomes",w_card_d:"Escolha o seu USB / SD. Quando o navegador perguntar se a página pode ver e editar os arquivos, responda sim.",w_names_d:"Opcional. Confira os nomes se muitos jogos aparecem sem capa ou sem textos. Se está tudo certo, é só avançar.",w_opts_d:"Opcional. Não quer mexer nas opções do menu? É só avançar.",
  r_from:"DE",r_to:"PARA",r_out:"sai",r_in:"entra",r_diff:"O que muda em cada nome fica marcado:",
- n_t:"NOVIDADES",nvm:[["1.5", "O controle não trava mais enquanto as capas carregam, e tudo carrega mais rápido."], ["1.4", "Capas na proporção real (long box e caixa de CD), imagens mais nítidas."], ["1.3", "Nome dos jogos por título ou arquivo, janelas de aviso padronizadas e andamento das gravações."], ["1.2", "Navegação por pastas e gerenciador de saves traduzido por completo."], ["1.1", "Gerenciador de saves mostra de qual jogo é cada save; Vitrine e Faixa mais rápidas."], ["1.0", "CD de verdade no Xport sem tirar a placa, tela de descrição nova e publicadora dos jogos."]],nvf:[["1.0.6", "O relógio se protege sozinho; dois arquivos, DIR-HIGH e DIR-LOW, um para cada tipo de placa."], ["1.0.5", "Relógio de tempo real (DS3231): data, hora e temperatura; arquivos gravados com a data certa."], ["1.0.4", "Espaço do USB: tamanho e livre."], ["1.0.3", "Um código-fonte só para as duas placas."], ["1.0.2", "Marcador de versão, que o menu lê e mostra."], ["1.0", "Lista de jogos rápida, criação de pastas, backup e atualização do firmware pelo console."]],n16_t:"MENU 1.6",n16_s:"Capas bem mais rápidas em cartões cheios, com o firmware TADEU 1.0.7.",n16:["Otimizar USB (ou SD): ao ligar, o menu confere o cartão e, se precisar, põe as pastas de mídia no começo. Leva até 30 s, uma vez só.", "Informações do console: grupo Chips, com MADAM, CLIO e o encoder de vídeo.", "Informações do ODE: USB com pastas otimizadas ou não.", "Atualizar firmware mostra a versão atual e a versão nova.", "Capas e telas em pacote (.pak): a página junta tudo num arquivo e o menu vai direto à imagem.","Página: Procurar o jogo, para o jogo que ficou sem capa, tela ou textos.", "Página: Renomear com de → para, aviso de arquivo que já existe e cópia quando o navegador não deixa renomear.", "Página: baixar as suas imagens num .zip."],nfw_t:"FIRMWARE TADEU 1.0.7",nfw_s:"O ODE organiza o cartão e lê direto dentro dos arquivos.",nfw:["Otimizar: as pastas covers, screenshots, videos e .config vão para o começo do cartão. Nada é copiado nem apagado.", "Achar a pasta de capas: de cerca de 290 leituras do cartão para 3.", "Leitura direta dentro de um arquivo (seek): o menu vai direto à descrição do jogo.", "Arquivos: TADEU_1.0.7_DIR-HIGH e TADEU_1.0.7_DIR-LOW, um para cada tipo de placa."],n_old:"Versões anteriores",n_more:"Mais",n_less:"Menos",n_all:"Histórico completo",n15_t:"MENU 1.5",n15_s:"O controle não trava mais enquanto as capas carregam, e tudo carrega mais rápido.",
+ n_t:"NOVIDADES",nvm:[["1.5", "O controle não trava mais enquanto as capas carregam, e tudo carrega mais rápido."], ["1.4", "Capas na proporção real (long box e caixa de CD), imagens mais nítidas."], ["1.3", "Nome dos jogos por título ou arquivo, janelas de aviso padronizadas e andamento das gravações."], ["1.2", "Navegação por pastas e gerenciador de saves traduzido por completo."], ["1.1", "Gerenciador de saves mostra de qual jogo é cada save; Vitrine e Faixa mais rápidas."], ["1.0", "CD de verdade no Xport sem tirar a placa, tela de descrição nova e publicadora dos jogos."]],nvf:[["1.0.6", "O relógio se protege sozinho; dois arquivos, DIR-HIGH e DIR-LOW, um para cada tipo de placa."], ["1.0.5", "Relógio de tempo real (DS3231): data, hora e temperatura; arquivos gravados com a data certa."], ["1.0.4", "Espaço do USB: tamanho e livre."], ["1.0.3", "Um código-fonte só para as duas placas."], ["1.0.2", "Marcador de versão, que o menu lê e mostra."], ["1.0", "Lista de jogos rápida, criação de pastas, backup e atualização do firmware pelo console."]],n16_t:"MENU 1.6",n16_s:"Capas bem mais rápidas em cartões cheios, com o firmware TADEU 1.0.7.",n16:["Otimizar USB (ou SD): ao ligar, o menu confere o cartão e, se precisar, põe as pastas de mídia no começo. Leva até 30 s, uma vez só.", "Informações do console: grupo Chips, com MADAM, CLIO e o encoder de vídeo.", "Informações do ODE: USB com pastas otimizadas ou não.", "Atualizar firmware mostra a versão atual e a versão nova.", "Capas e telas em pacote (.pak): a página junta tudo num arquivo e o menu vai direto à imagem.","Página: Procurar o jogo, para o jogo que ficou sem capa, tela ou textos.", "Página: Renomear com de → para, aviso de arquivo que já existe e cópia quando o navegador não deixa renomear.", "Página: baixar as suas imagens e textos num .zip e enviar para a biblioteca.", "Página: capas e telas do libretro para o que a nossa biblioteca não tem.", "Página: escrever os textos de um jogo (ano, gênero, desenvolvedora, publicadora, descrição).", "Página: Mídias em grupos (mídias, cartão, menu, firmware), com a sua pasta em primeiro."],nfw_t:"FIRMWARE TADEU 1.0.7",nfw_s:"O ODE organiza o cartão e lê direto dentro dos arquivos.",nfw:["Otimizar: as pastas covers, screenshots, videos e .config vão para o começo do cartão. Nada é copiado nem apagado.", "Achar a pasta de capas: de cerca de 290 leituras do cartão para 3.", "Leitura direta dentro de um arquivo (seek): o menu vai direto à descrição do jogo.", "Arquivos: TADEU_1.0.7_DIR-HIGH e TADEU_1.0.7_DIR-LOW, um para cada tipo de placa."],n_old:"Versões anteriores",n_more:"Mais",n_less:"Menos",n_all:"Histórico completo",n15_t:"MENU 1.5",n15_s:"O controle não trava mais enquanto as capas carregam, e tudo carrega mais rápido.",
  n15:["O controle continua respondendo enquanto as capas carregam, em todos os modos.","Capas carregam antes de você chegar nelas; telas já prontas ao navegar.","Mais capas na memória ao mesmo tempo.","Descrição mais rápida na Vitrine e na Faixa (em ODE com seek).","Faixa: ano e país numa faixa sobre a tela; nome longo passa.","Esta página: botão Como usar e manual passo a passo."],
  n14_t:"MENU 1.4",
  k_help:"Como usar",s_help:"COMO USAR",h_note:"São cinco passos. Você precisa de um computador com Chrome, Edge, Brave, Opera ou Vivaldi, e do seu cartão com os jogos de 3DO já dentro (.iso ou .cue + .bin).",
@@ -402,7 +426,7 @@ es:{title:"PREPARAR EL USB / SD",
  lk_btn:"Buscar el juego…",lk_t:"BUSCAR EL JUEGO",lk_file:"Archivo en la tarjeta",lk_cur:"Usando los medios de",lk_off:"Deshacer",lk_note:"Si este juego quedó sin portada, captura o textos, elige el juego correcto en la lista: sus medios pasan a valer para este archivo. El archivo no se renombra.",lk_sug:"Sugerencias",lk_nosug:"Ninguna sugerencia. Busca abajo.",lk_find:"Buscar en la biblioteca",lk_ph:"Escribe parte del nombre…",lk_type:"Escribe para buscar.",lk_none:"Nada encontrado.",lk_img:"Solo la imagen",lk_img_n:"Usa una imagen tuya para este juego: pégala (Ctrl+V), arrástrala aquí o elige un archivo. Se graba la próxima vez que grabes la tarjeta.",lk_paste:"Pegar imagen",lk_pick:"Elegir archivo…",lk_drop:"o arrastra la imagen aquí",lk_set:k=>`${k} elegida: se graba la próxima vez que grabes la tarjeta.`,lk_del:"Quitar",lk_noclip:"No hay imagen en el portapapeles.",lk_ctrlv:"El navegador no dejó leer el portapapeles. Haz clic aquí y pulsa Ctrl+V.",lk_cors:"Ese sitio no deja obtener la imagen. Guárdala en el ordenador y arrastra el archivo, o copia la imagen y pégala.",lk_yours:"imagen tuya",lk_zip:n=>`Descargar mis imágenes (.zip) — ${n}`,lk_zip_d:"Un zip con las portadas y capturas que elegiste a mano, con el nombre del juego. Puedes enviárnoslo para añadirlas a la biblioteca.",
  t_wiz:"Paso a paso",t_wiz_s:"Yo te guío",w_step:(a,b)=>`PASO ${a} DE ${b}`,w_next:"Siguiente",w_skip:"Saltar",w_quit:"Salir",s_wcard:"PASO A PASO",w_names:"Nombres",w_card_d:"Elige tu USB / SD. Cuando el navegador pregunte si la página puede ver y editar los archivos, responde sí.",w_names_d:"Opcional. Comprueba los nombres si muchos juegos aparecen sin portada o sin textos. Si todo está bien, sigue adelante.",w_opts_d:"Opcional. ¿No quieres tocar las opciones del menú? Sigue adelante.",
  r_from:"DE",r_to:"A",r_out:"sale",r_in:"entra",r_diff:"Lo que cambia en cada nombre queda marcado:",
- n_t:"NOVEDADES",nvm:[["1.5", "El control ya no se traba mientras cargan las portadas, y todo carga más rápido."], ["1.4", "Portadas en su proporción real (long box y caja de CD), imágenes más nítidas."], ["1.3", "Nombre de los juegos por título o archivo, ventanas de aviso unificadas y progreso de las grabaciones."], ["1.2", "Navegación por carpetas y gestor de partidas traducido por completo."], ["1.1", "El gestor de partidas muestra de qué juego es cada partida; Vitrina y Tira más rápidas."], ["1.0", "CD de verdad en el Xport sin quitar la placa, pantalla de descripción nueva y editora de los juegos."]],nvf:[["1.0.6", "El reloj se protege solo; dos archivos, DIR-HIGH y DIR-LOW, uno para cada tipo de placa."], ["1.0.5", "Reloj de tiempo real (DS3231): fecha, hora y temperatura; archivos grabados con la fecha correcta."], ["1.0.4", "Espacio del USB: tamaño y libre."], ["1.0.3", "Un solo código fuente para las dos placas."], ["1.0.2", "Marcador de versión, que el menú lee y muestra."], ["1.0", "Lista de juegos rápida, creación de carpetas, copia y actualización del firmware desde la consola."]],n16_t:"MENÚ 1.6",n16_s:"Portadas mucho más rápidas en tarjetas llenas, con el firmware TADEU 1.0.7.",n16:["Optimizar USB (o SD): al encender, el menú revisa la tarjeta y, si hace falta, pone las carpetas de medios al principio. Hasta 30 s, una sola vez.", "Información de la consola: grupo Chips, con MADAM, CLIO y el encoder de vídeo.", "Información del ODE: USB con carpetas optimizadas o no.", "Actualizar firmware muestra la versión actual y la versión nueva.", "Portadas y capturas en paquete (.pak): la página lo junta todo en un archivo y el menú va directo a la imagen.","Página: Buscar el juego, para el juego que quedó sin portada, captura o textos.", "Página: Renombrar con de → a, aviso de archivo que ya existe y copia cuando el navegador no deja renombrar.", "Página: descargar tus imágenes en un .zip."],nfw_t:"FIRMWARE TADEU 1.0.7",nfw_s:"El ODE ordena la tarjeta y lee directo dentro de los archivos.",nfw:["Optimizar: las carpetas covers, screenshots, videos y .config van al principio de la tarjeta. No se copia ni se borra nada.", "Encontrar la carpeta de portadas: de unas 290 lecturas de la tarjeta a 3.", "Lectura directa dentro de un archivo (seek): el menú va directo a la descripción del juego.", "Archivos: TADEU_1.0.7_DIR-HIGH y TADEU_1.0.7_DIR-LOW, uno para cada tipo de placa."],n_old:"Versiones anteriores",n_more:"Más",n_less:"Menos",n_all:"Historial completo",n15_t:"MENÚ 1.5",n15_s:"El control ya no se traba mientras cargan las portadas, y todo carga más rápido.",
+ n_t:"NOVEDADES",nvm:[["1.5", "El control ya no se traba mientras cargan las portadas, y todo carga más rápido."], ["1.4", "Portadas en su proporción real (long box y caja de CD), imágenes más nítidas."], ["1.3", "Nombre de los juegos por título o archivo, ventanas de aviso unificadas y progreso de las grabaciones."], ["1.2", "Navegación por carpetas y gestor de partidas traducido por completo."], ["1.1", "El gestor de partidas muestra de qué juego es cada partida; Vitrina y Tira más rápidas."], ["1.0", "CD de verdad en el Xport sin quitar la placa, pantalla de descripción nueva y editora de los juegos."]],nvf:[["1.0.6", "El reloj se protege solo; dos archivos, DIR-HIGH y DIR-LOW, uno para cada tipo de placa."], ["1.0.5", "Reloj de tiempo real (DS3231): fecha, hora y temperatura; archivos grabados con la fecha correcta."], ["1.0.4", "Espacio del USB: tamaño y libre."], ["1.0.3", "Un solo código fuente para las dos placas."], ["1.0.2", "Marcador de versión, que el menú lee y muestra."], ["1.0", "Lista de juegos rápida, creación de carpetas, copia y actualización del firmware desde la consola."]],n16_t:"MENÚ 1.6",n16_s:"Portadas mucho más rápidas en tarjetas llenas, con el firmware TADEU 1.0.7.",n16:["Optimizar USB (o SD): al encender, el menú revisa la tarjeta y, si hace falta, pone las carpetas de medios al principio. Hasta 30 s, una sola vez.", "Información de la consola: grupo Chips, con MADAM, CLIO y el encoder de vídeo.", "Información del ODE: USB con carpetas optimizadas o no.", "Actualizar firmware muestra la versión actual y la versión nueva.", "Portadas y capturas en paquete (.pak): la página lo junta todo en un archivo y el menú va directo a la imagen.","Página: Buscar el juego, para el juego que quedó sin portada, captura o textos.", "Página: Renombrar con de → a, aviso de archivo que ya existe y copia cuando el navegador no deja renombrar.", "Página: descargar tus imágenes y textos en un .zip y enviarlos a la biblioteca.", "Página: portadas y capturas de libretro para lo que nuestra biblioteca no tiene.", "Página: escribir los textos de un juego (año, género, desarrolladora, distribuidora, descripción).", "Página: Medios en grupos (medios, tarjeta, menú, firmware), con tu carpeta primero."],nfw_t:"FIRMWARE TADEU 1.0.7",nfw_s:"El ODE ordena la tarjeta y lee directo dentro de los archivos.",nfw:["Optimizar: las carpetas covers, screenshots, videos y .config van al principio de la tarjeta. No se copia ni se borra nada.", "Encontrar la carpeta de portadas: de unas 290 lecturas de la tarjeta a 3.", "Lectura directa dentro de un archivo (seek): el menú va directo a la descripción del juego.", "Archivos: TADEU_1.0.7_DIR-HIGH y TADEU_1.0.7_DIR-LOW, uno para cada tipo de placa."],n_old:"Versiones anteriores",n_more:"Más",n_less:"Menos",n_all:"Historial completo",n15_t:"MENÚ 1.5",n15_s:"El control ya no se traba mientras cargan las portadas, y todo carga más rápido.",
  n15:["El control sigue respondiendo mientras cargan las portadas, en todos los modos.","Las portadas cargan antes de que llegues a ellas; capturas ya listas al navegar.","Más portadas en memoria a la vez.","Descripción más rápida en Vitrina y Tira (en un ODE con seek).","Tira: año y país en una franja sobre la captura; el nombre largo se desplaza.","Esta página: botón Cómo usar y manual paso a paso."],
  n14_t:"MENÚ 1.4",
  k_help:"Cómo usar",s_help:"CÓMO USAR",h_note:"Son cinco pasos. Necesitas un ordenador con Chrome, Edge, Brave, Opera o Vivaldi, y tu tarjeta con los juegos de 3DO ya dentro (.iso o .cue + .bin).",
@@ -465,6 +489,24 @@ const SAVE_NAMES = "=EAAtlas3D_Info\t3D Atlas\n*alone\tAlone in the Dark\n=stage
 let lang = (Q.get("lang") || navigator.language || "en").slice(0,2).toLowerCase();
 if (!T[lang]) lang = "en";
 const $ = id => document.getElementById(id);
+Object.assign(T.pt, {g_ode:"ODE",lk_ours:"Nossa biblioteca",lk_found:n => `${n} encontrado(s)`,lk_top_n:"Digite o nome (ou parte dele): aparece o que temos na nossa biblioteca (azul) e no libretro (roxo).",lk_retro_d:"Imagens do libretro: clique numa delas para usar só essa imagem neste jogo.",ask_t:"Quer mandar para a nossa biblioteca?",ask_p:n => `Você adicionou ${n} mídia(s) (imagens ou textos). Mandando, elas entram na biblioteca e todo mundo passa a ter.`,m_copy:"Copiar para o cartão",lg_retro:"libretro",m_retro:"Buscar no libretro o que faltar",lk_retro_n:"clique para usar",lk_retro_w:"Carregando a lista do libretro…",lk_noretro:"A lista do libretro não carregou (sem internet?).",
+  own_t:"Suas mídias (pasta do computador)",own_pick:"Escolher a minha pasta…",own_chg:"Trocar a pasta",g_media:"Mídias",g_card:"Cartão (USB / SD)",g_fw:"Firmware TADEU",
+  snd_btn:"Enviar para a biblioteca",snd_d:"Baixa o .zip e abre uma página do GitHub do projeto com os textos já preenchidos: arraste o .zip para a caixa e clique em Submit new issue (precisa de uma conta no GitHub).",
+  tx_add:"Adicionar…",tx_edit:"Editar…",tx_t:"TEXTOS DO JOGO",tx_note:l => `Vale para o idioma ${l} (o de Mídias). Fica guardado no cartão e vai para o menu na próxima vez que você gravar.`,
+  tx_year:"Ano",tx_genre:"Gênero",tx_dev:"Desenvolvedora",tx_pub:"Publicadora",tx_desc:"Descrição",tx_genre_n:"Gênero, desenvolvedora e publicadora: escolha da lista ou escreva o seu.",tx_save:"Salvar",tx_del:"Apagar o meu texto",tx_cancel:"Cancelar",
+  lk_zip:n => `Baixar as minhas imagens e textos (.zip) — ${n}`,lk_zip_d:"Um zip com as capas, telas e textos que você escolheu ou escreveu, com o nome do jogo."});
+Object.assign(T.en, {g_ode:"ODE",lk_ours:"Our library",lk_found:n => `${n} found`,lk_top_n:"Type the name (or part of it): you see what our library has (blue) and what libretro has (purple).",lk_retro_d:"libretro images: click one to use just that image for this game.",ask_t:"Send them to our library?",ask_p:n => `You added ${n} item(s) (images or texts). If you send them, they go into the library for everyone.`,m_copy:"Copy to the card",lg_retro:"libretro",m_retro:"Fetch what is missing from libretro",lk_retro_n:"click to use",lk_retro_w:"Loading the libretro list…",lk_noretro:"The libretro list did not load (offline?).",
+  own_t:"Your media (a folder on your computer)",own_pick:"Choose my folder…",own_chg:"Change the folder",g_media:"Media",g_card:"Card (USB / SD)",g_fw:"TADEU firmware",
+  snd_btn:"Send to the library",snd_d:"Downloads the .zip and opens a page on the project's GitHub with the texts already filled in: drop the .zip in the box and click Submit new issue (needs a GitHub account).",
+  tx_add:"Add…",tx_edit:"Edit…",tx_t:"GAME TEXTS",tx_note:l => `Used for ${l} (the language in Media). Saved on the card and sent to the menu the next time you write.`,
+  tx_year:"Year",tx_genre:"Genre",tx_dev:"Developer",tx_pub:"Publisher",tx_desc:"Description",tx_genre_n:"Genre, developer and publisher: pick from the list or type your own.",tx_save:"Save",tx_del:"Delete my text",tx_cancel:"Cancel",
+  lk_zip:n => `Download my images and texts (.zip) — ${n}`,lk_zip_d:"A zip with the covers, screenshots and texts you picked or wrote, named after the game."});
+Object.assign(T.es, {g_ode:"ODE",lk_ours:"Nuestra biblioteca",lk_found:n => `${n} encontrado(s)`,lk_top_n:"Escribe el nombre (o parte): aparece lo que tiene nuestra biblioteca (azul) y libretro (morado).",lk_retro_d:"Imágenes de libretro: haz clic en una para usar solo esa imagen en este juego.",ask_t:"¿Enviarlas a nuestra biblioteca?",ask_p:n => `Añadiste ${n} elemento(s) (imágenes o textos). Si los envías, entran en la biblioteca para todos.`,m_copy:"Copiar a la tarjeta",lg_retro:"libretro",m_retro:"Buscar en libretro lo que falte",lk_retro_n:"clic para usar",lk_retro_w:"Cargando la lista de libretro…",lk_noretro:"La lista de libretro no cargó (¿sin internet?).",
+  own_t:"Tus medios (carpeta del ordenador)",own_pick:"Elegir mi carpeta…",own_chg:"Cambiar la carpeta",g_media:"Medios",g_card:"Tarjeta (USB / SD)",g_fw:"Firmware TADEU",
+  snd_btn:"Enviar a la biblioteca",snd_d:"Descarga el .zip y abre una página del GitHub del proyecto con los textos ya rellenados: arrastra el .zip a la caja y pulsa Submit new issue (necesita una cuenta de GitHub).",
+  tx_add:"Añadir…",tx_edit:"Editar…",tx_t:"TEXTOS DEL JUEGO",tx_note:l => `Vale para el idioma ${l} (el de Medios). Se guarda en la tarjeta y va al menú la próxima vez que grabes.`,
+  tx_year:"Año",tx_genre:"Género",tx_dev:"Desarrolladora",tx_pub:"Distribuidora",tx_desc:"Descripción",tx_genre_n:"Género, desarrolladora y distribuidora: elige de la lista o escribe el tuyo.",tx_save:"Guardar",tx_del:"Borrar mi texto",tx_cancel:"Cancelar",
+  lk_zip:n => `Descargar mis imágenes y textos (.zip) — ${n}`,lk_zip_d:"Un zip con las portadas, capturas y textos que elegiste o escribiste, con el nombre del juego."});
 const t = k => T[lang][k];
 /* Texto do menu do console no idioma da página. */
 const tr = pt => lang === "pt" ? pt : ((TR[pt] || [])[lang === "es" ? 0 : 1] || pt);
@@ -696,10 +738,11 @@ const S = {
   card:{covers:[new Set(), new Set()], screenshots:[new Set(), new Set()], videos:[new Set()]},   // um conjunto por pasta (pequena, grande...)
   lib:{covers:new Map(), screenshots:new Map(), videos:new Map(), firmware:[]},
   libAll:{covers:new Map(), screenshots:new Map(), videos:new Map()},
+  retro:{covers:new Map(), screenshots:new Map()}, retroOk:null,
   own:{covers:new Map(), screenshots:new Map(), videos:new Map()},
   ownAll:{covers:new Map(), screenshots:new Map(), videos:new Map()}, ownOne:{covers:new Map(), screenshots:new Map(), videos:new Map()},
-  gl:new Map(), glLang:"",
-  o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true, o_pak:false, pakSel:[true, true, true, true]},
+  gl:new Map(), glLang:"", myTxt:new Map(), links:new Map(),
+  o:{o_boot:true, o_cov:true, o_shot:true, o_vid:false, o_txt:true, fw:"", keep:true, o_pak:false, pakSel:[true, true, true, true], retro_cov:true, retro_shot:true},
   mediaVer:{}, cfg:cfgDefaults(), cfgTouched:false, cfgOnCard:false, txtLang:lang, txtLangTouched:false, fw107:false, tadeu:false, rtc:false, xport:false,
   screen:"home", sel:0, filter:"all", sec:0, grp:0, busy:false, stop:false
 };
@@ -733,7 +776,8 @@ const pickCache = {};
 /* O jogo ligado à mão a outro título da biblioteca (janela "Procurar o jogo"): as mídias e os textos desse título
  * valem para o arquivo. S.links: norm(arquivo) -> título. Fica em .config/3dolinks.ode. */
 const linkOf = g => S.links ? S.links.get(norm(g)) : undefined;
-const glOf = g => S.gl.get(norm(g)) || (linkOf(g) !== undefined ? S.gl.get(norm(linkOf(g))) : undefined);
+const myTxtOf = g => { const m = S.myTxt && S.myTxt.get(norm(g)); return m && m.lang === S.txtLang ? m : undefined; };
+const glOf = g => myTxtOf(g) || S.gl.get(norm(g)) || (linkOf(g) !== undefined ? S.gl.get(norm(linkOf(g))) : undefined);
 function libPick(g, kind){
   const c = pickCache[kind] || (pickCache[kind] = new Map());
   if (c.has(g)) return c.get(g);
@@ -752,6 +796,22 @@ function libPick(g, kind){
     r = {name:pick, alike, loan: alike ? pick : (same || mine || !rg || !regionOf(pick)) ? "" : tagsOf(pick)[0]};
   }
   c.set(g, r); return r;
+}
+/* libretro: liga para capas e telas (Mídias), e a imagem do jogo g lá. Mesmo título; o disco tem que bater
+ * ("Disc 01" = disco 1); depois o nome igual, a mesma região, USA, Europe, Japan. */
+const retroOn = kind => !!RETRO_DIR[kind] && !!S.o[kind === "covers" ? "retro_cov" : "retro_shot"];
+function retroPick(g, kind){
+  if (!S.retro[kind] || !S.retro[kind].size) return "";
+  const c = pickCache["retro_" + kind] || (pickCache["retro_" + kind] = new Map());
+  if (c.has(g)) return c.get(g);
+  const lk = linkOf(g), src = lk !== undefined ? lk : g;
+  let all = S.retro[kind].get(norm(src)) || [];
+  if (all.some(n => discNo(n))){ const d = discNo(src) || 1, w = all.filter(n => discNo(n) === d); all = w.length ? w : all.filter(n => !discNo(n)); }
+  const RG = {us:"usa", u:"usa", eu:"europe", e:"europe", jp:"japan", j:"japan", kr:"korea"}, rg0 = regionOf(src), rg = RG[rg0] || rg0;
+  const stem = src.replace(/\.(iso|cue)$/i, "").replace(/ & /g, " _ ").toLowerCase();
+  const pick = all.find(n => n.toLowerCase() === stem) || (rg && all.find(n => regionOf(n) === rg))
+    || ["usa", "europe", "japan"].map(x => all.find(n => regionOf(n) === x)).find(Boolean) || all[0] || "";
+  c.set(g, pick); return pick;
 }
 /* A mídia PRÓPRIA (pasta do computador) do jogo g: a escolhida à mão para ele; senão, entre os arquivos de mesmo
  * título, o de mesmo nome; senão o da mesma região; senão USA, Europe, Japan; senão o primeiro. Antes valia o
@@ -787,6 +847,7 @@ function status(g, kind){
   const n = S.card[kind].filter(set => set.has(g.toLowerCase())).length, full = n === S.card[kind].length, inLib = !!libPick(g, kind);
   if (full && (keeps(kind) || !inLib)) return "card";
   if (inLib) return "lib";
+  if (!full && retroOn(kind) && retroPick(g, kind)) return "retro";
   return n ? "part" : "none";               // part: no cartão só num dos tamanhos, e a biblioteca não tem
 }
 /* Os tamanhos (pastas) do tipo kind que faltam no cartão para o jogo g. */
@@ -974,10 +1035,36 @@ async function loadLibrary(){
   }
   S.lib.firmware = idx.firmware || []; drawVers();
   await loadGamelist();
+  loadRetro();
+}
+/* A lista do libretro (nomes das imagens): uma vez por sessão, em segundo plano. "&" vira "_" no nome de lá. */
+async function loadRetro(){
+  if (S.retroOk !== null) return;
+  S.retroOk = false;
+  if (S.demo){ for (const g of DEMO_GAMES.slice(10)) { S.retro.covers.set(norm(g), [g]); S.retro.screenshots.set(norm(g), [g]); } S.retroOk = true; return; }
+  /* A lista: guardada no navegador por 1 dia; senão a API do GitHub (60 consultas por hora sem conta: quem
+   * recarrega muito fica sem) e, se ela recusar, a do jsDelivr (o mesmo repositório). */
+  const KEY = "3doode.retro", fresh = 864e5;
+  let paths = null;
+  try { const c = JSON.parse(localStorage.getItem(KEY) || "null"); if (c && Date.now() - c.at < fresh && Array.isArray(c.p) && c.p.length) paths = c.p; } catch(e){}
+  try {
+    if (!paths) try { const tr = await (await fetch(RETRO_API)).json(); if (Array.isArray(tr.tree) && tr.tree.length) paths = tr.tree.map(x => x.path); } catch(e){}
+    if (!paths) try { const js = await (await fetch(RETRO_JSD)).json(); if (Array.isArray(js.files) && js.files.length) paths = js.files.map(x => String(x.name).replace(/^\//, "")); } catch(e){}
+    if (!paths) throw new Error("libretro");
+    try { localStorage.setItem(KEY, JSON.stringify({at:Date.now(), p:paths.filter(x => /^Named_(Boxarts|Snaps)\//.test(x))})); } catch(e){}
+    for (const path of paths) for (const k in RETRO_DIR){
+      const pre = RETRO_DIR[k] + "/"; if (!path.startsWith(pre) || !/\.png$/i.test(path)) continue;
+      const n = path.slice(pre.length, -4), key = norm(n.replace(/ _ /g, " & "));
+      if (!S.retro[k].has(key)) S.retro[k].set(key, []); S.retro[k].get(key).push(n);
+    }
+    S.retroOk = true; delete pickCache.retro_covers; delete pickCache.retro_screenshots; candCache = null;
+    if (S.screen === "games" || S.screen === "media") draw();
+    if (L.g) findResults();
+  } catch(e){ S.retroOk = false; if (L.g) findResults(); }
 }
 async function openCard(demo){
   S.demo = demo; S.cfgOnCard = false; S.own = {covers:new Map(), screenshots:new Map(), videos:new Map()};
-  S.links = new Map(); for (const k in pickCache) delete pickCache[k]; candCache = null;
+  S.links = new Map(); S.myTxt = new Map(); for (const k in pickCache) delete pickCache[k]; candCache = null;
   S.ownAll = {covers:new Map(), screenshots:new Map(), videos:new Map()}; S.ownOne = {covers:new Map(), screenshots:new Map(), videos:new Map()};
   if (demo){ S.root = null; S.rootName = "DEMO"; S.games = DEMO_GAMES.slice(); S.card = {covers:[new Set(["doom (usa)","gex (usa)"]), new Set(["doom (usa)"])], screenshots:[new Set(), new Set()], videos:[new Set()]}; }
   else {
@@ -985,6 +1072,7 @@ async function openCard(demo){
     S.games = (await scan(S.root, 0, [])).sort((a,b) => a.localeCompare(b, undefined, {sensitivity:"base"}));
     S.card = await readCard(); S.mediaVer = await readMediaVer();
     try { parseLinks(await (await (await (await dirAt([".config"], false)).getFileHandle("3dolinks.ode")).getFile()).text()); } catch(e){}
+    try { parseMyTxt(await (await (await (await dirAt([".config"], false)).getFileHandle(MYTXT_FILE)).getFile()).text()); } catch(e){}
     try { const f = await (await (await dirAt([".config"], false)).getFileHandle("3doconfig.ode")).getFile(); S.cfg = parseCfg(await f.text()); S.cfgOnCard = true;
           const l = Object.keys(CFG_LANG).find(k => CFG_LANG[k] === S.cfg.idioma); if (l) { S.txtLang = l; S.txtLangTouched = true; }
           /* 1.1: o boot gravou o ODE/firmware/relógio detectados — já pré-seleciona. */
@@ -1035,6 +1123,7 @@ async function coverOf(g){
     if (st === "own"){ const h = ownPick(g, "covers"); res = {url: URL.createObjectURL(h.getFile ? await h.getFile() : h)}; }
     else if (S.card.covers[1].has(g.toLowerCase()) && st !== "lib" && !S.demo) res = {img: celDecode(await (await (await (await dirAt(["covers","large"], false)).getFileHandle(g + ".cel")).getFile()).arrayBuffer())};
     else if (st === "lib" && !S.demo) res = {img: celDecode(await (await get(CFG.coverL + libName(g, "covers") + ".cel")).arrayBuffer())};
+    else if (st === "retro" && !S.demo) res = {url: retroUrl("covers", retroPick(g, "covers"))};
   } catch(e){}
   coverCache.set(k, res);
   return res;
@@ -1141,7 +1230,7 @@ function filtered(){
 }
 function marks(g){
   return '<span class="marks">' + Object.keys(KINDS).map(k => `<i class="mk ${loanOf(g, k) ? "loan" : status(g, k)}">${KINDS[k].mark}</i>`).join("") +
-         `<i class="mk ${hasText(g) ? "lib" : "none"}">i</i></span>`;
+         `<i class="mk ${myTxtOf(g) ? "own" : hasText(g) ? "lib" : "none"}">i</i></span>`;
 }
 function drawGames(){
   $("title").textContent = t("s_games");
@@ -1155,7 +1244,7 @@ function drawGames(){
       <div class="side" id="side"></div>
     </div>
     <div class="info" id="info"></div>
-    <div class="legend"><span><i class="mk card">C</i>${esc(t("lg_card"))}</span><span><i class="mk lib">C</i>${esc(t("lg_lib"))}</span><span><i class="mk loan">C</i>${esc(t("lg_loan"))}</span><span><i class="mk own">C</i>${esc(t("lg_own"))}</span><span><i class="mk part">C</i>${esc(t("lg_part"))}</span><span><i class="mk none">C</i>${esc(t("lg_none"))}</span>
+    <div class="legend"><span><i class="mk card">C</i>${esc(t("lg_card"))}</span><span><i class="mk lib">C</i>${esc(t("lg_lib"))}</span><span><i class="mk loan">C</i>${esc(t("lg_loan"))}</span><span><i class="mk own">C</i>${esc(t("lg_own"))}</span><span><i class="mk retro">C</i>${esc(t("lg_retro"))}</span><span><i class="mk part">C</i>${esc(t("lg_part"))}</span><span><i class="mk none">C</i>${esc(t("lg_none"))}</span>
       <span>C = ${esc(t("cov"))} · T = ${esc(t("shot"))} · V = ${esc(t("vid"))} · i = ${esc(t("txt"))}</span></div>`;
   keys([["back","B",t("k_back")],["rename","C",t("k_rename")],"gap",["media","X",t("t_media")],["write","P",t("t_write")]]);
   drawSide();
@@ -1169,9 +1258,9 @@ function drawSide(){
     <div class="kinds">${Object.keys(KINDS).map(k => { const st = status(g, k);
       const lk = st === "own" || k === "videos" ? [] : lacking(g, k), some = lk.length && lk.length < KINDS[k].places.length;
       const ln = loanOf(g, k);
-      return `<div><i class="mk ${ln ? "loan" : st}">${KINDS[k].mark}</i><span>${esc(t(KINDS[k].label))}: ${esc(ln ? loanText(g, k) : t("lg_" + st))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
-      <div><i class="mk ${hasText(g) ? "lib" : "none"}">i</i><span>${esc(t("txt"))}: ${esc(t(hasText(g) ? "lg_lib" : "lg_none"))}</span></div>
-      <div><span></span><button data-find="1">${esc(t("lk_btn"))}</button></div></div>`;
+      return `<div><i class="mk ${ln ? "loan" : st}">${KINDS[k].mark}</i><span title="${esc(ln ? loanText(g, k) : t("lg_" + st))}">${esc(t(KINDS[k].label))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
+      <div><i class="mk ${myTxtOf(g) ? "own" : hasText(g) ? "lib" : "none"}">i</i><span title="${esc(t(myTxtOf(g) ? "lg_own" : hasText(g) ? "lg_lib" : "lg_none"))}">${esc(t("txt"))}</span><button data-tx="1">${esc(t(hasText(g) ? "tx_edit" : "tx_add"))}</button></div>
+      </div><button class="lkbtn" data-find="1">🔗 ${esc(t("lk_btn").replace(/…$/, ""))}</button>`;
   $("info").innerHTML = `<div><div class="a">${esc(f.publisher || f.developer || g)}</div><div class="b">${esc([f.genre, f.developer && f.publisher ? f.developer : ""].filter(Boolean).join(" - ") || " ")}</div></div><div class="n">${S.sel + 1}/${list.length}</div>`;
   coverOf(g).then(c => {
     const box = $("cover"); if (!box || filtered()[S.sel] !== g || !c) return;
@@ -1201,21 +1290,37 @@ function has107(){ return !S.xport && (fwSure() || (S.tadeu && !S.cfg._ver && S.
 function pakActive(i){ return !!S.o.pakSel[i]; }
 function row(id, name, val, cls){ return `<button class="opt ${cls || ""}" data-o="${id}"><span>${esc(name)}</span><b>${val}</b></button>`; }
 /* Quantas imagens a pessoa escolheu à mão (capas e telas): as que vão no zip. */
-const ownCount = () => S.ownOne.covers.size + S.ownOne.screenshots.size;
+const ownCount = () => S.ownOne.covers.size + S.ownOne.screenshots.size + (S.myTxt ? S.myTxt.size : 0);
 function drawMedia(){
   $("title").textContent = t("s_media");
   const yn = v => esc(t(v ? "yes" : "no")), o = S.o, n = S.own;
-  $("view").innerHTML = `<p class="note">${esc(t("m_note"))}</p><div class="panel"><h2>${esc(t("t_media_s"))}</h2>
-    ${row("o_boot", t("m_boot"), yn(o.o_boot), "top")}${row("o_cov", t("m_cov"), yn(o.o_cov), "top")}${row("o_shot", t("m_shot"), yn(o.o_shot), "top")}
-    ${row("o_vid", t("m_vid"), yn(o.o_vid), "top")}${row("o_txt", t("m_txt"), yn(o.o_txt), "top")}
-    ${row("lang", t("m_lang"), esc(CFG_LANG[S.txtLang]), "top")}
-    ${S.xport ? "" : row("fw", t("m_fw") + "  [TADEU]", esc(t(o.fw === "DIR-HIGH" ? "fw_hi" : o.fw === "DIR-LOW" ? "fw_lo" : "fw_no")), "top")}${S.xport ? "" : `<p class="note" style="margin:6px 4px 10px">${esc(t("fw_hint"))}</p>${fwAlert()}`}
-    ${S.cfg._menu || S.cfg._ver ? `<p class="note det" style="margin:0 4px 10px">${esc(t("m_oncard"))} ${S.cfg._menu ? `${esc(t("l_boot"))} <b>${esc(S.cfg._menu)}</b>${S.cfg._menu === MENU_VER ? " ✓" : ""}` : ""}${S.cfg._menu && S.cfg._ver ? " · " : ""}${S.cfg._ver ? `firmware <b>${esc((S.cfg._fw || "") + " " + S.cfg._ver + (S.cfg._dir ? " DIR-" + S.cfg._dir : ""))}</b>${verNum(S.cfg._ver) >= verNum(fwLatest()) ? " ✓" : ""}` : ""}</p>` : ""}
-    ${row("keep", t("m_keep"), esc(t(o.keep ? "keep" : "replace")), "top")}
-    ${has107() ? row("o_pak", t("m_pak") + "  [TADEU 1.0.7]", esc(t(o.o_pak ? "fmt_pak" : "fmt_one")), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_pak_d"))}${o.o_pak && !fwSure() ? `<br><b style="color:var(--gold)">${esc(t("pak_both"))}</b>` : ""}</p>` + (o.o_pak ? `<p class="note" style="margin:10px 4px 2px"><b>${esc(t("m_what"))}</b></p>` + PAKS.map((pk, i) => row("pk" + i, t("pk_l" + i), yn(pakActive(i)), "top")).join("") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_what_d"))}</p>` : "") : ""}
-    ${row("own", t("m_own"), esc(t("m_own_n")(n.covers.size, n.screenshots.size, n.videos.size)), "top act")}
-    </div><p class="note" style="margin-top:10px">${esc(t("m_own_d"))}</p><p class="note">${esc(t("m_gen"))}</p>
-    ${ownCount() ? `<p style="margin:12px 0 0"><button class="big stop" data-zip="1">${esc(t("lk_zip")(ownCount()))}</button></p><p class="note">${esc(t("lk_zip_d"))}</p>` : ""}`;
+  const cnt = m => { let c = 0; for (const a of (m || new Map()).values()) c += Array.isArray(a) ? a.length : 1; return c; };
+  const lib = k => cnt(S.libAll[k]), rtr = k => S.retroOk ? cnt(S.retro[k]) : 0;
+  const head = (name, nums) => `<h3><span>${esc(name)}</span><small>${nums}</small></h3>`;
+  const numL = (k, withRetro) => `${esc(t("lg_lib"))} <b>${lib(k)}</b>` + (withRetro && S.retroOk ? ` · libretro <b>${rtr(k)}</b>` : "");
+  const own = n.covers.size + n.screenshots.size + n.videos.size;
+  $("view").innerHTML = `<p class="note">${esc(t("m_note"))}</p>
+    <div class="panel ownp"><h2>📁 ${esc(t("own_t"))}</h2>
+      <p class="note" style="margin:4px 2px 8px">${esc(t("m_own_d"))}</p>
+      <button class="lkbtn" data-o="own" style="margin:0">${esc(t(own ? "own_chg" : "own_pick"))}${own ? " — " + esc(t("m_own_n")(n.covers.size, n.screenshots.size, n.videos.size)) : ""}</button>
+      ${ownCount() ? `<div class="txbtns" style="justify-content:flex-start;margin-top:10px"><button class="mini" data-zip="1">${esc(t("lk_zip")(ownCount()))}</button><button class="mini" data-send="1">📤 ${esc(t("snd_btn"))}</button></div><p class="note" style="margin:6px 2px 0">${esc(t("snd_d"))}</p>` : ""}
+    </div>
+    <div class="panel" style="margin-top:10px"><h2>${esc(t("g_media"))}</h2>
+      ${head(t("m_cov"), numL("covers", true))}${row("o_cov", t("m_copy"), yn(o.o_cov), "top")}${o.o_cov ? row("retro_cov", t("m_retro"), yn(o.retro_cov), "top") : ""}
+      ${head(t("m_shot"), numL("screenshots", true))}${row("o_shot", t("m_copy"), yn(o.o_shot), "top")}${o.o_shot ? row("retro_shot", t("m_retro"), yn(o.retro_shot), "top") : ""}
+      ${head(t("m_vid"), numL("videos", false))}${row("o_vid", t("m_copy"), yn(o.o_vid), "top")}
+      ${head(t("m_txt"), `${esc(t("lg_lib"))} <b>${S.gl.size}</b>` + (S.myTxt && S.myTxt.size ? ` · ${esc(t("lg_own"))} <b>${S.myTxt.size}</b>` : ""))}${row("o_txt", t("m_copy"), yn(o.o_txt), "top")}${row("lang", t("m_lang"), esc(CFG_LANG[S.txtLang]), "top")}
+      ${head(t("g_card"), "")}
+      ${S.cfg._menu || S.cfg._ver ? `<p class="note det" style="margin:0 4px 10px">${esc(t("m_oncard"))} ${S.cfg._menu ? `${esc(t("l_boot"))} <b>${esc(S.cfg._menu)}</b>${S.cfg._menu === MENU_VER ? " ✓" : ""}` : ""}${S.cfg._menu && S.cfg._ver ? " · " : ""}${S.cfg._ver ? `firmware <b>${esc((S.cfg._fw || "") + " " + S.cfg._ver + (S.cfg._dir ? " DIR-" + S.cfg._dir : ""))}</b>${verNum(S.cfg._ver) >= verNum(fwLatest()) ? " ✓" : ""}` : ""}</p>` : ""}
+      ${row("keep", t("m_keep"), esc(t(o.keep ? "keep" : "replace")), "top")}
+      ${has107() ? row("o_pak", t("m_pak") + "  [TADEU 1.0.7]", esc(t(o.o_pak ? "fmt_pak" : "fmt_one")), "top") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_pak_d"))}${o.o_pak && !fwSure() ? `<br><b style="color:var(--gold)">${esc(t("pak_both"))}</b>` : ""}</p>` + (o.o_pak ? `<p class="note" style="margin:10px 4px 2px"><b>${esc(t("m_what"))}</b></p>` + PAKS.map((pk, i) => row("pk" + i, t("pk_l" + i), yn(pakActive(i)), "top")).join("") + `<p class="note" style="margin:6px 4px 10px">${esc(t("m_what_d"))}</p>` : "") : ""}
+    </div>
+    <div class="panel" style="margin-top:10px"><h2>ODE</h2>
+      ${head(t("m_boot"), "")}${row("o_boot", t("m_copy"), yn(o.o_boot), "top")}
+    ${S.xport ? "" : `${head(t("g_fw"), "")}
+      ${row("fw", t("m_fw") + "  [TADEU]", esc(t(o.fw === "DIR-HIGH" ? "fw_hi" : o.fw === "DIR-LOW" ? "fw_lo" : "fw_no")), "top")}<p class="note" style="margin:6px 4px 10px">${esc(t("fw_hint"))}</p>${fwAlert()}`}
+    </div>
+    <p class="note" style="margin-top:10px">${esc(t("m_gen"))}</p>`;
   keys([["back","B",t("k_back")],"gap",["games","A",t("t_games")],["write","P",t("t_write")]]);
 }
 
@@ -1831,7 +1936,7 @@ function lkSearch(q){
   return lkCands().filter(c => { const cw = lkWords(c).join(" "); return qw.every(w => cw.includes(w)); }).slice(0, 40);
 }
 const L = {g:null, q:"", msg:"", bad:false, kind:"covers", url:{}};
-function openFind(g){ L.g = g; L.q = ""; L.msg = ""; L.bad = false; L.kind = "covers"; drawFind(); }
+function openFind(g){ L.g = g; L.q = lkWords(linkOf(g) || g).slice(0, 3).join(" "); L.msg = ""; L.bad = false; L.kind = "covers"; drawFind(); }
 function closeFind(){ L.g = null; const m = $("lkm"); if (m) m.remove(); document.removeEventListener("paste", findPaste); for (const k in L.url){ URL.revokeObjectURL(L.url[k]); delete L.url[k]; } }
 function candHas(c){ const h = {}; for (const k in KINDS) h[k] = S.libAll[k] && S.libAll[k].has(norm(c)) ? "lib" : "none"; h.txt = S.gl.has(norm(c)) ? "lib" : "none"; return h; }
 function candRow(c, big){
@@ -1847,6 +1952,13 @@ function findThumbs(){
           cv.width = im.width; cv.height = im.height; cv.getContext("2d").putImageData(im, 0, 0); if (el.isConnected) el.replaceWith(cv); } catch(e){}
   });
 }
+/* libretro: as imagens cujo nome tem todas as palavras procuradas (no máximo 12). */
+function retroSearch(kind, q){
+  const qw = lkWords(q); if (!qw.length || !S.retro[kind]) return [];
+  const out = [];
+  for (const arr of S.retro[kind].values()) for (const v of arr){ const w = lkWords(v.replace(/ _ /g, " & ")).join(" "); if (qw.every(x => w.includes(x))) out.push(v); if (out.length >= 12) return out; }
+  return out;
+}
 /* A parte da imagem: por tipo (capa, tela), o que o jogo tem, a imagem da pessoa (mostrada ALI na hora) e os jeitos
  * de trocar: Google Imagens, colar, escolher arquivo, arrastar. */
 function imgPart(){
@@ -1861,6 +1973,20 @@ function imgPart(){
         <button class="mini" data-lkpaste="${k}">${esc(t("lk_paste"))}</button><button class="mini" data-lkfile="${k}">${esc(t("lk_pick"))}</button><span class="lkdrop">${esc(t("lk_drop"))}</span></div></div>`; }).join("");
   return `<h4>${esc(t("lk_img"))}</h4><p class="note">${esc(t("lk_img_n"))}</p>${kinds}${L.msg ? `<p class="lkmsg ${L.bad ? "bad" : ""}">${esc(L.msg)}</p>` : ""}`;
 }
+/* Resultado da busca do topo: o que temos (nossa biblioteca, liga o jogo inteiro) e o libretro (só a imagem). */
+function ourPart(){
+  const q = L.q.trim(), res = q ? lkSearch(q).filter(c => c !== L.g).slice(0, 12) : [], list = res.length ? res : lkSuggest(L.g, 6);
+  return `<h4><i class="mk lib">B</i> ${esc(t("lk_ours"))} <small>${esc(res.length ? t("lk_found")(res.length) : t("lk_sug"))}</small></h4><p class="note">${esc(t("lk_note"))}</p>
+    <div class="lksug">${list.length ? list.map(c => candRow(c, true)).join("") : `<p class="note">${esc(t("lk_none"))}</p>`}</div>`;
+}
+function retroPart(){
+  const q = L.q.trim();
+  const row = k => { const hits = S.retroOk ? retroSearch(k, q) : null;
+    return `<p class="lkrh"><i class="mk retro">${KINDS[k].mark}</i><b>${esc(t(KINDS[k].label))}</b></p>
+      <div class="lkthumbs">${hits === null ? `<p class="note">${esc(t(S.retroOk === null ? "lk_retro_w" : "lk_noretro"))}</p>` : !q ? `<p class="note">${esc(t("lk_type"))}</p>` : hits.length ? hits.map(v => `<button class="lkt" data-lkr="${k}" data-n="${esc(v)}" title="${esc(v)}"><img loading="lazy" src="${esc(retroUrl(k, v))}" alt=""><span>${esc(v.replace(/ _ /g, " & "))}</span></button>`).join("") : `<p class="note">${esc(t("lk_none"))}</p>`}</div>`; };
+  return `<h4><i class="mk retro">L</i> libretro</h4><p class="note">${esc(t("lk_retro_d"))}</p>${row("covers")}${row("screenshots")}`;
+}
+function findResults(){ const a = $("lkours"), b = $("lkret"); if (a){ a.innerHTML = ourPart(); findThumbs(); } if (b) b.innerHTML = retroPart(); }
 function findRefresh(){ const el = $("lkimg"); if (el) el.innerHTML = imgPart(); if (S.screen === "games") drawSide(); else if (S.screen === "media") drawMedia(); }
 function setOwnImg(kind, f){
   const g = L.g; if (!g || !f) return;
@@ -1894,7 +2020,7 @@ function drawFind(){
   let m = $("lkm");
   if (!m){ m = document.createElement("div"); m.id = "lkm"; m.className = "lkm"; document.body.appendChild(m);
     m.addEventListener("click", findClick);
-    m.addEventListener("input", e => { if (e.target.id === "lkq"){ L.q = e.target.value; $("lkr").innerHTML = lkSearch(L.q).map(c => candRow(c, false)).join("") || `<p class="note">${esc(t(L.q ? "lk_none" : "lk_type"))}</p>`; } });
+    m.addEventListener("input", e => { if (e.target.id === "lkq"){ L.q = e.target.value; clearTimeout(L.tq); L.tq = setTimeout(findResults, 200); } });
     document.addEventListener("paste", findPaste);
     /* Arrastar: vale soltar em qualquer ponto da janela; em cima de um dos blocos (capa, tela) vai para ele. */
     const zone = e => { const z = e.target.closest && e.target.closest("[data-lkdrop]"); return z ? z.dataset.lkdrop : (L.kind || "covers"); };
@@ -1904,18 +2030,17 @@ function drawFind(){
       const f = [...e.dataTransfer.files].find(x => /^image\//.test(x.type)); if (f) return setOwnImg(k, f);
       const u = e.dataTransfer.getData("text/uri-list") || e.dataTransfer.getData("text/plain"); if (u) urlImg(k, u.split(/\r?\n/)[0]); });
     m.addEventListener("keydown", e => { e.stopPropagation(); if (e.key === "Escape") closeFind(); }); }
-  const g = L.g, cur = linkOf(g), sug = lkSuggest(g, 3);
+  const g = L.g, cur = linkOf(g);
   m.innerHTML = `<div class="lkbox">
     <div class="lkh"><b>${esc(t("lk_t"))}</b><button class="mini" data-lkx="1">✕</button></div>
     <p class="lkg">${esc(t("lk_file"))}: <b>${esc(g)}</b></p>
     ${cur !== undefined ? `<p class="lkg">${esc(t("lk_cur"))}: <b>${esc(cur)}</b> <button class="mini" data-lkoff="1">${esc(t("lk_off"))}</button></p>` : ""}
-    <div id="lkimg">${imgPart()}</div>
-    <h4>${esc(t("lk_sug"))}</h4><p class="note">${esc(t("lk_note"))}</p>
-    <div class="lksug">${sug.length ? sug.map(c => candRow(c, true)).join("") : `<p class="note">${esc(t("lk_nosug"))}</p>`}</div>
-    <h4>${esc(t("lk_find"))}</h4>
     <input id="lkq" type="search" autocomplete="off" placeholder="${esc(t("lk_ph"))}" value="${esc(L.q)}">
-    <div class="lkr" id="lkr">${L.q ? lkSearch(L.q).map(c => candRow(c, false)).join("") || `<p class="note">${esc(t("lk_none"))}</p>` : `<p class="note">${esc(t("lk_type"))}</p>`}</div>
-    ${ownCount() ? `<p style="margin:14px 0 0"><button class="mini" data-zip="1">${esc(t("lk_zip")(ownCount()))}</button></p>` : ""}
+    <p class="note" style="margin:4px 2px 0">${esc(t("lk_top_n"))}</p>
+    <div id="lkours">${ourPart()}</div>
+    <div id="lkret">${retroPart()}</div>
+    <div id="lkimg">${imgPart()}</div>
+    ${ownCount() ? `<div class="txbtns" style="justify-content:flex-start;margin-top:14px"><button class="mini" data-zip="1">${esc(t("lk_zip")(ownCount()))}</button><button class="mini" data-send="1">📤 ${esc(t("snd_btn"))}</button></div>` : ""}
   </div>`;
   findThumbs();
 }
@@ -1925,7 +2050,10 @@ async function findClick(e){
   const d = b.dataset;
   if (d.lkx) return closeFind();
   if (d.zip) return ownZip();
+  if (d.send) return sendLib();
   if (d.lkpaste) return pasteImg(d.lkpaste);
+  if (d.lkr){ try { const r = await fetch(retroUrl(d.lkr, d.n)); if (!r.ok) throw 0; setOwnImg(d.lkr, new File([await r.blob()], d.n + ".png", {type:"image/png"})); }
+              catch(err){ L.msg = t("lk_cors"); L.bad = true; findRefresh(); } return; }
   if (d.lkdel) return delOwnImg(d.lkdel);
   if (d.lkfile){ const inp = $("onefile"), k = d.lkfile; inp.accept = "image/*"; inp.onchange = () => { if (inp.files[0]) setOwnImg(k, inp.files[0]); inp.value = ""; }; return inp.click(); }
   try {
@@ -1959,9 +2087,81 @@ async function ownZip(){
     files.push([k + "/" + stem + "." + ext, new Uint8Array(await file.arrayBuffer())]);
     list.push(k + "\t" + stem + (linkOf(g) !== undefined ? "\t-> " + linkOf(g) : ""));
   }
+  if (S.myTxt && S.myTxt.size){ files.push(["textos.txt", new TextEncoder().encode(myTxtText())]); list.push("textos.txt\t" + S.myTxt.size); }
   if (!files.length) return;
-  files.push(["LEIA-ME.txt", new TextEncoder().encode("3DO ODE - imagens escolhidas pelo usuario\r\n\r\n" + list.join("\r\n") + "\r\n")]);
-  const a = document.createElement("a"); a.href = URL.createObjectURL(zipStore(files)); a.download = "3do-ode-minhas-imagens.zip"; a.click();
+  files.push(["LEIA-ME.txt", new TextEncoder().encode("3DO ODE - imagens e textos escolhidos pelo usuario\r\n\r\n" + list.join("\r\n") + "\r\n")]);
+  const a = document.createElement("a"); a.href = URL.createObjectURL(zipStore(files)); a.download = "3do-ode-minhas-midias.zip"; a.click();
+}
+/* Mandar para a biblioteca: sem servidor. Baixa o .zip e abre uma "issue" nova no GitHub do projeto, já com o
+ * título e os textos preenchidos; a pessoa arrasta o .zip para a caixa e envia (precisa de conta no GitHub). */
+const SEND_MAX = 6000;
+async function sendLib(){
+  await ownZip();
+  const nImg = S.ownOne.covers.size + S.ownOne.screenshots.size, nTx = S.myTxt ? S.myTxt.size : 0;
+  let body = "**Arraste aqui o arquivo 3do-ode-minhas-midias.zip que acabou de ser baixado.**\n\n" +
+    "Imagens: " + nImg + " · Textos: " + nTx + " · Página " + MENU_VER + "\n";
+  const tx = nTx ? myTxtText() : "";
+  if (tx) body += "\n```\n" + (tx.length > SEND_MAX ? tx.slice(0, SEND_MAX) + "\n# ... (o resto está no textos.txt do .zip)" : tx) + "\n```\n";
+  const title = "Mídias para a biblioteca: " + (nImg ? nImg + " imagem(ns)" : "") + (nImg && nTx ? " + " : "") + (nTx ? nTx + " texto(s)" : "");
+  window.open("https://github.com/" + CFG.repo + "/issues/new?title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body), "_blank", "noopener");
+}
+
+/* ---------------- Textos que a pessoa escreve (ano, gênero, desenvolvedora, publicadora, descrição) ----------------
+ * Valem para o idioma dos textos escolhido (Mídias > Idioma). Ficam no cartão em .config/3domeustextos.ode, no
+ * mesmo formato do gamelist (para mandar para a biblioteca do jeito que está), e vão para o 3dogamesdetails.ode
+ * na próxima gravação. */
+const MYTXT_FILE = "3domeustextos.ode", TXF = [["year","tx_year",6],["genre","tx_genre",24],["developer","tx_dev",40],["publisher","tx_pub",40],["description","tx_desc",1000]];
+function parseMyTxt(txt){
+  S.myTxt = new Map();
+  for (const block of String(txt).replace(/\r/g, "").split(/\n\s*\n/)){
+    const m = block.match(/^\[(.+)\]$/m); if (!m) continue;
+    const f = {name:m[1]};
+    for (const line of block.split("\n")){ const i = line.indexOf("="); if (i > 0 && !line.startsWith("[")) f[line.slice(0, i).trim().toLowerCase()] = line.slice(i + 1).trim(); }
+    if (f.lang) S.myTxt.set(norm(f.name), f);
+  }
+}
+function myTxtText(){
+  return [...S.myTxt.values()].sort((a, b) => a.name.localeCompare(b.name)).map(f =>
+    "[" + f.name + "]\nlang=" + f.lang + "\n" + TXF.map(([k]) => f[k] ? k + "=" + String(f[k]).replace(/\s+/g, " ").trim() + "\n" : "").join("")).join("\n");
+}
+async function saveMyTxt(){
+  if (S.demo) return;
+  await put([".config"], MYTXT_FILE, new TextEncoder().encode(myTxtText().replace(/\n/g, "\r\n")));
+}
+const X = {g:null};
+function openTxt(g){
+  X.g = g;
+  const f = glOf(g) || {}, mine = !!myTxtOf(g), opts = k => [...new Set([...S.gl.values(), ...(S.myTxt ? S.myTxt.values() : [])].map(x => x[k]).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  let m = $("txm"); if (!m){ m = document.createElement("div"); m.id = "txm"; m.className = "lkm"; document.body.appendChild(m);
+    m.addEventListener("click", txtClick); m.addEventListener("keydown", e => { e.stopPropagation(); if (e.key === "Escape") closeTxt(); }); }
+  m.innerHTML = `<div class="lkbox">
+    <div class="lkh"><b>${esc(t("tx_t"))}</b><button class="mini" data-txx="1">✕</button></div>
+    <p class="lkg">${esc(t("lk_file"))}: <b>${esc(g)}</b></p>
+    <p class="note">${esc(t("tx_note")(CFG_LANG[S.txtLang]))}</p>
+    <div class="txf">${TXF.map(([k, l, max]) => k === "description"
+      ? `<label class="full" for="tx_${k}">${esc(t(l))}</label><textarea class="full" id="tx_${k}" maxlength="${max}">${esc(f[k] || "")}</textarea>`
+      : `<label for="tx_${k}">${esc(t(l))}</label><input id="tx_${k}" maxlength="${max}" value="${esc(f[k] || "")}" ${k === "genre" || k === "developer" || k === "publisher" ? `list="txl_${k}"` : ""} ${k === "year" ? 'inputmode="numeric"' : ""}>`).join("")}
+      <small>${esc(t("tx_genre_n"))}</small></div>
+    ${["genre","developer","publisher"].map(k => `<datalist id="txl_${k}">${opts(k).map(v => `<option value="${esc(v)}">`).join("")}</datalist>`).join("")}
+    <div class="txbtns">${mine ? `<button class="mini" data-txdel="1">${esc(t("tx_del"))}</button>` : ""}<button class="mini" data-txx="1">${esc(t("tx_cancel"))}</button><button class="big" data-txok="1">${esc(t("tx_save"))}</button></div>
+  </div>`;
+  setTimeout(() => { const el = $("tx_year"); if (el) el.focus(); }, 0);
+}
+function closeTxt(){ X.g = null; const m = $("txm"); if (m) m.remove(); }
+async function txtClick(e){
+  if (e.target.id === "txm") return closeTxt();
+  const b = e.target.closest("button"); if (!b) return;
+  const d = b.dataset, g = X.g;
+  try {
+    if (d.txx) return closeTxt();
+    if (d.txdel){ S.myTxt.delete(norm(g)); await saveMyTxt(); closeTxt(); return draw(); }
+    if (d.txok){
+      const f = {name: g.replace(/\.(iso|cue)$/i, ""), lang: S.txtLang};
+      for (const [k, , max] of TXF){ const v = ($("tx_" + k).value || "").replace(/\s+/g, " ").trim().slice(0, max); if (v) f[k] = v; }
+      if (TXF.every(([k]) => !f[k])) S.myTxt.delete(norm(g)); else S.myTxt.set(norm(g), f);
+      await saveMyTxt(); closeTxt(); return draw();
+    }
+  } catch(err){ alert(t("err") + ": " + err.message); }
 }
 
 /* ---------------- Cliques ---------------- */
@@ -1998,6 +2198,8 @@ $("view").addEventListener("click", async e => {
   try {
     if (d.go) return act(d.go);
     if (d.find){ const g = filtered()[S.sel]; if (g) openFind(g); return; }
+    if (d.tx){ const g = filtered()[S.sel]; if (g) openTxt(g); return; }
+    if (d.send) return sendLib();
     if (d.zip) return ownZip();
     if (d.news){ if (d.news === "f") S.newsF = !S.newsF; else S.newsM = !S.newsM; return drawHome(); }
     if (d.f){ S.filter = d.f; S.sel = 0; return drawGames(); }
@@ -2021,6 +2223,7 @@ $("view").addEventListener("click", async e => {
       else if (o === "fw"){ S.o.fw = cycle(["", "DIR-HIGH", "DIR-LOW"], S.o.fw); if (S.o.fw){ S.cfg._dir = S.o.fw.slice(4); S.cfgTouched = true; S.o.o_pak = true; } }
       else if (/^pk[0-3]$/.test(o)) S.o.pakSel[+o.slice(2)] = !S.o.pakSel[+o.slice(2)];
       else if (o === "keep") S.o.keep = !S.o.keep;
+      else if (o === "retro_cov" || o === "retro_shot"){ S.o[o] = !S.o[o]; coverCache.clear(); }
       else if (o === "own"){ if (noFS) return; await openOwn(); }
       else S.o[o] = !S.o[o];
       return drawMedia();
@@ -2091,8 +2294,9 @@ async function run(){
         if (st === "card") { count[K.log][1]++; continue; }
         if (st === "lib" && loanOf(g, kind)) (loans[K.log] = loans[K.log] || []).push(g + "  <-  " + libPick(g, kind).name);
         for (const [i, [cfgKey, to, box]] of K.places.entries()){
-          if ((st === "lib" || st === "own") && keeps(kind) && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca OU pasta própria)
-          jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + libName(g, kind) + K.ext : null, own: st === "own" ? ownPick(g, kind) : null, box, fill:K.fill});
+          if ((st === "lib" || st === "own" || st === "retro") && keeps(kind) && S.card[kind][i].has(g.toLowerCase())) continue;   // Manter: este tamanho já está no cartão (biblioteca, pasta própria OU libretro)
+          jobs.push({label:K.log, to, name:g + K.ext, from: st === "lib" ? CFG[cfgKey] + libName(g, kind) + K.ext : null, own: st === "own" ? ownPick(g, kind) : null,
+                     retro: st === "retro" ? retroUrl(kind, retroPick(g, kind)) : null, box, fill:K.fill});
         }
         done1[K.log] = (done1[K.log] || 0) + 1;
       }
@@ -2132,6 +2336,7 @@ async function run(){
           let data = null;
           if (S.demo) bytes += 24000;
           else if (j.own){ const f = j.own.getFile ? await j.own.getFile() : j.own; data = j.box ? await imageToCel(f, j.box[0], j.box[1], j.fill) : await f.arrayBuffer(); bytes += data.byteLength; }
+          else if (j.retro){ const r = await fetch(j.retro); if (!r.ok) throw new Error(r.status + " libretro"); data = await imageToCel(await r.blob(), j.box[0], j.box[1], j.fill); bytes += data.byteLength; }
           else { data = await (await get(j.from)).arrayBuffer(); bytes += data.byteLength; }
           const pj = pakMode && fwSure() ? pakOf(j.to) : -1, pi = pj >= 0 && pakActive(pj) ? pj : -1; inPak = pi >= 0 && !!data;
           if (inPak) pakNew[pi].set(pakHash(j.name.slice(0, -4)), data); else { await put(j.to, j.name, data); files++; }
@@ -2219,7 +2424,8 @@ async function run(){
         for (const kind in MEDIA_KEY) if (o[KINDS[kind].opt]) S.mediaVer[kind] = MEDIA_VER;
         try { await put([".config"], "3domedia.ode", new TextEncoder().encode("#3DOMEDIA\n" + Object.keys(MEDIA_KEY).map(k => MEDIA_KEY[k] + "=" + (S.mediaVer[k] || 1)).join("\n") + "\n")); } catch(e){}
       }
-      $("done").innerHTML = `<div class="done"><h3>${esc(t("done_t"))}</h3>${esc(t("files"))}: <b>${files}</b><br>${esc(t("size"))}: <b>${kb(bytes)}</b><br>${esc(t("time"))}: <b>${human(Date.now() - t0)}</b><p style="margin:.5rem 0 0">${esc(t("done_p"))}</p></div>` + missHtml(lack);
+      $("done").innerHTML = `<div class="done"><h3>${esc(t("done_t"))}</h3>${esc(t("files"))}: <b>${files}</b><br>${esc(t("size"))}: <b>${kb(bytes)}</b><br>${esc(t("time"))}: <b>${human(Date.now() - t0)}</b><p style="margin:.5rem 0 0">${esc(t("done_p"))}</p></div>` +
+        (ownCount() ? `<div class="sendask"><b>📤 ${esc(t("ask_t"))}</b><p>${esc(t("ask_p")(ownCount()))}</p><div class="txbtns" style="justify-content:flex-start"><button class="big" data-send="1">${esc(t("snd_btn"))}</button></div><p class="note" style="margin:6px 0 0">${esc(t("snd_d"))}</p></div>` : "") + missHtml(lack);
       const dl = $("dl"); if (dl) dl.onclick = () => {
         const txt = Object.keys(lack).map(k => t(k).toUpperCase() + " (" + lack[k].length + ")\r\n" + lack[k].join("\r\n")).join("\r\n\r\n") + "\r\n";
         const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["\ufeff" + txt], {type:"text/plain"})); a.download = "3do-ode-faltando.txt"; a.click();
@@ -2235,7 +2441,7 @@ async function run(){
 draw();
 if (Q.get("demo")) act("demo");
 /* Para os testes automáticos. */
-window.ODE = {shrinkRGB, toRgb555, crcOf, parseDat, byTitle, R, norm, laterDisc, parseGamelist, detailLine, shortDesc, celEncode, celDecode, imageToCel, parseCfg, cfgText, cfgDefaults, S, act, go};
+window.ODE = {retroPick, retroSearch, myTxtText, parseMyTxt, shrinkRGB, toRgb555, crcOf, parseDat, byTitle, R, norm, laterDisc, parseGamelist, detailLine, shortDesc, celEncode, celDecode, imageToCel, parseCfg, cfgText, cfgDefaults, S, act, go};
 </script>
 </body>
 </html>
