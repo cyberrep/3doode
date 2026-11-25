@@ -1452,12 +1452,24 @@ async function collect(dir, depth, out, rel){
   }
   return out;
 }
+/* Número do disco no nome: "(Disc 2)", "(Disc 1 of 2)", "Disk 3", "CD 2"... (0 = não diz). */
+function discNo(s){ const m = /\b(?:disc|disk|cd)\s*(\d+)/i.exec(s); return m ? +m[1] : 0; }
 function byTitle(stem, D){
-  const c = D.title.get(norm(stem)); if (!c) return null;
+  let c = D.title.get(norm(stem)); if (!c) return null;
+  /* Jogo de vários discos: o nome comum é o mesmo em todos, então o disco tem que bater.
+   * (Antes pegava o primeiro da lista: o Disco 1 virava "Disc 2".) Sem número no arquivo: só o
+   * disco 1 é candidato, e fica desmarcado para a pessoa conferir. */
+  let multi = false;
+  if (c.some(n => discNo(n))){
+    const dn = discNo(stem);
+    c = c.filter(n => discNo(n) === (dn || 1));
+    if (!c.length) return null;
+    multi = !dn;
+  }
   const tags = (stem.match(/\(([^)]*)\)/g) || []).join(" ").toLowerCase();
   const reg = ["usa","europe","japan","korea"].find(r => tags.includes(r) || (r === "usa" && /\((u|us)\)/.test(tags)) || (r === "europe" && /\((e|eu)\)/.test(tags)) || (r === "japan" && /\((j|jp)\)/.test(tags)));
   const pick = (reg && c.find(n => n.toLowerCase().includes("(" + reg))) || (c.length === 1 ? c[0] : c.find(n => n.includes("(USA")));
-  return pick ? {name:pick, single:c.length === 1 || !!reg} : null;
+  return pick ? {name:pick, single:!multi && (c.length === 1 || !!reg)} : null;
 }
 async function renameScan(){
   R.state = "scan"; R.items = []; R.ok = 0; R.unknown = []; R.long = []; R.msg = ""; R.pct = 0; R.now = ""; drawRename();
