@@ -1571,6 +1571,7 @@ async function renameApply(){
  * Tudo em PowerShell usa SO aspas simples (aspas duplas quebrariam dentro do -Command
  * entre aspas do batch) e [char]10/[char]9 no lugar de quebras de linha e TAB. */
 function batName(x){ return String(x).replace(/%/g, "%%"); }
+function batEcho(x){ return String(x).replace(/[\^&<>|()%]/g, c => c === "%" ? "%%" : "^" + c); }
 function psQ(x){ return "'" + String(x).replace(/'/g, "''") + "'"; }
 function renBat(){
   const sel = R.items.filter(x => x.on && !x.dup), pairs = [];
@@ -1579,7 +1580,7 @@ function renBat(){
   const ENC = "$e=New-Object System.Text.UTF8Encoding($false); ";
   for (const it of sel){
     const f = it.f, to = it.to, BS = String.fromCharCode(92), R = f.rel && f.rel.length ? f.rel.map(batName).join(BS) + BS : "";
-    L.push("echo " + batName(f.stem) + "  ->  " + batName(to));
+    L.push("echo " + batEcho(f.stem) + "  ->  " + batEcho(to));
     if (/\.cue$/i.test(f.name)){
       const reps = [];
       for (const pt of f.parts){
@@ -1605,7 +1606,8 @@ function renBat(){
   /* Favoritos, recentes, estatisticas e detalhes guardam o nome do jogo no comeco da linha
    * (UTF-8 sem BOM, via .NET, para nao corromper nomes com acento). */
   if (pairs.length){
-    const map = "@{" + pairs.map(([a, b]) => psQ(a) + "=" + psQ(b)).join(";") + "}";
+    const seen = {}, uniq = pairs.filter(([a]) => !seen[a] && (seen[a] = 1));   // sem chaves repetidas (jogo duplicado)
+    const map = "@{" + uniq.map(([a, b]) => psQ(a) + "=" + psQ(b)).join(";") + "}";
     L.push("echo. & echo Ajustando favoritos, recentes e estatisticas...");
     L.push(PS + "\"" + ENC + "$m=" + map + "; foreach($n in '3dofavorites.ode','3dorecent.ode','3dostats.ode','3dogamesdetails.ode'){ $p=Join-Path '.config' $n; if([System.IO.File]::Exists($p)){ $o=([System.IO.File]::ReadAllText($p,$e) -split [char]10) | ForEach-Object{ $i=$_.IndexOf([char]9); if($i -gt 0 -and $m.ContainsKey($_.Substring(0,$i))){ $m[$_.Substring(0,$i)]+$_.Substring($i) } else { $_ } }; [System.IO.File]::WriteAllText($p, ($o -join [char]10), $e) } }\"");
   }
