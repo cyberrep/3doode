@@ -223,7 +223,7 @@ ins.dd{background:#1f6a3a;color:#d6ffe2}
 .ren input{margin-top:4px;width:16px;height:16px;accent-color:var(--yellow);flex:none}
 .ren span{flex:1;min-width:0}.ren small{color:var(--dim);display:block}.ren b{color:var(--fg);font-weight:400}
 .tagc{flex:none;border-radius:5px;padding:0 7px;font-size:.78rem;font-weight:700;letter-spacing:.06em;margin-top:2px}
-.tagc.sure{background:var(--green);color:#0b0d22}.tagc.guess{background:var(--yellow);color:#0b0d22}.tagc.err{background:var(--red);color:#fff}
+.tagc.sure{background:var(--green);color:#0b0d22}.tagc.link{background:var(--blue);color:#fff}.tagc.guess{background:var(--yellow);color:#0b0d22}.tagc.err{background:var(--red);color:#fff}
 
 /* ---- gravar ---- */
 .big{display:inline-block;background:linear-gradient(180deg,#34b56b,#176a3a);border:2px solid #0007;background-origin:border-box;background-repeat:no-repeat;border-radius:10px;box-shadow:0 3px 0 #0006;padding:12px 26px;color:#fff;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 2px 0 #0008}
@@ -489,19 +489,19 @@ const SAVE_NAMES = "=EAAtlas3D_Info\t3D Atlas\n*alone\tAlone in the Dark\n=stage
 let lang = (Q.get("lang") || navigator.language || "en").slice(0,2).toLowerCase();
 if (!T[lang]) lang = "en";
 const $ = id => document.getElementById(id);
-Object.assign(T.pt, {g_ode:"ODE",lk_ours:"Nossa biblioteca",lk_found:n => `${n} encontrado(s)`,lk_top_n:"Digite o nome (ou parte dele): aparece o que temos na nossa biblioteca (azul) e no libretro (roxo).",lk_retro_d:"Imagens do libretro: clique numa delas para usar só essa imagem neste jogo.",ask_t:"Quer mandar para a nossa biblioteca?",ask_p:n => `Você adicionou ${n} mídia(s) (imagens ou textos). Mandando, elas entram na biblioteca e todo mundo passa a ter.`,m_copy:"Copiar para o cartão",lg_retro:"libretro",m_retro:"Buscar no libretro o que faltar",lk_retro_n:"clique para usar",lk_retro_w:"Carregando a lista do libretro…",lk_noretro:"A lista do libretro não carregou (sem internet?).",
+Object.assign(T.pt, {r_link:"pelo vínculo",r_link_d:"Você escolheu o jogo em Procurar o jogo: vale o nome de lá.",g_ode:"ODE",lk_ours:"Nossa biblioteca",lk_found:n => `${n} encontrado(s)`,lk_top_n:"Digite o nome (ou parte dele): aparece o que temos na nossa biblioteca (azul) e no libretro (roxo).",lk_retro_d:"Imagens do libretro: clique numa delas para usar só essa imagem neste jogo.",ask_t:"Quer mandar para a nossa biblioteca?",ask_p:n => `Você adicionou ${n} mídia(s) (imagens ou textos). Mandando, elas entram na biblioteca e todo mundo passa a ter.`,m_copy:"Copiar para o cartão",lg_retro:"libretro",m_retro:"Buscar no libretro o que faltar",lk_retro_n:"clique para usar",lk_retro_w:"Carregando a lista do libretro…",lk_noretro:"A lista do libretro não carregou (sem internet?).",
   own_t:"Suas mídias (pasta do computador)",own_pick:"Escolher a minha pasta…",own_chg:"Trocar a pasta",g_media:"Mídias",g_card:"Cartão (USB / SD)",g_fw:"Firmware TADEU",
   snd_btn:"Enviar para a biblioteca",snd_d:"Baixa o .zip e abre uma página do GitHub do projeto com os textos já preenchidos: arraste o .zip para a caixa e clique em Submit new issue (precisa de uma conta no GitHub).",
   tx_add:"Adicionar…",tx_edit:"Editar…",tx_t:"TEXTOS DO JOGO",tx_note:l => `Vale para o idioma ${l} (o de Mídias). Fica guardado no cartão e vai para o menu na próxima vez que você gravar.`,
   tx_year:"Ano",tx_genre:"Gênero",tx_dev:"Desenvolvedora",tx_pub:"Publicadora",tx_desc:"Descrição",tx_genre_n:"Gênero, desenvolvedora e publicadora: escolha da lista ou escreva o seu.",tx_save:"Salvar",tx_del:"Apagar o meu texto",tx_cancel:"Cancelar",
   lk_zip:n => `Baixar as minhas imagens e textos (.zip) — ${n}`,lk_zip_d:"Um zip com as capas, telas e textos que você escolheu ou escreveu, com o nome do jogo."});
-Object.assign(T.en, {g_ode:"ODE",lk_ours:"Our library",lk_found:n => `${n} found`,lk_top_n:"Type the name (or part of it): you see what our library has (blue) and what libretro has (purple).",lk_retro_d:"libretro images: click one to use just that image for this game.",ask_t:"Send them to our library?",ask_p:n => `You added ${n} item(s) (images or texts). If you send them, they go into the library for everyone.`,m_copy:"Copy to the card",lg_retro:"libretro",m_retro:"Fetch what is missing from libretro",lk_retro_n:"click to use",lk_retro_w:"Loading the libretro list…",lk_noretro:"The libretro list did not load (offline?).",
+Object.assign(T.en, {r_link:"by link",r_link_d:"You picked the game in Find the game: its name is used.",g_ode:"ODE",lk_ours:"Our library",lk_found:n => `${n} found`,lk_top_n:"Type the name (or part of it): you see what our library has (blue) and what libretro has (purple).",lk_retro_d:"libretro images: click one to use just that image for this game.",ask_t:"Send them to our library?",ask_p:n => `You added ${n} item(s) (images or texts). If you send them, they go into the library for everyone.`,m_copy:"Copy to the card",lg_retro:"libretro",m_retro:"Fetch what is missing from libretro",lk_retro_n:"click to use",lk_retro_w:"Loading the libretro list…",lk_noretro:"The libretro list did not load (offline?).",
   own_t:"Your media (a folder on your computer)",own_pick:"Choose my folder…",own_chg:"Change the folder",g_media:"Media",g_card:"Card (USB / SD)",g_fw:"TADEU firmware",
   snd_btn:"Send to the library",snd_d:"Downloads the .zip and opens a page on the project's GitHub with the texts already filled in: drop the .zip in the box and click Submit new issue (needs a GitHub account).",
   tx_add:"Add…",tx_edit:"Edit…",tx_t:"GAME TEXTS",tx_note:l => `Used for ${l} (the language in Media). Saved on the card and sent to the menu the next time you write.`,
   tx_year:"Year",tx_genre:"Genre",tx_dev:"Developer",tx_pub:"Publisher",tx_desc:"Description",tx_genre_n:"Genre, developer and publisher: pick from the list or type your own.",tx_save:"Save",tx_del:"Delete my text",tx_cancel:"Cancel",
   lk_zip:n => `Download my images and texts (.zip) — ${n}`,lk_zip_d:"A zip with the covers, screenshots and texts you picked or wrote, named after the game."});
-Object.assign(T.es, {g_ode:"ODE",lk_ours:"Nuestra biblioteca",lk_found:n => `${n} encontrado(s)`,lk_top_n:"Escribe el nombre (o parte): aparece lo que tiene nuestra biblioteca (azul) y libretro (morado).",lk_retro_d:"Imágenes de libretro: haz clic en una para usar solo esa imagen en este juego.",ask_t:"¿Enviarlas a nuestra biblioteca?",ask_p:n => `Añadiste ${n} elemento(s) (imágenes o textos). Si los envías, entran en la biblioteca para todos.`,m_copy:"Copiar a la tarjeta",lg_retro:"libretro",m_retro:"Buscar en libretro lo que falte",lk_retro_n:"clic para usar",lk_retro_w:"Cargando la lista de libretro…",lk_noretro:"La lista de libretro no cargó (¿sin internet?).",
+Object.assign(T.es, {r_link:"por vínculo",r_link_d:"Elegiste el juego en Buscar el juego: vale ese nombre.",g_ode:"ODE",lk_ours:"Nuestra biblioteca",lk_found:n => `${n} encontrado(s)`,lk_top_n:"Escribe el nombre (o parte): aparece lo que tiene nuestra biblioteca (azul) y libretro (morado).",lk_retro_d:"Imágenes de libretro: haz clic en una para usar solo esa imagen en este juego.",ask_t:"¿Enviarlas a nuestra biblioteca?",ask_p:n => `Añadiste ${n} elemento(s) (imágenes o textos). Si los envías, entran en la biblioteca para todos.`,m_copy:"Copiar a la tarjeta",lg_retro:"libretro",m_retro:"Buscar en libretro lo que falte",lk_retro_n:"clic para usar",lk_retro_w:"Cargando la lista de libretro…",lk_noretro:"La lista de libretro no cargó (¿sin internet?).",
   own_t:"Tus medios (carpeta del ordenador)",own_pick:"Elegir mi carpeta…",own_chg:"Cambiar la carpeta",g_media:"Medios",g_card:"Tarjeta (USB / SD)",g_fw:"Firmware TADEU",
   snd_btn:"Enviar a la biblioteca",snd_d:"Descarga el .zip y abre una página del GitHub del proyecto con los textos ya rellenados: arrastra el .zip a la caja y pulsa Submit new issue (necesita una cuenta de GitHub).",
   tx_add:"Añadir…",tx_edit:"Editar…",tx_t:"TEXTOS DEL JUEGO",tx_note:l => `Vale para el idioma ${l} (el de Medios). Se guarda en la tarjeta y va al menú la próxima vez que grabes.`,
@@ -593,10 +593,14 @@ function laterDisc(name){
 }
 const SKIP_DIRS = new Set(["covers","screenshots","videos",".config","saves","roms","firmware","system volume information",".trashes",".spotlight-v100"]);
 async function scan(dir, depth, out){
-  for await (const [name, h] of dir.entries()){
+  const ents = []; for await (const e of dir.entries()) ents.push(e);
+  /* "Nome.cue" + "Nome.iso" na mesma pasta é UM jogo: fica o .cue (igual ao menu do console, games.c). */
+  const cues = new Set(ents.filter(([n]) => /\.cue$/i.test(n)).map(([n]) => n.slice(0, -4).toLowerCase()));
+  for (const [name, h] of ents){
     if (name.startsWith(".") || name.startsWith("_")) continue;
     if (h.kind === "directory"){ if (depth < 3 && !SKIP_DIRS.has(name.toLowerCase())) await scan(h, depth + 1, out); continue; }
     if (!/\.(iso|cue)$/i.test(name) || /boot/i.test(name)) continue;
+    if (/\.iso$/i.test(name) && cues.has(name.slice(0, -4).toLowerCase())) continue;
     if (laterDisc(name)) continue;
     out.push(name.replace(/\.(iso|cue)$/i, ""));
   }
@@ -753,7 +757,15 @@ const IMG = /\.(png|jpe?g|webp|bmp|gif)$/i;
  * vale para o jogo g: o de mesmo nome; senão o da mesma região; senão USA, Europe, Japan; senão o
  * primeiro. loan = as etiquetas do escolhido (ex.: "USA") quando ele NÃO é da região do jogo. */
 const tagsOf = n => (n.replace(/\.(iso|cue|cel|cvd)$/i, "").match(/\(([^)]*)\)/g) || []).map(x => x.slice(1, -1).trim());
-const regionOf = n => (tagsOf(n)[0] || "").split(",")[0].trim().toLowerCase();
+/* Região pela 1ª etiqueta, com as abreviações do TOSEC/trurip ("(Jp)", "(US)") valendo o nome cheio do
+ * No-Intro ("(Japan)", "(USA)"): senão "Jogo (Jp)" achava que a capa "(Japan)" era de outra região. */
+const REG_AB = {jp:"japan", j:"japan", jpn:"japan", us:"usa", u:"usa", eu:"europe", e:"europe", eur:"europe", kr:"korea", k:"korea", br:"brazil", b:"brazil"};
+const REG_FULL = new Set(["usa","europe","japan","korea","brazil","world","asia","france","germany","spain","italy","uk","australia","taiwan","china"]);
+const regionOf = n => {
+  const tags = tagsOf(n);
+  for (const tg of tags){ const r = tg.split(",")[0].trim().toLowerCase(); if (REG_AB[r]) return REG_AB[r]; if (REG_FULL.has(r)) return r; }   // TOSEC: "(1995) (Matsushita) (Jp)"
+  return (tags[0] || "").split(",")[0].trim().toLowerCase();
+};
 /* Título em partes separadas por " - " (sem as etiquetas), cada parte normalizada. */
 const segsOf = n => n.replace(/\.(iso|cue|cel|cvd)$/i, "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/\s+-\s+/).map(norm).filter(Boolean);
 /* Último recurso, quando o título não casa: um título da biblioteca que é o COMEÇO do título do jogo
@@ -777,7 +789,15 @@ const pickCache = {};
  * valem para o arquivo. S.links: norm(arquivo) -> título. Fica em .config/3dolinks.ode. */
 const linkOf = g => S.links ? S.links.get(norm(g)) : undefined;
 const myTxtOf = g => { const m = S.myTxt && S.myTxt.get(norm(g)); return m && m.lang === S.txtLang ? m : undefined; };
-const glOf = g => myTxtOf(g) || S.gl.get(norm(g)) || (linkOf(g) !== undefined ? S.gl.get(norm(linkOf(g))) : undefined);
+/* Texto do título que a biblioteca usou para as mídias quando o próprio não tem (outra região ou título
+ * parecido: "Kakinoki Shogi" -> "Kakinoki Shougi"), como já acontece com capa, tela e vídeo. */
+function glLoan(g){
+  for (const k of ["covers", "screenshots", "videos"]){ const p = S.libAll[k] && S.libAll[k].size ? libPick(g, k) : null; if (p){ const f = S.gl.get(norm(p.name)); if (f) return f; } }
+  return undefined;
+}
+const glOwn = g => myTxtOf(g) || S.gl.get(norm(g)) || (linkOf(g) !== undefined ? S.gl.get(norm(linkOf(g))) : undefined);
+const glOf = g => glOwn(g) || glLoan(g);
+const txtLoaned = g => !glOwn(g) && !!glLoan(g);
 function libPick(g, kind){
   const c = pickCache[kind] || (pickCache[kind] = new Map());
   if (c.has(g)) return c.get(g);
@@ -1230,7 +1250,7 @@ function filtered(){
 }
 function marks(g){
   return '<span class="marks">' + Object.keys(KINDS).map(k => `<i class="mk ${loanOf(g, k) ? "loan" : status(g, k)}">${KINDS[k].mark}</i>`).join("") +
-         `<i class="mk ${myTxtOf(g) ? "own" : hasText(g) ? "lib" : "none"}">i</i></span>`;
+         `<i class="mk ${myTxtOf(g) ? "own" : txtLoaned(g) ? "loan" : hasText(g) ? "lib" : "none"}">i</i></span>`;
 }
 function drawGames(){
   $("title").textContent = t("s_games");
@@ -1259,7 +1279,7 @@ function drawSide(){
       const lk = st === "own" || k === "videos" ? [] : lacking(g, k), some = lk.length && lk.length < KINDS[k].places.length;
       const ln = loanOf(g, k);
       return `<div><i class="mk ${ln ? "loan" : st}">${KINDS[k].mark}</i><span title="${esc(ln ? loanText(g, k) : t("lg_" + st))}">${esc(t(KINDS[k].label))}${some ? " (" + esc(t("lack")) + " " + lk.map(x => esc(t("sz_" + x))).join(", ") + ")" : ""}</span><button data-own="${k}">${esc(t("choose"))}</button></div>`; }).join("")}
-      <div><i class="mk ${myTxtOf(g) ? "own" : hasText(g) ? "lib" : "none"}">i</i><span title="${esc(t(myTxtOf(g) ? "lg_own" : hasText(g) ? "lg_lib" : "lg_none"))}">${esc(t("txt"))}</span><button data-tx="1">${esc(t(hasText(g) ? "tx_edit" : "tx_add"))}</button></div>
+      <div><i class="mk ${myTxtOf(g) ? "own" : txtLoaned(g) ? "loan" : hasText(g) ? "lib" : "none"}">i</i><span title="${esc(t(myTxtOf(g) ? "lg_own" : txtLoaned(g) ? "lg_alike" : hasText(g) ? "lg_lib" : "lg_none"))}">${esc(t("txt"))}</span><button data-tx="1">${esc(t(hasText(g) ? "tx_edit" : "tx_add"))}</button></div>
       </div><button class="lkbtn" data-find="1">🔗 ${esc(t("lk_btn").replace(/…$/, ""))}</button>`;
   $("info").innerHTML = `<div><div class="a">${esc(f.publisher || f.developer || g)}</div><div class="b">${esc([f.genre, f.developer && f.publisher ? f.developer : ""].filter(Boolean).join(" - ") || " ")}</div></div><div class="n">${S.sel + 1}/${list.length}</div>`;
   coverOf(g).then(c => {
@@ -1552,7 +1572,7 @@ async function collect(dir, depth, out, rel){
     if (h.kind === "directory"){ if (depth < 3 && !SKIP_DIRS.has(n.toLowerCase())) await collect(h, depth + 1, out, rel.concat(n)); continue; }
     if (!DISC_EXT.test(n) || /boot/i.test(n)) continue;
     const ext = n.slice(n.lastIndexOf(".")), stem = n.slice(0, -ext.length);
-    if (/\.img$/i.test(n) && here.has(stem + ".cue")) continue;                 // a imagem de um .cue entra junto com ele
+    if (/\.(img|iso)$/i.test(n) && [...here.keys()].some(k => k.toLowerCase() === (stem + ".cue").toLowerCase())) continue;   // a imagem de um .cue (mesmo nome) entra junto com ele
     out.push({dir, here, name:n, stem, ext, h, rel});
   }
   return out;
@@ -1605,7 +1625,11 @@ async function renameScan(){
     let to = f.to, how = f.demo;
     if (!S.demo){
       const hit = (f.parts.find(p => p.hit) || {}).hit;
-      if (hit){ to = hit.game; how = "sure"; } else { const g = byTitle(f.stem, D); if (g){ to = g.name; how = "guess"; f.single = g.single; } }
+      /* Ligado à mão em "Procurar o jogo": o título escolhido é o nome novo (a pessoa já disse qual é o jogo). */
+      const lk = linkOf(f.stem);
+      if (hit){ to = hit.game; how = "sure"; }
+      else if (lk !== undefined && String(lk).replace(/\.(iso|cue)$/i, "").toLowerCase() !== f.stem.toLowerCase()){ to = String(lk).replace(/\.(iso|cue)$/i, ""); how = "link"; f.single = true; }
+      else { const g = byTitle(f.stem, D); if (g){ to = g.name; how = "guess"; f.single = g.single; } }
     }
     /* Nome oficial longo demais para o ODE: o arquivo fica com o nome que tem. */
     if (to && to !== f.stem && (to + f.ext).length > ODE_NAME_MAX){ R.long.push({name:to + f.ext, n:(to + f.ext).length, kept:true}); continue; }
@@ -1616,7 +1640,8 @@ async function renameScan(){
     const dup = !f.here ? "" : [...f.here.keys()].find(k => k !== f.name && k.toLowerCase() === (to + f.ext).toLowerCase()) || "";
     R.items.push({f, to, how, dup, on: !dup && (how === "sure" || !!f.single), err:""});
   }
-  R.items.sort((a, b) => (!a.dup !== !b.dup ? (a.dup ? -1 : 1) : a.how === b.how ? a.f.stem.localeCompare(b.f.stem) : a.how === "sure" ? -1 : 1));
+  const HO = {sure:0, link:1, guess:2};
+  R.items.sort((a, b) => (!a.dup !== !b.dup ? (a.dup ? -1 : 1) : a.how === b.how ? a.f.stem.localeCompare(b.f.stem) : (HO[a.how] ?? 3) - (HO[b.how] ?? 3)));
   R.state = "list"; drawRename();
 }
 /* Troca o nome de um arquivo dentro da pasta dele. Primeiro do jeito direto (move, sem copiar). Se o navegador
@@ -1772,9 +1797,9 @@ function drawRename(){
   if (R.state === "idle") h += `<button class="big" id="rscan">${esc(t("r_scan"))}</button><p class="note" style="margin-top:10px">${esc(t("r_slow"))}</p>`;
   if (R.state === "scan" || R.state === "apply") h += `<div class="prog"><i id="rbar" style="width:${R.pct}%"></i><b id="rpct">${R.pct}%</b></div><div class="now" id="rnow">${esc(R.now)}</div>`;
   if (R.state === "list"){
-    h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))}</p>
+    h += `<p class="note">${esc(t("r_ok")(R.ok))}. <span class="tagc sure">${esc(t("r_sure"))}</span> ${esc(t("r_sure_d"))} <span class="tagc guess">${esc(t("r_guess"))}</span> ${esc(t("r_guess_d"))} <span class="tagc link">${esc(t("r_link"))}</span> ${esc(t("r_link_d"))}</p>
       <p class="note">${esc(t("r_diff"))} <del class="dd">${esc(t("r_out"))}</del> <ins class="dd">${esc(t("r_in"))}</ins></p>`;
-    if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""} ${it.dup ? "disabled" : ""}><span>${(d => `<small><u>${esc(t("r_from"))}</u>${d[0]}</small><b><u>${esc(t("r_to"))}</u>${d[1]}</b>`)(nameDiff(it.f.stem + it.f.ext, it.to + it.f.ext))}${it.dup ? `<small style="color:#ffd38a">${esc(t("r_dup_d")(it.dup))}</small>` : ""}${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err || it.dup ? "err" : it.how}" style="font-style:normal">${esc(t(it.dup ? "r_dup" : it.how === "sure" ? "r_sure" : "r_guess"))}</i></label>`).join("")}</div>
+    if (R.items.length) h += `<div class="ren">${R.items.map((it, i) => `<label><input type="checkbox" data-r="${i}" ${it.on ? "checked" : ""} ${it.dup ? "disabled" : ""}><span>${(d => `<small><u>${esc(t("r_from"))}</u>${d[0]}</small><b><u>${esc(t("r_to"))}</u>${d[1]}</b>`)(nameDiff(it.f.stem + it.f.ext, it.to + it.f.ext))}${it.dup ? `<small style="color:#ffd38a">${esc(t("r_dup_d")(it.dup))}</small>` : ""}${it.err ? `<small style="color:#ffb0b0">${esc(it.err)}</small>` : ""}</span><i class="tagc ${it.err || it.dup ? "err" : it.how}" style="font-style:normal">${esc(t(it.dup ? "r_dup" : it.how === "sure" ? "r_sure" : it.how === "link" ? "r_link" : "r_guess"))}</i></label>`).join("")}</div>
       <div class="rbtns"><button class="big stop" id="rall">${esc(t("r_all"))}</button> <button class="big stop" id="rnone">${esc(t("r_none"))}</button></div>
       <div class="rbatwrap"><button class="big" id="rbat">${esc(t("r_bat"))}</button><p class="note">${esc(t("r_bat_d"))}</p></div>`;
     else h += `<p class="note"><b style="color:var(--fg)">${esc(t("r_nothing"))}</b></p>`;
