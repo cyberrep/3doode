@@ -28,7 +28,7 @@ Tudo o que mudou no **menu** (`boot.iso`), no **firmware TADEU** e no **gerador*
 **Capas e telas em pacote** (com o firmware TADEU 1.0.7)
 - 📦 **As capas e as telas podem ir num arquivo só por pasta**: `covers/small.pak`, `covers/large.pak` e `screenshots/medium.pak`. O menu abre o pacote e vai direto à imagem, em vez de procurar cada arquivo numa pasta com centenas deles.
 - Quem gera é a **página web**: em *Mídias*, **Formato das capas e telas: PAK ou Individual**. Em PAK as imagens vão direto para o pacote, gravado de uma vez; em Individual, um arquivo por imagem, como sempre. Ao trocar de formato a página converte o que já está no cartão. Imagem fora do pacote, cartão sem pacote ou firmware mais antigo: o menu usa os arquivos soltos.
-- Em *Mídias* dá para escolher **o que empacotar** (tudo, só as capas, ou só as capas pequenas), para controlar o tamanho do pacote.
+- Em *Mídias* você marca **o que vai para o pacote** — capas pequenas, capas grandes, telas e tela cheia, em qualquer combinação — para controlar o tamanho.
 - *Informações do ODE* mostra **Capas em pacote** e **Telas em pacote**: Sim ou Não.
 - Memória: 8 bytes por imagem em cada pacote (cerca de 7 KB para 293 jogos nos três).
 

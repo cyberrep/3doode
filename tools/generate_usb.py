@@ -343,7 +343,7 @@ def main():
     targets = []
     for a in args:
         if os.path.isdir(a):
-            targets += [os.path.join(a, f) for f in sorted(os.listdir(a)) if f.lower().endswith('.iso') and f.lower() != 'boot.iso']
+            targets += [os.path.join(a, f) for f in sorted(os.listdir(a)) if f.lower().endswith('.iso') and 'boot' not in f.lower()]
         else:
             targets.append(a)
     for t in targets:
@@ -988,13 +988,16 @@ CEL_SHARPEN, CEL_STRENGTH, CEL_EDGE_LIMIT = 1.1, 0.85, 32
 # PREPAROS DA IMAGEM (--capa-preparo / assistente): (nitidez, forca do pontilhado, so fora dos contornos?, explicacao)
 # Pontilhado = espalha o erro das cores de 15 bits do 3DO (tira as faixas dos degrades, mas granula).
 CEL_PRESETS = {
+    # Boot 1.4 em diante so existe UM jeito de converter (imagem limpa: media de area + nitidez leve, sem
+    # pontilhado). Os outros nomes ficam so para o .ini antigo continuar valendo; o resultado e o mesmo.
+    'limpa':     (0.0,  0.0,  False, 'LIMPA (padrao): media de area + nitidez leve, sem pontilhado'),
     'texto':     (1.1,  0.85, True,  'TEXTO (padrao): nitidez forte + pontilhado so fora das letras; letras mais legiveis'),
     'nitida':    (0.7,  0.7,  True,  'NITIDA: nitidez media + pontilhado medio; meio-termo'),
     'suave':     (0.35, 0.5,  True,  'SUAVE: pouca nitidez + pontilhado leve; imagem mais lisa, letras mais moles'),
     'sempontos': (0.35, 0.0,  False, 'SEM PONTOS: sem pontilhado nenhum; cores lisas, mas degrades podem ter faixas'),
     'corfiel':   (0.6,  0.85, False, 'COR FIEL: pontilhado em tudo; cor mais fiel, porem mais granulada e letras menos nitidas'),
 }
-CEL_PRESET = 'texto'
+CEL_PRESET = 'limpa'
 
 
 def cel_set_options(preset=None, size=None):
@@ -1062,6 +1065,30 @@ def _cel_nearest5(x):
         if 0 <= c <= 31 and abs(_CEL_LEVEL8[c] - x) < abs(_CEL_LEVEL8[best] - x):
             best = c
     return best
+
+
+def _cel_resize_area(image, size):
+    """Reduz pela MEDIA DE AREA em luz linear (cada pixel de destino = media de toda a area de origem que cai
+    nele; sem serrilha e sem halo) e devolve RGB 8 bits. Ampliando, usa bicubica. Igual ao index.html."""
+    filt = Image.BOX if (size[0] <= image.size[0] and size[1] <= image.size[1]) else Image.BICUBIC
+    bands = []
+    for band in image.split():
+        f = Image.new('F', band.size)
+        f.putdata([_CEL_TO_LINEAR[v] for v in band.tobytes()])
+        f = f.resize(size, filt)
+        out = Image.new('L', size)
+        vals = struct.unpack('=%df' % (size[0] * size[1]), f.tobytes())
+        out.putdata([max(0, min(255, int(_cel_to_srgb(max(0.0, min(1.0, v))) + 0.5))) for v in vals])
+        bands.append(out)
+    return Image.merge('RGB', bands)
+
+
+def _cel_clean(image):
+    """Nitidez leve (c + (4c - vizinhos) / 5) e arredondamento para RGB555, SEM pontilhado. Devolve as cores."""
+    image = image.convert('RGB').filter(ImageFilter.Kernel((3, 3), [0, -1, 0, -1, 9, -1, 0, -1, 0], 5))
+    raw = image.tobytes()
+    return [(((raw[i] * 31 + 127) // 255) << 10) | (((raw[i + 1] * 31 + 127) // 255) << 5) | ((raw[i + 2] * 31 + 127) // 255)
+            for i in range(0, len(raw), 3)]
 
 
 def _cel_resize_linear(image, size):
@@ -1170,11 +1197,35 @@ def _cel_fit(size, box):
     return max(1, round(w * scale)), max(1, round(h * scale))
 
 
+def cel_image_size(path, box):
+    """Tamanho (w, h) que cel_image(path, box, fill=True) daria, sem codificar o CEL."""
+    im = Image.open(path)
+    im.load()
+    try:
+        from PIL import ImageOps
+        im = ImageOps.exif_transpose(im)
+    except Exception:
+        pass
+    im = im.convert('RGBA')
+    canvas = Image.new('RGBA', im.size, (0, 0, 0, 255))
+    canvas.alpha_composite(im)
+    fw, fh = _cel_trim_borders(canvas.convert('RGB')).size
+    tw, th = box
+    k = min(tw / fw, th / fh)
+    w, h = tw, th
+    if os.environ.get('CAPAS_ESTICADAS') != '1':
+        if fw * k < tw * 0.96:
+            w = max(8, int(round(fw * k / 2)) * 2)
+        if fh * k < th * 0.96:
+            h = max(8, int(round(fh * k)))
+    return (w, h)
+
+
 def cel_image(path, box, fill=False):
     """Imagem -> CEL encaixado na caixa com o preparo escolhido (CEL_PRESET, padrao TEXTO).
-    fill=False: cabe inteira na caixa (sem cortar). fill=True: PREENCHE o tamanho exato (moldura fixa da lista):
-    capa de CD (largura/altura >= 0,86) vira largura x largura, longbox vira a caixa; corta so o minimo do
-    centro, nunca estica. Devolve (bytes do CEL, largura, altura)."""
+    fill=False: cabe inteira na caixa (sem cortar, sem ampliar). fill=True (capas): na proporcao da propria
+    capa, encostada na caixa (amplia se preciso), com os cantos arredondados; long box ~76x140, caixa de CD
+    ~100x87. Nunca estica nem corta. Devolve (bytes do CEL, largura, altura)."""
     im = Image.open(path)
     im.load()
     try:
@@ -1188,22 +1239,26 @@ def cel_image(path, box, fill=False):
     flat = _cel_trim_borders(canvas.convert('RGB'))
     sharpen, strength, mask, _ = CEL_PRESETS[CEL_PRESET]
     if fill:
-        # TODAS as capas do mesmo tamanho exato. Corta do centro no maximo
-        # CEL_COVER_CROP do eixo que sobra (0 = nada: a capa inteira) e estica o resto.
+        # CAPA NA PROPORCAO DELA, sem esticar e sem cortar (boot 1.3.1 em diante): encosta na caixa
+        # (long box fica mais estreita, caixa de CD mais baixa). Largura par. Quase a proporcao da caixa
+        # (ate 4%): ocupa a caixa inteira. O menu escolhe como mostrar a sobra (Opcoes > Formato das capas).
         fw, fh = flat.size
         tw, th = box
-        if fw * th > fh * tw:                       # mais larga que a caixa: corta dos lados
-            cw = max(1, round(max(fh * tw / th, fw * (1 - CEL_COVER_CROP))))
-            flat = flat.crop(((fw - cw) // 2, 0, (fw - cw) // 2 + cw, fh))
-        elif fw * th < fh * tw:                     # mais alta: corta em cima e embaixo
-            ch = max(1, round(max(fw * th / tw, fh * (1 - CEL_COVER_CROP))))
-            flat = flat.crop((0, (fh - ch) // 2, fw, (fh - ch) // 2 + ch))
-        size = (tw, th)
+        k = min(tw / fw, th / fh)
+        w, h = tw, th
+        # TESTE: CAPAS_ESTICADAS=1 no ambiente volta a capa esticada na caixa inteira (formato antigo).
+        if os.environ.get('CAPAS_ESTICADAS') != '1':
+            if fw * k < tw * 0.96:
+                w = max(8, int(round(fw * k / 2)) * 2)
+            if fh * k < th * 0.96:
+                h = max(8, int(round(fh * k)))
+        size = (w, h)
     else:
         size = _cel_fit(flat.size, box)
-    img = _cel_resize_linear(flat, size) if size != flat.size else flat
-    img = img.filter(ImageFilter.UnsharpMask(radius=0.7, percent=int(sharpen * 100), threshold=3))
-    colors = _cel_quantize(img, strength, edges=_cel_edge_mask(img, CEL_EDGE_LIMIT) if mask else None)
+    # Imagem LIMPA (boot 1.3.1 em diante): media de area + nitidez leve + sem pontilhado. Os preparos antigos
+    # (texto, nitida, suave...) nao mudam mais nada; ficam so para o .ini antigo continuar valendo.
+    img = _cel_resize_area(flat, size) if size != flat.size else flat
+    colors = _cel_clean(img)
     if fill:
         colors = _cel_round_corners(colors, img.width, img.height)
     return cel_encode(colors, img.width, img.height), img.width, img.height
@@ -1734,7 +1789,7 @@ def rename_only(root, midias=None):
         dn[:] = [d for d in dn if d.lower() not in SKIP_DIRS and not d.startswith('.')]
         for f in sorted(fn):
             b, e = os.path.splitext(f); el = e.lower()
-            if el not in ('.iso', '.cue', '.bin') or f.lower() == 'boot.iso':
+            if el not in ('.iso', '.cue', '.bin') or 'boot' in f.lower():
                 continue
             if el == '.bin' and any(os.path.exists(os.path.join(dp, b + x)) for x in ('.cue', '.CUE')):
                 continue
@@ -1806,7 +1861,7 @@ def main(root, dry, force, offline, report_on, rename=True, idall=False, flatten
         dn[:] = [d for d in dn if d.lower() not in SKIP_DIRS and not d.startswith('.')]
         for f in sorted(fn):
             b, e = os.path.splitext(f)
-            if e.lower() not in GAME_EXT or f.lower() == 'boot.iso':
+            if e.lower() not in GAME_EXT or 'boot' in f.lower():
                 continue
             el = e.lower()
             # Dedup do mesmo jogo em varias extensoes (evita listar GEX 2x: .iso + .cue orfao)
@@ -1946,7 +2001,7 @@ def main(root, dry, force, offline, report_on, rename=True, idall=False, flatten
     # preparo mudou). SEM arquivo de controle no cartao: o tamanho sai do cabecalho de uma capa que ja
     # esta em covers/, e o preparo usado fica no generate_usb.ini (feito_preparo).
     _old_size = cel_existing_size(covers_large)
-    _old_prep = _ini_load().get('feito_preparo', CEL_PRESET)
+    _old_prep = _ini_load().get('feito_preparo', 'texto')   # sem registro = imagens antigas: refaz uma vez
     redo_cov = (_old_size is not None and _old_size != CEL_COVER_BOX) or _old_prep != CEL_PRESET
     redo_sht = _old_prep != CEL_PRESET
     print('Capas  : %s %dx%d em covers/large + %dx%d em covers/small, preparo %s%s' % (
@@ -2437,8 +2492,11 @@ _WIZ_T = {
 # Baixa o .u2f do repo e grava firmware/update.3do (UF2 + trailer FX3D com CRC32,
 # com CRC32) -> o boot valida o CRC antes de gravar.
 FW_REPO    = 'cyberrep/3doode'
-FW_FILES   = {'usb': 'SataTo3DO_TADEU_1.0.5_USB-ONLY.uf2',
-              'dual': 'SataTo3DO_TADEU_1.0.5_USB-CDROM.uf2'}
+FW_VERSION = '1.0.7'
+# Um arquivo para cada tipo de placa (o chip de direcao dos dados): DIR-LOW = original
+# Waveshare (74HC245); DIR-HIGH = clones tzmwx / TaiHu (74LVC4245).
+FW_FILES   = {'usb': 'TADEU_%s_DIR-LOW.uf2' % FW_VERSION,
+              'dual': 'TADEU_%s_DIR-HIGH.uf2' % FW_VERSION}
 FW_URLS    = ['https://raw.githubusercontent.com/' + FW_REPO + '/main/firmware/%s',
               'https://raw.githubusercontent.com/' + FW_REPO + '/master/firmware/%s',
               'https://github.com/' + FW_REPO + '/releases/latest/download/%s']
@@ -2493,7 +2551,7 @@ _FWT = {
    'ask':'Quer preparar a firmware TADEU neste cartao agora?',
    'path':'Pasta do cartao/USB (onde fica a pasta firmware/)',
    'cur':'Qual firmware esta na sua ODE agora?','off':'Oficial (de fabrica / Fixel)','tadeu':'TADEU (a nossa)',
-   'model':'Qual modelo de placa?','m_usb':'USB-ONLY (so pendrive)','m_dual':'USB + CD-ROM (dual)',
+   'model':'Qual a sua placa?','m_usb':'DIR-LOW: original Waveshare (chip 74HC245)','m_dual':'DIR-HIGH: clone tzmwx / TaiHu (chip 74LVC4245)',
    'dl':'baixando %s ...','dlfail':'nao consegui baixar (sem internet?): %s',
    'badu2f':'o arquivo baixado nao e um .u2f valido - abortei (nada foi gravado).',
    'ok3do':'pronto: firmware/update.3do gravado (%d KB). No console: X -> FIRMWARE -> Atualizar Firmware.',
@@ -2507,7 +2565,7 @@ _FWT = {
    'ask':'Prepare the TADEU firmware on this card now?',
    'path':'Card/USB folder (where the firmware/ folder lives)',
    'cur':'Which firmware is on your ODE right now?','off':'Official (stock / Fixel)','tadeu':'TADEU (ours)',
-   'model':'Which board model?','m_usb':'USB-ONLY','m_dual':'USB + CD-ROM (dual)',
+   'model':'Which board do you have?','m_usb':'DIR-LOW: original Waveshare (74HC245 chip)','m_dual':'DIR-HIGH: tzmwx / TaiHu clone (74LVC4245 chip)',
    'dl':'downloading %s ...','dlfail':'could not download (no internet?): %s',
    'badu2f':'the downloaded file is not a valid .u2f - aborted (nothing written).',
    'ok3do':'done: firmware/update.3do written (%d KB). On the console: X -> FIRMWARE -> Update Firmware.',
@@ -2521,7 +2579,7 @@ _FWT = {
    'ask':'Quieres preparar el firmware TADEU en esta tarjeta ahora?',
    'path':'Carpeta de la tarjeta/USB (donde esta la carpeta firmware/)',
    'cur':'Que firmware tiene tu ODE ahora?','off':'Oficial (de fabrica / Fixel)','tadeu':'TADEU (el nuestro)',
-   'model':'Que modelo de placa?','m_usb':'USB-ONLY (solo USB)','m_dual':'USB + CD-ROM (dual)',
+   'model':'Cual es tu placa?','m_usb':'DIR-LOW: original Waveshare (chip 74HC245)','m_dual':'DIR-HIGH: clon tzmwx / TaiHu (chip 74LVC4245)',
    'dl':'descargando %s ...','dlfail':'no pude descargar (sin internet?): %s',
    'badu2f':'el archivo descargado no es un .u2f valido - aborte (no se grabo nada).',
    'ok3do':'listo: firmware/update.3do grabado (%d KB). En la consola: X -> FIRMWARE -> Actualizar Firmware.',
@@ -2531,6 +2589,57 @@ _FWT = {
    's2':'2) Manten BOOTSEL y conecta el RP2040 al PC por USB -> aparece la unidad RPI-RP2.',
    's3':'3) Arrastra el .u2f dentro de RPI-RP2. La placa reinicia sola con TADEU.',
    'skip':'ok, salte el firmware.'}}
+
+def _cfg_set(root, key, val):
+    """Grava/troca a linha key=val em .config/3doconfig.ode (so se o arquivo ja existe: quem cria e o menu)."""
+    path = os.path.join(root, '.config', '3doconfig.ode')
+    try:
+        with open(path, 'rb') as f: lines = f.read().decode('utf-8', 'replace').splitlines()
+    except Exception:
+        return
+    lines = [l for l in lines if not l.startswith(key + '=')] + ['%s=%s' % (key, val)]
+    with open(path, 'wb') as f: f.write(('\n'.join(lines) + '\n').encode('utf-8'))
+
+# ============ PACOTES (.pak): capas e telas num arquivo so por pasta ============
+# O menu 1.6, com o firmware TADEU 1.0.7 ou mais novo, abre o pacote e vai direto a
+# imagem (busca dentro do arquivo), em vez de procurar cada arquivo numa pasta cheia.
+# Formato (big-endian): "3DPK", 1, 0, quantas (2 bytes); quantas x {hash, posicao};
+# as imagens. hash = FNV-1a 32 do nome do arquivo do jogo sem extensao, A-Z em minusculas.
+PAK_DIRS = [(('covers', 'small'), 'small.pak'), (('covers', 'large'), 'large.pak'), (('screenshots', 'medium'), 'medium.pak'), (('screenshots', 'large'), 'large.pak')]
+PAK_MAX = 2000
+
+def _pak_hash(name):
+    h = 2166136261
+    for c in name.encode('utf-8'):
+        if 65 <= c <= 90: c += 32
+        h = ((h ^ c) * 16777619) & 0xffffffff
+    return h
+
+def make_paks(root, remove=False):
+    """Monta os 3 pacotes com os .cel que estao no cartao (os arquivos soltos continuam).
+    remove=True: apaga os pacotes (formato individual)."""
+    import struct
+    for parts, name in PAK_DIRS:
+        src = os.path.join(root, *parts); out = os.path.join(root, parts[0], name)
+        if remove or not os.path.isdir(src):
+            if os.path.isfile(out) and remove:
+                os.remove(out); print('Pacote : %s/%s apagado' % (parts[0], name))
+            continue
+        items = {}
+        for f in sorted(os.listdir(src)):
+            if f.lower().endswith('.cel'): items.setdefault(_pak_hash(f[:-4]), f)
+        if not items: continue
+        if len(items) > PAK_MAX:
+            if os.path.isfile(out): os.remove(out)
+            print('Pacote : %s/%s NAO gerado: %d imagens (o limite e %d)' % (parts[0], name, len(items), PAK_MAX)); continue
+        keys = sorted(items); pos = 8 + 8 * len(keys); tab = []; body = []
+        for k in keys:
+            with open(os.path.join(src, items[k]), 'rb') as f: d = f.read()
+            d += b'\0' * (-len(d) % 4)
+            tab.append(struct.pack('>II', k, pos)); body.append(d); pos += len(d)
+        with open(out, 'wb') as f:
+            f.write(b'3DPK' + bytes([1, 0]) + struct.pack('>H', len(keys)) + b''.join(tab) + b''.join(body))
+        print('Pacote : %s/%s (%d imagens)' % (parts[0], name, len(keys)))
 
 def fw_firstrun(lang, default_root='', forced=False):
     t = _FWT.get(lang, _FWT['pt'])
@@ -2556,6 +2665,10 @@ def fw_firstrun(lang, default_root='', forced=False):
     try: os.makedirs(fwdir, exist_ok=True)
     except Exception: pass
     with open(os.path.join(fwdir, 'update.3do'), 'wb') as f: f.write(u3do)
+    # A versao, num arquivo ao lado: o menu mostra "Versao nova: 1.0.7" antes de gravar.
+    with open(os.path.join(fwdir, 'update.ver'), 'wb') as f: f.write((FW_VERSION + '\r\n').encode('ascii'))
+    # A placa escolhida, no arquivo de opcoes (a pagina web le para ja marcar o firmware certo).
+    _cfg_set(root, 'ode_dir', 'LOW' if model == 'usb' else 'HIGH')
     print('   ' + t['ok3do'] % (len(u3do) // 1024))
     if cur == 'off':
         # firmware oficial nao atualiza pelo menu: deixa o .u2f e mostra o passo a passo BOOTSEL
@@ -2828,3 +2941,7 @@ if __name__ == '__main__':
          cov_force=bool(flags & {'--refazer-capas', '--redo-covers'}), sht_force=bool(flags & {'--refazer-telas', '--redo-shots'}),
          vid_force=bool(flags & {'--refazer-videos', '--redo-videos'}),
          boot=cli_boot)
+    # Capas e telas em pacote (menu 1.6 + firmware TADEU 1.0.7): --pak monta, --sem-pak apaga.
+    if not bool(flags & {'--teste', '--dry-run'}):
+        if '--pak' in flags: make_paks(_root0)
+        elif bool(flags & {'--sem-pak', '--no-pak'}): make_paks(_root0, remove=True)

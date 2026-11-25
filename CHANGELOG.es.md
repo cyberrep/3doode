@@ -28,7 +28,7 @@ Todo lo que cambió en el **menú** (`boot.iso`), en el **firmware TADEU** y en 
 **Portadas y capturas en paquete** (con el firmware TADEU 1.0.7)
 - 📦 **Las portadas y las capturas pueden ir en un solo archivo por carpeta**: `covers/small.pak`, `covers/large.pak` y `screenshots/medium.pak`. El menú abre el paquete y va directo a la imagen, en vez de buscar cada archivo en una carpeta con cientos de ellos.
 - Lo genera la **página web**: en *Medios*, **Formato de portadas y capturas: PAK o Individual**. En PAK las imágenes van directo al paquete, grabado de una vez; en Individual, un archivo por imagen, como siempre. Al cambiar de formato la página convierte lo que ya está en la tarjeta. Imagen fuera del paquete, tarjeta sin paquete o firmware más antiguo: el menú usa los archivos sueltos.
-- En *Medios* puedes elegir **qué empaquetar** (todo, solo portadas, o solo portadas pequeñas), para controlar el tamaño del paquete.
+- En *Medios* marcas **qué va al paquete** — portadas pequeñas, portadas grandes, capturas y pantalla completa, en cualquier combinación — para controlar el tamaño.
 - *Información del ODE* muestra **Portadas en paquete** y **Capturas en paquete**: Sí o No.
 - Memoria: 8 bytes por imagen en cada paquete (unos 7 KB para 293 juegos entre los tres).
 
